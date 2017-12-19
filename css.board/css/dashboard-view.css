@@ -1,0 +1,1224 @@
+/*****************************************************************************************************
+
+    Styles for dashboard.
+
+    Contents:
+
+        - Dashboard skeleton
+        - Dashboard no widgets
+        - Dashboard widget
+        - Dashboard widget drag and drop
+        - Dashboard widget types - Utils
+        - Dashboard widget types - Comments
+        - Dashboard widget types - List view
+        - Dashboard widget types - Report view
+        - Dashboard widget types - Tableau widget
+        - Dashboard widget settings popup
+        - Dashboard To-Do List widget settings popup
+        - Dashboard widget settings popup column view
+        - Dashboard widget aspect ratio
+        - Dashboard widget types - Follow Activity
+        - Dashboard resize controls
+        - Dashboard widget types - Burn Down Chart
+        - Dashboard widget types - To Do List
+        - Dashboard empty widget placeholder
+        - Dashboard widget types - Text
+
+
+*****************************************************************************************************/
+
+/* region Dashboard skeleton -----------------------------------------------------------------------*/
+
+.tau-dashboard {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.tau-dashboard-columns-layout {
+    height: 100%;
+}
+
+.tau-dashboard-columns-layout__header {
+    height: 55px;
+    min-height: 55px;
+    padding: 17px 12px 0 20px;
+}
+
+.tau-dashboard-columns-layout__body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: $gBoardBackground;
+    overflow-y: scroll;
+    @mixin custom-scroll
+;
+}
+
+.tau-dashboard-columns-layout__columns {
+    width: 100%;
+    height: 100%;
+    display: table;
+    table-layout: fixed;
+}
+
+.tau-dashboard-columns-layout__column {
+    background-color: $gBackgroundDefault;
+    border-left: 2px solid $gHighlightBlockBorderColor;
+    display: table-cell;
+    vertical-align: top;
+}
+
+.tau-dashboard-columns-layout__column:first-child {
+    border: none;
+}
+
+/* endregion */
+
+/* region Dashboard no widgets ---------------------------------------------------------------------*/
+
+.tau-dashboard-empty-message {
+    background: $gBackgroundDefault;
+    box-shadow: 0 0 40px 12px $gBackgroundDefault;
+    left: 0;
+    margin-top: -48px;
+    padding: 35px 0;
+    pointer-events: none;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+    color: color($gFontColorGray a(70%));
+}
+
+.tau-dashboard-empty-message__title {
+    margin: 0 0 10px 0;
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: 300;
+}
+
+.tau-dashboard-empty-message__title--small {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+/* endregion */
+
+/* region Dashboard widget -------------------------------------------------------------------------*/
+
+.tau-dashboard-widget {
+    padding: 20px 20px 0;
+
+    &:last-child {
+        border-bottom: none;
+        padding-bottom: 20px;
+    }
+
+    /* region overriding loader for dashboards because of old reports */
+    .tau-loader,
+    .tau-loader-logo {
+        background-color: color($gHighlightBlockBackground a(80%));
+
+        &:after {
+            content: '';
+            display: block;
+            width: $gIconsSizeDefault;
+            height: $gIconsSizeDefault;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: calc(-$gIconsSizeDefault / 2);
+            margin-left: calc(-$gIconsSizeDefault / 2);
+            background: svg("loader.svg");
+            background-size: contain;
+            animation: tau-list-collapser-loading 0.8s steps(12, end) infinite;
+        }
+    }
+
+    /* endregion overriding loader for dashboards because of old reports */
+}
+
+.tau-dashboard-widget-header {
+    cursor: default;
+    padding-bottom: 9px;
+    position: relative;
+}
+
+.tau-dashboard-widget-header:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.tau-dashboard-widget__drag-handle {
+    padding: 3px;
+}
+
+.tau-dashboard-widget__title {
+    display: block;
+    margin: 0 0 0 -5px;
+    padding: 2px 74px 2px 2px;
+    outline: none;
+
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 15px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+}
+
+.tau-dashboard-widget__title.t3-edit {
+    float: left;
+    margin: 0 55px 3px -5px;
+    padding-right: 22px;
+    outline: 1px solid #66a6ff;
+    max-width: calc(100% - 77px);
+
+    cursor: text;
+    text-overflow: clip;
+    user-select: text;
+}
+
+.tau-dashboard-widget__buttons {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 17px;
+    width: auto;
+}
+
+.tau-dashboard-widget__settings,
+.tau-dashboard-widget__delete {
+    position: absolute;
+    display: block;
+    border: none;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    cursor: pointer;
+    top: 3px;
+    width: 22px;
+    height: 22px;
+}
+
+.tau-dashboard-widget__settings {
+    right: 29px;
+    background: svg("settings") center center no-repeat;
+}
+
+.tau-dashboard-widget__settings:last-child {
+    right: -4px;
+}
+
+.tau-dashboard-widget__delete {
+    right: -6px;
+    background: svg("trash") center center no-repeat;
+}
+
+.tau-dashboard-widget:hover .tau-dashboard-widget__settings,
+.tau-dashboard-widget:hover .tau-dashboard-widget__delete,
+.tau-dashboard-widget__settings--loading {
+    opacity: 0.7;
+}
+
+.tau-dashboard-widget:hover .tau-dashboard-widget__settings:hover,
+.tau-dashboard-widget .tau-dashboard-widget__settings.active,
+.tau-dashboard-widget__settings--loading:hover {
+    opacity: 1;
+}
+
+.tau-dashboard-widget:hover .tau-dashboard-widget__delete:hover,
+.tau-dashboard-widget .tau-dashboard-widget__delete.active {
+    opacity: 1;
+    background: svg("trash", "[fill]: #e41a1c") center center no-repeat;
+}
+
+.tau-dashboard-widget__settings:focus,
+.tau-dashboard-widget__delete:focus {
+    outline: none;
+}
+
+.tau-dashboard-widget__settings--loading {
+    animation: tau-list-collapser-loading 1.5s linear infinite;
+
+    cursor: default;
+}
+
+.tau-dashboard-widget-content {
+    width: 100%;
+}
+
+.tau-dashboard-widget-content.tau-dashboard-widget-content--loading {
+    padding-top: 0;
+}
+
+.tau-warning-bubble.tau-delete-widget-bubble {
+    max-width: 270px;
+}
+
+.tau-warning-bubble.tau-delete-widget-bubble .tau-bubble__inner {
+    min-width: 240px;
+}
+
+.tau-dashboard-widget-content .loader,
+.tau-dashboard-widget-content .empty-message {
+    margin: 5px auto;
+    width: 50%;
+    text-align: center;
+    font-size: 12px;
+    color: $gFontColorGray;
+}
+
+.tau-dashboard-widget-content__outer {
+    width: 100%;
+    position: relative;
+}
+
+.tau-dashboard-widget-content__inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* endregion */
+
+/* region Dashboard widget drag and drop -----------------------------------------------------------*/
+.tau-dashboard-widget,
+.tau-dashboard-widgets {
+    position: relative;
+}
+
+.tau-dashboard-widget[draggable=true] .tau-dashboard-widget__drag-handle {
+    cursor: move;
+}
+
+.tau-dashboard-widget.t3-dragging .tau-dashboard-widget-header,
+.tau-dashboard-widget.t3-dragging .tau-dashboard-widget-content {
+    opacity: 0.25;
+}
+
+/* Also hide list counters during list widget DnD. See https://plan.tpondemand.com/entity/94268 */
+.tau-dashboard-widget.t3-drag-ghost .tau-dashboard-widget__buttons,
+.tau-dashboard-widget.t3-drag-ghost-ie .tau-dashboard-widget-content,
+.tau-dashboard-widget.t3-drag-ghost-ie .tau-dashboard-widget-content .tau-board-list-view__counter {
+    visibility: hidden;
+}
+
+.tau-dashboard-widget.t3-drag-ghost .tau-dashboard-widget-header {
+    max-width: 250px;
+    padding-bottom: 3px;
+}
+
+.tau-dashboard-widget.t3-drag-ghost .tau-dashboard-widget__title {
+    background-color: $gHighlightBlockBackground;
+    border-radius: $gBorderRadiusDefault;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+    padding: 5px;
+}
+
+.tau-dashboard-widget.t3-drag-ghost-ie {
+    max-width: 250px;
+    padding: 0 0 0 5px;
+}
+
+.tau-dashboard-widget__drop-placeholder {
+    background: $gDnDPlaceholderBackground;
+    display: none;
+    height: 2px;
+    left: 8px;
+    opacity: 1;
+    position: absolute;
+    width: calc(100% - 16px);
+}
+
+.tau-dashboard-widget__drop-placeholder:before,
+.tau-dashboard-widget__drop-placeholder:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -2px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: $gDnDPlaceholderBackground;
+}
+
+.tau-dashboard-widget__drop-placeholder:before {
+    left: 0;
+}
+
+.tau-dashboard-widget__drop-placeholder:after {
+    right: 0;
+}
+
+.tau-dashboard-columns-layout__column.t3-drop-target > .tau-dashboard-widgets > .tau-dashboard-widget__drop-placeholder,
+.tau-dashboard-widget.t3-drop-before > .tau-dashboard-widget__drop-placeholder {
+    display: block;
+    top: 0;
+}
+
+.tau-dashboard-widget.t3-drop-after > .tau-dashboard-widget__drop-placeholder {
+    display: block;
+    bottom: -2px;
+}
+
+/* endregion */
+
+/* region Dashboard widget types - Utils -----------------------------------------------------------*/
+
+.tau-widget-error-view__message {
+    font-size: 80%;
+}
+
+/* endregion */
+
+/* region Dashboard widget types - Comments --------------------------------------------------------*/
+
+.tau-dashboard-widget-comment {
+    padding: 14px 0 12px;
+    border-bottom: 1px solid $gHighlightBlockBorderColor;
+
+    &:first-child {
+        padding-top: 0;
+    }
+
+    &:last-child {
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        padding-bottom: 3px;
+    }
+
+    &__person {
+        width: 18px;
+        height: 18px;
+        margin-right: 6px;
+        display: flex;
+        flex-shrink: 0;
+
+        & > img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &__name,
+    &__name:hover {
+        margin-right: 7px;
+        font-size: 12px;
+        font-weight: 600;
+        text-decoration: none;
+        color: $gFontColorDefault;
+    }
+
+    &__right {
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+    }
+
+    &__icon {
+        margin-left: 3px;
+    }
+
+    &__date {
+        font-size: 11px;
+        color: $gFontColorGray;
+    }
+
+    &__body {
+        font-size: 12px;
+        line-height: 15px;
+        max-height: 45px;
+        margin: 0 0 5px 25px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__footer {
+        margin-left: 25px;
+        box-sizing: border-box;
+        overflow: hidden;
+        white-space: nowrap;
+        max-width: 100%;
+        text-overflow: ellipsis;
+        font-size: 11px;
+
+
+        .tau-text {
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .tau-text + .tau-text {
+            position: relative;
+            padding-left: 10px;
+            font-weight: normal;
+
+            &:before {
+                display: block;
+                content: '';
+                width: 3px;
+                height: 3px;
+                border-radius: 50%;
+                background-color: $gIconsGeneralColor;
+
+                position: absolute;
+                top: 50%;
+                margin-top: -1px;
+                left: 4px;
+            }
+        }
+    }
+}
+/* endregion */
+
+/* region Dashboard widget types - List view -------------------------------------------------------*/
+
+.tau-list-view-widget-adapter {
+    position: relative;
+
+    .tau-board-list-view {
+        min-height: 0;
+
+        &__inner {
+            position: static;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+    }
+
+    > .tau-board-body {
+        position: static;
+        width: auto;
+        height: auto;
+    }
+
+    .tau-elems-table > .tau-elems-cell > .tau-board-unit {
+        padding: 0 10px 0 5px;
+    }
+
+    .tau-no-data-in-slice {
+        width: auto;
+        padding-top: 0;
+
+        h2.tau-no-data_empty {
+            font-size: 20px;
+        }
+    }
+
+    /* Remove list header colors */
+    .tau-board-list-view .tau-list-caption{
+        background-color: transparent;
+    }
+
+    /* Remove column resize helper from a header */
+    .tau-list-caption .ui-resizable {
+        border-right: none;
+    }
+}
+
+/* endregion */
+
+/* region Dashboard widget types - Report view -----------------------------------------------------*/
+
+.tau-custom-report-widget-adapter {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .tau-board__report-editable {
+        padding: 0 0 0 10px;
+    }
+
+    .tau-board-body {
+
+        > .graphical-report__chart {
+            height: calc(100% - 20px);
+            width: auto;
+            padding: 0;
+            margin: 0;
+            top: 0;
+            left: 0;
+            position: relative;
+
+            > pre {
+                margin: 0;
+            }
+        }
+
+        .tau-board__report-editable--narrow + .graphical-report__chart {
+            height: 100%;
+        }
+
+        .graphical-report__layout__sidebar-right {
+            padding: 0;
+        }
+
+        .graphical-report__layout__content {
+            padding: 0 17px 17px 0;
+        }
+    }
+}
+
+/* endregion */
+
+/* region Dashboard widget types - Tableau widget --------------------------------------------------*/
+.tau-tableau-report-widget-settings__field {
+    display: flex;
+    align-items: center;
+
+    &__icon {
+        flex-shrink: 0;
+        margin-left: 4px;
+    }
+}
+
+.tau-tableau-report-widget-settings__url-steps {
+    padding-left: 18px;
+}
+
+/* endregion ---------------------------------------------------------------------------------------*/
+
+/* region Dashboard widget settings popup ----------------------------------------------------------*/
+
+.tau-widget-settings {
+    position: relative;
+    padding: 16px;
+    font-size: 12px;
+}
+
+.tau-widget-settings .disable-cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: lightgrey;
+    opacity: 0.1;
+    z-index: 10;
+}
+
+.tau-widget-settings__content {
+    padding-bottom: 20px;
+}
+
+.tau-widget-settings__footer {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.tau-widget-settings-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    white-space: nowrap;
+    position: relative;
+}
+
+.tau-widget-settings-list__item {
+    padding-bottom: 12px;
+}
+
+.tau-widget-settings-list__item:last-child {
+    padding-bottom: 0;
+}
+
+.tau-widget-settings-list__title {
+    display: inline-block;
+    width: 140px;
+    margin-right: 12px;
+
+    font-size: 12px;
+    line-height: 23px;
+    text-align: right;
+    white-space: normal;
+}
+
+.tau-widget-settings__comments-filter {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.tau-select--widget-settings {
+    width: auto;
+    min-width: 208px;
+    padding: 0;
+
+    &:focus {
+        position: relative;
+        z-index: 10;
+    }
+
+    &.tau-select--show-top {
+        min-width: 0;
+    }
+}
+
+/* endregion */
+
+/* region Dashboard To-Do List widget settings popup -----------------------------------------------*/
+
+.tau-widget-settings__content-cards {
+    display: table-cell;
+}
+
+.tau-widget-settings__content-cards > .tau-widget-settings-show-cards,
+.tau-widget-settings__content-cards > .tau-widget-settings-highlight-cards {
+    display: table-cell;
+
+    margin: 0;
+    list-style: none;
+}
+
+.tau-widget-settings-show-cards {
+    padding: 0 20px 0 0;
+}
+
+.tau-widget-settings-highlight-cards {
+    padding: 0;
+    width: 240px;
+    border-left: 1px solid $gHighlightBlockBorderColor;
+}
+
+.tau-widget-settings-highlight-cards__item {
+    padding-left: 20px;
+}
+
+.tau-widget-settings-highlight-cards__item:not(:last-child),
+.tau-widget-settings-show-cards__item:not(:last-child) {
+    padding-bottom: 7px;
+}
+
+.tau-widget-settings-cards-title {
+    font-weight: 600;
+}
+
+.tau-checkbox--highlight-cards {
+
+    .tau-highlight-color {
+        opacity: 0;
+        visibility: hidden;
+        display: inline-block;
+        border-radius: 50%;
+        width: 12px;
+        height: 12px;
+        box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
+    }
+
+    input[type="checkbox"]:checked ~ .tau-highlight-color {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    > span {
+        align-items: center;
+    }
+}
+
+.highlight-cards__input {
+    width: 30px;
+    margin: 0 5px;
+}
+
+/* endregion */
+
+/* region Dashboard widget settings popup column view ----------------------------------------------*/
+
+.tau-widget-settings-list--col .tau-widget-settings-list__title {
+    display: block;
+    width: auto;
+    margin-bottom: 3px;
+    text-align: left;
+    line-height: 23px;
+    white-space: nowrap;
+}
+
+.tau-widget-settings-list--col {
+
+    .tau-widget__linked-view {
+        display: block;
+        padding: 0 0 5px 0;
+    }
+
+    .tau-widget-settings-list__item__body {
+        display: flex;
+        align-items: center;
+
+        .tau-widget-settings-list__select,
+        .tau-widget-settings-list__title {
+            margin-right: 6px;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.tau-widget-settings-list .boardsettings-filter .boardsettings-filter__help,
+.tau-widget-settings-list .boardsettings-filter__toggle {
+    display: none;
+}
+
+.tau-widget-settings-list .boardsettings-filter {
+    min-width: 300px;
+}
+
+/* endregion */
+
+.tau-widget-settings-list__link {
+    float: right;
+    font-size: 11px;
+    line-height: 23px;
+    text-decoration: none;
+
+    + .tau-widget-settings-list__item {
+
+        .tau-widget-settings-list__title {
+            margin-right: 150px;
+        }
+
+        .tau-select--widget-settings {
+            width: 100%;
+        }
+    }
+}
+
+/* region Dashboard widget aspect ratio ------------------------------------------------------------*/
+
+.tau-dashboard-widget-content--ratio {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    z-index: 1;
+}
+
+.tau-dashboard-widget-content--fill {
+    position: relative;
+    z-index: 1;
+}
+
+.tau-dashboard-widget-content--ratio > .tau-dashboard-widget-content-wrapper,
+.tau-dashboard-widget-content--ratio > .tau-dashboard-widget-status,
+.tau-dashboard-widget-content--fill > .tau-dashboard-widget-content-wrapper
+.tau-dashboard-widget-content--fill > .tau-dashboard-widget-status {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* endregion */
+
+/* region Dashboard widget types - Follow Activity -------------------------------------------------*/
+
+.tau-dashboard-widget--follow .tau-dashboard-widget-content .tau-dashboard-widget-content-wrapper .notification__body {
+    overflow-y: inherit;
+}
+
+.notification__item.notification__item--in-widget {
+    padding: 0 15px 0 0;
+    margin-bottom: 9px;
+}
+
+.notification__item.notification__item--in-widget .follow-title {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 4px;
+    padding-top: 11px;
+
+    line-height: 15px;
+    font-size: 12px;
+
+    border-top: 1px solid $gHighlightBlockBorderColor;
+}
+
+.notification__item.notification__item--in-widget:first-child .follow-title {
+    border-top: none;
+    padding-top: 0;
+
+    line-height: 15px;
+}
+
+.notification__item.notification__item--in-widget .follow-title .tau-text {
+    font-size: 11px;
+    opacity: 0.5;
+}
+
+.notification__item.notification__item--in-widget .follow-content:not(:last-child) {
+    margin-bottom: 1px;
+}
+
+.notification__item.notification__item--in-widget .follow-content:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.notification__item.notification__item--in-widget .follow-content .follow-description__date-time {
+    display: inline-block;
+    min-width: 46px;
+
+    font-size: 11px;
+    font-weight: 600;
+    text-align: left;
+    color: $gFontColorGray;
+
+    float: left;
+}
+
+.notification__item.notification__item--in-widget .follow-content .follow-description {
+    display: inline-block;
+
+    position: relative;
+
+    float: left;
+    line-height: 15px;
+    margin: 0 3px 0 0;
+}
+
+.notification__item.notification__item--in-widget .notification__comment__user,
+.notification__item.notification__item--in-widget .notification__comment__reply {
+    margin: 0;
+}
+
+.notification__item.notification__item--in-widget .follow-content .notification__comment + .notification__information {
+    float: none;
+    margin-top: 2px;
+    margin-bottom: 0;
+}
+
+.notification__item.notification__item--in-widget .follow-content .follow-description + .notification__information {
+    margin: 0;
+}
+
+.notification__item.notification__item--in-widget .follow-content .follow-description .follow-description__to-value {
+    font-weight: 600;
+}
+
+.notification__item.notification__item--in-widget .follow-content .notification__entity-wrap {
+    margin-top: 14px;
+}
+
+.notification__item.notification__item--in-widget .follow-content .notification__text + .notification__entity-wrap {
+    margin: 5px 0 0 48px;
+}
+
+.notification__text__icon {
+    display: inline-block;
+    top: 1px;
+    position: relative;
+}
+
+.notification__item.notification__item--in-widget .follow-content .notification__text + .notification__information {
+    margin-top: -5px;
+    margin-bottom: 7px;
+}
+
+.notification__item.notification__item--in-widget .follow-content .notification__entity-wrap + .notification__information,
+.notification__item.notification__item--in-widget .follow-content .notification__entity-wrap-container + .notification__information {
+    margin-top: -3px;
+    margin-bottom: 5px;
+}
+
+.notification__item.notification__item--in-widget .notification__information {
+    text-overflow: clip;
+}
+
+.notification__item.notification__item--in-widget .follow-content .follow-description .tau-user-avatar {
+    margin-top: -8px;
+    top: 3px;
+}
+
+.notification__item.notification__item--in-widget .follow-content .notification__attached-data__item {
+    margin-top: 3px;
+}
+
+.notification__item.notification__item--in-widget:not(:first-child) {
+    border-top: none;
+}
+
+.notification__item.notification__item--in-widget .follow-content .notification__comment {
+    margin-top: 4px;
+    margin-bottom: 0;
+    padding: 0 0 0 49px;
+    font-size: 11px;
+    line-height: 14px;
+    color: $gFontColorGray;
+
+    background: transparent;
+}
+
+.notification__item.notification__item--in-widget .follow-content .notification__comment:before {
+    display: none;
+}
+
+.notification__item.notification__item--in-widget .follow-content .notification__comment:first-child {
+    margin-top: 5px;
+}
+
+.notification__item.notification__item--in-widget .notification__information,
+.notification__item.notification__item--in-widget .notification__comment__reply {
+    font-size: 12px;
+    line-height: 15px;
+    color: $gFontColorGray;
+}
+
+.follow-description__person {
+    font-weight: 600;
+}
+
+.notification__item.notification__item--removed .follow-title > .follow-title-link {
+    position: relative;
+    opacity: 0.5;
+
+    text-decoration: line-through;
+}
+
+.notification__item.notification__item--removed .follow-title .tau-text {
+    opacity: 1;
+}
+
+.notification__item.notification__item--in-widget .follow-content .notification__text + .follow-description,
+.notification__item.notification__item--in-widget .follow-content .follow-description.notification__text {
+    float: none;
+}
+
+.notification__item.notification__item--in-widget .notification__entity-wrap {
+    overflow: visible;
+}
+
+.notification__item.notification__item--in-widget .notification__entity-wrap:after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+.notification__entity-link {
+
+    &,
+    &:visited {
+        float: left;
+        clear: both;
+        margin-top: 4px;
+        color: $gFontColorGray;
+        font-size: 11px;
+    }
+
+    &:hover {
+        color: color($gFontColorGray a(80%));
+    }
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &__icon {
+        display: inline-block;
+        margin: -2px 5px -2px 0;
+    }
+}
+/* endregion */
+
+/* region Dashboard widget types - Burn Down Chart -------------------------------------------------*/
+
+.tau-dashboard-widget-content .tau-chart--burn-down-report .report_caption_wrap {
+    margin: 0;
+}
+
+/* endregion */
+
+/* region Dashboard widget types - To Do List ------------------------------------------------------*/
+
+.tau-dashboard-widget-todo-list__item {
+    border: 0 solid $gHighlightBlockBorderColor;
+    border-top-width: 1px;
+    border-right-width: 1px;
+}
+
+.tau-dashboard-widget-todo-list__item:last-child {
+    border-bottom-width: 1px;
+    box-shadow: 0 3px 3px -3px $gHighlightBlockBorderColor;
+}
+
+.tau-dashboard-widget-todo-list__item > .tau-card-v2 {
+    width: calc(100% - 11px);
+    padding-left: 8px;
+    box-shadow: none;
+    background-color: inherit;
+}
+
+/* To Do List unit style overrides */
+
+.tau-dashboard-widget-todo-list .tau-unit-state-busy {
+    opacity: 0.3;
+}
+
+.tau-dashboard-widget-todo-list .tau-board-unit--editable {
+    cursor: pointer;
+}
+
+/* endregion */
+
+/* region Dashboard empty widget placeholder -------------------------------------------------------*/
+
+.tau-dashboard-widget-placeholder {
+    display: table;
+    width: 100%;
+    height: 158px;
+    background-color: color($gHighlightBlockBackground a(80%));
+
+    &--success {
+        background-color: color($gMessageColorSuccess tint(90%));
+    }
+
+    &--loader {
+        position: relative;
+        z-index: 1;
+        display: block;
+        height: 100%;
+        min-height: 158px;
+    }
+}
+
+.tau-dashboard-widget-placeholder-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.tau-dashboard-widget-placeholder__details {
+    margin-top: 10px;
+
+    pre {
+        text-align: left;
+    }
+}
+
+.tau-dashboard-widget-placeholder-text {
+    line-height: 18px;
+    font-size: 13px;
+    color: $gFontColorGray;
+    text-align: center;
+
+    &--success {
+        position: relative;
+        padding-top: 49px;
+
+        &:before {
+            content: '';
+
+            position: absolute;
+            top: 0;
+            left: 50%;
+
+            display: block;
+            width: 38px;
+            height: 35px;
+            margin-left: -19px;
+            background: url(../images/dashboard/placeholder-icons.svg) no-repeat -17px -15px;
+        }
+    }
+
+    &--follow {
+        position: relative;
+        padding-top: 75px;
+
+        &:before {
+            content: '';
+
+            position: absolute;
+            top: 0;
+            left: 50%;
+
+            display: block;
+            width: 45px;
+            height: 54px;
+            margin-left: -23px;
+            background: url(../images/dashboard/placeholder-icons.svg) no-repeat -73px -6px;
+        }
+    }
+}
+
+.tau-dashboard-widget-placeholder--burn-down-chart {
+    background-image: url(../images/dashboard/placeholder-burndown.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.tau-dashboard-widget-placeholder--tau-dashboard-report {
+    height: 100%;
+    background-image: url(../images/dashboard/placeholder-report.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.tau-dashboard-widget-placeholder--tau-dashboard-list {
+    margin-top: -30px;
+}
+
+/* endregion */
+
+/* region Dashboard widget types - Text ------------------------------------------------------*/
+
+.tau-dashboard-widget-text {
+    position: relative;
+
+    .markdown-editor {
+        min-height: 228px;
+    }
+
+    .markdown-editor > textarea.markdown-editor__textarea {
+        min-height: 234px;
+    }
+
+    .cke_wysiwyg_div {
+        user-select: text;
+    }
+}
+
+.tau-dashboard-widget-text_content {
+
+    &:empty:after {
+        content: attr(data-placeholder);
+        border: 1px dashed $gHighlightBlockBorderColor;
+        padding: 5px;
+        line-height: 18px;
+        font-size: 13px;
+        color: $gFontColorGray;
+        display: block;
+        text-align: center;
+    }
+
+    &.tau-editable:not(:empty):hover:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        border: 1px dashed $gHighlightBlockBorderColor;
+        background-image: svg("pencil", "[fill]: $gFontColorDefault");
+        background-repeat: no-repeat;
+        background-position: 100% 50%;
+        background-size: 16px 16px;
+        pointer-events: none;
+    }
+}
+
+/* endregion */

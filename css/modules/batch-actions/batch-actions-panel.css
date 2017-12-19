@@ -1,0 +1,295 @@
+$batchButtonColor: $gFontColorWhite;
+$batchButtonColorHover: $gFontColorWhite;
+$batchButtonBackgroundColor: #0099f0;
+$batchButtonBackgroundColorHover: #00a3ff;
+$batchButtonBoxShadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+$batchButtonBoxShadowHover: 0 8px 12px 0px rgba(0, 0, 0, 0.3);
+
+$batchButtonClipboardOpenCoordinateYBoard: -132px;
+$batchButtonClipboardClosedCoordinateYBoard: -72px;
+$batchButtonCoordinateYBoard: -42px;
+
+$batchPanelHeaderBoxShadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15);
+
+.batch-actions-panel {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 12px 0;
+    font-size: 13px;
+
+    &__header {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: flex-start;
+        padding: 7px 10px 8px;
+        box-shadow: $batchPanelHeaderBoxShadow;
+
+        &__title {
+            overflow: hidden;
+            padding-right: 10px;
+            flex: 0 1 auto;
+            align-self: center;
+            font-weight: 600;
+        }
+
+        &__actions {
+            display: flex;
+            flex-direction: row-reverse;
+            flex: 1 0 auto;
+            padding-top: 3px;
+            text-align: right;
+        }
+
+        &__text {
+            line-height: 20px;
+            margin-right: 7px;
+            padding: 0 0 2px 5px;
+            vertical-align: middle;
+        }
+    }
+
+    &__main {
+        position: relative;
+    }
+
+    &__content {
+        flex: 1 1 auto;
+        overflow: auto;
+        padding: 12px 10px 0;
+    }
+
+    &__loader {
+        display: none;
+    }
+
+    &__feedback {
+        display: flex;
+        margin-bottom: 2px;
+
+        &__text {
+            flex: 1 1 auto;
+            padding: 0 15px 0 5px;
+            align-self: center;
+        }
+
+        &__controls {
+            flex-shrink: 0;
+            align-self: center;
+        }
+    }
+
+    .assignments-table__cell_effort {
+        font-weight: normal;
+        cursor: pointer;
+        color: $gFontColorGray;
+        font-size: 13px;
+    }
+
+    .ui-comment {
+        margin: 10px 10px 0;
+        padding: 0 0 0 0;
+    }
+
+    &--loading &__main {
+        min-height: 100%;
+    }
+
+    &--loading &__loader {
+        display: block;
+    }
+}
+
+.batch-actions-list {
+    margin: 0;
+    padding: 5px;
+    list-style: none;
+
+    min-width: 150px;
+    max-width: 250px;
+
+    &__item {
+        position: relative;
+        padding: 5px;
+        font-size: 13px;
+        line-height: 16px;
+        user-select: none;
+
+        &:hover {
+            cursor: pointer;
+            background-color: $gActionBackgroundHover;
+        }
+
+        &--delete {
+            color: $gActionColorDelete;
+
+            &:hover {
+                background-color: $gActionBackgroundDelete;
+            }
+        }
+    }
+}
+
+@keyframes bounceClipboardOpen {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY($batchButtonClipboardOpenCoordinateYBoard);
+    }
+    40% {
+        transform: translateY(calc($batchButtonClipboardOpenCoordinateYBoard - 30px));
+    }
+    60% {
+        transform: translateY(calc($batchButtonClipboardOpenCoordinateYBoard - 15px));
+    }
+}
+
+@keyframes bounceClipboardClosed {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY($batchButtonClipboardClosedCoordinateYBoard);
+    }
+    40% {
+        transform: translateY(calc($batchButtonClipboardClosedCoordinateYBoard - 30px));
+    }
+    60% {
+        transform: translateY(calc($batchButtonClipboardClosedCoordinateYBoard - 15px));
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY($batchButtonCoordinateYBoard);
+    }
+    40% {
+        transform: translateY(calc($batchButtonCoordinateYBoard - 30px));
+    }
+    60% {
+        transform: translateY(calc($batchButtonCoordinateYBoard - 15px));
+    }
+}
+
+.batch-btn {
+    z-index: 103;
+    position: fixed;
+    top: 100%;
+    right: 30px;
+    box-sizing: border-box;
+    display: block;
+    padding: 0 12px 1px;
+    border-radius: 3px;
+    color: $batchButtonColor;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 27px;
+    white-space: nowrap;
+    background-color: $batchButtonBackgroundColor;
+    box-shadow: $batchButtonBoxShadow;
+    cursor: pointer;
+
+    transform: translateY(0);
+    transition: transform 0.6s cubic-bezier(.68, -.55, .265, 1.55), box-shadow 0.3s ease, background-color 0.3s ease;
+
+    &:before {
+        position: absolute;
+        left: -10px;
+        right: -10px;
+        top: -10px;
+        bottom: -10px;
+        content: '';
+        display: block;
+        background: transparent;
+    }
+
+    &:hover {
+        box-shadow: $batchButtonBoxShadowHover;
+        color: $batchButtonColorHover;
+        background-color: $batchButtonBackgroundColorHover;
+    }
+
+    &.tau-active {
+        transform: translateY($batchButtonCoordinateYBoard);
+    }
+
+    &.attract:not(:hover) {
+        animation: bounce 2s infinite 1.2s;
+    }
+
+    &--one-by-one {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        bottom: 0;
+
+        width: 100%;
+        border-radius: 0;
+        text-align: center;
+
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease 0s, visibility 0.3s ease 0.3s, top 0s ease 0.3s;
+
+        &.tau-active {
+            top: 0;
+            transform: none;
+
+            opacity: 1;
+            visibility: visible;
+            transition-delay: 0s, 0s, 0s;
+        }
+
+        &.attract {
+            animation: none;
+        }
+
+        &.attract:not(:hover) {
+            animation: none;
+        }
+    }
+
+    &--xs {
+        font-size: 11px;
+        padding-left: 5px;
+        padding-right: 5px;
+        @mixin ellipsis;
+    }
+
+    .tau-boardclipboard_empty_true ~ .batch-btn-container & {
+        &.tau-active {
+            transform: translateY($batchButtonClipboardClosedCoordinateYBoard);
+        }
+
+        &.attract:not(:hover) {
+            animation: bounceClipboardClosed 2s infinite 1.2s;
+        }
+    }
+
+    .tau-boardclipboard_enable_true & {
+        &.tau-active {
+            transform: translateY($batchButtonClipboardOpenCoordinateYBoard);
+        }
+
+        &.attract:not(:hover) {
+            animation: bounceClipboardOpen 2s infinite 1.2s;
+        }
+    }
+}
+
+.batch-cards {
+    display: inline;
+    line-height: 22px;
+
+    &__item {
+        display: inline-block;
+        margin-right: 5px;
+    }
+
+    &--context-menu {
+        display: block;
+        margin-bottom: -4px;
+        line-height: 16px;
+
+        .batch-cards__item {
+            display: inline-block;
+            max-width: 100%;
+            margin-bottom: 4px;
+        }
+    }
+}

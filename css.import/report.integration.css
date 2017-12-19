@@ -1,0 +1,43 @@
+/* region mixins */
+@import url('../css/mixins/ellipsis.css');
+@import url('../css/mixins/custom-scroll.css');
+@import url('../css/mixins/word-wrap.css');
+/* endregion mixins */
+
+@import url('../css.board/css/board.css');
+@import url('../css.board/css/cards-v2.css');
+
+
+@import url("../css/components/help-label.css");
+@import url("../css/components/sorter.css");
+@import url('../css/components/controls-group.css');
+@import url('../css/components/controls-inline-group.css');
+@import url('../css/components/loader.css');
+@import url('../css/components/loader-ui-spinner.css');
+@import url('../css/components/avatar.css');
+@import url('../css/components/entity-id.css');
+@import url('../css/components/entity-full-name.css');
+@import url('../css/components/project-full-name.css');
+@import url('../css/components/user-status.css');
+@import url('../css/components/test-result-unit.css');
+@import url('../css/components/sorting.css');
+
+@import url('../css/modules/board-settings/board-settings.css');
+@import url('../css/modules/board-settings/board-settings-component.css');
+@import url('../css/modules/board-settings/board-settings-tabs.css');
+@import url('../css/modules/board-settings/board-settings-limits.css');
+@import url('../css/modules/board-owner.css');
+@import url('../css/modules/access-type-list.css');
+@import url('../css/modules/axis-setting.css');
+@import url('../css/modules/timelines-setting.css');
+@import url('../css/modules/setup-chart.css');
+@import url('../css/modules/templates-container.css');
+@import url('../css/modules/save-template-form.css');
+@import url('../css/modules/board-units/board-unit-icons.css');
+@import url('../css/modules/board-units/board-units.css');
+
+@import url('../css/panel-testplan.css');
+
+@import url('../css/modules/reports/charts-legends.css');
+@import url('../css/modules/reports/report-settings.css');
+@import url('../css/modules/reports/tp2-report-settings.css');

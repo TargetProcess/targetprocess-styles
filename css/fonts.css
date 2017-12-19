@@ -1,0 +1,15 @@
+@define-mixin font-face  $fontWeight: normal,  $fontName: $(gFontFamilyName)-Regular {
+    @font-face {
+        font-family: $gFontFamilyName;
+        font-weight: $fontWeight;
+        src: url('$(gFontPath)/$(fontName).woff2') format('woff2'),
+        url('$(gFontPath)/$(fontName).woff') format('woff'),
+        url('$(gFontPath)/$(fontName).ttf') format('truetype'),
+        url('$(gFontPath)/$(fontName).svg#$(fontName)') format('svg');
+    }
+}
+
+    @mixin font-face 300, $(gFontFamilyName)-Light;
+    @mixin font-face 400, $(gFontFamilyName)-Regular;
+    @mixin font-face 600, $(gFontFamilyName)-Semibold;
+    @mixin font-face 700, $(gFontFamilyName)-Bold;

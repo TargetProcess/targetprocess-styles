@@ -1,0 +1,154 @@
+$viewsNavigatorDndPlaceholderBackground: color($gBoardPanelBackgroundLighter tint(15%) saturation(+15%));
+
+$viewsNavigatorDndPlaceholderForbiddenBackground: color($gFontColorAttention tint(15%) a(50%));
+$viewsNavigatorDndPlaceholderForbiddenBackgroundTrigger: color($viewsNavigatorDndPlaceholderBackground a(5%));
+
+@define-mixin gradient-shadow $color: $gBoardPanelBackgroundLighter {
+    background-image: linear-gradient(to left, $color, color($color a(0)) 99%);
+}
+
+
+/* Removing view/group from menu flow*/
+.t3-group.t3-dragging,
+.t3-view.t3-dragging {
+    height: 0;
+    overflow: hidden;
+}
+
+.t3-views-section.t3-drop-target {
+    background-color: $viewsNavigatorDndPlaceholderBackground;
+
+    .t3-group {
+         background-color: $viewsNavigatorDndPlaceholderBackground;
+    }
+
+    .t3-header {
+         background-color: $viewsNavigatorDndPlaceholderBackground;
+    }
+
+    .t3-access-icon {
+        &:before {
+             background-color: $viewsNavigatorDndPlaceholderBackground;
+             box-shadow: 0 0 2px 2px $viewsNavigatorDndPlaceholderBackground;
+        }
+    }
+
+    .t3-header__actions-trigger { /* for hidden items*/
+        background-color: $viewsNavigatorDndPlaceholderBackground;
+
+        &:before {
+            @mixin gradient-shadow $viewsNavigatorDndPlaceholderBackground;
+        }
+    }
+}
+
+.t3-group.t3-drop-target:not(.t3-drop-before):not(.t3-drop-after) .t3-header {
+    background-color: $viewsNavigatorDndPlaceholderBackground;
+
+    .t3-header__actions-trigger { /* for hidden items*/
+        background-color: $viewsNavigatorDndPlaceholderBackground;
+
+        &:before {
+            @mixin gradient-shadow $viewsNavigatorDndPlaceholderBackground;
+        }
+    }
+
+    .t3-access-icon {
+        &:before {
+            background-color: $viewsNavigatorDndPlaceholderBackground;
+            box-shadow: 0 0 2px 2px $viewsNavigatorDndPlaceholderBackground;
+        }
+    }
+}
+
+.t3-navigator__drop-placeholder {
+    position: absolute;
+    left: 10px;
+    display: none;
+    width: calc(100% - 20px);
+    height: 1px;
+    background: $gDnDPlaceholderBackground;
+    z-index: 2;
+
+    &:before,
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: -2px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: $gDnDPlaceholderBackground;
+    }
+
+    &:before {
+        left: 0;
+    }
+
+    &:after {
+        right: 0;
+    }
+
+    /* hierarchy */
+
+    /*2 level*/
+    .t3-group__content > .t3-view &,
+    .t3-group__content > .t3-group & {
+        left: 20px;
+        width: calc(100% - 30px);
+
+    }
+
+    /*3 level*/
+    .t3-group__content .t3-group__content > .t3-view &,
+    .t3-group__content .t3-group__content > .t3-group & {
+        left: 26px;
+        width: calc(100% - 36px);
+
+    }
+
+    /*3 level*/
+    .t3-group__content .t3-group__content .t3-group__content > .t3-view &,
+    .t3-group__content .t3-group__content .t3-group__content > .t3-group & {
+        left: 34px;
+        width: calc(100% - 44px);
+    }
+}
+
+.t3-drop-before,
+.t3-drop-after {
+    z-index: 20;
+}
+
+.t3-drop-before > .t3-navigator__drop-placeholder {
+    display: block;
+    top: 0;
+}
+
+.t3-drop-after > .t3-navigator__drop-placeholder {
+    display: block;
+    bottom: -1px;
+}
+
+
+.t3-dnd-sensitive {
+    position: absolute;
+    height: 6px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+
+    &--group-top {
+        top: 0;
+    }
+
+    &--group-bottom {
+        bottom: 0;
+    }
+
+    .t3-group:not(.t3-expanded) .t3-group & {
+        display: none;
+    }
+}
+

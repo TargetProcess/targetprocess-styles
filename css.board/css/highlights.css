@@ -1,0 +1,99 @@
+/*Styles for the system-wide highlights*/
+$cardActionDeleteBackground: color($gActionColorDelete tint(60%));
+
+
+/* Animations
+----------------------------------------------------------------------------------------------------*/
+
+@keyframes to-yellow {
+
+    to {
+
+        background: $gActionBackgroundSystem;
+
+    }
+
+}
+
+@keyframes to-red {
+
+    to {
+
+        background: $cardActionDeleteBackground;
+
+    }
+
+}
+
+
+/* General highlights
+----------------------------------------------------------------------------------------------------*/
+
+.tau-is-selected-duplicate {
+
+    background: $gActionBackgroundSelected !important;
+    background: linear-gradient(45deg,
+                color($gActionBackgroundSelected tint(40%)) 25%,
+                $gActionBackgroundSelected 25%,
+                $gActionBackgroundSelected 50%,
+                color($gActionBackgroundSelected tint(40%)) 50%,
+                color($gActionBackgroundSelected tint(40%)) 75%,
+                $gActionBackgroundSelected 75%) 0 0 / 40px 40px !important;
+
+}
+
+.tau-selected {
+    background: $gActionBackgroundSelected !important;
+}
+
+
+.tau-search-highlight {
+    background-color: $gActionBackgroundSelected;
+    font-weight: 600;
+    color: $gFontColorDefault;
+}
+
+.tau-context-menu-selected,
+.i-role-permanent-context-menu-action-activated {
+
+    background: $gActionBackgroundSystem !important;
+
+}
+
+.tau-card_success,
+.tau-operation_card_added,
+.tau-operation_card_updated,
+.custom-process-bubble__updated {
+    animation: to-yellow 0.125s cubic-bezier(0.8, 0, 0.2, 1) 8 alternate;
+
+}
+
+.tau-card_success[style*="background"],
+.tau-operation_card_added[style*="background"],
+.tau-operation_card_updated[style*="background"] {
+
+    background: $gActionBackgroundSystem !important;
+
+}
+
+.tau-card_failed {
+    animation: to-red 0.125s cubic-bezier(0.8, 0, 0.2, 1) 8 alternate;
+
+}
+
+.tau-card_dnd_failed {
+    animation: to-red 0.125s cubic-bezier(0.8, 0, 0.2, 1) 2 alternate;
+
+}
+
+.tau-card_failed[style*="background"] {
+
+    background: $cardActionDeleteBackground !important;
+
+}
+
+.tau-operation_card_deleted {
+
+    background: $cardActionDeleteBackground !important;
+
+}

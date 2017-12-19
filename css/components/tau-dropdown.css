@@ -1,0 +1,37 @@
+$dropdownBorgerColor: $gFontColorLightGray;
+$dropdownBackground: $gBackgroundDefault;
+$dropdownHeight: 24px;
+
+.tau-dropdown {
+    align-items: center;
+    font-size: 13px;
+    display: flex;
+    box-sizing: border-box;
+    vertical-align: middle;
+    margin: 0 2px;
+    border: 1px solid $dropdownBorgerColor;
+    border-radius: 2px;
+    padding: 0 0 0 4px;
+    height: $dropdownHeight;
+    color: $gFontColorDefault;
+    background: $dropdownBackground;
+    cursor: pointer;
+    overflow: hidden;
+
+    &__wrap {
+        flex: 1 1 auto;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &:focus {
+            box-shadow: none;
+            outline: none;
+        }
+    }
+
+    &__icon {
+        margin: 0 5px;
+        flex: 0 0 auto;
+    }
+}

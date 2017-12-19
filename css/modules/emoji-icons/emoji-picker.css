@@ -1,0 +1,182 @@
+$emojiPickerCategorySelectorItemInvertBackground: #606c7b;
+
+.emoji-picker {
+    width: 344px;
+    height: 414px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__search {
+        padding: 10px 15px 0 15px;
+        flex: 0 0 auto;
+    }
+
+    &__search-message {
+        color: $gFontColorGray;
+        font-size: 14px;
+        margin: 10px 0;
+    }
+
+    &__category-selector {
+        flex: 0 0 auto;
+        padding: 10px 15px;
+        border-bottom: solid 1px $gHighlightBlockBorderColor;
+        display: flex;
+
+        &__item {
+            flex: 0 0 auto;
+            margin: 0 0 0 5px;
+            padding: 6px 7px;
+            border-radius: $gBorderRadiusDefault;
+            cursor: pointer;
+
+            &:hover {
+                background: $gActionBackgroundHover;
+            }
+
+            &.active,
+            &:active {
+                background: $gActionBackgroundActive;
+            }
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &--inverted,
+            &--inverted:hover {
+                background: $emojiPickerCategorySelectorItemInvertBackground;
+            }
+        }
+    }
+
+    &__catalog {
+        position: relative;
+        flex: 1 1 auto;
+        overflow: auto;
+        padding: 10px 0 10px 15px;
+        @mixin custom-scroll
+    }
+
+    &__footer {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 15px;
+        border-top: solid 1px $gHighlightBlockBorderColor;
+
+    }
+    &__preview {
+        flex: 1 1 auto;
+        min-height: 32px;
+        margin-right: 10px;
+        overflow: hidden;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &__message {
+            color: $gFontColorGray;
+            font-size: 12px;
+            line-height: 32px;
+        }
+
+        &__elem {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            justify-content: space-between;
+
+            &__icon {
+                flex: 0 0 auto;
+                margin-right: 10px;
+
+                .emoji-picker__default-icon {
+                    margin: 0;
+                }
+            }
+
+            &__name {
+                flex: 1 1 auto;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+        }
+
+    }
+
+    &__skin-tones {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+
+        &__item {
+            flex: 0 0 auto;
+            display: flex;
+            justify-content: flex-end;
+            cursor: pointer;
+        }
+    }
+
+    &__category {
+        padding-bottom: 10px;
+
+        &__title {
+            position: relative;
+            z-index: 1;
+            font-size: 12px;
+            font-weight: 600;
+            color: $gFontColorGray;
+            padding-top: 5px;
+            text-transform: uppercase;
+            background: color($gBackgroundDefault a(90%));
+
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 100%;
+                height: 5px;
+                background: linear-gradient(to bottom, color($gBackgroundDefault a(100%)) 0%, color($gBackgroundDefault a(0%)) 100%);
+            }
+        }
+
+        &__body {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        &__item {
+            margin: 10px 5px 0 0;
+            padding: 5px;
+            border-radius: $gBorderRadiusDefault;
+            cursor: pointer;
+
+            &:hover {
+                background: $gActionBackgroundHover;
+            }
+
+            &.active,
+            &:active {
+                background: $gActionBackgroundActive;
+            }
+        }
+    }
+
+    &__default-icon {
+        box-sizing: border-box;
+        padding: 6px;
+        margin: -5px;
+        border: solid 1px $gHighlightBlockBorderColor;
+        border-radius: $gBorderRadiusDefault;
+        display: flex;
+        align-items: center;
+    }
+}

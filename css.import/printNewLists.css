@@ -1,0 +1,16 @@
+/* region mixins */
+@import url('../css/mixins/ellipsis.css');
+@import url('../css/mixins/custom-scroll.css');
+@import url('../css/mixins/word-wrap.css');
+/* endregion mixins */
+
+@import url('../css.board/css/general.css');
+@import url('../css.board/tau.board.css');
+@import url('../css.board/css/board-newlist-view.css');
+@import url("../css/components/project-abbreviation.css");
+@import url('../css/modules/board-units/board-units.css');
+@import url('../css/components/sorting.css');
+@import url('../css/components/avatar.css');
+@import url("../css/components/tau-counter.css");
+@import url('../css/components/test-result-unit.css');
+@import url('../css/components/unit-icons.css');

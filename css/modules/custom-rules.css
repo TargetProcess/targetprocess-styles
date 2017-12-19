@@ -1,0 +1,108 @@
+$customRulesBorderColor: $gHighlightBlockBorderColor;
+$customRulesCheckedBackground: $gActionBackgroundSuccess;
+$customRulesMaxWidth: 800px;
+
+
+.custom-rules {
+    font-family: $gFontFamily;
+    font-size: 13px;
+
+    &__wrap {
+        max-width: $customRulesMaxWidth;
+    }
+
+    &__header {
+
+        &__control {
+            position: relative;
+            top: 2px;
+            float: right;
+        }
+    }
+
+    &__description {
+        margin: 25px 0;
+        font-weight: 600;
+    }
+
+    &__forms {
+        overflow: hidden;
+        margin: 20px -20px;
+        padding: 20px;
+        background-color: $gBackgroundDefault;
+        border-radius: 5px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+        &.active {
+            height: auto;
+        }
+
+        &__description {
+            margin-bottom: 10px;
+        }
+
+        .custom-rules__textarea {
+            display: block;
+            margin: 5px 0 10px 0;
+            min-height: 135px;
+            resize: vertical;
+        }
+    }
+
+    &__list {
+        padding-top: 3px;
+        position: relative;
+        box-sizing: border-box;
+        max-height: calc(100% - 150px);
+        overflow: auto;
+
+        &__item {
+            border-radius: $gBorderRadiusDefault;
+            margin: 0 0 5px 0;
+            padding: 20px 130px 20px 20px;
+            position: relative;
+
+            &:first-child:before,
+            &.tau-active:before,
+            &.tau-active + .custom-rules__list__item:before {
+                display: none;
+            }
+
+            &.tau-active {
+                background: $customRulesCheckedBackground;
+                font-weight: normal;
+            }
+
+            &__title {
+                font-weight: 600;
+            }
+
+            &__text {
+                color: $gFontColorGray;
+                margin-top: 10px;
+            }
+
+            &__control {
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                margin-top: -15px;
+            }
+        }
+
+        &__item:before,
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            border-top: 1px solid $customRulesBorderColor;
+        }
+
+        &:after {
+            border-top-width: 2px;
+        }
+    }
+}

@@ -1,0 +1,67 @@
+.ui-popup-flexible {
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: $gOverlayZIndex;
+    transition: all .5s linear;
+
+    &__wrap {
+        position: relative;
+        z-index: 1;
+        margin: auto;
+        background: $gBackgroundDefault;
+        padding: 15px 10px;
+        border-radius: $gBorderRadiusDefault;
+        box-shadow: 0 1px 3px #000;
+
+        .tau-btn-close {
+
+            border: none;
+            outline: none;
+
+            z-index: 1;
+            position: absolute;
+            right: -15px;
+            top: -16px;
+            display: block;
+            width: 30px;
+            height: 30px;
+            min-width: 0;
+            cursor: pointer;
+
+            &,
+            &:hover:not(:disabled) {
+                background: url('images/close-popup-white.png') no-repeat;
+            }
+
+            &:focus {
+                box-shadow: none;
+            }
+
+            &:hover {
+                top: -15px;
+            }
+        }
+    }
+
+    > .close {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top:0;
+        left: 0;
+    }
+
+    &--gray &__wrap {
+        background-color: $gHighlightBlockBackground;
+    }
+
+    &.ui-popup_active_true {
+        display: flex;
+    }
+}

@@ -1,0 +1,32 @@
+.tau-project-icon {
+    position: relative;
+    display: block;
+    width: $gIconsSizeDefault;
+    height: $gIconsSizeDefault;
+    border-radius: 50%;
+
+    &--bordered {
+        &:after {
+            box-sizing: border-box;
+            content: '';
+            display: block;
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    &--small {
+        width: 12px;
+        height: 12px;
+    }
+
+    .tau-board-unit & {
+        vertical-align: bottom;
+        line-height: 0;
+        display: inline-block;
+    }
+}
+
+

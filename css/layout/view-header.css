@@ -1,0 +1,60 @@
+.view-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    padding: 5px 0 10px;
+
+    &__wrap {
+        display: flex;
+        align-items: flex-start;
+        flex-grow: 1;
+        line-height: 1.1;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    &__name {
+        flex-grow: 1;
+        padding-right: 10px;
+    }
+
+    &__link {
+        position: relative;
+        margin-left: 20px;
+    }
+
+    &__icon,
+    .entity-id {
+        flex-shrink: 0;
+        margin: 5px 10px 5px 0;
+    }
+
+    &__icon {
+        margin-top: 9px;
+    }
+
+    .entity-id {
+        font-size: 22px;
+        display: block;
+
+        &__link {
+            cursor: pointer;
+            text-decoration: none;
+            color: $gFontColorGray;
+        }
+    }
+
+    &__entity-title {
+        font-size: 22px;
+        box-sizing: border-box;
+        padding: 4px 22px 4px 4px;
+        font-weight: normal;
+        display: inline-block;
+
+        &.editableText.active {
+            word-break: break-all;
+            word-wrap: break-word;
+        }
+    }
+}

@@ -1,0 +1,145 @@
+$requestTypesMaxWidth: 900px;
+
+$requestTypesThColor: $gFontColorLightGray;
+$requestTypesThBorderColor: color($gFontColorLightGray a(14%));
+
+.request-types {
+    max-width: $requestTypesMaxWidth;
+    font-size: 13px;
+
+    &__text {
+        margin: 0 0 18px 0;
+
+        p {
+            margin: 5px 0 0 0;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+
+    &__settings {
+        position: relative;
+        flex-direction: column;
+        margin-bottom: 18px;
+    }
+}
+
+.request-types-table {
+    table-layout: fixed;
+    width: 630px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 13px;
+
+    &__th {
+        padding: 10px 0;
+        border-bottom: 1px solid $requestTypesThBorderColor;
+        color: $requestTypesThColor;
+        @mixin word-wrap;
+
+        &--icon {
+            width: 39px;
+        }
+
+        &--name {
+            width: 226px;
+        }
+
+        &--isVotingEnabled,
+        &--isPrivateByDefault {
+            width: 166px;
+        }
+
+        &--delete {
+            width: 31px;
+        }
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+        padding: 0 5px;
+
+        &__text {
+            &:not(:last-child) {
+                margin-right: 7px;
+            }
+        }
+
+        &__icon {
+            flex-shrink: 0;
+        }
+    }
+
+    &__emoji-button {
+        display: none;
+    }
+
+    &__emoji-icon {
+        display: block;
+        padding: 2px 6px;
+    }
+
+    &__control {
+        opacity: 0;
+        visibility: hidden;
+        display: flex;
+        align-items: center;
+        padding-left: 3px;
+    }
+
+    &__name {
+        cursor: text;
+        padding: 3px 5px;
+    }
+
+    &__isVotingEnabled,
+    &__isPrivateByDefault {
+        cursor: text;
+        padding: 3px 7px;
+    }
+
+    /* Should be deleted after us148749 gets into develop */
+    .tau-in-text {
+        margin: 0;
+    }
+    /* end Should be deleted after us148749 gets into develop */
+
+    &__tr {
+        &:hover,
+        &.tau-hover {
+            background-color: $gActionBackgroundHover;
+
+            .request-types-table__emoji-button {
+                display: block;
+            }
+
+            .request-types-table__emoji-icon {
+                display: none;
+            }
+
+            .request-types-table__control {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    &__td {
+        padding: 6px 3px;
+        @mixin word-wrap;
+
+        &:first-child {
+            border-radius: $gBorderRadiusDefault 0 0 $gBorderRadiusDefault;
+            padding-left: 6px;
+        }
+
+        &:last-child {
+            border-radius: 0 $gBorderRadiusDefault $gBorderRadiusDefault 0;
+            padding-right: 6px;
+        }
+    }
+}

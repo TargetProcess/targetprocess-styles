@@ -1,0 +1,259 @@
+.t3-views-navigator {
+    position: absolute;
+    top: 46px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 102; /* To make the context menu render on top of board view. Also the context menu should be above clipboard. */
+
+    transform: translateZ(0);
+    /* Move the views navigator to the separate composition layer in Chrome
+    to avoid re-rendering of its neighbouring board/report/etc. view when user manipulates the views menu.
+    http://aerotwist.com/blog/on-translate3d-and-layer-creation-hacks/  */
+
+    background-color: $gBoardPanelBackgroundLighter;
+    display: flex;
+    flex-direction: column;
+
+    &__search {
+        margin: 14px 7px;
+        flex: 0 0 auto;
+
+        .tau-search__wrap {
+            padding-left: 30px;
+        }
+
+        .tau-sp-collapsed & {
+            cursor: pointer;
+            margin-left: auto;
+            margin-right: auto;
+            width: 22px;
+
+            .tau-search__wrap {
+                background: none;
+                padding: 0;
+
+                &:before {
+                    left: 50%;
+                    margin-left: -8px;
+                }
+            }
+
+            .tau-search__input,
+            .tau-search__icon {
+                visibility: hidden;
+            }
+        }
+    }
+
+    .t3-view-link {
+        text-decoration: none;
+        color: inherit;
+
+        &:focus {
+            outline: none; /* hide outline after d&d in Chrome */
+        }
+    }
+
+    .t3-view {
+        position: relative;
+    }
+
+    /* region Modifiers */
+
+    &--shadowed {
+
+        .t3-views-catalog,
+        .t3-views-navigator__search {
+            opacity: 0.2;
+            pointer-events: none;
+        }
+    }
+
+    /* endregion Modifiers */
+}
+
+.t3-views-catalog {
+    flex: 1 1 auto;
+    overflow: auto;
+    transition: transform 0.2s ease-out;
+    transform: translateX(0);
+
+    .tau-sp-collapsed & {
+        transition: width 0.1s ease, transform 0.2s ease-out;
+        transform: translateX(-2px);
+        width: 42px;
+        overflow: hidden;
+    }
+
+    &__empty-message {
+        color: $gFontColorLightGray;
+        font-size: $gFontSize;
+        padding: 0 12px;
+
+        .tau-sp-collapsed & {
+            visibility: hidden;
+        }
+    }
+}
+
+.t3-views-section {
+    padding-bottom: 10px;
+
+    &.t3-views-section--collapsed {
+        padding-bottom: 0;
+    }
+
+    &__title {
+        color: $gPlaceholderColorDefault;
+        font-size: $gFontSize;
+        font-weight: 600;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+        position: relative;
+        line-height: 30px;
+        height: 30px;
+        padding: 0 30px 0 12px;
+        box-sizing: border-box;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+
+        .t3-views-section--collapsible & {
+            cursor: pointer;
+
+            &:hover {
+                color: color($gPlaceholderColorDefault tint(15%));
+            }
+        }
+
+        &__text {
+            @mixin ellipsis;
+        }
+
+        &__icon {
+            width: 28px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 0 0 auto;
+            transition: transform 0.1s ease-out;
+
+            .tau-sp-collapsed & {
+                display: none;
+            }
+
+            .t3-views-section:not(.t3-views-section--collapsed) & {
+                transform: rotate(90deg);
+            }
+        }
+
+        &__note {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            opacity: 0.5;
+            animation: fadeInFromNone 2s ease-out;
+            right: 12px;
+            top: 0;
+            bottom: 0;
+            margin: -1px -5px 0 0;
+            padding: 0 5px 0 10px;
+
+            &:hover {
+                opacity: 1;
+            }
+
+            .tau-sp-collapsed & {
+                display: none;
+            }
+        }
+
+        .tau-sp-collapsed & {
+            color: transparent;
+            cursor: default;
+            height: 10px;
+            text-indent: 100%;
+            transition: height 0.2s ease-out;
+
+            &:before {
+                top: 2px;
+                left: 0;
+                right: 0;
+            }
+        }
+
+        &:before {
+            content: '';
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 10px;
+            right: 10px;
+            height: 1px;
+            border-top: solid 1px $gBoardPanelBackgroundDarker;
+
+            .tau-sp-collapsed & {
+                display: block;
+            }
+        }
+    }
+
+    &.t3-views-section--collapsible.t3-views-section--collapsed .t3-header {
+        height: 0;
+        opacity: 0;
+    }
+}
+
+.t3-views-section--untitled {
+
+    .t3-views-section__title {
+        height: auto;
+
+        &__text {
+            color: transparent;
+            line-height: 13px;
+        }
+
+        .tau-sp-collapsed & {
+            color: transparent;
+            cursor: default;
+            height: 10px;
+            text-indent: 100%;
+            transition: height 0.2s ease-out;
+
+            &:before {
+                top: 2px;
+                left: 0;
+                right: 0;
+            }
+        }
+
+        &:before {
+             content: '';
+             display: block;
+             position: absolute;
+             top: 0;
+             left: 10px;
+             right: 10px;
+             height: 1px;
+             border-top: solid 1px $gBoardPanelBackgroundDarker;
+        }
+    }
+}
+
+@keyframes fadeInFromNone {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+

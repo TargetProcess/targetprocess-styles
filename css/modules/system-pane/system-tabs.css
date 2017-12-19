@@ -1,0 +1,43 @@
+.system-tabs {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    align-items: center;
+    border-bottom: solid 1px $gHighlightBlockBorderColor;
+    padding: 0 20px;
+    box-sizing: border-box;
+    font-size: $gFontSize;
+    margin-left: -20px;
+    margin-bottom: 30px;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        height: 36px;
+        box-sizing: border-box;
+        border: solid 1px transparent;
+        margin-bottom: -1px;
+        margin-left: -1px;
+        padding: 0 18px 4px 18px;
+        cursor: pointer;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &.tau-active {
+            border-color: $gHighlightBlockBorderColor;
+            border-bottom-color: transparent;
+            background-color: $gBackgroundDefault;
+            font-weight: 600;
+            padding-bottom: 0;
+        }
+    }
+}
+
+.system-tabs-content {
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,128 @@
+/* region Filter Help */
+
+.filter-help {
+    font-size: $gFontSize;
+
+    &__table {
+        display: table;
+        white-space: normal;
+        border-collapse: collapse;
+        text-align: left;
+        margin-bottom: 15px;
+    }
+
+    &__row {
+        &:hover {
+            background-color: $gActionBackgroundHover;
+
+            .filter-help__share-wrap__icon,
+            .filter-help__delete-icon {
+                visibility: visible;
+            }
+        }
+
+        &.selected {
+            background-color: $gActionBackgroundActive;
+        }
+
+        .filter-help {
+            &__share-wrap {
+                position: relative;
+                width: 1px;
+
+                &__icon {
+                    top: 5px;
+                    position: absolute;
+                    left: -25px;
+                    visibility: hidden;
+                }
+            }
+
+            &__delete-icon {
+                top: 4px;
+                position: relative;
+                visibility: hidden;
+            }
+        }
+    }
+
+    &__td {
+        padding: 2px 10px;
+        vertical-align: top;
+
+        &:first-child {
+            padding-right: 0;
+        }
+
+        &:last-child {
+            padding-right: 15px;
+        }
+
+        &:last-child:not(:first-child) {
+            padding-left: 0;
+        }
+
+        &__heading {
+            padding: 15px 0 5px 20px;
+        }
+
+        &__output {
+            cursor: pointer;
+            padding-left: 40px;
+        }
+
+        &__output,
+        &__description {
+            width: 230px;
+        }
+
+        &__description {
+
+            .filter-help__input {
+                display: inline-block;
+                box-sizing: border-box;
+                border-radius: $gControlBorderRadiusDefault;
+                min-height: 24px;
+                padding: 2px 4px 0 4px;
+                resize: vertical;
+                width: 100%;
+                border: none;
+                color: $gFontColorGray;
+
+                &[contenteditable=true] {
+                    background: $gBackgroundDefault;
+                    border: 1px solid $gBackgroundDefault;
+
+                    .filter-help__row:hover & {
+                        border-color: $gControlBorderColorDefault;
+                    }
+                }
+
+                &:focus {
+                    box-shadow: $gControlBoxShadowFocusDefault;
+                }
+            }
+        }
+    }
+
+    &__line {
+        cursor: pointer;
+
+        .ace_scroller {
+            cursor: pointer;
+        }
+    }
+    &__message {
+        margin: 15px 0 0 0;
+    }
+
+    pre {
+        height: 100%;
+        margin: 3px 0 0;
+        padding-right: 5px;
+        white-space: normal;
+        font-family: $gFontFamily;
+    }
+}
+
+/* endregion*/

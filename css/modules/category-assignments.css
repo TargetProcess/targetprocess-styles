@@ -1,0 +1,252 @@
+.category-assignments-wrap {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.category-assignments {
+    overflow: hidden;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    .tau-node {
+        display: block;
+
+        &:hover {
+            > .category-assignments__header {
+                background: $gActionBackgroundHover;
+            }
+
+            .tau-disabled & > .category-assignments__header {
+                background: transparent;
+            }
+        }
+    }
+
+    .tau-disabled & {
+        overflow: hidden;
+    }
+
+    .tau-access-settings__custom-sharing & {
+        width: 204px;
+        max-height: 278px;
+        overflow-y: auto;
+    }
+
+    & &__item--filtered-false {
+        display: none;
+    }
+
+    &__level &__item--filtered-false {
+        display: flex;
+        opacity: 0.3;
+    }
+
+    &__item {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        &.hover,
+        &:hover:not(&--disabled) {
+            background: $gActionBackgroundHover;
+            > .category-assignments__viewtrigger,
+            > .category-assignments__selecttrigger,
+            > .category-assignments__selectrelatedtrigger {
+                display: block;
+            }
+        }
+
+        &.tau-node:hover {
+            background-color: transparent;
+        }
+
+
+        &.tau-active {
+            position: relative;
+            background: $gActionBackgroundActive;
+
+            &:after {
+                content: '';
+                display: none;
+                position: absolute;
+                right: -6px;
+                top: 50%;
+                width: 12px;
+                height: 12px;
+                margin-top: -6px;
+                transform: rotate(45deg);
+                background-color: $gBackgroundDefault;
+                box-shadow: 0 0 0 1px $gHighlightBlockBorderColor;
+            }
+        }
+
+        &__settings,
+        &__delete {
+            flex-shrink: 0;
+            margin-right: 4px;
+        }
+
+        &__delete {
+            display: none;
+        }
+
+        &__settings {
+            opacity: 0.8;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        .tau-disabled &:hover {
+            background: transparent;
+        }
+
+        &__user-name {
+            font-weight: 600;
+            width: 60%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        &__user-role {
+            flex-shrink: 0;
+            width: 40%;
+            box-sizing: border-box;
+            padding-left: 20px;
+        }
+    }
+
+    &__viewtrigger {
+        display: none;
+        flex-shrink: 0;
+        margin-right: 6px;
+        cursor: pointer;
+
+        .category-assignments__header:hover & {
+            display: block;
+        }
+    }
+
+    &__selectrelatedtrigger,
+    &__selecttrigger {
+        display: none;
+        flex-shrink: 0;
+        margin-right: 9px;
+        cursor: pointer;
+
+        &:last-child {
+            margin-right: 6px;
+        }
+
+        .tau-active-item > & {
+            display: block;
+        }
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+
+        .category-assignments__item--program & {
+
+            .tau-checkbox__label {
+                padding-left: 61px;
+                align-items: baseline;
+            }
+
+            .tau-checkbox__icon,
+            input[type="checkbox"] {
+                left: 35px;
+            }
+        }
+
+        .tau-node &:before {
+            content: '';
+            display: block;
+            width: $gIconsSizeDefault;
+            height: $gIconsSizeDefault;
+            position: absolute;
+            top: 6px;
+            left: 7px;
+            background: svg("b-caret", "[fill]: $gFontColorDefault") center center no-repeat;
+            transition: transform 0.1s ease-out;
+        }
+
+        .tau-node.category-assignments__item--collapsed &:before {
+            transform: rotate(-90deg);
+
+        }
+    }
+
+    &__level {
+        padding: 0 0 0 28px;
+
+        &__link {
+            margin: 3px 0 2px 0;
+            line-height: 16px;
+            font-weight: 600;
+
+            &.tau-checkbox__label__text {
+                flex-grow: 0;
+            }
+        }
+
+        &__count {
+            flex-shrink: 0;
+            display: flex;
+            align-items: baseline;
+            margin: 0 5px 0 3px;
+        }
+
+        .category-assignments__item--collapsed & {
+            display: none;
+        }
+
+        .category-assignments__item--collapsed.category-assignments__item--filtered-true & {
+            display: block;
+        }
+
+        .category-assignments__item:hover {
+            > .category-assignments__selecttrigger,
+            > .category-assignments__viewtrigger,
+            > .category-assignments__selectrelatedtrigger {
+                display: block;
+            }
+        }
+    }
+
+    .tau-setup & {
+
+        &__list {
+            width: 230px;
+            box-shadow: -2px 0 0 -1px $gHighlightBlockBorderColor inset;
+        }
+
+        &__item {
+
+            .category-assignments__item__settings,
+            .category-assignments__item__delete {
+                margin-right: 7px;
+            }
+
+            &.tau-active {
+
+                &:after {
+                    display: block;
+                }
+
+                .category-assignments__item__settings {
+                    display: none;
+                }
+
+                .category-assignments__item__delete {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+

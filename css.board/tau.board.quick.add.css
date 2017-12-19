@@ -1,0 +1,56 @@
+$boardCompositeViewAddButtonHolderHeight: 29px;
+
+/* region Quick Add in aside header */
+.general-add-button-holder {
+    background-color: $gBoardPanelBackgroundDarker;
+    box-sizing: border-box;
+    height: 46px;
+    padding: 8px 20px 0 7px;
+    position: relative;
+    z-index: 20;
+    border-right: 1px solid color($gBoardPanelBackgroundDarker shade(40%));
+
+    .tau-app-body.tau-sp-collapsed & {
+        padding: 8px 4px 0;
+
+        .tau-btn-quick-add .tau-btn__text {
+            display: none;
+        }
+    }
+}
+
+/* endregion */
+
+/* region Quick Add in board cells */
+.board-add-button-holder {
+    z-index: 10;
+
+    .tau-board-grid-view > & {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1em;
+        height: 1em;
+    }
+
+    .tau-board-composite-view & {
+        z-index: 1;
+        position: relative;
+        flex-shrink: 0;
+        line-height: 0;
+
+        width: 100%;
+        height: $boardCompositeViewAddButtonHolderHeight;
+    }
+
+    .tau-btn-quick-add {
+        opacity: 0.65;
+
+        &:hover,
+        &--expand {
+            opacity: 1;
+        }
+    }
+}
+
+/* endregion */

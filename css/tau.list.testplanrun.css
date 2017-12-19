@@ -1,0 +1,27 @@
+.tau-list__table__cell-stat .tau-testCasesRunResults {
+    padding: 0;
+}
+
+.tau-list__table__cell-additionalactions .tau-action {
+    display: block;
+}
+
+.tau-list__table__cell-additionalactions .tau-action-run .tau-action__icon,
+.tau-list__table__cell-additionalactions .tau-action-newrun .tau-action__icon {
+    width: 8px;
+    height: 11px;
+    vertical-align: baseline;
+    padding-right: 4px;
+    background: url('images/icons/run.gif') transparent no-repeat;
+    display: inline-block;
+}
+
+.i-print .tau-list__table__cell-additionalactions {
+    display: none;
+}
+
+.tau-list__list__item-testcaserun .tau-list-priority-high {
+    background: none;
+    color: $gFontColorAttention;
+    padding: 0;
+}

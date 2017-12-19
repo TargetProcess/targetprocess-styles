@@ -1,0 +1,47 @@
+.tau-bubble-newlist-editor {
+    .tau-effort {
+        box-sizing: border-box;
+        font-size: 12px;
+    }
+
+    .tau-effort__group--editable {
+        outline: 0;
+        cursor: pointer;
+    }
+
+    .tau-effort__group {
+        padding-right: 10px;
+
+        form,
+        span {
+            display: inline-block;
+        }
+    }
+
+    .tau-effort__group_state_edit,
+    .tau-effort__group--editable:focus,
+    .tau-effort__group--editable:hover {
+        background-color: $gActionBackgroundHover;
+    }
+
+    .tau-effort form {
+        padding-top: 1px;
+    }
+
+    .tau-time__grouptitle,
+    .tau-effort__grouptitle {
+        min-width: 30px;
+        outline: none;
+        padding: 8px 8px 8px 12px;
+    }
+
+    .tau-bubble-newlist-editor-effort .tau-bubble__inner {
+        min-width: 50px;
+    }
+
+    .tau-effort .tau-effort__divider {
+        height: 2px;
+        border-bottom: 1px solid $gHighlightBlockBorderColor;
+        margin: 0 5px;
+    }
+}

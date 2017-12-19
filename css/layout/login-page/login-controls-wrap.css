@@ -1,0 +1,36 @@
+.login-controls-wrap {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    color: $gFontColorLightGray;
+    font-size: 13px;
+    
+    a {
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+
+    a {
+        font-weight: 600;
+    }
+    
+    .login-button {
+        margin-bottom: 20px;
+    }
+
+    .login-button:not(:last-child) {
+        margin-right: 15px;
+    }
+
+    .login-button-wrap {
+        position: relative;
+    }
+
+    .login-button-text {
+        margin: -20px 25px 0 10px;
+        display: inline-block;
+    }
+}

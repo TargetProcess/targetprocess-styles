@@ -1,0 +1,236 @@
+/* region Search results popup--*/
+
+.tau-search-popup {
+    padding: 0;
+
+    > .tau-app > .tau-app-body {
+        top: 0;
+    }
+}
+
+.tau-search-result {
+    &__header {
+        background: $gHighlightBlockBackground;
+        padding: 15px 20px;
+        margin-bottom: 10px;
+        border-bottom: solid 1px $gHighlightBlockBorderColor;
+        font-size: 13px;
+
+        .ui-popup &{
+            border-radius: $gBorderRadiusDefault $gBorderRadiusDefault 0 0;
+        }
+    }
+    &__wrap {
+        position: relative;
+    }
+
+    &__settings {
+        padding-top: 15px;
+        transition: all 0.4s;
+        display: flex;
+        align-items: center;
+
+        .tau-search-no-filter & {
+            visibility: hidden;
+            height: 0;
+            padding-top: 0;
+            opacity: 0;
+            transition: all 0.4s;
+        }
+
+        &__title,
+        &__item {
+            margin-right: 5px;
+
+            &.full-context-checkbox {
+
+                display: flex;
+                align-items: center;
+            }
+
+            .full-context-checkbox__icon {
+                margin-left: 5px;
+            }
+        }
+    }
+
+    &__list {
+        position: absolute;
+        top: 96px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: auto;
+        transition: top 0.4s;
+
+        .tau-search-no-filter & {
+            top: 56px;
+            transition: top 0.4s;
+        }
+
+        .tau-search-result__paging {
+            margin: 0 20px;
+        }
+    }
+
+    &__item {
+        padding: 15px 20px;
+        border-bottom: solid 1px $gHighlightBlockBorderColor;
+        font-size: 13px;
+
+        &:after {
+            content: '';
+            display: table;
+            width: 100%;
+            clear: both;
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &--error,
+        &--notification{
+            padding-top: 5px;
+        }
+
+        &--error {
+            background-color: $gActionBackgroundDelete;
+        }
+        &--notification {
+            background-color: $gActionBackgroundSystem;
+        }
+
+    }
+
+    &__content {
+        width: 70%;
+        padding-right: 2%;
+        float: left;
+
+        .tau-header {
+            span:not(.tau-search-highlight),
+            a {
+                margin-right: 10px;
+            }
+        }
+
+        .tau-body {
+            padding: 10px 0 0 20px;
+            line-height: 18px;
+            overflow: hidden;
+        }
+
+        .tau-body--teststep p {
+            float: left;
+            padding-right: 20px;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0 0 5px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: $gFontColorDefault;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        p .more-matches {
+            white-space: nowrap;
+        }
+
+        .tau-teststep {
+            display: table;
+            border-spacing: 10px 0;
+
+            &__runorder {
+                display: table-cell;
+                color: $gFontColorLightGray;
+            }
+
+            p {
+                display: table-cell;
+                width: 50%;
+            }
+        }
+
+    }
+
+    &__info {
+        width: 28%;
+        float: left;
+        line-height: 18px;
+        font-size: 11px;
+
+        &__row {
+            padding: 4px 7px;
+
+            &--done-entity {
+                background-color: $gCardDoneStateBackground;
+            }
+
+            span {
+                vertical-align: middle;
+                margin-right: 2px;
+            }
+        }
+
+        &__caption {
+            display: inline-block;
+            vertical-align: top;
+            width: 20%;
+            padding: 0 5px 0 0;
+            color: $gFontColorLightGray;
+        }
+
+        &__txt {
+            display: inline-block;
+            vertical-align: top;
+            width: 77%;
+
+            &__assigned-team {
+                overflow: hidden;
+                display: inline-block;
+                max-width: 100%;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+
+                &:not(:last-child) {
+                    margin-right: 8px;
+                }
+            }
+        }
+    }
+
+    &__cf {
+        &__name {
+            display: inline-block;
+            color: $gFontColorLightGray;
+            margin-right: -15px;
+        }
+
+        &__value {
+            display: inline-block;
+            padding: 5px 0 0 20px;
+        }
+    }
+
+    &__entity-icon{
+        display: inline-block;
+    }
+}
+
+/* endregion */
+

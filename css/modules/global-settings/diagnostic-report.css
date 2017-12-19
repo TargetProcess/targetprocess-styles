@@ -1,0 +1,239 @@
+.diagnostic-report {
+    font-size: $gFontSize;
+    color: $gFontColorDefault;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+
+    box-sizing: border-box;
+    justify-content: space-between;
+    height: 100%;
+
+    &__title {
+        font-size: 16px;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+
+    &__body {
+        overflow: auto;
+        padding: 35px 10px 0 35px;
+        margin-bottom: 20px;
+    }
+
+    &__loader {
+
+        &__body {
+            display: flex;
+            align-items: center;
+            padding-bottom: 10px;
+        }
+
+        &__icon {
+            display: flex;
+            align-items: center;
+            margin-right: 6px;
+        }
+    }
+
+    &__link {
+        margin-bottom: 18px;
+        display: inline-flex;
+        border-bottom: dotted 1px $gFontColorLightGray;
+
+        &:hover {
+            border-bottom-color: transparent;
+            cursor: pointer;
+        }
+    }
+
+    &__controls {
+        border-top: 1px solid #fff;
+        padding: 15px;
+        align-items: center;
+
+        &__textarea {
+            margin-bottom: 15px;
+
+            > textarea {
+                margin: 0;
+                width: 700px;
+                height: 40px;
+                resize: vertical;
+                max-height: 300px;
+            }
+        }
+    }
+
+    p {
+        margin: 0 0 18px 0;
+    }
+
+    &--settings {
+        justify-content: flex-start;
+
+        .diagnostic-report__body {
+            overflow: auto;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .diagnostic-report__controls {
+            padding: 0 0 20px 0;
+        }
+    }
+
+    &__result {
+        overflow-y: auto;
+        display: flex;
+        align-items: flex-start;
+
+        &__column {
+            flex: 1 1 auto;
+            max-width: 50%;
+        }
+
+        &__item {
+            background: $gBackgroundDefault;
+            border-radius: $gBorderRadiusDefault;
+            padding: 15px 15px 10px 15px;
+            margin: 15px 15px 15px 0;
+            box-sizing: border-box;
+            border: solid 1px $gHighlightBlockBorderColor;
+            font-size: $gFontSize;
+        }
+
+        &__title,
+        &__link {
+            margin-bottom: 10px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+
+            a {
+                color: $gFontColorDefault;
+            }
+        }
+
+        &__title {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+
+            &__text {
+                margin-left: 6px;
+            }
+
+            &__icon {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        &__table {
+            display: table;
+            table-layout: fixed;
+            width: 100%;
+        }
+
+        &__row {
+            display: table-row;
+
+            &__json {
+                word-wrap: break-word;
+                max-width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                margin: 15px 0;
+            }
+
+            &.space {
+                .diagnostic-report__result__th,
+                .diagnostic-report__result__td {
+                    padding-bottom: 10px;
+                }
+            }
+
+            .diagnostic-report__result__row > .diagnostic-report__result__td:first-child {
+                white-space: nowrap;
+                min-width: 60px;
+                width: 110px;
+            }
+        }
+
+        &__th,
+        &__td {
+            display: table-cell;
+            padding: 0 0 5px 0;
+            vertical-align: top;
+        }
+
+        &__th {
+            font-weight: 600;
+            min-width: 85px;
+            width: 120px;
+        }
+
+        &__td {
+            padding-left: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            position: relative;
+
+            &:first-child {
+                padding-left: 0;
+            }
+        }
+
+        &__version {
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .tau-version {
+            flex-shrink: 0;
+            font-size: 9px;
+            line-height: 13px;
+            letter-spacing: 1px;
+            font-style: normal;
+            margin: 0 0 0 5px;
+            padding: 1px 2px;
+            min-width: 12px;
+            text-align: center;
+            text-transform: uppercase;
+            color: $gFontColorWhite;
+            background: $gIconsGeneralColor;
+
+            &--lite {
+                background-color: color($gFontColorSuccess a(10%));
+                color: $gFontColorSuccess;
+            }
+        }
+
+        .tau-version-txt {
+            text-overflow: ellipsis;
+            max-width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    }
+
+    &__activity-log {
+        font-size: 11px;
+
+        .diagnostic-report__result__td {
+            width: 70px;
+
+            &:last-child {
+                width: auto;
+            }
+        }
+    }
+
+    &__note {
+        color: $gFontColorLightGray;
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+}

@@ -1,0 +1,84 @@
+.tau-load-progress__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1000000;
+    background: white;
+    overflow: hidden;
+}
+
+.tau-load-progressbar__wrap {
+    width: 100%;
+    top: 0;
+    position: absolute;
+}
+
+.tau-load-progressbar {
+    width: 100%;
+    height: 2px;
+    background-color: #e1e5eb;
+}
+
+.tau-load-progressbar__marker {
+    height: 2px;
+    background-color: #3EBEED;
+    width: 0;
+}
+
+.tau-load-progress-content__wrap {
+    position: absolute;
+    height: 400px;
+    width: 100%;
+    top: 50%;
+    margin-top: -200px;
+}
+
+.tau-load-progress-logo-content__wrap {
+    position: relative;
+    height: 400px;
+    width: 400px;
+    left: 50%;
+    margin-left: -200px;
+}
+
+.tau-load-progress-logo {
+    margin-left: 130px;
+    margin-top: 100px;
+    width: 140px;
+    height: 140px;
+}
+
+.tau-load-activity-text, .tau-load-activity-note, .tau-load-activity-warning {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 11px;
+}
+
+.tau-load-activity-text {
+    top: 270px;
+    opacity: 0.6;
+}
+
+.tau-load-activity-note {
+    top: 300px;
+}
+
+.tau-load-activity-warning {
+    top: 360px;
+}
+
+.tau-load-progress-motd {
+    text-align: center;
+    font-size: 28px;
+}
+
+.tau-logo-line-disabled {
+    stroke: #F2F2F2;
+}
+
+.tau-prefetcher-present {
+    overflow: hidden;
+}

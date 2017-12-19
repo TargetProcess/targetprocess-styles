@@ -1,0 +1,36 @@
+.login-logo {
+    flex-shrink: 0;
+    padding: 30px 60px 20px 60px;
+    display: flex;
+    align-items: center;
+
+    @media only screen and (max-width: 500px) {
+        padding: 20px 30px 10px 30px;
+    }
+
+    @media only screen and (max-width: 350px) {
+        padding: 20px 20px 10px 20px;
+    }
+
+    &__tp {
+        position: relative;
+        top: -5px;
+        margin-right: 20px;
+    }
+    
+    &__tagline {
+        margin-right: 20px;
+
+        @media only screen and (max-width: 350px) {
+            display: none;
+        }
+    }
+
+    &__hd {
+        font-weight: 600;
+        padding: 10px 0 10px 20px;
+        border-left: solid 1px #ccc;
+        white-space: nowrap;
+    }
+
+}

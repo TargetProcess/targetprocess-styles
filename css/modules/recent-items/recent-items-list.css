@@ -1,0 +1,146 @@
+$recentItemsListItemsHoverBackground: linear-gradient(color($gActionBackgroundSelected a(30%)), color($gActionBackgroundSelected a(30%)));
+$recentItemsListItemsDone: color($gCardDoneStateBackground tint(15%));
+$recentItemsBorderColor: color($gBoardBorderColor a(25%));
+$recentItemsBorderColorLastChild: color($gBoardBorderColor a(50%));
+
+.recent-items-list {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+
+    &__items {
+        display: table-row;
+        cursor: pointer;
+
+        &__elems {
+            border: 1px solid $recentItemsBorderColor;
+            border-width: 1px 0 1px 0;
+            display: table-cell;
+            vertical-align: top;
+            padding: 6px 3px;
+            min-width: 16px;
+
+            &__content {
+                display: inline-block;
+                vertical-align: baseline;
+                position: relative;
+
+                &--icon {
+                    display: flex;
+                    align-items: center;
+                }
+            }
+
+
+            &:first-child {
+                padding-left: 5px;
+            }
+
+            &:last-child {
+                padding-right: 6px;
+            }
+
+            &--owner &__content {
+                position: relative;
+                top: 1px;
+            }
+
+            &--name {
+                position: relative;
+                width: 100%;
+            }
+
+            &--name &__content {
+                position: absolute;
+                padding-top: 2px;
+                max-width: 100%;
+            }
+
+            &--id {
+                text-align: right;
+                min-width: 32px;
+                padding-left: 4px;
+            }
+
+            &--entity-icon {
+                min-width: 30px;
+            }
+
+        }
+
+        &:hover &__elems {
+            background: $recentItemsListItemsHoverBackground;
+        }
+
+        &:active,
+        &.active {
+            background: $gActionBackgroundActive;
+        }
+
+        &:first-child &__elems {
+            border-top-color: $recentItemsBorderColorLastChild;
+        }
+
+        &:last-child &__elems {
+            border-bottom-color: $recentItemsBorderColorLastChild;
+        }
+
+        /* region modificator &--lost, &--old */
+        &--lost,
+        &--old {
+
+            .recent-item-time {
+                color: $gFontColorGray;
+            }
+        }
+        /* endregion modificator &--lost, &--old */
+
+        /* region modificator &--old */
+
+        &--old {
+
+            .recent-item-mark-read {
+                visibility: hidden;
+            }
+        }
+        /* endregion modificator  &--old */
+
+        /* region modificator &--lost */
+
+        &--lost {
+            cursor: default;
+
+            .recent-item-mark-read {
+                visibility: hidden;
+            }
+
+            &:active,
+            &.active {
+                background: none;
+            }
+
+        }
+
+        &--lost &__elems__content {
+            opacity: 0.4;
+        }
+
+        &--lost &__elems__content--icon {
+            opacity: 1;
+        }
+
+        &--lost:hover &__elems {
+            background: none;
+        }
+
+        /* endregion modificator &--lost */
+
+        &--final-state {
+            background: $recentItemsListItemsDone;
+        }
+
+        &--not-open {
+            font-weight: 600;
+        }
+    }
+}

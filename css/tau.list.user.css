@@ -1,0 +1,279 @@
+.tau-tab-content > .tau-tab-pane {
+    display: none;
+}
+
+.tau-tab-content > .tau-tab-pane.tau-active {
+    display: block;
+}
+
+
+/* region Team-Project tab in user view */
+.tau-teamsProjects-tab {
+    padding: 15px 0;
+
+    &:after {
+        display: block;
+        clear: both;
+        content: '';
+    }
+
+    .assignments-tab {
+        max-width: 50%;
+    }
+
+    .tau-half-col {
+        width: 47%;
+        float: right;
+
+        .assignments-tab {
+            max-width: 100%;
+        }
+
+        &:first-child {
+            width: 51%;
+            float: left;
+        }
+    }
+
+    .tau-actions {
+        display: flex;
+        align-items: center;
+        padding: 0 0 18px 0;
+        color: $gFontColorLightGray;
+
+        div {
+            line-height: 24px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            padding: 0 7px;
+            cursor: pointer;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .tau-assign-btn {
+            color: $gFontColorDefault;
+
+            .tau-direction-icon {
+                background: svg("b-direction");
+                height: 16px;
+                width: 16px;
+                display: block;
+                margin-right: 5px;
+                position: relative;
+            }
+        }
+
+        .tau-active {
+            background-color: $gActionBackgroundActive;
+            border-radius: $gBorderRadiusDefault;
+            position: relative;
+
+            &:after {
+                display: block;
+                content: '';
+                width: 18px;
+                height: 10px;
+                position: absolute;
+                bottom: -19px;
+                background: url(images/tau-pointer.png) 0 0 no-repeat;
+                margin-left: -4px;
+                z-index: 20;
+            }
+
+            .tau-direction-icon {
+                background: svg("t-direction","[fill]: #000");
+            }
+        }
+
+        .tau-new-btn {
+            color: $gActionColorAdd;
+
+            span {
+                background: svg("add", "[fill]: $gActionColorAdd");
+                display: block;
+                width: 16px;
+                height: 16px;
+                margin-right: 5px;
+            }
+
+            &.tau-active {
+                color: $gFontColorDefault;
+
+                span {
+                    background: svg("add", "[fill]: #000");
+                }
+            }
+        }
+
+
+        i {
+            font-style: normal;
+            font-size: 14px;
+            padding: 0 9px;
+            position: relative;
+            top: -1px;
+        }
+    }
+
+    .category-assignments {
+        max-height: calc(100vh - 400px);
+        overflow: auto;
+    }
+}
+/* endregion */
+
+
+/* region Assignments control*/
+
+.assignments-control {
+    font-size: 16px;
+
+    &__team {
+        padding-left: 22px;
+        max-width: 175px;
+    }
+
+    .tau-pointer {
+        display: block;
+        width: 20px;
+        height: 9px;
+        position: absolute;
+        top: -9px;
+        left: 24px;
+        overflow: hidden;
+        z-index: 111;
+
+        &:after {
+            transform: rotate(45deg);
+            content: '';
+            border: solid 1px $gHighlightBlockBorderColor;
+            height: 14px;
+            position: absolute;
+            top: 3px;
+            left: 1px;
+            width: 14px;
+            background-color: $gBackgroundDefault;
+        }
+    }
+
+    &__search {
+        border-bottom: solid 1px $gHighlightBlockBorderColor;
+        position: relative;
+        background-color: $gHighlightBlockBackground;
+        padding: 13px 16px;
+        z-index: 20;
+
+        .tau-pointer:after {
+            background-color: $gHighlightBlockBackground;
+        }
+
+    }
+
+    .assignments-tab {
+        border: solid 1px $gHighlightBlockBorderColor;
+        margin-bottom: 18px;
+
+        &--use-filter {
+            z-index: 20;
+            position: relative;
+            box-shadow: 0 -8px 0 0 #fff;
+        }
+
+        &__body {
+            padding: 16px;
+            position: relative;
+
+            .tau-button-wrap {
+                padding-top: 16px;
+            }
+        }
+    }
+
+    .tau-new-entity-form {
+        margin-bottom: 20px;
+        padding: 16px;
+    }
+
+    .tau-new-entity-holder {
+        display: none;
+        max-width: 50%;
+        margin-bottom: 18px;
+    }
+}
+
+/* endregion */
+
+.tau-teamsProjects-tab .tau-dropdown-toggle.tau-editable {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.tau-teamsProjects-tab .tau-dropdown-toggle.tau-editable > i{
+    max-width: 100%;
+}
+
+.tau-dropdown-toggle {
+    font-size: 13px;
+    white-space: nowrap;
+    color: $gFontColorGray;
+    line-height: 1.53846em;
+    padding-right: 0.875em;
+    vertical-align: top;
+}
+
+.tau-dropdown-toggle.tau-editable {
+    cursor: pointer;
+    border-bottom: none;
+}
+
+.tau-dropdown-toggle > * {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.tau-teamsProjects-tab .tau-dropdown-toggle i {
+    display: inline-block;
+    max-width: 120px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-style: normal;
+}
+
+/* region of Messages */
+.assignments-tab__message {
+    color: $gFontColorLightGray;
+    font-size: 13px;
+    display: none;
+
+    .tau-empty & {
+        display: block;
+
+        .i-role-message-not-found {
+            display: none;
+        }
+    }
+
+    .tau-managed-category_filtered_none & {
+        display: block;
+
+        .i-role-message-no-items {
+            display: none;
+        }
+    }
+}
+
+.tau-managed-category_filtered_none .tau-managed-category__header {
+    display: none;
+}
+
+.tau-button-wrap {
+    .assignments-tab__body.tau-empty &,
+    .assignments-control.tau-managed-category_filtered_none & {
+        display: none
+    }
+}
+
+/* endregion */

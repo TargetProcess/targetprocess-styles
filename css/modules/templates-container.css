@@ -1,0 +1,21 @@
+.templates-container {
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    min-width: 1px;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+
+        &__search {
+            min-width: 200px;
+        }
+    }
+
+    &__wrap {
+        margin: 0;
+        z-index: 10;
+    }
+}

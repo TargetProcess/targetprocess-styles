@@ -1,0 +1,990 @@
+/* Burn-Down Report*/
+.tau-chart--burn-down-report {
+
+    .report-caption {
+        text-align: center;
+        padding: 10px 0 0 0;
+        position: relative;
+
+        &__title {
+            font-weight: 600;
+            color: $gFontColorGray;
+        }
+    }
+
+    .editableText:hover {
+        background: $gBackgroundDefault;
+    }
+
+    .forecast-section {
+
+        &__toggle {
+            padding: 5px 0 1px;
+            display: inline-block;
+        }
+
+        &__velocity {
+            padding-top: 5px;
+
+            &__text {
+                font-weight: 600;
+                color: $gFontColorGray;
+            }
+
+            &__control {
+                display: inline-flex;
+                align-items: center;
+                padding: 0 2px;
+            }
+
+            &__input {
+                display: inline-block;
+                width: 45px;
+                margin: 0 2px;
+            }
+        }
+    }
+
+    .tableTitle {
+        display: none;
+    }
+
+    .tau-chart-plot {
+        position: relative;
+        font-size: 12px;
+    }
+
+    .empty {
+        background-image: url("images/burn-down-empty.png");
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: 100%;
+        display: table-cell;
+        position: absolute;
+        width: 100%;
+    }
+
+    .empty .empty-text {
+        text-align: center;
+        vertical-align: middle;
+        position: absolute;
+        width: 100%;
+        top: 40%;
+    }
+
+    .empty .empty-text .first-line {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .empty .empty-text .second-line {
+        font-size: 14px;
+    }
+}
+
+/* Chart Filter Block */
+
+.iteration-bubble {
+    .tau-bubble__arrow[data-orientation=top]:after {
+        background-color: $gHighlightBlockBackground;
+    }
+
+    .parents {
+        background-color: $gHighlightBlockBackground;
+        border-bottom: solid 1px $gHighlightBlockBorderColor;
+        padding: 6px 10px;
+        font-size: 12px;
+        font-weight: 600;
+        border-radius: $gBorderRadiusDefault $gBorderRadiusDefault 0 0;
+    }
+
+    .tau-bubble__inner {
+        max-height: 500px;
+    }
+
+    ul {
+        padding: 0;
+        margin: 0;
+        overflow-y: auto;
+
+        li {
+            cursor: pointer;
+            list-style: none;
+            text-decoration: none;
+            font-weight: normal;
+            font-size: 12px;
+            padding: 3px 10px;
+
+            &:hover {
+                cursor: pointer;
+                background-color: $gActionBackgroundHover;
+            }
+        }
+    }
+
+    .more {
+        border-top: 1px solid $gHighlightBlockBorderColor;
+        padding: 5px 10px;
+
+        a {
+            color: $gFontColorGray;
+            cursor: pointer;
+            font-size: 11px;
+            text-decoration: none;
+            border-bottom: 1px dotted $gFontColorGray;
+        }
+    }
+}
+
+/*Burn Down charts*/
+.tau-chart--burn-down-report {
+    path {
+        fill: none;
+    }
+
+    line.xLine, line.yLine, line.xAxis, line.yAxis {
+        stroke: #E9F4FB;
+        stroke-width: 1;
+    }
+
+    line.idealLine {
+        stroke: #B2D77D;
+        stroke-width: 3;
+        stroke-dasharray: 5, 5;
+    }
+
+    line.forecastLine {
+        stroke: #DBE1E5;
+        stroke-width: 3;
+        stroke-dasharray: 5, 5;
+    }
+
+    line.lineChart {
+        stroke: #3BCAFF;
+        stroke-linecap: round;
+    }
+
+    circle.lineChartPoint {
+        stroke: #3BCAFF;
+        fill: #3BCAFF;
+        stroke-width: 0;
+    }
+
+    text.xLabel, text.yLabel {
+        fill: $gFontColorGray;
+    }
+
+    text.yLabel {
+        font-weight: 600;
+    }
+
+    text.xLabel {
+        font-size: 11px;
+    }
+
+    text.xLabel {
+        text-anchor: middle;
+    }
+
+    rect.lineChartPointHover, rect.lineChartPointHoverSelected {
+        fill: #3BCAFF;
+        cursor: pointer;
+    }
+
+    text.lineChartPointYCoordinate {
+        fill: #fff;
+        font-weight: bold;
+        text-anchor: middle;
+        font-size: 14px;
+    }
+
+    line.lineChartPointYLine {
+        stroke: #BAEAFF;
+        stroke-width: 1;
+        stroke-dasharray: 3, 3;
+    }
+
+    rect.lineChartPointYCoordinateRect {
+        fill: #3BCAFF;
+        stroke: 0;
+        opacity: 0.8;
+    }
+
+    text.yLabel {
+        text-anchor: end;
+    }
+
+}
+
+/* chart-bubble */
+
+.chart-bubble {
+    display: block;
+    width: 400px;
+
+    .date {
+        background-color: $gHighlightBlockBackground;
+        border-bottom: 1px solid $gHighlightBlockBorderColor;
+
+        width: 100%;
+        height: 32px;
+        padding: 9px 8px 0 8px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+        box-sizing: border-box;
+        border-radius: 5px 5px 0 0;
+    }
+
+    &__table {
+        width: 100%;
+        border-collapse: collapse;
+
+        td {
+            text-align: left;
+            padding: 8px 5px 6px 5px;
+
+            &.nopadding {
+                padding: 0;
+            }
+        }
+    }
+
+    .indicator-small {
+        height: 22px;
+        line-height: 22px;
+        font-weight: 600;
+        display: inline-block;
+        font-size: 14px;
+        margin: 0;
+        padding: 0 8px 0 8px;
+        text-align: center;
+        width: auto;
+        position: relative;
+        top: -1px;
+        border-radius: 15px;
+
+        &.add {
+            color: $gFontColorDefault;
+            background: #ff9900;
+        }
+
+        &.remove {
+            color: $gFontColorWhite;
+            background: #166359;
+        }
+
+        &.complete {
+            color: $gFontColorWhite;
+            background: #acd473;
+        }
+
+        &.yesterday {
+            background: #fddc56;
+        }
+    }
+
+    .remain {
+        font-size: 11px;
+        font-weight: normal;
+        padding: 5px 5px 5px 15px;
+
+        &.today {
+            font-size: 14px;
+            font-weight: normal;
+            padding: 5px 5px 5px 10px;
+
+        }
+    }
+
+    .remain-text {
+        font-size: 11px;
+        font-weight: normal;
+        color: $gFontColorDefault;
+
+        &.today {
+            font-size: 14px;
+            font-weight: normal;
+            padding: 5px 5px 5px 0;
+        }
+    }
+
+    .yesterday-text {
+        font-size: 14px;
+        font-weight: normal;
+        color: $gFontColorGray;
+    }
+
+    .complete-text {
+        font-size: 14px;
+        font-weight: normal;
+        color: $gFontColorGray;
+    }
+
+    .collapse-block {
+        border-bottom: 1px solid $gHighlightBlockBorderColor;
+        cursor: pointer;
+
+        &:hover {
+            td {
+                background-color: $gBackgroundStrokeHighlight;
+                cursor: pointer;
+            }
+
+            .yesterday-text,
+            .complete-text {
+                &:after {
+                    border-color: transparent #445566;
+                }
+            }
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        .yesterday-text,
+        .complete-text {
+            position: relative;
+
+            &:after {
+                position: absolute;
+                right: 7px;
+                top: 50%;
+                width: 0;
+                content: '';
+                height: 0;
+                margin-top: -5px;
+
+                border-color: transparent #b0b0b0;
+                border-style: solid;
+                border-width: 5px 0 5px 5px;
+            }
+        }
+    }
+
+    .noncollapse-block {
+        border-bottom: 1px solid #f5f6f7;
+        cursor: default;
+
+        &:hover {
+            background: #f9f9f9;
+            cursor: default;
+        }
+    }
+
+    .ui-state-active {
+
+        .yesterday-text,
+        .complete-text {
+            &:after {
+                right: 5px;
+                margin-top: -3px;
+
+                border-color: #b0b0b0 transparent transparent;
+                border-width: 5px 5px 0;
+
+            }
+        }
+
+        &:hover {
+            .yesterday-text,
+            .complete-text {
+                &:after {
+                    border-color: #445566 transparent transparent;
+                }
+
+            }
+        }
+    }
+
+    .inner {
+        display: block;
+        padding: 5px 0;
+        width: 100%;
+        max-height: 200px;
+        overflow-y: auto;
+        position: relative;
+        background-color: $gHighlightBlockBackground;
+        border-top: 1px solid $gHighlightBlockBorderColor;
+        border-bottom: 1px solid $gHighlightBlockBorderColor;
+
+        .entity-indicator {
+            font-weight: 600;
+            display: inline-block;
+            font-size: 12px;
+            margin: 0;
+            padding: 0 4px 0 8px;
+            text-align: center;
+            width: auto;
+        }
+
+        .inner-task {
+            .entity-indicator {
+                font-weight: normal;
+            }
+
+            .task-time {
+                padding-left: 26px;
+            }
+        }
+    }
+
+    &__table--inner {
+        padding: 10px 5px;
+
+        td {
+            padding: 2px 0 2px 5px;
+
+            &.name {
+                width: 100%;
+
+                .name-overflow {
+                    overflow: hidden;
+                    height: 12px;
+                    line-height: 14px;
+                    padding: 3px 0 5px 0;
+                }
+            }
+        }
+
+        .inner-task td {
+            font-size: 11px;
+        }
+
+        &__link {
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+    }
+}
+
+/* IE/Win - Fix animation bug - #4615 */
+.ui-accordion {
+    width: 100%;
+}
+
+.ui-accordion .ui-accordion-header {
+    cursor: pointer;
+    position: relative;
+    margin-top: 1px;
+    zoom: 1;
+}
+
+.ui-accordion .ui-accordion-li-fix {
+    display: inline;
+}
+
+.ui-accordion .ui-accordion-header-active {
+    border-bottom: 0 !important;
+}
+
+.ui-accordion .ui-accordion-header a {
+    display: block;
+    font-size: 1em;
+    padding: .5em .5em .5em .7em;
+}
+
+.ui-accordion-icons .ui-accordion-header a {
+    padding-left: 2.2em;
+}
+
+.ui-accordion .ui-accordion-header .ui-icon {
+    position: absolute;
+    left: .5em;
+    top: 50%;
+    margin-top: -8px;
+}
+
+.ui-accordion .ui-accordion-content {
+    padding: 1em 2.2em;
+    border-top: 0;
+    margin-top: -2px;
+    position: relative;
+    top: 1px;
+    margin-bottom: 2px;
+    overflow: auto;
+    zoom: 1;
+}
+
+/* legend */
+
+.tau-chart--burn-down-report {
+    .legend-wrapper {
+        font-size: 12px;
+        vertical-align: top;
+
+        &:after {
+            display: block;
+            content: ".";
+            clear: both;
+            font-size: 0;
+            line-height: 0;
+            height: 0;
+            overflow: hidden;
+        }
+
+    }
+
+    .legend-element {
+        display: block;
+        float: left;
+        margin-right: 40px;
+
+        &__img {
+            vertical-align: middle;
+            margin-right: 7px;
+            border: 1px solid $gHighlightBlockBorderColor;
+            height: 21px;
+            width: 31px;
+            display: inline-block;
+            background-repeat: no-repeat;
+        }
+
+        &__content {
+            margin: 0;
+            padding: 0;
+            color: $gFontColorGray;
+        }
+    }
+
+}
+
+.tau-chart--cumulative-flow-report {
+
+    .chart-container {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.cumulative-flow-chart {
+    height: 100%;
+
+    .empty {
+        height: 80%;
+        background-repeat: no-repeat;
+        background-image: url("images/cumulative-flow-empty.png");
+        display: table-cell;
+        position: absolute;
+    }
+}
+
+.cfd-tooltip {
+    padding: 15px 15px 12px;
+
+    &__header {
+        margin: 0 0 8px;
+
+        &__date-range {
+            font-weight: 600;
+        }
+    }
+
+    &__item {
+        &__value {
+            text-indent: 4px;
+            margin: 0 0 1px 10px;
+            padding: 3px 0 3px 1px;
+        }
+
+        &__arrow {
+            padding-left: 5px;
+            text-align: right;
+
+            &__val {
+                padding: 1px 0 1px 3px;
+            }
+            &__dir {
+                font-size: 1.2em;
+                position: relative;
+                top: -1px;
+                margin-left: 2px;
+            }
+        }
+    }
+}
+
+.tau-dashboard .cumulative-flow-chart .empty {
+    display: table;
+    background-position: center center;
+    width: 100%;
+
+    .empty-text {
+        display: table-cell;
+        line-height: 18px;
+        font-size: 13px;
+        color: #666;
+        text-align: center;
+        vertical-align: middle;
+    }
+}
+
+.img-actual-progress {
+    background-image: url("images/burndown/actual-progress.png");
+}
+
+.img-ideal-line {
+    background-image: url("images/burndown/ideal-line.png");
+}
+
+.img-forecast {
+    background-image: url("images/burndown/forecast-line.png");
+}
+
+*:not(.ui-popup-content) .tau-chart__wrap {
+    overflow-y: auto;
+}
+
+.tau-chart {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.tau-chart svg {
+    position: absolute;
+}
+
+.tau-chart svg text {
+    font-size: 12px;
+}
+
+.i-role-processControlChart svg line, .tau-chart svg text, .tau-chart svg path {
+    shape-rendering: crispedges;
+}
+
+.tau-chart-info {
+    position: relative;
+    padding: 0 20px 10px 20px;
+}
+
+.tau-chart-info:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.tau-chart-info-lcol {
+    float: left;
+    width: 70%;
+}
+
+.tau-chart-info-rcol {
+    float: left;
+    width: 30%;
+    padding-top: 15px;
+}
+
+.tau-chart-info-table {
+    display: table;
+    width: 100%;
+    height: 50px;
+}
+
+.tau-chart-info-lcell {
+    display: table-cell;
+    white-space: nowrap;
+    vertical-align: middle;
+    width: 20%;
+}
+
+.tau-chart-info-rcell {
+    display: table-cell;
+    vertical-align: middle;
+    padding-top: 10px;
+}
+
+.tau-chart-info__name {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1;
+    vertical-align: middle;
+
+}
+
+.tau-chart-info__description {
+    padding: 0 20px;
+    vertical-align: top;
+    font-size: 11px;
+    display: inline-block;
+}
+
+.tau-chart-tooltip .tau-bubble__inner {
+    min-width: inherit;
+    font-size: 11px;
+    padding: 3px 6px;
+}
+
+/*Common styles for new charts*/
+.tau-chart-plot .x g.axisLabel text {
+    text-anchor: middle;
+}
+
+.tau-chart-plot g.axisLabel text {
+    fill: $gFontColorGray;
+}
+
+.tau-chart-plot .additionalAxis {
+    stroke: #f0f2f4;
+}
+
+.tau-chart-plot .smallAxisTick {
+    stroke: #dadfe4;
+}
+
+.tau-chart-plot .axis path.domain {
+    stroke: #dadfe4;
+    fill: none;
+}
+
+.tau-chart-plot .axis .axisLabel line {
+    stroke: #E9F4FB;
+    opacity: 0.7 !important;
+}
+
+.tau-chart-plot text.axisLabel {
+    fill: $gFontColorLightGray;
+}
+
+.tau-chart-plot .empty {
+    background-repeat: no-repeat;
+    background-position: 50%;
+    display: table-cell;
+    position: absolute;
+    width: 100%;
+}
+
+.tau-chart-plot .empty .empty-text {
+    text-align: center;
+    vertical-align: middle;
+    color: $gFontColorGray;
+    position: absolute;
+    width: 100%;
+    top: 40%;
+}
+
+.tau-chart-plot .empty .empty-text .first-line {
+    font-size: 24px;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+
+.tau-chart-plot .empty .empty-text .second-line {
+    font-size: 14px;
+    padding-bottom: 5px;
+}
+
+/*Charts: common */
+rect.transparent {
+    fill: #ffffff;
+    fill-opacity: 0;
+    stroke: none;
+}
+
+/*Process Control Report*/
+.tau-process-control {
+    width: 100%;
+    height: 100%;
+}
+
+.tau-process-control .tau-chart-plot {
+    position: relative;
+}
+
+.tau-process-control .tau-chart-plot .empty {
+    background-image: url("images/process-control-empty.png");
+}
+
+.tau-process-control .scatterPlot circle {
+    stroke-width: 2;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.tau-process-control .scatterPlot path.highlighter {
+    opacity: 0.3;
+}
+
+.tau-process-control .limits line.median {
+    stroke-width: 1;
+}
+
+.tau-process-control .limits line.warning {
+    stroke-width: 2;
+    stroke-dasharray: 1, 2;
+}
+
+.tau-process-control .limits line.control {
+    stroke-dasharray: 4, 4;
+}
+
+text.limit {
+    cursor: pointer
+}
+
+/* Burn-down summary */
+.tau-summaryPopup {
+    font-size: 12px;
+    overflow: hidden;
+    margin: 5px;
+}
+
+.tau-summaryPopup .tau-bubble__inner {
+    min-width: 150px;
+    padding: 0;
+    position: relative;
+}
+
+.tau-summaryPopup .tau-bubble__arrow {
+    z-index: 1;
+}
+
+.tau-summaryPopup .tau-bubble__arrow[data-orientation=top]:after {
+    background-color: $gHighlightBlockBackground;
+}
+
+.tau-summaryPopup__control-close {
+    background: url("images/close.png") no-repeat scroll left center transparent;
+    cursor: pointer;
+    display: block;
+    height: 14px;
+    position: absolute;
+    outline: none;
+    width: 14px;
+    right: -5px;
+    top: -5px;
+    z-index: 1001;
+}
+
+.tau-summaryPopup ._entity-ref {
+    font-size: 12px;
+}
+
+/* Time distribution */
+.tau-cycle-time-distribution .tau-chart-plot .empty {
+    background-image: url("images/cycle-time-distribution-empty.png");
+}
+
+.tau-cycle-time-distribution .tau-chart-plot {
+    position: relative;
+}
+
+.tau-cycle-time-distribution rect {
+    cursor: pointer;
+    fill-opacity: 0.3;
+}
+
+.tau-cycle-time-distribution .top line {
+    stroke-linecap: butt;
+    stroke-width: 2;
+}
+
+.tau-cycle-time-distribution rect {
+    stroke: none;
+}
+
+.tau-cycle-time-distribution .probability path {
+    stroke-opacity: 0.5;
+    fill: none;
+}
+
+div.hover.tau-chart-tooltip {
+    padding-left: 3px;
+    background-color: $gBackgroundDefault;
+    color: $gFontColorLightGray;
+    font-size: 0.688em;
+}
+
+.tau-cycle-time-distribution path.hover {
+    stroke: #dadfe4;
+    font-size: 0.688em;
+    fill: none;
+}
+
+/* Relations Network */
+.tau-relations-network .tau-chart-plot {
+    background-color: #f4f4f4;
+    border-collapse: separate;
+}
+
+.tau-relations-network .tau-chart-plot .empty {
+    background-position: 50% 54%;
+    background-image: url("images/relations-network-empty.png");
+}
+
+.tau-relations-network .tau-chart-plot {
+    position: relative;
+}
+
+.tau-relations-network .blocker {
+    stroke-width: 2;
+    stroke: #bd0010;
+}
+
+.tau-relations-network .relation {
+    stroke: #aaa;
+}
+
+.tau-relations-network .linkRelation {
+    stroke: #36AB45;
+}
+
+.tau-relations-network .dependency {
+    stroke: #000000;
+}
+
+.tau-relations-network defs path {
+    stroke: none;
+}
+
+.tau-relations-network defs .relation {
+    fill: #666;
+}
+
+.tau-relations-network defs .linkRelation {
+    fill: #36AB45;
+}
+
+.tau-relations-network defs .dependency {
+    fill: #000000;
+}
+
+.tau-relations-network defs .blocker {
+    fill: #bd0010;
+}
+
+.tau-relations-network .tau-chart-box {
+    position: absolute;
+    padding: 1px;
+}
+
+.tau-relations-network .tau-card-v2 {
+    cursor: move;
+}
+
+.tau-relations-network .blocker-master .tau-card-v2 {
+    background-color: #fecece;
+}
+
+.tau-relations-network .tau-card-v2:before {
+    z-index: 0;
+}
+
+.tau-relations-network .tau-chart-focus .tau-card-v2, .tau-relations-network .tau-chart-focus .link {
+    opacity: 0.3;
+}
+
+.tau-relations-network .tau-chart-focus .tau-chart-focused {
+    opacity: 1;
+}
+
+.tau-relations-network .tau-relations {
+    display: none;
+}
+

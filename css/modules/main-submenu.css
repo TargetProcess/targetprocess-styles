@@ -1,0 +1,89 @@
+.main-submenu {
+    padding: $gDropdownPadding;
+    font-size: $gFontSize;
+
+    &__group {
+        border: solid $gHighlightBlockBorderColor;
+        border-width: 1px 0;
+
+        padding: $gDropdownGroupPadding 0;
+        margin: $gDropdownGroupPadding 0;
+
+        &__title {
+            line-height: 1;
+            margin-bottom: 2px;
+            font-size: 11px;
+            color: $gFontColorGray;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: $gDropdownItemPaddingVertical $gDropdownItemPaddingHorizontal 0;
+
+            &--highlight {
+                color: $gFontColorSuccess;
+            }
+        }
+    }
+
+    &__group + &__group,
+    &__group:first-child {
+        margin-top: 0;
+        padding-top: 0;
+        border-top-width: 0;
+    }
+
+    &__item {
+        padding: $gDropdownItemPaddingVertical $gDropdownItemPaddingHorizontal;
+
+        &:hover:not(.main-submenu__item--not-action) {
+            cursor: pointer;
+            background-color: $gActionBackgroundHover;
+        }
+
+
+        &.tau-menu-item-disabled {
+            cursor: default;
+            text-decoration: none;
+            background: transparent;
+        }
+
+        &--user-name {
+            font-weight: 600;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+
+
+        }
+
+        &.main-submenu__item--logout-link {
+            &:hover {
+                background-color: $gActionBackgroundDelete;
+            }
+
+            a {
+                color: $gActionColorDelete;
+                text-decoration: none;
+            }
+        }
+
+        &__text {
+            white-space: nowrap;
+            font-weight: 600;
+        }
+
+        &__info {
+            font-size: 11px;
+            color: $gFontColorGray;
+        }
+
+        &__button {
+            margin-left: 10px;
+        }
+
+        > a:only-child {
+            display: block;
+            padding: $gDropdownItemPaddingVertical $gDropdownItemPaddingHorizontal;
+            margin: -$gDropdownItemPaddingVertical -$gDropdownItemPaddingHorizontal;
+        }
+    }
+}

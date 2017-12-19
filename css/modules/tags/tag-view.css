@@ -1,0 +1,52 @@
+.tag-view {
+    display: flex;
+    align-items: center;
+    padding: 3px 4px 3px 9px;
+    font-weight: normal;
+    text-decoration: none;
+    white-space: nowrap;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background-color: $gSelectedTagBackground;
+
+    &__content {
+        flex: 1 1 auto;
+        display: flex;
+        align-items: center;
+        min-height: 18px;
+        line-height: 18px;
+
+        &__text,
+        &__icon {
+            display: block;
+            margin-left: 3px;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+
+        &__text {
+            flex: 1 1 auto;
+            white-space: pre;
+        }
+
+        &__icon {
+            flex: 0 0 auto;
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    &__close-icon {
+        flex: 0 0 auto;
+        margin-left: 3px;
+        opacity: 0.6;
+        display: flex;
+        align-items: center;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

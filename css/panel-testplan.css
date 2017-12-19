@@ -1,0 +1,120 @@
+.tau-panel-testplan-details-header {
+
+    &.ui-collapsible-header {
+        cursor: default;
+    }
+
+    .ui-label {
+        margin-right: 4px;
+    }
+}
+
+.tau-panel-testplan-details {
+    &__item {
+        margin-left: 5px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+}
+
+.tau-panel-testplan__control {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.test-plan-run-results {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+
+    &__entity-counter {
+        margin-left: 15px;
+    }
+
+    &__item {
+        margin: 0 0 0 4px;
+    }
+
+    &__label {
+        color: $gFontColorGray;
+    }
+
+    &.active {
+        cursor: pointer;
+
+        &:hover {
+
+            .test-plan-run-results__label {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.tau-test-plans-counter {
+    display: flex;
+    align-items: center;
+
+    &__icon {
+        flex: 0 0 auto;
+        margin: 0 4px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0
+        }
+    }
+
+    &__text {
+        font-size: 12px;
+        color: $gFontColorGray;
+    }
+
+    &.active {
+        cursor: pointer;
+    }
+}
+
+.tau-bugs-counter {
+    display: flex;
+    align-items: center;
+
+    &__icon {
+        flex: 0 0 auto;
+        margin: 0 4px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0
+        }
+    }
+
+    &__text,
+    &__separator {
+        color: $gFontColorGray;
+    }
+
+    &__separator {
+        margin: 0 2px;
+    }
+
+    &.active {
+        cursor: pointer;
+
+        &:hover {
+
+            .tau-bugs-counter__text {
+                text-decoration: underline;
+            }
+        }
+    }
+}

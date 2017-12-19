@@ -1,0 +1,12 @@
+.ui-base-info-list-content .base-info-list td {
+    padding: 5px;
+}
+
+.base-info-list .unassigned-link {
+    color: $gActionColorDelete !important;
+}
+
+.ui-base-info-list-content .base-info-list td.action {
+    padding-left: 0;
+    text-align: right;
+}

@@ -1,0 +1,27 @@
+.field-container {
+    &__label {
+        font-size: 13px;
+        font-weight: normal;
+        margin: 0 0 3px 0;
+        display: block;
+    }
+
+    &.tau-required &__label:before {
+        content: '*';
+        display: inline-block;
+        width: 0.8em;
+        margin-left: -0.8em;
+        font-weight: 600;
+        color: $gFontColorAttention;
+    }
+
+    &--inline {
+        display: flex;
+        align-items: center;
+
+        .field-container__label {
+            margin: 0 5px 0 0;
+        }
+    }
+
+}

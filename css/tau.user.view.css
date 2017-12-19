@@ -1,0 +1,55 @@
+.tau-user-view {
+
+    .user-title,
+    .user-title.editableText {
+        color: $gFontColorDefault;
+        font-size: 2em;
+        font-weight: bold;
+        min-height: 1.3em;
+    }
+
+    .user-title.editableText:focus,
+    .user-title.editableText:empty {
+        min-width: 5em;
+    }
+
+    .user-title.editableText {
+        padding-left: 0.1em;
+        padding-right: 0;
+    }
+
+    .user-title.editableText.active,
+    .user-title.editableText:hover {
+        padding-right: 18px;
+    }
+
+    .user-title.editableText:empty:after {
+        color: $gFontColorLightGray;
+        content: attr(data-placeholder);
+    }
+
+    .user-title.editableText:focus:after {
+        display: none;
+    }
+
+    .tau-role,
+    .tau-last_login_date {
+        font-size: 14px;
+        margin-bottom: 0.5em;
+        margin-left: 0.5em;
+    }
+
+    .ui-sub-control {
+        padding: 1.4em 1em;
+    }
+
+    .email-block,
+    .login-block {
+        font-size: 1.2em;
+        padding: 0.5em 0;
+    }
+
+    .ab {
+        padding: 1em;
+    }
+}

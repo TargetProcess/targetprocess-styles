@@ -1,0 +1,17 @@
+.t3-icon-container {
+    position: absolute;
+    z-index: 20;
+    display: flex;
+    left: 12px;
+    top: 7px;
+
+    &--group {
+        top: 6px;
+        left: 8px;
+    }
+
+    .t3-hidden &,
+    .t3-inactive & {
+        opacity: 0.3;
+    }
+}

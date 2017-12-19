@@ -1,0 +1,33 @@
+.controls-group {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: -2px;
+
+    > .tau-icon-general,
+    > .tau-btn {
+        flex-shrink: 0;
+        flex-grow: 0;
+    }
+
+    > .tau-icon-general,
+    > .tau-btn,
+    > .tau-in-text,
+    > .tau-select,
+    > .tau-sorter,
+    > .boardsettings-filter  {
+        margin: 2px;
+
+        &:focus {
+            z-index: 2;
+        }
+
+        &.tau-checked {
+            z-index: 1;
+        }
+    }
+
+    .boardsettings-filter--active {
+        flex: 1 1 auto;
+    }
+}

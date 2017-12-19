@@ -1,0 +1,61 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+body {
+    font-family: $gFontFamily;
+    color: $gFontColorDefault;
+}
+
+img {
+	border: none;
+}
+
+input, button, textarea, select {
+	font-family: $gFontFamily;
+	color: $gFontColorDefault;
+	border-radius: 0;
+}
+
+a {
+	color: $gLinkColor;
+	text-decoration: none;
+	cursor: pointer;
+
+	&:hover {
+		color: $gLinkColorHover;
+	}
+}
+
+/* Text highlights */
+.tau-text-attention,
+a.tau-text-attention:visited {
+	color: $gFontColorAttention;
+}
+
+a.tau-text-attention:hover {
+	color: color($gFontColorAttention a(80%));
+}
+
+.tau-text-warning,
+a.tau-text-warning:visited {
+	color: $gFontColorWarning;
+}
+
+a.tau-text-warning:hover {
+	color: color($gFontColorWarning a(80%));
+}
+
+.tau-text-success,
+a.tau-text-success:visited {
+	color: $gFontColorSuccess;
+}
+
+a.tau-text-success:hover {
+	color: color($gFontColorSuccess a(80%));
+}
+

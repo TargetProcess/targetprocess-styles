@@ -1,0 +1,309 @@
+.ui-popup-overlay, .ui-widget-overlay {
+    display: none;
+    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    left: 0;
+    opacity: 1;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: $gOverlayZIndex;
+}
+
+.ui-popup {
+    display: none;
+    position: absolute; /* in general, it should be position:fixed, but IE glitches with scroll because of ms-transform */
+    top: 3%;
+    left: 3%;
+    right: 3%;
+    bottom: 3%;
+    background-color: $gBackgroundDefault;
+    padding: 15px 10px;
+    z-index: $gOverlayZIndex;
+    border-radius: $gBorderRadiusDefault;
+    box-shadow: 0 1px 3px #000;
+    transition: all .5s linear;
+}
+
+.ui-popup_gray {
+    background-color: $gHighlightBlockBackground;
+    padding: 0;
+    left: 50%;
+    margin: 0 -500px;
+    max-width: 1000px;
+    right: 50%;
+}
+
+.ui-popup_active_true,
+.ui-popup-overlay_active_true {
+    display: block;
+}
+
+.ui-popup .ui-popup-content {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.ui-popup .ui-popup-content.tau-app {
+    position: relative;
+}
+
+.ui-popup .ui-popup_frame {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border: 0;
+}
+
+.ui-popup .close {
+    background: url("images/close-popup-white.png") no-repeat;
+    display: block;
+    width: 30px;
+    height: 30px;
+    float: right;
+    position: absolute;
+    right: -15px;
+    top: -16px;
+    cursor: pointer;
+    z-index: 10001; /* z-index of .tau-loader inside .ui-popup plus 1 */
+}
+
+.ui-popup .close:hover {
+    background: url("images/close-popup-white.png") no-repeat;
+    display: block;
+    width: 30px;
+    height: 30px;
+    float: right;
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    cursor: pointer;
+}
+
+.ui-popup.ui-access-popup .close {
+    display: none;
+}
+
+/* Default popup styles */
+.tau-dialog-container {
+    overflow: visible;
+    position: absolute;
+    top: 2%;
+    bottom: 2%;
+    left: 2%;
+    right: 2%;
+    max-width: 98%;
+    background-color: $gBackgroundDefault;
+    padding-bottom: 16px;
+    background-clip: padding-box;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .4), inset 0 1px 0 rgba(255, 255, 255, .5);
+}
+
+.tau-dialog-container .ui-dialog-titlebar {
+    overflow: hidden;
+    padding: 15px;
+    border-radius: 6px 6px 0 0;
+    border-bottom: 1px solid $gHighlightBlockBorderColor;
+}
+
+.tau-dialog-container .ui-dialog-titlebar .ui-dialog-title {
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.tau-dialog-container .ui-dialog-titlebar .ui-dialog-titlebar-close {
+    float: right;
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    border: none;
+    background: url('images/popup/black-cross.png') 0 0 no-repeat transparent;
+}
+
+.tau-dialog-container .ui-dialog-titlebar .ui-dialog-titlebar-close .ui-button-text {
+    display: none;
+}
+
+.tau-dialog-container .ui-icon-gripsmall-diagonal-se {
+    display: block;
+    text-indent: -99999px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    float: right;
+    width: 16px;
+    height: 16px;
+    cursor: resize;
+    background-image: url('images/popup/resizable-handle.png');
+}
+
+.tau-dialog-container .ui-dialog-titlebar .subTitle {
+    font-size: 14px;
+    font-weight: bold;
+    color: $gFontColorGray;
+}
+
+/* tau-dialog-container resizable */
+.ui-resizable {
+    position: relative;
+}
+
+.ui-resizable-handle {
+    position: absolute;
+    font-size: 0.1px;
+    z-index: 99999;
+    display: block;
+}
+
+.ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle {
+    display: none;
+}
+
+.ui-resizable-n {
+    cursor: n-resize;
+    height: 7px;
+    width: 100%;
+    top: -5px;
+    left: 0;
+}
+
+.ui-resizable-s {
+    cursor: s-resize;
+    height: 7px;
+    width: 100%;
+    bottom: -5px;
+    left: 0;
+}
+
+.ui-resizable-e {
+    cursor: e-resize;
+    width: 7px;
+    right: -5px;
+    top: 0;
+    height: 100%;
+}
+
+.ui-resizable-w {
+    cursor: w-resize;
+    width: 7px;
+    left: -5px;
+    top: 0;
+    height: 100%;
+}
+
+.ui-resizable-se {
+    cursor: se-resize;
+    width: 12px;
+    height: 12px;
+    right: 1px;
+    bottom: 1px;
+}
+
+.ui-resizable-sw {
+    cursor: sw-resize;
+    width: 9px;
+    height: 9px;
+    left: -5px;
+    bottom: -5px;
+}
+
+.ui-resizable-nw {
+    cursor: nw-resize;
+    width: 9px;
+    height: 9px;
+    left: -5px;
+    top: -5px;
+}
+
+.ui-resizable-ne {
+    cursor: ne-resize;
+    width: 9px;
+    height: 9px;
+    right: -5px;
+    top: -5px;
+}
+
+/*tau-info-popup - styles for narrow popup*/
+.ui-popup.tau-info-popup {
+    top: 20%;
+    right: 25%;
+    left: 25%;
+    bottom: 20%;
+}
+
+@media screen and (min-width: 1600px) and (max-width: 1800px) {
+    .ui-popup.tau-info-popup {
+        left: 23%;
+        right: 23%;
+    }
+}
+
+@media screen and (min-width: 1500px) and (max-width: 1600px) {
+    .ui-popup.tau-info-popup {
+        left: 21%;
+        right: 21%;
+        top: 15%;
+        bottom: 15%;
+    }
+}
+
+@media screen and (min-width: 1400px) and (max-width: 1500px) {
+    .ui-popup.tau-info-popup {
+        left: 19%;
+        right: 19%;
+        top: 13%;
+        bottom: 13%;
+    }
+}
+
+@media screen and (min-width: 1300px) and (max-width: 1400px) {
+    .ui-popup.tau-info-popup {
+        left: 17%;
+        right: 17%;
+        top: 11%;
+        bottom: 11%;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1300px) {
+    .ui-popup.tau-info-popup {
+        left: 16%;
+        right: 16%;
+        top: 9%;
+        bottom: 9%;
+    }
+}
+
+@media screen and (min-width: 1100px) and (max-width: 1200px) {
+    .ui-popup.tau-info-popup {
+        left: 12%;
+        right: 12%;
+        top: 7%;
+        bottom: 7%;
+    }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1100px) {
+    .ui-popup.tau-info-popup {
+        left: 8%;
+        right: 8%;
+        top: 5%;
+        bottom: 5%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .ui-popup.tau-info-popup {
+        left: 2%;
+        right: 2%;
+        top: 2%;
+        bottom: 2%;
+    }
+}

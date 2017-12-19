@@ -1,0 +1,54 @@
+.tau-table-forms {
+    font-family: inherit;
+    margin: 0;
+    padding: 0;
+
+    &__wrapper {
+        padding: 0 20px;
+        margin: 20px 0 0 0;
+
+        &__control {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+    }
+
+    &__wrap {
+        margin: 25px 0;
+        padding: 0 20px 15px 20px;
+        border-bottom: 1px solid $gHighlightBlockBorderColor;
+    }
+
+    &__entity {
+        display: inline-block;
+    }
+
+    .tau-table-caption,
+    td {
+        margin: 0;
+        border-spacing: 0;
+        padding: 0 10px 10px 0;
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    th {
+        font-weight: normal;
+    }
+
+    .spacer {
+        th,
+        td {
+            padding-top: 25px;
+        }
+    }
+
+    .tau-in-text__label {
+        font-size: 13px;
+    }
+    .rename-text {
+        color: $gFontColorLightGray;
+        text-decoration: line-through;
+    }
+}

@@ -1,0 +1,145 @@
+/* region Board layout customizer */
+
+.board-layout-customizer {
+    display: flex;
+    position: relative;
+
+    &__message {
+        display: none;
+        position: absolute;
+        top: 30px;
+        left: 310px;
+    }
+
+    &__elements-types {
+        padding: 20px 30px 20px 20px;
+        box-sizing: border-box;
+        width: 310px;
+        flex: 0 0 auto;
+    }
+
+    &__cards-module {
+        display: flex;
+        padding: 20px 0 0 0;
+        justify-content: space-between;
+        flex: 1 1 auto;
+
+        > .board-layout-compositor {
+            user-select: none;
+            padding: 0 30px 20px 0;
+            max-width: 400px;
+            flex: 0 1 auto;
+        }
+
+        > .board-layout-components-set {
+            flex: 1 1 auto;
+            width: 100%; /* for IE11 */
+        }
+    }
+
+    /* region List Customizer */
+
+    &__list-module {
+        position: absolute;
+        left: 71px;
+        padding-left: 12px;
+        top: 0;
+        z-index: 10;
+        bottom: 0;
+        right: 0;
+        overflow: hidden;
+        background-color: $gBoardSettingsBackground;
+        box-shadow: -1px 0 4px 0 rgba(0, 0, 0, 0.20);
+
+        &.tau-cover-view--animated {
+            overflow: visible;
+            width: auto;
+            padding-left: 0;
+            box-shadow: none;
+
+            &:before {
+                left: -12px;
+                width: 12px;
+                background-color: $gBoardSettingsBackground;
+                box-shadow: -2px 0 3px 0 rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        &__lanes-panel {
+            position: relative;
+            padding: 6px 0;
+
+            .board-layout-customizer__list-module__separator {
+                flex-shrink: 0;
+                opacity: 0.4;
+                margin: 0 5px;
+            }
+        }
+
+        .board-layout-components-set {
+            margin-top: 10px;
+        }
+
+        .customizer-library__list {
+            height: 200px;
+        }
+
+        .tau-board-unit_dnd_proxy {
+            outline: 1px dashed $gFontColorSelected;
+            position: relative;
+            border: none;
+            padding: 0;
+
+            .tau-board-unit-label {
+                visibility: visible;
+            }
+        }
+
+        &__form {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        &__control {
+            flex-shrink: 0;
+            margin: 0 2px;
+        }
+    }
+
+    /* endregion */
+
+
+    &.i-role-show-hint &__message {
+        display: block;
+    }
+
+    &.i-role-show-hint &__cards-module {
+        display: none;
+    }
+}
+
+/* region Board layout components' set */
+
+.board-layout-components-set {
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* endregion */
+
+/* region board-layout-hide-module */
+
+.board-layout-hide-module {
+    display: none;
+}
+
+/* endregion */
+
+
+
+
+
+
+
+
+

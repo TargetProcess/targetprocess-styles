@@ -1,0 +1,60 @@
+.tau-sorting,
+.tau-non-sorting {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    @mixin ellipsis
+}
+
+.tau-sorting {
+    cursor: pointer;
+
+    &:after {
+        content: "";
+        display: block;
+        flex: 0 0 auto;
+    }
+
+    &__title {
+        border-bottom: 1px dotted $gFontColorLightGray;
+        display: block;
+        line-height: 1.3;
+
+        &:hover {
+            color: $gFontColorGray;
+            border-bottom-color: currentColor;
+        }
+    }
+
+    &--asc-sorted:after,
+    &--desc-sorted:after {
+        width: $gIconsSizeDefault;
+        height: $gIconsSizeDefault;
+    }
+
+    &--asc-sorted:after {
+        background: svg("t-caret") center center no-repeat;
+    }
+
+    &--desc-sorted:after {
+        background: svg("b-caret") center center no-repeat;
+    }
+
+    .tau-list-level-empty & {
+        cursor: default;
+    }
+
+}
+
+.tau-non-sorting {
+
+    &__title {
+        border-bottom: 1px dotted transparent;
+        display: block;
+        line-height: 1.3;
+    }
+}
+
+
+

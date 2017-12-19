@@ -1,0 +1,4 @@
+.cke_charcount span.cke_charcount_count,
+.cke_charcount span.cke_charcount_limit  {
+    font-weight: bold;
+}

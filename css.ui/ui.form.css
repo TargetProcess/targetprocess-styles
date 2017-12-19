@@ -1,0 +1,37 @@
+.ui-form {
+    padding: 10px;
+
+    .ui-form-controls {
+        justify-content: flex-end;
+    }
+
+    &__table {
+        display: table;
+    }
+
+    &__tr {
+        display: table-row;
+    }
+
+    &__td {
+        display: table-cell;
+        padding-bottom: 10px;
+        vertical-align: bottom;
+
+        .tau-in-label {
+            margin: 0 10px 3px 0;
+            color: $gFontColorGray;
+            max-width: 200px;
+            text-align: right;
+        }
+    }
+
+    &--custom-field {
+
+        .ui-form__input {
+            width: 150px;
+        }
+    }
+
+}
+

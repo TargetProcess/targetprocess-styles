@@ -1,0 +1,141 @@
+.t3-navigator-bubble .tau-bubble__inner {
+    margin: 0;
+}
+
+.t3-context-menu {
+    border-radius: $gBorderRadiusDefault;
+
+    .drop-down-list {
+        padding: 0;
+    }
+
+    .drop-down-option {
+        padding: 6px 18px;
+        white-space: nowrap;
+
+        &__hint {
+            font-size: 11px;
+            line-height: 12px;
+            color: $gFontColorGray;
+            padding-bottom: 8px;
+            white-space: normal;
+
+            &:hover,
+            &.drop-down-option_hover {
+                background: transparent;
+                cursor: default;
+            }
+        }
+
+        &__access-type {
+            background-color: $gIconsGeneralColor;
+            color: $gFontColorWhite;
+            font-size: 11px;
+            line-height: 17px;
+            padding: 0 5px;
+            margin-left: 7px;
+            border-radius: 2px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+
+            &__text {
+                position: relative;
+                line-height: 16px;
+                margin-left: 3px;
+            }
+        }
+
+        &.i-role-menu-action-setup {
+            font-weight: 600;
+        }
+
+        &.drop-down-option-danger {
+            color: $gActionColorDelete;
+
+            &:hover {
+                background-color: $gActionBackgroundDelete;
+            }
+        }
+
+        &.drop-down-separator {
+            height: 0;
+            padding: 0;
+            margin: 1px 0;
+            overflow: hidden;
+            border-top: 1px solid $gHighlightBlockBorderColor;
+        }
+
+        .t3-context-menu-submenu {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background-color: $gBackgroundDefault;
+            border-radius: $gBorderRadiusDefault;
+            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3), 0 0 1px 0 rgba(0, 0, 0, 0.3);
+
+            > .drop-down-option:first-child {
+                border-radius: $gBorderRadiusDefault $gBorderRadiusDefault 0 0;
+            }
+
+            > .drop-down-option:last-child {
+                border-radius: 0 0 $gBorderRadiusDefault $gBorderRadiusDefault;
+            }
+        }
+
+        &:hover .t3-context-menu-submenu {
+            display: block;
+        }
+    }
+
+    &__option--parent {
+        display: flex;
+        flex: 1 1 auto;
+        min-height: 18px;
+    }
+
+    &__create {
+        display: flex;
+        align-items: center;
+        flex: 1 1 auto;
+
+        &__icon {
+            flex-shrink: 0;
+            margin-left: 6px;
+            position: relative;
+            right: -8px;
+        }
+
+        &__text {
+            flex: 1 1 auto;
+        }
+    }
+
+    .t3-create-menu-item-types {
+
+        .drop-down-option__icon {
+            width: 24px;
+            margin-right: 0;
+        }
+
+        .drop-down-option__icon--group {
+            position: relative;
+            left: -4px;
+        }
+    }
+}
+
+.favorite-note-confirmation {
+    &__controls {
+        display: flex;
+        align-items: center;
+        padding-top: 5px;
+    }
+
+    &__control {
+        margin-right: 10px;
+    }
+}
+

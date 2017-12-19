@@ -1,0 +1,1546 @@
+/* region Abstract unit */
+
+.tau-board-unit {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: 2px;
+    max-width: 100%;
+    border-style: solid;
+    border-color: transparent;
+    border-width: 0 3px;
+    font-size: 11px;
+    color: $gFontColorGray;
+
+    &.tau-is-not-available {
+        display: none;
+    }
+
+    &__value {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        line-height: 20px;
+
+        &--number {
+            text-overflow: clip;
+        }
+    }
+
+    &__item {
+        margin: 0 0 0 2px;
+        line-height: 20px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+
+    &__value-flexbox-wrapper {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        box-sizing: border-box;
+        line-height: 20px;
+        min-height: 20px;
+
+        &__item {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            box-sizing: border-box;
+
+            &.tau-date-range_current {
+                color: $gFontColorSuccess;
+            }
+        }
+
+        .tau-board-list-view & {
+            width: 100%;
+        }
+    }
+
+    &__label {
+        margin-right: 4px;
+        vertical-align: bottom;
+        line-height: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        .tau-board-layout-list-module &,
+        .tau-board-list-view &,
+        .board-layout-customizer__list-module & {
+            display: none;
+        }
+    }
+
+    &__points {
+        color: $gFontColorLightGray;
+        overflow: hidden;
+        vertical-align: bottom;
+        line-height: 20px;
+        margin: 0 1px;
+        max-width: 13px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &--dark {
+            color: $gFontColorGray;
+        }
+
+        .tau-board-list-view & {
+            flex: 0 0 auto;
+        }
+    }
+
+    &__text {
+        margin-right: 2px;
+        vertical-align: bottom;
+        line-height: 20px;
+    }
+
+    &__avatar-wrapper {
+        flex: 0 0 auto;
+        margin: 0 4px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__progressbar-wrapper {
+        flex: 0 0 auto;
+        margin: 2px;
+    }
+
+    &__icon-wrapper {
+        flex: 0 0 auto;
+        margin: 2px 0;
+        display: flex;
+        align-items: center;
+
+        &__default {
+            display: block;
+        }
+
+        &__hover {
+            display: none;
+        }
+
+        &--inline {
+            display: inline-block;
+            line-height: 16px;
+            flex: 0 0 auto;
+            margin: 2px;
+
+            &:first-child {
+                margin-left: 0;
+
+            }
+        }
+
+        &--square {
+            flex: 0 0 auto;
+            margin: 2px;
+        }
+    }
+
+    &__icon-wrapper-emoji {
+        flex: 0 0 auto;
+    }
+
+    &__icon-entity-wrapper {
+        flex: 0 0 auto;
+        margin: 1px 2px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .tau-avatar {
+        flex: 0 0 auto;
+        display: block;
+    }
+
+    .tau-board-lazy-animation_unit & {
+        display: none;
+    }
+}
+
+/* endregion Abstract unit */
+
+.tau-board-unit__value-spent,
+.tau-board-unit__value-remain {
+    overflow: hidden;
+    flex: 0 0 auto;
+}
+
+.tau-board-unit__value-remain {
+    color: $gFontColorLightGray;
+}
+
+/* region Unit alignment */
+
+.tau-card-v2 .tau-board-unit:not(.tau-board-unit_format_max) {
+
+    &.tau-board-unit_alignment_base {
+        float: left;
+    }
+
+    &.tau-board-unit_alignment_alt {
+        float: right;
+    }
+
+    &.tau-board-unit_alignment_base-last {
+        margin-right: 4px;
+    }
+
+    &.tau-board-unit_alignment_alt-last {
+        margin-left: 4px;
+    }
+}
+
+/* endregion Unit alignment */
+
+/* region Unit drag-n-drop */
+
+.tau-board-unit_dnd_source {
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    cursor: move;
+    border-width: 3px;
+    border-radius: $gBorderRadiusDefault;
+    background: $gBackgroundDefault;
+
+    .tau-not-drop & {
+        cursor: not-allowed;
+    }
+
+    .tau-card-v2__section & {
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+        background: $gHighlightBlockBackground;
+    }
+}
+
+.tau-board-unit_dnd_helper {
+    opacity: 0.8;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    border-width: 3px;
+    border-radius: $gBorderRadiusDefault;
+    background: $gHighlightBlockBackground;
+    transform: rotate(-4deg);
+}
+
+.tau-board-unit_dnd_proxy {
+    border: 1px dashed $gFontColorSelected;
+    padding: 2px;
+
+    > *,
+    &:before,
+    &:after {
+        visibility: hidden;
+    }
+}
+
+/* endregion Unit drag-n-drop */
+
+/* region  Units' dimensions */
+
+.tau-board-unit_type_state,
+.tau-board-unit_type_feature,
+.tau-board-unit_type_release,
+.tau-board-unit_type_iteration,
+.tau-board-unit_type_teamiteration,
+.tau-board-unit_type_userstory,
+.tau-board-unit_type_task,
+.tau-board-unit_type_bug,
+.tau-board-unit_type_build,
+.tau-board-unit_type_testcase,
+.tau-board-unit_type_testrun,
+.tau-board-unit_type_testplan,
+.tau-board-unit_type_testplanrun,
+.tau-board-unit_type_project,
+.tau-board-unit_type_request,
+.tau-board-unit_type_note-comment,
+.tau-board-unit_type_severity,
+.tau-board-unit_type_user-name,
+.tau-board-unit_type_user-login,
+.tau-board-unit_type_user-email,
+.tau-board-unit_type_role,
+.tau-board-unit_type_team-name,
+.tau-board-unit_type_custom-checkbox,
+.tau-board-unit_type_custom-checkbox-checked,
+.tau-board-unit_type_custom-url,
+.tau-board-unit_type_linked-entity {
+
+    &:not(.tau-board-unit_format_max) {
+        max-width: 111px;
+
+        &.tau-board-unit_maximized {
+            width: 111px;
+        }
+    }
+}
+
+/* endregion  Units' dimensions */
+
+/* region Units' selection */
+
+.tau-board-unit_selected,
+.tau-card-v2.i-role-permanent-context-menu-tags .tau-board-unit_type_tags-list,
+.tau-card-v2.i-role-permanent-context-menu-tags .tau-board-unit_type_tags-list-s,
+.tau-card-v2.i-role-permanent-context-menu-tags .tau-board-unit_type_tags-list-xs,
+.tau-card-v2.i-role-permanent-context-menu-assignments .tau-board-unit_type_avatars-list,
+.tau-card-v2.i-role-permanent-context-menu-assignments .tau-board-unit_type_effort-total,
+.tau-card-v2.i-role-permanent-context-menu-assignments .tau-board-unit_type_effort-total-e,
+.tau-card-v2.i-role-permanent-context-menu-assignments .tau-board-unit_type_effort-todo-total,
+.tau-card-v2.i-role-permanent-context-menu-assignments .tau-board-unit_type_effort-todo-total-e {
+    box-shadow: 0 3px 0 0 $gActionBackgroundSelected, 0 -3px 0 0 $gActionBackgroundSelected;
+    border-radius: $gBorderRadiusDefault;
+    background: $gActionBackgroundSelected;
+}
+
+/* endregion Units' selection */
+
+.tau-board-unit_type_business-value,
+.tau-board-unit_type_process {
+
+    &:not(.tau-board-unit_format_max) {
+        max-width: 165px;
+
+        &.tau-board-unit_maximized {
+            width: 165px;
+        }
+    }
+}
+
+.tau-board-unit_type_tags-list-s:not(.tau-board-unit_format_max) {
+    max-width: 158px; /* /M{15}/ */
+
+    &.tau-board-unit_maximized {
+        width: 158px; /* /M{15}/ */
+
+    }
+}
+
+.tau-board-unit_type_tags-list-xs:not(.tau-board-unit_format_max) {
+    max-width: 68px; /* /M{8}/ */
+
+    &.tau-board-unit_maximized {
+        width: 68px; /* /M{8}/ */
+
+    }
+}
+
+.tau-board-unit_type_entity-name:not(.tau-board-unit_format_max) {
+    max-width: 165px;
+
+    &.tau-board-unit_maximized {
+        width: 165px;
+    }
+}
+
+.tau-board-unit_type_list,
+.tau-board-unit_type_assigned_users_names {
+    line-height: 20px;
+}
+
+/* region "List" unit */
+
+.tau-board-unit_type_list {
+
+    &__wrapper-text-ellipsis {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        &__item {
+            margin-left: 4px;
+            display: inline;
+            vertical-align: middle;
+        }
+    }
+
+    &__item,
+    &__others-counter {
+        margin: 0 0 0 4px;
+        display: flex;
+        align-items: center;
+        min-height: 20px;
+    }
+
+    &__item {
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &__content {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+
+            &__icon,
+            &__text {
+                margin-left: 3px;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+
+            &__icon {
+                flex: 0 0 auto;
+            }
+
+            &__text {
+                flex: 1 1 auto;
+
+            }
+        }
+    }
+
+    &__others-counter {
+        max-width: 16px; /* /\+9/ */
+        line-height: 20px;
+
+        &:before {
+            content: '+';
+        }
+
+        .tau-board-unit_maximized & {
+            width: 16px; /* /\+9/ */
+        }
+    }
+
+    &__total-counter {
+        max-width: 16px; /* /\9{2}/ */
+        margin-right: 4px;
+
+        .tau-board-unit_maximized & {
+            width: 16px; /* /\9{2}/ */
+            text-align: center;
+
+        }
+    }
+}
+
+/* endregion "List" unit */
+
+/* region "User Info" , "Team Allocation" unit */
+
+.tau-board-unit_type_user-info,
+.tau-board-unit_type_team_allocation-info {
+
+    &__avatar {
+        flex: 0 0 auto;
+        margin: 0 8px 0 0;
+        border-radius: $gBorderRadiusDefault;
+        width: 50px;
+        height: 50px;
+    }
+
+    &__wrap {
+        padding-right: 5px;
+    }
+
+    &__name,
+    &__description {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    &__name {
+        font-size: 14px;
+        color: $gFontColorDefault;
+    }
+
+    &__description {
+        font-size: 12px;
+    }
+}
+
+/* endregion   "User Info" , "Team Allocation" unit */
+
+/* region "Userstories & Bugs Sparklines" unit */
+
+.tau-board-unit_type_stories-bugs-sparklines__us-chart + .tau-board-unit_type_stories-bugs-sparklines__bugs-chart {
+    margin-left: 4px;
+}
+
+/* endregion "Userstories & Bugs Sparklines" unit */
+
+/* region "Requester Phone" unit */
+
+.tau-board-unit_type_requester-phone :not(.tau-board-unit_format_max) {
+    max-width: 121px;
+}
+
+/* endregion "Requester Phone" unit */
+
+/* region "Custom Url" unit */
+
+.tau-board-unit_type_custom-url {
+    position: relative;
+    padding-right: 15px;
+
+    .tau-board-unit__value {
+        max-width: 100%;
+    }
+    .tau-board-unit__icon-wrapper {
+        display: none;
+
+        .board-layout-customizer & {
+            display: block;
+        }
+    }
+}
+
+/* endregion  "Custom Url" unit */
+
+/* region Units components */
+
+.tau-board-unit__value_type_day,
+.tau-board-unit__value_type_month,
+.tau-board-unit__value_type_year,
+.tau-board-unit__value_type_hours,
+.tau-board-unit__value_type_minutes,
+.tau-board-unit__value_type_unknown,
+.tau-board-unit__value-open,
+.tau-board-unit__value-total,
+.tau-board-unit__value-todo,
+.tau-board-unit_type_list__total-counter {
+    overflow: hidden;
+    vertical-align: bottom;
+    line-height: 20px;
+}
+
+/* region date DD-MM-YY  */
+/* day-value */
+
+.tau-board-unit__value_type_day {
+    max-width: 16px;
+
+    .tau-board-unit_maximized & {
+        width: 16px;
+    }
+
+    .tau-board-unit_type_date-range.tau-board-unit_maximized &,
+    .tau-board-unit_type_planned_dates.tau-board-unit_maximized & {
+        text-align: center;
+    }
+
+    .tau-board-unit_type_date.tau-board-unit_maximized & {
+        text-align: right;
+    }
+}
+
+/* month-value */
+
+.tau-board-unit__value_type_month {
+    max-width: 25px; /* /May/ */
+
+    .tau-board-unit_maximized & {
+        width: 25px; /* /May/ */
+
+    }
+
+    .tau-board-unit_type_date-range.tau-board-unit_maximized &,
+    .tau-board-unit_type_date.tau-board-unit_maximized &,
+    .tau-board-unit_type_planned_dates.tau-board-unit_maximized & {
+        text-align: center;
+    }
+}
+
+/* year-value */
+
+.tau-board-unit__value_type_year {
+    max-width: 29px; /* /9{4}/ */
+
+}
+
+.tau-board-unit_maximized .tau-board-unit__value_type_year {
+    width: 29px; /* /9{4}/ */
+
+}
+
+.tau-board-unit__value_type_day + .tau-board-unit__value_type_month {
+    margin-left: 2px;
+}
+
+.tau-board-unit__value_type_month + .tau-board-unit__value_type_year {
+    margin-left: 2px;
+}
+
+/* endregion date DD-MM-YY*/
+
+/* region time */
+/* hours-value */
+
+.tau-board-unit__value_type_hours {
+    max-width: 16px;
+}
+
+.tau-board-unit_maximized .tau-board-unit__value_type_hours {
+    width: 16px;
+}
+
+.tau-board-unit__value_type_year + .tau-board-unit__value_type_hours {
+    margin-left: 4px;
+}
+
+/* minutes-value */
+
+.tau-board-unit__value_type_minutes {
+    max-width: 16px;
+}
+
+.tau-board-unit_maximized .tau-board-unit__value_type_minutes {
+    width: 16px;
+}
+
+/* endregion time */
+
+/* region for "ID" unit */
+
+.tau-board-unit_type_id .tau-board-unit__value {
+    max-width: 41px; /* /9{6}/ */
+
+    &.tau-board-unit_maximized .tau-board-unit__value {
+        width: 41px; /* /9{6}/ */
+
+    }
+}
+
+/* endregion for "ID" unit */
+
+/* region for "Progress" unit */
+
+.tau-board-unit_type_progress {
+
+    .tau-board-unit__value {
+        max-width: 22px; /* /100/ */
+        text-align: center;
+    }
+
+    &.tau-board-unit_maximized .tau-board-unit__value {
+        width: 22px; /* /100/ */
+    }
+}
+
+/* endregion for "Progress" unit */
+
+/* region for "Percent Participating" unit */
+
+.tau-board-unit_type_percent-participating {
+
+    .tau-board-unit__value {
+        max-width: 20px; /* /100/ */
+        text-align: center;
+    }
+
+    &.tau-board-unit_maximized .tau-board-unit__value {
+        width: 20px; /* /100/ */
+    }
+}
+
+/* endregion for "Percent Participating" unit */
+
+/* region for "Impediment Counter Alt" unit */
+
+.tau-board-unit_type_impediments-counter-alt {
+
+    .tau-board-unit__value {
+        max-width: 10px; /* /9/ */
+    }
+
+    &.tau-board-unit_maximized .tau-board-unit__value {
+        width: 10px; /* /9/ */
+    }
+}
+
+/* endregion for "Impediment Counter Alt" unit */
+
+/* region for "Impediments Counter" unit*/
+
+.tau-board-unit_type_impediments-counter {
+
+    .tau-board-unit__value {
+        max-width: 15px;
+        min-width: 0;
+    }
+
+    &.tau-board-unit_maximized .tau-board-unit__value {
+        width: 15px;
+    }
+}
+
+/* endregion for "Impediments Counter" unit*/
+
+/* region for "Bugs Counter" unit*/
+
+.tau-board-unit_type_bugs-counter {
+
+    .tau-board-unit__value {
+        max-width: 19px;
+    }
+
+    &.tau-board-unit_maximized .tau-board-unit__value {
+        width: 19px;
+    }
+}
+
+.tau-board-unit_type_bugs-counter-e {
+
+    .tau-board-unit__value {
+        max-width: 25px;
+    }
+
+    &.tau-board-unit_maximized .tau-board-unit__value {
+        width: 25px;
+    }
+}
+
+/* endregion for "Bugs Counter" unit*/
+
+/* region for "Tasks Counter" unit*/
+
+.tau-board-unit_type_tasks-counter {
+    .tau-board-unit__value {
+        max-width: 19px;
+    }
+
+    &.tau-board-unit_maximized .tau-board-unit__value {
+        width: 19px;
+    }
+}
+
+/* endregion for "Tasks Counter" unit*/
+
+/* region for "Userstory Counter" unit */
+
+.tau-board-unit_type_userstories-counter {
+    .tau-board-unit__value {
+        max-width: 25px;
+    }
+    &.tau-board-unit_maximized .tau-board-unit__value {
+        width: 25px;
+    }
+}
+
+/* endregion for "Userstory Counter" unit */
+
+/* region for "Requests Counter" unit*/
+
+.tau-board-unit_type_requests-counter {
+    .tau-board-unit__value {
+        max-width: 19px;
+    }
+    &.tau-board-unit_maximized .tau-board-unit__value {
+        width: 19px;
+    }
+}
+
+/* endregion for "Requests Counter" unit*/
+
+/* region for "Test Cases Counter" unit*/
+
+.tau-board-unit_type_testcases-counter {
+    .tau-board-unit__value {
+        max-width: 25px;
+    }
+
+    &.tau-board-unit_maximized .tau-board-unit__value {
+        width: 25px;
+    }
+}
+
+/* endregion for "Test Cases Counter" unit*/
+
+/* region for "Test Cases Counter Alt" unit */
+
+.tau-board-unit_type_testcases-counter-alt {
+    .tau-board-unit__value {
+        max-width: 22px;
+    }
+
+    &.tau-board-unit_maximized .tau-board-unit__value {
+        width: 22px;
+        text-align: center;
+    }
+}
+
+/* endregion for "Test Cases Counter Alt" unit */
+
+/* region for "Test Items Counter" unit */
+
+.tau-board-unit_type_testitems-counter {
+    min-width: 120px;
+}
+
+/* endregion for "Test Items Counter" unit */
+
+/* region for "Test Runs Counter" unit*/
+
+.tau-board-unit_type_testruns-counter {
+    .tau-board-unit__value {
+        max-width: 25px;
+    }
+
+    &.tau-board-unit_maximized .tau-board-unit__value {
+        width: 25px;
+    }
+}
+
+/* endregion for "Test Runs Counter" unit*/
+
+/* region for "Test Runs Counter Open/Total" unit */
+
+.tau-board-unit_type_testruns-counter-open-total {
+
+    .tau-board-unit__value-open {
+        max-width: 22px;
+    }
+
+    .tau-board-unit__value-total {
+        max-width: 22px;
+    }
+
+    &.tau-board-unit_maximized {
+
+        .tau-board-unit__value-open {
+            width: 22px;
+            text-align: right;
+        }
+
+        .tau-board-unit__value-total {
+            width: 22px;
+        }
+    }
+}
+
+/* endregion for "Test Runs Counter Open/Total" unit */
+
+/* region for "Features Counter" unit*/
+
+.tau-board-unit_type_features-counter {
+
+    .tau-board-unit__value {
+        max-width: 25px;
+    }
+
+    &.tau-board-unit_maximized .tau-board-unit__value {
+        width: 25px;
+    }
+}
+
+/* endregion for "Features Counter" unit*/
+
+/* region for "Features Counter Open/Total" unit */
+
+.tau-board-unit_type_features-counter-open-total {
+
+    .tau-board-unit__value-open {
+        max-width: 22px;
+    }
+
+    .tau-board-unit__value-total {
+        max-width: 22px;
+    }
+
+    &.tau-board-unit_maximized {
+
+        .tau-board-unit__value-open {
+            width: 22px;
+            text-align: right;
+        }
+
+        .tau-board-unit__value-total {
+            width: 22px;
+        }
+    }
+
+}
+
+/* endregion for "Features Counter Open/Total" unit */
+
+/* region for "Bugs Counter Open/Total" unit */
+
+.tau-board-unit_type_bugs-counter-open-total {
+
+    .tau-board-unit__value-open {
+        max-width: 16px;
+    }
+
+    .tau-board-unit__value-total {
+        max-width: 20px;
+    }
+
+    &.tau-board-unit_maximized {
+
+        .tau-board-unit__value-open {
+            width: 16px;
+            text-align: right;
+        }
+
+        .tau-board-unit__value-total {
+            width: 20px;
+        }
+    }
+}
+
+/* endregion for "Bugs Counter Open/Total" unit */
+
+/* region for "Bugs Counter Open/Total Extended" unit */
+
+.tau-board-unit_type_bugs-counter-open-total-e {
+
+    .tau-board-unit__value-open {
+        max-width: 22px;
+    }
+
+    .tau-board-unit__value-total {
+        max-width: 22px;
+    }
+
+    &.tau-board-unit_maximized {
+
+        .tau-board-unit__value-open {
+            width: 22px;
+            text-align: right;
+        }
+
+        .tau-board-unit__value-total {
+            width: 22px;
+        }
+    }
+}
+
+/* endregion for "Bugs Counter Open/Total Extended" unit */
+
+/* region for "Tasks Counter Open/Total" unit */
+
+.tau-board-unit_type_tasks-counter-open-total {
+
+    .tau-board-unit__value-open {
+        max-width: 16px;
+    }
+
+    .tau-board-unit__value-total {
+        max-width: 20px;
+    }
+
+    &.tau-board-unit_maximized {
+
+        .tau-board-unit__value-open {
+            width: 16px;
+            text-align: right;
+        }
+
+        .tau-board-unit__value-total {
+            width: 20px;
+        }
+    }
+}
+
+/* endregion for "Tasks Counter Open/Total" unit */
+
+/* region for "Requests Counter Open/Total" unit */
+
+.tau-board-unit_type_requests-counter-open-total {
+
+    .tau-board-unit__value-open {
+        max-width: 16px;
+    }
+    .tau-board-unit__value-total {
+        max-width: 20px;
+    }
+
+    &.tau-board-unit_maximized {
+
+        .tau-board-unit__value-open {
+            width: 16px;
+            text-align: right;
+        }
+
+        .tau-board-unit__value-total {
+            width: 20px;
+        }
+    }
+}
+
+/* endregion for "Requests Counter Open/Total" unit */
+
+/* region for "Userstories Counter Open/Total" unit */
+
+.tau-board-unit_type_userstories-counter-open-total {
+
+    .tau-board-unit__value-open {
+        max-width: 22px;
+    }
+
+    .tau-board-unit__value-total {
+        max-width: 22px;
+    }
+
+    &.tau-board-unit_maximized {
+
+        .tau-board-unit__value-open {
+            width: 22px;
+            text-align: right;
+        }
+
+        .tau-board-unit__value-total {
+            width: 22px;
+        }
+    }
+}
+
+/* endregion for "Userstories Counter Open/Total" unit */
+
+/* region for "Projects Counter" unit */
+
+.tau-board-unit_type_projects-counter {
+
+    .tau-board-unit__value {
+        max-width: 22px;
+    }
+
+    &.tau-board-unit_maximized .tau-board-unit__value {
+        width: 22px;
+        text-align: center;
+    }
+}
+
+/* endregion for "Projects Counter" unit */
+
+/* region for "Teams Counter" unit */
+
+.tau-board-unit_type_teams-counter {
+
+    .tau-board-unit__value {
+        max-width: 16px;
+    }
+
+    &.tau-board-unit_maximized .tau-board-unit__value {
+        width: 16px;
+        text-align: center;
+    }
+}
+
+/* endregion for "Teams Counter" unit */
+
+/* region for "Comments Counter" unit */
+
+.tau-board-unit_type_comments-counter {
+
+    .tau-board-unit__value {
+        max-width: 16px;
+    }
+
+    &.tau-board-unit_maximized .tau-board-unit__value {
+        width: 16px;
+        text-align: center;
+    }
+}
+
+/* endregion for "Comments Counter" unit */
+
+/* region for "Attachments Counter" unit */
+
+.tau-board-unit_type_attachments-counter {
+
+    .tau-board-unit__value {
+        max-width: 16px;
+    }
+
+    &.tau-board-unit_maximized .tau-board-unit__value {
+        width: 16px;
+        text-align: center;
+    }
+}
+
+/* endregion for "Attachments Counter" unit */
+
+/* region for "Requesters Counter" unit*/
+
+.tau-board-unit_type_requesters-counter {
+
+    .tau-board-unit__value {
+        max-width: 28px;
+    }
+
+    &.tau-board-unit_maximized .tau-board-unit__value {
+        width: 16px;
+        text-align: center;
+    }
+}
+
+/* endregion for "Requesters Counter" unit*/
+
+/* region for "Allocation" unit */
+
+.tau-board-unit_type_allocation {
+
+    .tau-board-unit__value {
+        max-width: 22px;
+    }
+
+    &.tau-board-unit_maximized .tau-board-unit__value {
+        width: 22px;
+        text-align: center;
+    }
+}
+
+/* endregion for "Allocation" unit */
+
+/* region for "Effort" units */
+
+.tau-board-unit_type_effort-total .tau-board-unit__value,
+.tau-board-unit_type_effort-todo-total .tau-board-unit__value-todo {
+    max-width: 37px; /* /9{4}\.9/ */
+}
+
+.tau-board-unit_type_effort-total.tau-board-unit_maximized .tau-board-unit__value,
+.tau-board-unit_type_effort-todo-total.tau-board-unit_maximized .tau-board-unit__value-todo {
+    width: 25px; /* /9{2}\.9/ */
+}
+
+.tau-board-unit_type_effort-todo-total.tau-board-unit_maximized .tau-board-unit__value-todo {
+    text-align: right;
+}
+
+.tau-board-unit_type_effort-total-e .tau-board-unit__value,
+.tau-board-unit_type_effort-todo-total-e .tau-board-unit__value-todo {
+    max-width: 37px; /* /9{4}\.9/ */
+}
+
+.tau-board-unit_type_effort-total-e.tau-board-unit_maximized .tau-board-unit__value,
+.tau-board-unit_type_effort-todo-total-e.tau-board-unit_maximized .tau-board-unit__value-todo {
+    width: 25px; /* /9{2}\.9/ */
+}
+
+.tau-board-unit_type_effort-complete {
+    color: $gFontColorSuccess;
+}
+
+.tau-board-unit_type_effort-todo-total {
+
+    .tau-board-unit__value-total {
+        max-width: 41px; /* /\/9{2}\.9/ */
+    }
+
+    &.tau-board-unit_maximized .tau-board-unit__value-total {
+        width: 25px; /* /\/9{2}\.9/ */
+    }
+}
+
+.tau-board-unit_type_effort-todo-total-e {
+
+    .tau-board-unit__value-total {
+        max-width: 41px; /* /\/9{3}\.9/ */
+    }
+
+    &.tau-board-unit_maximized {
+
+        .tau-board-unit__value-total {
+            width: 25px; /* /\/9{2}\.9/ */
+        }
+
+        .tau-board-unit__value-todo {
+            text-align: right;
+        }
+    }
+}
+
+/* endregion for "Effort" units */
+
+/* region for "Time" units */
+
+.tau-board-unit_type_time-cycle .tau-board-unit__value,
+.tau-board-unit_type_time-lead .tau-board-unit__value,
+.tau-board-unit_type_time-remain-spent .tau-board-unit__value-remain,
+.tau-board-unit_type_time-remain-spent .tau-board-unit__value-spent {
+    max-width: 32px; /* /9{3}\.9/ */
+}
+
+.tau-board-unit_type_time-last-login {
+
+    .tau-board-unit__value {
+        max-width: 70px;
+    }
+
+    &.tau-board-unit_maximized .tau-board-unit__value {
+        width: 70px;
+    }
+
+    &__never {
+
+        .tau-board-list-view & {
+            display: none;
+        }
+    }
+}
+
+.tau-board-unit_type_time-cycle.tau-board-unit_maximized .tau-board-unit__value,
+.tau-board-unit_type_time-lead.tau-board-unit_maximized .tau-board-unit__value {
+    width: 31px; /* /9{3}\.9/ */
+}
+
+.tau-board-unit_type_time-remain-spent {
+
+    &.tau-board-unit_maximized .tau-board-unit__value-remain {
+        width: 23px; /* /9{3}\.9/ */
+    }
+
+    .tau-board-list-view & {
+        overflow: visible;
+
+        .tau-board-unit__value-spent,
+        .tau-board-unit__value-remain {
+            max-width: none;
+        }
+    }
+
+    &.tau-board-unit--editable:hover .tau-board-unit__icon-wrapper__default {
+
+        .tau-board-list-view &,
+        .tau-dashboard-widget-todo-list & {
+            display: none;
+        }
+    }
+
+    &.tau-board-unit--editable:hover .tau-board-unit__icon-wrapper__hover {
+
+        .tau-board-list-view &,
+        .tau-dashboard-widget-todo-list & {
+            display: block;
+        }
+    }
+}
+
+/* endregion for "Time" units */
+
+/* region for "Entity Name" units */
+
+.tau-board-unit_type_simple-name .tau-board-unit__value {
+    font-size: $gFontSize;
+    line-height: 20px;
+}
+
+.tau-board-unit_type_entity-name .tau-board-unit__value,
+.tau-board-unit_type_entity-name-extended .tau-board-unit__value,
+.tau-board-unit_type_entity-name-extended-plus .tau-board-unit__value {
+    font-size: $gFontSize;
+    color: $gFontColorDefault;
+}
+
+.tau-board-unit_type_entity-name-extended .tau-board-unit__value,
+.tau-board-unit_type_entity-name-extended-plus .tau-board-unit__value {
+    max-height: 48px;
+}
+
+.tau-board-unit_type_entity-name-extended-small .tau-board-unit__value {
+    max-height: 30px;
+}
+
+.tau-ui-size-l .tau-board-unit_type_entity-name-extended .tau-board-unit__value,
+.tau-ui-size-l .tau-board-unit_type_entity-name-extended-plus .tau-board-unit__value {
+    max-height: 100%;
+}
+
+.tau-ui-size-s .tau-card-v2 .tau-board-unit_type_entity-name-extended .tau-board-unit__value,
+.tau-ui-size-m .tau-card-v2 .tau-board-unit_type_entity-name-extended .tau-board-unit__value,
+.tau-ui-size-l.tau-board-timeline-view .tau-timeline .tau-card-v2 .tau-board-unit_type_entity-name-extended .tau-board-unit__value {
+    height: 48px;
+}
+
+.tau-board-unit_type_entity-name-extended-plus .tau-board-unit__value {
+    max-height: 80px;
+}
+
+.tau-ui-size-s .tau-card-v2 .tau-board-unit_type_entity-name-extended-plus .tau-board-unit__value,
+.tau-ui-size-m .tau-card-v2 .tau-board-unit_type_entity-name-extended-plus .tau-board-unit__value,
+.tau-ui-size-l.tau-board-timeline-view .tau-timeline .tau-card-v2 .tau-board-unit_type_entity-name-extended-plus .tau-board-unit__value {
+    height: 80px;
+}
+
+.tau-ui-size-xs .tau-card-v2 .tau-board-unit_type_entity-name-extended-small .tau-board-unit__value,
+.tau-ui-size-s .tau-card-v2 .tau-board-unit_type_entity-name-extended-small .tau-board-unit__value,
+.tau-ui-size-m .tau-card-v2 .tau-board-unit_type_entity-name-extended-small .tau-board-unit__value,
+.tau-ui-size-l.tau-board-timeline-view .tau-timeline .tau-card-v2 .tau-board-unit_type_entity-name-extended-small .tau-board-unit__value {
+    height: 30px;
+}
+
+.tau-card-v2 .tau-board-unit_type_entity-name .tau-board-unit__value.editableText.active,
+.tau-card-v2 .tau-board-unit_type_entity-name-extended .tau-board-unit__value.editableText.active,
+.tau-card-v2 .tau-board-unit_type_entity-name-extended-small .tau-board-unit__value.editableText.active {
+    box-shadow: 0 0 0 1px $gActionBackgroundActive inset;
+    border-width: 0;
+    padding: 0 4px;
+    background: $gBackgroundDefault;
+    white-space: normal;
+}
+
+.tau-card-v2 .tau-board-unit_type_entity-name .tau-board-unit__value.editableText.active,
+.tau-card-v2 .tau-board-unit_type_entity-name-extended .tau-board-unit__value.editableText.active {
+    line-height: 18px;
+    min-height: 20px;
+}
+
+.tau-card-v2 .tau-board-unit_type_entity-name-extended-small .tau-board-unit__value.editableText.active {
+    line-height: 14px;
+    vertical-align: middle;
+}
+
+/* endregion for "Entity Name" units */
+
+/* region for Velocity unit */
+
+.tau-board-velocity {
+
+    .tau-board-unit__value {
+        max-width: 43px; /* /9{5}.9/ */
+
+    }
+
+    &.tau-board-unit_maximized {
+
+        .tau-board-unit__value {
+            width: 43px; /* /9{5}.9/ */
+        }
+
+    }
+}
+
+/* endregion for Velocity unit */
+
+/* region for Tasks Total unit */
+
+.tau-board-tasks_total {
+
+    .tau-board-unit__value {
+        max-width: 65px;
+    }
+
+    &.tau-board-unit_maximized .tau-board-unit__value {
+        width: 65px;
+    }
+}
+
+/* endregion for Tasks Total unit */
+
+/* region Unit's links */
+
+.tau-board-unit a {
+    color: $gLinkColor;
+}
+
+.tau-board-unit_type_id,
+.tau-board-unit_type_entity-icon-id,
+.tau-board-unit_type_process {
+
+    a {
+        color: $gFontColorGray;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+}
+
+.tau-board-unit_type_entity-icon-id a {
+    color: inherit;
+    opacity: .8;
+}
+
+/* endregion Unit's links */
+
+/* region "Relations Counter In-Out" unit */
+
+.tau-board-unit_type_relations-counter-in-out {
+    position: relative;
+
+    .tau-board-unit__value {
+        box-sizing: border-box;
+        max-width: 18px;
+        text-align: center;
+    }
+
+    &.tau-board-unit_maximized {
+
+        .tau-board-unit__value {
+            width: 18px;
+            min-width: 12px;
+        }
+    }
+}
+
+/* endregion "Relations Counter In-Out" unit*/
+/* region "Date Range" unit */
+
+.tau-elems-cell .tau-board-unit_type_date-range {
+    min-width: 158px;
+}
+
+/* endregion "Date Range" unit */
+
+/* region "Type Date" unit */
+.tau-board-unit_type_date {
+    min-width: 85px;
+}
+
+/* endregion "Type Date" unit */
+
+/* region "Test Cases Detailed Counter" unit */
+
+.tau-board-unit_type_testcases-detailed-counter {
+
+    .tau-test-result-unit--passed,
+    .tau-test-result-unit--failed,
+    .tau-test-result-unit--notrun {
+        max-width: 36px;
+        min-width: 30px;
+    }
+
+    .tau-test-result-unit__text-onhold,
+    .tau-test-result-unit__text-blocked {
+        max-width: 20px;
+        min-width: 7px;
+    }
+
+    &.tau-board-unit_maximized {
+
+        .tau-test-result-unit--passed,
+        .tau-test-result-unit--failed,
+        .tau-test-result-unit--notrun {
+            width: 36px;
+            text-align: center;
+        }
+    }
+}
+
+/* endregion "Test Cases Detailed Counter" unit */
+/* region "Custom Checkbox" unit */
+
+.tau-board-unit_type_custom-checkbox-checked:not(.tau-board-unit_format_max).tau-board-unit_maximized.tau-board-unit_type_custom-checkbox-short {
+    width: 24px;
+}
+
+/* endregion "Custom Checkbox" unit */
+
+/* Other unit's components
+----------------------------------------------------------------------------------------------------*/
+
+/* region Duration unit */
+.tau-board-unit_type_duration-has_curr_date {
+    color: $gFontColorSuccess;
+}
+
+/* endregion Duration unit */
+
+/* region Planned Dates unit */
+.tau-board-unit_type_planned_dates-green {
+    color: $gFontColorSuccess;
+}
+
+/* endregion Planned Dates unit */
+
+/* region Custom Field Short unit */
+
+.tau-board-unit_type_custom_field_short {
+    max-width: 97px;
+}
+
+/* endregion Custom Field Short unit */
+
+.tau-board-unit-link {
+    text-decoration: underline;
+
+    &__icon {
+        display: inline-block;
+        margin-left: 2px;
+        vertical-align: middle;
+        position: relative;
+        top: -1px;
+    }
+}
+
+.tau-board-unit_type_avatar {
+    overflow: visible;
+}
+
+.tau-board-unit_type_tcrdaterange {
+    min-width: 178px;
+}
+
+.tau-board-unit_type_last_status {
+    min-width: 140px;
+}
+
+/* region .tau-board-unit_type_emoji-tags  */
+
+.tau-board-unit_type_emoji-tags {
+    display: inline-block;
+    vertical-align: baseline;
+
+    &__wrap {
+        display: flex;
+        align-items: center;
+    }
+
+    &__item,
+    &__others-counter {
+        line-height: 20px;
+    }
+
+    &__item {
+        flex: 0 0 auto;
+        margin-left: 2px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+
+    &__others-counter {
+        margin-left: 4px;
+        color: $gFontColorGray;
+        font-size: 11px;
+        white-space: nowrap;
+    }
+}
+
+/* endregion .tau-board-unit_type_emoji-tags  */
+
+/* region units with numeric values */
+.tau-board-unit__value--number {
+
+    .tau-board-list-view .tau-board-unit & {
+        max-width: none;
+        min-width: 8.7px; /* display ellipsis if less than 2 characters are visible in Chrome & Edge */
+        @mixin ellipsis;
+        flex: 0 1 auto;
+    }
+}
+/* endregion units with numeric values */

@@ -1,0 +1,124 @@
+/* region Workflow settings
+--------------------------------------------------------------------------------*/
+
+.workflow-settings {
+    display: none;
+    width: 257px;
+
+    &__title {
+        display: flex;
+        align-items: center;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 0 13px 9px 13px;;
+
+        .tau-popup & {
+            padding-top: 13px;
+        }
+
+        &__icon {
+            margin-left: 4px;
+        }
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0 13px 5px 13px;
+        margin: 0;
+        background-color: $gBackgroundDefault;
+    }
+
+    &__item {
+        display: flex;
+        align-items: baseline;
+
+        &:not(:last-child) {
+            padding-bottom: 10px;
+        }
+
+        &__icon {
+            flex-shrink: 0;
+            margin-right: 6px;
+        }
+    }
+
+    &__entity-settings {
+        flex: 1 1 auto;
+        overflow: hidden;
+    }
+
+    &__select {
+        width: 100%;
+        height: 24px;
+        border: 1px solid $gControlBorderColorDefault;
+        font-size: 13px;
+    }
+
+    &__state-list {
+        list-style: none;
+        padding: 5px 0 7px 0;
+        margin: 0;
+        @mixin ellipsis;
+
+        font-size: 11px;
+        line-height: 14px;
+
+        &__item {
+            position: relative;
+            display: inline;
+            padding-right: 5px;
+            margin-right: 4px;
+
+            &:not(:last-child):after {
+                content: '/';
+
+                position: absolute;
+                top: 1px;
+                right: 0;
+
+                color: $gFontColorLightGray;
+            }
+
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+    }
+
+    .tau-setup & {
+        display: block;
+    }
+
+    .tau-popup & {
+        display: block;
+
+        &__list {
+            padding-bottom: 0;
+        }
+    }
+}
+
+/* endregion*/
+
+/* region Workflow actions
+--------------------------------------------------------------------------------*/
+
+.workflow-actions {
+    margin: 0 13px;
+    padding: 6px 2px 13px 2px;
+
+    .reset-workflow {
+        float: right;
+        font-size: 11px;
+        color: $gFontColorGray;
+        border-bottom: 1px dotted $gFontColorGray;
+        margin: 4px 8px;
+        cursor: pointer;
+
+        &:hover {
+            border-bottom: none;
+        }
+    }
+}
+
+/*endregion*/

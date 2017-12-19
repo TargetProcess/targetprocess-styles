@@ -1,0 +1,101 @@
+.tau-followlink {
+    cursor: pointer;
+    border-radius: $gBorderRadiusDefault;
+    font-weight: normal;
+    white-space: nowrap;
+    box-sizing: border-box;
+    padding: 5px 0;
+    color: color($gFontColorDefault lightness(20%));
+
+    &:hover {
+        color: $gFontColorDefault;
+    }
+
+    &__follow,
+    &__following,
+    &__unfollow {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    &__following,
+    &__unfollow {
+        height: 0;
+        opacity: 0;
+    }
+
+    &__unfollow {
+        justify-content: center;
+    }
+
+    &__icon {
+        display: inline-flex;
+        align-items: center;
+        flex-shrink: 0;
+        margin-right: 4px;
+
+        opacity: 0.8;
+
+        .tau-followlink:hover & {
+            opacity: 1;
+        }
+    }
+
+    + .tau-followlink__warning {
+        cursor: pointer;
+        display: none;
+        position: absolute;
+        left: -24px;
+        top: 6px;
+    }
+
+    &.hidden {
+        visibility: hidden;
+    }
+
+    &.disabled,
+    &.disabled:hover {
+        color: color($gFontColorDefault lightness(60%));
+
+        .tau-followlink__icon {
+            opacity: 0.6;
+        }
+    }
+
+    &.active {
+        color: $gFontColorSelected;
+
+        .tau-followlink__follow {
+            height: 0;
+            opacity: 0;
+        }
+
+        .tau-followlink__following {
+            height: auto;
+            opacity: 1;
+        }
+
+        &:not(.cancel-hover-style):hover {
+            color: $gActionColorDelete;
+            background-color: color($gActionColorDelete a(10%));
+
+            .tau-followlink__following {
+                height: 0;
+                opacity: 0;
+            }
+
+            .tau-followlink__unfollow {
+                height: auto;
+                opacity: 1;
+            }
+        }
+
+        &.disabled {
+
+            + .tau-followlink__warning {
+                display: block;
+            }
+        }
+    }
+}

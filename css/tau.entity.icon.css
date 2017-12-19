@@ -1,0 +1,82 @@
+/* region Entity Icons Default --------------------------------------------------*/
+
+.tau-entity-icon {
+    display: block;
+    box-sizing: border-box;
+    vertical-align: middle;
+    cursor: inherit;
+
+    min-width: 18px;
+    height: 18px;
+    line-height: 16px;
+    padding: 0 2px;
+
+    font-size: 11px;
+    font-style: normal;
+    font-weight: normal;
+    text-shadow: none;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    color: $gFontColorDefault;
+    background: $gBackgroundDefault;
+    border: 1px solid transparent;
+    border-radius: $gControlBorderRadiusDefault;
+
+    &.tau-entity-icon-full {
+        letter-spacing: 1px;
+        padding: 0 4px;
+    }
+
+    /* region Project Team Impediment icons --------------------------------------------------*/
+
+    &&--icon.tau-entity-icon {
+
+        &--team,
+        &--project,
+        &--impediment {
+            padding: 0;
+            width: 16px;
+            text-indent: -9999px;
+            background-color: transparent;
+            background-repeat: no-repeat;
+            background-position: center center;
+            border-color: transparent;
+        }
+
+        &--team {
+            background-image: svg("team");
+        }
+
+        &--project {
+            background-image: svg("project");
+        }
+
+        &--impediment {
+            background-image: svg("stop", "[fill]: #8a2125;"); /*impediment entity color*/
+        }
+    }
+
+    /* endregion */
+}
+
+.tau-entity-icon-counter {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    letter-spacing: 1px;
+    padding: 0 4px;
+
+    &__number {
+        margin-right: 3px;
+        letter-spacing: 0;
+        font-weight: 600;
+    }
+
+    &__text {
+        @mixin ellipsis;
+    }
+}
+
+/* endregion */

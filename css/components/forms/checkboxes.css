@@ -1,0 +1,346 @@
+/* region Checkbox --------------------------------------------------*/
+$checkboxBorderColor: $gControlBorderColorDefault;
+$hoverCheckboxBorderColor: #999;
+$checkboxBackground: #fff;
+$focusCheckboxShadow: $gControlBoxShadowFocusDefault;
+$focusCheckboxBorderColor: $gControlBorderColorFocusDefault;
+
+$darkCheckboxBackground: #5ea1fe;
+$darkCheckboxBorderColor: #5c9efb;
+$hoverDarkCheckboxBorderColor: #558fe1;
+$notCheckedDarkCheckboxBorderColor: #b4b9c3;
+
+.tau-checkbox {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+
+    > input[type="checkbox"] {
+        position: absolute;
+        opacity: 0;
+        margin: -3px 2px 0;
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+    }
+
+    > input[type="checkbox"] ~ * {
+        cursor: pointer;
+        display: flex;
+    }
+
+    > input[type="checkbox"]:disabled ~ * {
+        cursor: default;
+        opacity: 0.6;
+    }
+
+    > .tau-checkbox__icon {
+        font-size: 11px;
+        font-style: normal;
+
+        position: relative;
+
+        flex-shrink: 0;
+
+        border: 1px solid $checkboxBorderColor;
+
+        border-radius: 2px;
+
+        width: 14px;
+
+        height: 14px;
+        line-height: 1.2em;
+
+        text-align: center;
+        background: $checkboxBackground;
+    }
+
+    > input[type="checkbox"] {
+        &:focus + .tau-checkbox__icon {
+            box-shadow: $focusCheckboxShadow;
+            border-color: $focusCheckboxBorderColor;
+            outline: none;
+        }
+
+        &:disabled:focus + .tau-checkbox__icon {
+            box-shadow: none;
+        }
+
+        &:checked + .tau-checkbox__icon:before {
+            display: block;
+        }
+    }
+
+    > input[type="checkbox"] {
+
+        &:indeterminate + .tau-checkbox__icon:before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            display: block;
+            height: 6px;
+            width: 6px;
+            border-radius: 1px;
+            transform: translate(-50%, -50%);
+            background: $gFontColorDefault;
+        }
+    }
+
+    &:not(.tau-checkbox--entity):hover input[type="checkbox"]:not(:disabled) ~ .tau-checkbox__icon {
+        border-color: $hoverCheckboxBorderColor;
+    }
+
+    > input + .tau-checkbox__icon:before {
+        display: none;
+        content: '';
+        background: svg("checkbox", "[fill]: $gFontColorDefault") center center no-repeat;
+        width: 14px;
+        height: 14px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    > span {
+        margin-left: 0.5em;
+    }
+
+    > input[type="checkbox"]:disabled ~ span {
+        opacity: $gControlDisabledOpacity;
+    }
+
+    &--nowrap {
+        white-space: nowrap;
+    }
+
+    &--text-top {
+        align-items: flex-start;
+
+        &:not(.tau-checkbox--small) {
+            > span {
+                transform: translateY(-1px);
+            }
+        }
+    }
+
+    &--small {
+        font-size: 11px;
+    }
+
+    &--bold {
+        font-weight: 600;
+    }
+
+    &--light-color {
+        > input[type="checkbox"]:not(:checked) ~ span {
+            color: $gFontColorLightGray;
+        }
+    }
+}
+
+/* endregion */
+
+/* region Checkbox for workflow --------------------------------------------------*/
+
+.tau-checkbox--dark {
+    > .tau-checkbox__icon {
+        border-color: $darkCheckboxBorderColor;
+        border-top-color: $hoverDarkCheckboxBorderColor;
+        background-image: none;
+        background-color: $darkCheckboxBackground;
+    }
+
+    > input[type="checkbox"]:not(:checked) + .tau-checkbox__icon {
+        border-color: $notCheckedDarkCheckboxBorderColor;
+        background-color: transparent;
+    }
+
+    &:not(.tau-checkbox--entity) > input[type="checkbox"]:checked + .tau-checkbox__icon {
+        background-image: none;
+        background-color: $darkCheckboxBackground;
+    }
+
+    > input + .tau-checkbox__icon:before {
+        background: svg("checkbox", "[fill]: #fff") center center no-repeat;
+    }
+
+    &:not(.tau-checkbox--entity):hover input[type="checkbox"]:not(:disabled) ~ .tau-checkbox__icon {
+        border-color: $hoverDarkCheckboxBorderColor;
+    }
+
+    > input[type="checkbox"] {
+        &:indeterminate + .tau-checkbox__icon {
+            border-color: $darkCheckboxBorderColor;
+            border-top-color: $hoverDarkCheckboxBorderColor;
+            background-color: $darkCheckboxBackground;
+
+            &:before {
+                background: $gFontColorWhite;
+            }
+        }
+    }
+}
+
+/* endregion */
+
+/* region Entity Checkbox  --------------------------------------------------*/
+
+.tau-checkbox--entity {
+    > .tau-checkbox__icon {
+        border-color: $gBackgroundDefault;
+        background-color: $gBackgroundDefault;
+        background-clip: padding-box;
+    }
+
+    > input[type="checkbox"]:not(:disabled):focus + .tau-checkbox__icon {
+        box-shadow: none;
+    }
+
+    > input + .tau-checkbox__icon:before {
+        background: svg("checkbox", "[fill]: #fff") center center no-repeat;
+    }
+}
+
+/* endregion */
+
+/* region Category Checkbox  --------------------------------------------------*/
+
+.tau-checkbox--category {
+    position: relative;
+    overflow: hidden;
+    flex: 1 1 auto;
+    height: 28px;
+    cursor: pointer;
+
+    &.tau-disabled {
+        cursor: default;
+    }
+
+    > input[type="checkbox"] {
+        left: 6px;
+    }
+
+    > .tau-checkbox__icon {
+        z-index: 1;
+        position: absolute;
+        left: 6px;
+        top: 6px;
+    }
+
+    .tau-checkbox__loading {
+        z-index: 2;
+        position: absolute;
+        left: 6px;
+        top: 6px;
+        margin: 0;
+        display: none;
+    }
+
+    &.tau-checkbox--loading {
+        .tau-checkbox__loading {
+            display: block;
+        }
+
+        > .tau-checkbox__icon,
+        > input[type="checkbox"] {
+            display: none;
+        }
+
+        > input[type="checkbox"]:disabled ~ * {
+            opacity: 1;
+            cursor: pointer;
+        }
+    }
+
+    .tau-checkbox__label {
+        position: relative;
+        flex: 1 1 auto;
+        padding: 0 5px 0 35px;
+        margin-left: 0;
+
+        font-size: 13px;
+        line-height: 28px;
+        @mixin ellipsis;
+
+        .tau-null-selector & {
+            color: $gFontColorLightGray;
+        }
+
+        &__icon {
+            align-items: center;
+            display: flex;
+            flex-shrink: 0;
+            margin: 0 8px 0 0;
+        }
+
+        &__text {
+            display: inline-block;
+            flex: 1 1 auto;
+            @mixin ellipsis;
+
+            &--user {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            & > span {
+                margin-right: 3px;
+            }
+        }
+
+        &__counter {
+            align-items: center;
+            display: flex;
+            flex-shrink: 0;
+        }
+
+        &__input {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        &__emoji {
+            vertical-align: top;
+            position: relative;
+            top: 4px;
+            display: inline-block;
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    &.tau-checkbox--project {
+        > input[type="checkbox"] {
+            left: 35px;
+        }
+
+        .tau-checkbox__icon {
+            left: 35px;
+
+            .tau-checkbox__input {
+                position: relative;
+                align-items: center;
+                display: flex;
+                flex: 1 1 auto;
+                padding: 0 5px 0 27px;
+                margin-left: 0;
+            }
+        }
+
+        .tau-checkbox__label {
+            padding-left: 61px;
+
+            &__icon {
+                left: 9px;
+                position: absolute;
+                top: 8px;
+            }
+        }
+    }
+}
+
+/* endregion */

@@ -1,0 +1,16 @@
+.tau-list__table__cell:hover .tau-property_empty_true.tau-property_editable_true .tau-property__value:before {
+    background-color:  $gActionBackgroundSystem;
+    content: attr(data-placeholder);
+    text-transform: lowercase;
+    color: $gFontColorGray;
+    text-decoration: none;
+    border-bottom: 0;
+}
+
+.tau-list__table__cell_editable_true:hover {
+    background-image: svg("pencil", "[fill]: $gFontColorDefault");
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    background-size: 16px 16px;
+    background-color: $gActionBackgroundSystem;
+}

@@ -1,0 +1,186 @@
+$inputWidthDefault: $gControlWidthDefault;
+$inputWidthLarge: $gControlWidthLarge;
+$inputWidthXLarge: $gControlWidthXLarge;
+$inputWidthSmall: $gControlWidthSmall;
+
+$inputHeightDefault: $gControlHeightDefault;
+$inputHeightXLarge: 28px;
+
+$textareaWidthDefault: $gControlWidthDefault;
+$textareaHeightDefault: 52px;
+
+$inputColorDefault: $gFontColorDefault;
+$inputColorReadonly: color($gFontColorLightGray a(80%));
+$inputBorderColorDefault: $gControlBorderColorDefault;
+$inputBorderColorEditable: $inputBorderColorDefault;
+$inputBoxShadowFocusDefault: $gControlBoxShadowFocusDefault;
+$inputBorderColorFocusDefault: $gControlBorderColorFocusDefault;
+$inputBackgroundColorDefault: $gBackgroundDefault;
+
+$inputBorderRadiusDefault: $gControlBorderRadiusDefault;
+
+$inputColorError: $gMessageColorError;
+$inputBorderColorError: $gMessageColorError;
+$inputBoxShadowFocusError: $gControlBoxShadowFocusError;
+
+$inputColorWarning: $gMessageColorWarning;
+$inputBorderColorWarning: $gMessageColorWarning;
+$inputBackgroundColorWarning: $gActionBackgroundSystem;
+
+$inputColorSuccess: $gMessageColorSuccess;
+$inputBorderColorSuccess: $gMessageColorSuccess;
+
+.tau-in-label {
+    font-size: 13px;
+    font-weight: normal;
+    font-family: $gFontFamily;
+    margin: 10px 7px 3px 7px;
+    display: block;
+}
+
+.tau-in-text {
+    display: inline-block;
+    box-sizing: border-box;
+
+    border: 1px solid $inputBorderColorDefault;
+    border-radius: $inputBorderRadiusDefault;
+    width: $inputWidthDefault;
+    height: $inputHeightDefault;
+    padding: 0 4px;
+
+    font-size: 13px;
+    font-family: $gFontFamily;
+    color: $inputColorDefault;
+    background: $inputBackgroundColorDefault;
+
+    &.editableText {
+        border: 1px solid $inputBorderColorEditable;
+    }
+
+    &[readonly] {
+        color: $inputColorReadonly;
+    }
+
+    &[disabled] {
+        opacity: 0.3;
+        cursor: default;
+    }
+
+    &:focus {
+        box-shadow: $inputBoxShadowFocusDefault;
+        outline: none;
+        border-color: $inputBorderColorFocusDefault;
+        position: relative;
+    }
+
+    /* region Field-size for .tau-in-text  */
+
+    &--big {
+        font-size: 16px;
+        height: 2em;
+        padding: 0 10px;
+    }
+
+    /* endregion Field-size for .tau-in-text  */
+
+    /* region Height for .tau-in-text --------------------------------------------------*/
+
+    &--height-x-large {
+        height: $inputHeightXLarge;
+    }
+
+    /* endregion */
+
+    /* region Scale for .tau-in-text --------------------------------------------------*/
+
+    &--width-small {
+        width: $inputWidthSmall;
+    }
+
+    &--width-large {
+        width: $inputWidthLarge;
+    }
+
+    &--width-x-large {
+        width: $inputWidthXLarge;
+    }
+
+    &--wide {
+        width: 100%;
+    }
+
+    /* endregion */
+
+    &.tau-error {
+        border-color: $inputBorderColorError;
+        color: $inputColorError;
+
+        &:focus {
+            box-shadow: $inputBoxShadowFocusError;
+        }
+    }
+
+    &.tau-warning {
+        border-color: $inputBorderColorWarning;
+        background: $inputBackgroundColorWarning;
+        color: $inputColorWarning;
+
+        &:focus {
+            border-color: $inputBorderColorFocusDefault;
+        }
+    }
+
+    &.tau-success {
+        border-color: $inputBorderColorSuccess;
+        color: $inputColorSuccess;
+
+        &:focus {
+            border-color: $inputBorderColorFocusDefault;
+        }
+    }
+
+    &--text-centered {
+        text-align: center;
+    }
+}
+
+/* region Textarea text field --------------------------------------------------*/
+
+textarea.tau-in-text {
+    overflow: auto;
+    width: $textareaWidthDefault;
+    height: $textareaHeightDefault;
+    padding: 4px;
+
+    &--wide {
+        width: 100%;
+    }
+
+    &--no-resize {
+        resize: none;
+    }
+}
+/* endregion */
+
+/* region Effort text field --------------------------------------------------*/
+
+.tau-effort-input {
+    box-sizing: border-box;
+    border-radius: 0;
+    width: 32px;
+    border: 1px solid #ccc;
+    margin: 5px 12px 5px 2px;
+    padding: 1px 3px;
+    font-size: 12px;
+
+    &:focus {
+        outline: 0;
+    }
+
+    &.tau-error {
+        border-color: $inputColorError;
+        color: $inputBorderColorError;
+    }
+}
+
+/* endregion */

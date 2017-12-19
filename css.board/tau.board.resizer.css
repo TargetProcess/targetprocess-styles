@@ -1,0 +1,145 @@
+/* region resize trigger */
+
+.tau-board-grid-resize-trigger__a,
+.tau-board-grid-resize-trigger__b {
+    position: absolute;
+    top: -1px;
+    bottom: -1px;
+    width: 9px;
+}
+
+/* append [debug-resize-mode] to BODY element to see resize area */
+body.debug-resize-mode .tau-board-grid-resize-trigger__a,
+body.debug-resize-mode .tau-board-grid-resize-trigger__b {
+    background-color: red;
+    opacity: 0.1;
+}
+
+.tau-board-grid-resize-trigger__a {
+    left: -1px;
+}
+
+.tau-board-grid-resize-trigger__b {
+    right: -1px;
+}
+
+/* endregion */
+
+
+
+/* region  resize controls */
+
+.tau-board-grid-resize-controls {
+    position: absolute;
+    z-index: 100;
+    box-sizing: border-box;
+    border-width: 0 8px;
+    border-style: solid;
+    border-color: transparent;
+
+    width: 17px;
+    height: 100%;
+
+    background-color: color($gBoardBorderColor shade(10%));
+    background-clip: padding-box;
+}
+
+.tau-board-grid-resize-controls_trigger-type-a {
+    margin-left: -8px;
+}
+
+.tau-board-timeline-view .tau-board-grid-resize-controls_trigger-type-a {
+    margin-left: -7px;
+}
+
+.tau-board-grid-resize-controls__btn {
+    position: absolute;
+    top: 50%;
+
+    visibility: hidden;
+    opacity: 0;
+    overflow: hidden;
+    cursor: pointer;
+
+    margin: -10px 0 0 0;
+    box-sizing: border-box;
+    padding: 0;
+    border: 1px solid $gControlBorderColorDefault;
+    text-align: center;
+
+    width: 20px;
+    height: 20px;
+
+    background: $gButtonBackgroundDefault;
+
+    transition: opacity 0.25s;
+
+}
+
+.tau-board-grid-resize-controls__btn .tau-board-grid-resize-controls__btn__icon {
+    position: absolute;
+    left: 4px;
+    top: 3px;
+    display: flex;
+}
+
+.tau-board-grid-resize-controls.tau-active .tau-board-grid-resize-controls__btn {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tau-board-grid-resize-controls.tau-board-grid-resize-controls_hiding .tau-board-grid-resize-controls__btn {
+    opacity: 0;
+    transition-delay: 0.5s;
+}
+
+.tau-board-grid-resize-controls__btn__disabled > *,
+.tau-board-grid-resize-controls__btn[disabled] > * {
+    opacity: $gControlDisabledOpacity;
+}
+
+.tau-board-grid-resize-controls__btn:hover {
+    background: $gButtonBackgroundHover;
+}
+
+.tau-board-grid-resize-controls__btn:active {
+    background: $gButtonBackgroundActive;
+}
+
+.tau-board-grid-resize-controls__decreaser {
+    right: 1px;
+
+    border-right-width: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.tau-board-grid-resize-controls__increaser {
+    left: 1px;
+
+    border-left-width: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.tau-board-grid-resize-controls__btn__left-shift {
+    margin-right: 20px;
+}
+
+.tau-board-grid-resize-controls__btn__left-shift .tau-board-grid-resize-controls__decreaser {
+    left: -40px;
+}
+
+.tau-board-grid-resize-controls__btn__left-shift .tau-board-grid-resize-controls__increaser {
+    left: -20px;
+}
+
+.tau-board-grid-resize-controls__btn__right-shift .tau-board-grid-resize-controls__decreaser {
+    left: 1px;
+}
+
+.tau-board-grid-resize-controls__btn__right-shift .tau-board-grid-resize-controls__increaser {
+    left: 21px;
+}
+
+/* endregion */

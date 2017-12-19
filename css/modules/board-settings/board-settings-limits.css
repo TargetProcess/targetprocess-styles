@@ -1,0 +1,52 @@
+.board-settings-limits {
+    margin-top: 10px;
+    display: flex;
+
+    &__message {
+        padding: 10px 0;
+        font-size: 13px;
+    }
+
+    &__wrap {
+        display: block;
+        overflow-y: auto;
+        max-height: 214px;
+        padding: 0 17px 0 10px;
+        border: 1px solid $gBoardBorderColor;
+        border-radius: $gBorderRadiusDefault;
+    }
+
+    &__table {
+        min-width: 220px;
+        margin: 5px 0;
+        table-layout: fixed;
+        border-collapse: collapse;
+    }
+
+    &__th,
+    &__td {
+        overflow: hidden;
+        padding: 2px 0;
+        text-overflow: ellipsis;
+    }
+
+    &__th {
+        font-size: 13px;
+        font-weight: normal;
+        text-align: left;
+        padding-right: 20px;
+    }
+
+    &__td {
+        text-align: right;
+    }
+}
+
+.tau-in-text--limits {
+    padding: 0 0 0 5px;
+    width: 50px;
+
+    &.editableText:hover {
+        background: $gBackgroundDefault;
+    }
+}

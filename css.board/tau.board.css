@@ -1,0 +1,240 @@
+/* font size fix >> */
+
+.tau-app.tau-page-entity {
+    font-size: $gFontSize;
+}
+.tau-bubble-tooltip {
+    font-size: 13px;
+}
+
+button[disabled] {
+    cursor: not-allowed;
+}
+
+.no-data-in-slice-container .i-role-grid {
+    overflow: hidden;
+    left: 0;
+}
+
+.no-data-in-slice-container .tau-timeline-grid,
+.no-data-in-slice-container .tau-entity-data,
+.no-data-in-slice-container .tau-page-navigation-button,
+.no-data-in-slice-container .tau-x-header,
+.no-data-in-slice-container .i-role-header {
+    display: none;
+}
+
+/*Empty messages*/
+.tau-no-data-in-slice {
+    margin: 0 auto;
+    width: 794px;
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 30px;
+    line-height: normal;
+}
+
+.tau-no-data-in-slice:after {
+    display: table;
+    content: '';
+}
+
+.tau-no-data-in-slice h2 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 36px;
+    padding-bottom: 30px;
+    color: $gFontColorDefault;
+    margin: 0;
+}
+
+.tau-no-data-in-slice h2.tau-no-data_empty {
+    color: $gFontColorLightGray;
+    font-size: 32px;
+    margin-top: 7%;
+}
+
+.tau-no-data-in-slice .tau-col {
+    float: left;
+    width: 291px;
+    color: $gFontColorDefault;
+}
+
+.tau-no-data-in-slice .tau-col:last-child {
+    width: 212px;
+}
+
+.tau-no-data-in-slice .tau-txt {
+    width: 212px;
+    text-align: center;
+    font-size: 14px;
+    min-height: 55px;
+    position: relative;
+}
+
+.tau-no-data-in-slice .tau-step-pic {
+    width: 212px;
+    height: 212px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.tau-no-data-in-slice .tau-step1-pic {
+    background-image: url(images/board-empty-message/empty-message-step1.png);
+}
+
+.tau-no-data-in-slice .tau-step2-pic {
+    background-image: url(images/board-empty-message/empty-message-step2.png);
+}
+
+.tau-no-data-in-slice .tau-step3-pic {
+    background-image: url(images/board-empty-message/empty-message-step3.png);
+}
+
+.tau-no-data-in-slice .tau-step-pic:after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url('images/board-empty-message/empty-message-arrow.png') 0 0 no-repeat;
+    background-size: contain;
+    width: 49px;
+    height: 7px;
+    top: 105px;
+    left: 227px;
+}
+
+.tau-no-data-in-slice .tau-col:last-child .tau-step-pic:after {
+    display: none;
+}
+
+@media screen and (max-width: 1020px) and (min-width: 900px) {
+    .tau-no-data-in-slice {
+        width: 700px;
+    }
+
+    .tau-no-data-in-slice .tau-col {
+        width: 230px;
+    }
+
+    .tau-no-data-in-slice .tau-step-pic:after {
+        display: none;
+    }
+}
+
+
+/*region of axis collapsers*/
+.tau-board-grid-view .tau-cols-header .tau-collapsed .tau-v-collapser {
+    background: svg("r-direction");
+
+    &:active {
+        left: 1px;
+    }
+}
+
+.tau-board-grid-view .tau-rows-header .tau-v-collapser {
+    background: svg("t-direction");
+
+    &:active {
+        bottom: 1px;
+        left: 0;
+    }
+}
+
+.tau-board-grid-view .tau-rows-header .tau-collapsed .tau-v-collapser {
+    background: svg("b-direction");
+
+    &:active {
+        top: 1px;
+        right: 0;
+    }
+}
+/*End region of axis collapsers*/
+
+
+.tau-cell label {
+    cursor: pointer;
+}
+
+.tau-cell {
+    /* it is important to fix state rotation */
+    z-index: 1;
+}
+
+.tau-board-grid-view .tau-grid.tau-grid_x_false > .tau-grid-table {
+    margin-left: 0;
+    border-right: 0;
+    width: 100%;
+}
+
+.tau-board-grid-view .tau-cellholder_dndtarget_true {
+    background-color: $gActionBackgroundSystem;
+}
+
+.tau-board-grid-view .tau-cellholder_dndtarget_true .tau-cell {
+    overflow: hidden;
+}
+
+.tau-board-grid-view .tau-cellholder_dndcrossing_true {
+    background-color: $gActionBackgroundSystem;
+}
+
+.i-role-header .i-role-focustrigger .i-role-cellaxis-viewtrigger,
+.i-role-header .i-role-axis-mark-selector,
+.i-role-header .i-role-axis-mark-collapser {
+    cursor: pointer;
+}
+
+.i-role-header .tau-label {
+    cursor: default;
+}
+
+.i-role-header label.i-disabled-role-axis-mark-selector {
+    cursor: not-allowed;
+}
+
+/* on hover header table */
+.i-role-header .tau-label:hover {
+
+}
+
+.tau-board-grid-view .tau-grid tr:last-child .tau-cellholder {
+    border-bottom-width: 0;
+}
+
+.tau-board-grid-view .tau-grid .tau-grid-table {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.tau-board-grid-view .tau-grid tr:last-child {
+    height: 100%;
+}
+
+/* region .tau-board-becomes-old add when board reload */
+
+.tau-board-becomes-old {
+    color: $gFontColorGray !important;
+    overflow: hidden;
+    opacity: 0.1;
+    transition: opacity 0.5s linear;
+
+    .tau-grid {
+        overflow: hidden;
+    }
+
+    .board-add-button-holder {
+        visibility: hidden;
+    }
+
+    .tau-page-navigation-button {
+        visibility: hidden;
+    }
+
+    .tau-entity-icon {
+        background: none $gIconsGeneralColor !important;
+        color: $gFontColorWhite;
+    }
+}
+
+/*  endregion  */

@@ -1,0 +1,46 @@
+/* region markdown-editor */
+
+.markdown-editor {
+    margin-bottom: 10px;
+    min-height: 145px;
+    @mixin word-wrap;
+}
+
+.markdown-editor > textarea.markdown-editor__textarea {
+    margin: -5px -5px -1px -5px;
+    width: calc(100% - -10px); /*https://github.com/yui/yuicompressor/issues/193*/
+    min-height: 120px;
+    box-sizing: border-box;
+    resize: vertical;
+    border-color: $gControlBorderColorDefault;
+}
+
+.markdown-editor > textarea.markdown-editor__textarea:focus,
+.markdown-editor > textarea.markdown-editor__textarea:focus + .drag-and-drop {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3), 0 0 2px 0 $gFocusBoxShadowColor;
+}
+
+.markdown-editor.dragged-over.hover > textarea.markdown-editor__textarea,
+.markdown-editor.dragged-over.hover .drag-and-drop {
+    border-color: #0f6bbc;
+    border-style: dashed;
+}
+
+.markdown-editor__status-message {
+    color: $gFontColorLightGray;
+    margin-left: 15px;
+
+    display: flex;
+    align-items: flex-start;
+}
+
+.markdown-editor__controls {
+    padding-bottom: 5px;
+}
+
+.markdown-editor .markdown-editor__textarea:disabled {
+    opacity: 1;
+    background-color: $gBackgroundDisabled;
+}
+
+/* endregion */

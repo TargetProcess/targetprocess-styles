@@ -1,0 +1,386 @@
+/* button test-case-description_switch
+--------------------------------------------------------------------------------*/
+
+.test-case-description_switch {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 125px;
+    background-color: $gBackgroundDefault;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    border-radius: $gBorderRadiusDefault;
+    overflow: hidden;
+    z-index: 1;
+
+    &.active {
+        display: block;
+    }
+
+    &__button {
+        display: block;
+        border-radius: 0;
+        width: 100%;
+        text-align: left;
+        margin: 0;
+    }
+}
+
+/* number for test-case-rows
+--------------------------------------------------------------------------------*/
+
+.test-case_list {
+    counter-reset: index_list;
+}
+
+/* common for table test-case-description and test-case-run-description
+--------------------------------------------------------------------------------*/
+
+.test-case-description,
+.test-case-run-description {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.test-case-description_title,
+.test-case-description_rows,
+.test-case-run-description_title,
+.test-case-run-description_rows {
+    width: 100%;
+    box-sizing: border-box;
+
+}
+
+.test-case-description_title,
+.test-case-run-description_title {
+    background-color: $gHighlightBlockBackground;
+    border-bottom: 1px solid $gHighlightBlockBorderColor;
+    font-size: 16px;
+}
+
+.test-case-description_rows,
+.test-case-run-description_rows {
+    margin: 0;
+    position: relative;
+}
+
+.test-case-run-description_rows {
+    min-height: 70px;
+}
+
+.test-case__input {
+    position: relative;
+    box-sizing: border-box;
+    min-height: 24px;
+    padding: 3px 6px 0;
+    font-size: 13px;
+
+    &:focus {
+        box-shadow: none;
+        outline: none;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    &.disable {
+        color: $gFontColorLightGray;
+        cursor: pointer;
+    }
+}
+
+.tau-teststep-reordering .test-case-description_rows:before,
+.tau-teststep-reordering .test-case-run-description_rows:before {
+    visibility: hidden;
+}
+
+.test-case-description_colom,
+.test-case-run-description_colom {
+    display: table-cell;
+    width: 50%;
+    position: relative;
+    vertical-align: top;
+    box-sizing: border-box;
+    min-height: 100%;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 2px;
+
+    &.tau-focus{
+        box-shadow: $gControlBoxShadowFocusDefault;
+    }
+}
+
+/* table test-case-description
+--------------------------------------------------------------------------------*/
+
+.test-case-description {
+    table-layout: fixed;
+}
+
+.test-case-description_title,
+.test-case-description_rows {
+    display: table;
+    table-layout: fixed;
+    word-wrap: break-word;
+    border-spacing: 10px;
+    padding: 0 20px;
+}
+
+.test-case-description_rows:after,
+.test-case-description_title:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.test-case-description_title > .test-case-description_colom {
+    padding: 0 0 0 11px;
+}
+
+.test-case-description_title > .test-case-description_colom:first-child {
+    padding-left: 18px;
+}
+
+.test-case-description_rows:before {
+    display: block;
+    position: absolute;
+    top: 16px;
+    left: 15px;
+    color: $gFontColorLightGray;
+    content: counter(index_list) ' ';
+    counter-increment: index_list;
+}
+
+.test-case-description_rows:not([data-id]):before {
+    visibility: hidden;
+}
+
+.test-case-description_rows.active {
+    z-index: 2;
+    font-weight: normal;
+}
+
+.test-case-description_rows.active .test-case-description_colom {
+    border: 1px solid $gControlBorderColorDefault;
+    background-color: $gBackgroundDefault;
+}
+
+.tau-teststep .test-case__input img {
+    max-width: 250px;
+    max-height: 250px;
+}
+
+.test-case_list .tau-teststep .test-case__input:not(.cke_focus) a {
+    cursor: pointer !important;
+}
+
+.test-case-description .steps,
+.test-case-description .success {
+    width: 50%;
+    vertical-align: top;
+}
+
+.test-case-description .steps .ui-label,
+.test-case-description .success .ui-label {
+    font-weight: 600;
+}
+
+.test-case-description__remove-step,
+.test-case-description__icon {
+    position: absolute;
+    left: 13px;
+    top: 50%;
+    margin-top: calc(-$gIconsSizeDefault / 2);
+    display: none;
+}
+
+.test-case-description__remove-step {
+    right: 13px;
+    left: auto;
+}
+
+.test-case_list.ui-sortable .test-case-description_rows[data-id]:hover:before {
+    opacity: 0;
+}
+
+.test-case-description_rows:hover .test-case-description__remove-step,
+.test-case_list.ui-sortable .test-case-description_rows[data-id]:hover .test-case-description__icon {
+    display: block;
+}
+
+.test-case_list.ui-sortable .test-case-description_rows[data-id] .test-case-description__icon {
+    cursor: move;
+}
+
+.test-case-description_rows:hover {
+    background-color: $gActionBackgroundSystem;
+}
+
+.test-case-description_rows.active,
+.test-case-description_rows.highlight,
+.test-case-description_rows.tau-teststep-draggable {
+    background-color: $gActionBackgroundSystem;
+}
+
+.test-case-description .ui-description__inner img {
+    max-width: 100%;
+    height: auto !important;
+}
+
+/* table test-case-run-description
+--------------------------------------------------------------------------------*/
+
+.test-case-run-description {
+    display: table;
+    table-layout: fixed;
+    word-wrap: break-word;
+    box-sizing: border-box;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-collapse: collapse;
+}
+
+.test-case-run-description_colom > .test-case__input {
+    display: table;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+.test-case-run-description_title {
+    margin-bottom: 5px;
+}
+
+.test-case-run-description_title > .test-case-run-description_colom {
+    padding: 10px 20px 10px 24px;
+}
+
+.test-case-run-description_title > .test-case-run-description_colom:first-child {
+    padding-left: 40px;
+}
+
+.test-case-run-description_title > .test-case-run-description_colom:last-child {
+    padding-left: 30px;
+    padding-right: 10px;
+}
+
+.test-case-run-description_rows.active {
+    box-shadow: inset 0 0 0 4px $gActionBackgroundSystem;
+}
+
+.test-case-run-description_rows > .test-case-run-description_colom:first-child:before {
+    display: block;
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    color: $gFontColorLightGray;
+
+    content: counter(index_list) ' ';
+    counter-increment: index_list;
+}
+
+.test-case-run-description_rows > .test-case-run-description_colom:first-child {
+    padding-left: 34px;
+}
+
+.test-case-run-description_colom {
+    padding: 20px;
+    min-width: 150px;
+}
+
+.i-print .test-case-description_rows .test-case-description__remove-step,
+.i-print .test-case-description_rows .test-case-description__icon,
+.i-print .ui-sortable .test-case-description_rows .test-case-description__icon,
+.i-print .test-case-description_rows:last-of-type {
+    display: none;
+}
+
+.i-print .ui-sortable .test-case-description_rows:before {
+    opacity: 1;
+}
+
+/*  test-case-tip :  tips about hot keys
+--------------------------------------------------------------------------------*/
+
+.test-case-tip {
+    display: none;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    box-sizing: border-box;
+    background-color: $gActionBackgroundSystem;
+    color: $gFontColorGray;
+    font-size: 11px;
+    width: 100%;
+    text-align: center;
+    padding: 0 10px;
+    line-height: 1;
+    flex-wrap: wrap;
+
+    &__item {
+        display: flex;
+        margin: 0 0 5px 7px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+
+    &__key {
+        color: $gFontColorGray;
+        border: 1px solid $gButtonBorderColorDefault;
+        border-radius: $gBorderRadiusDefault;
+        box-sizing: border-box;
+        padding: 0 3px;
+        height: 13px;
+        line-height: 10px;
+        font-size: 10px;
+        margin: 0 2px;
+    }
+
+    &__text{
+        white-space: nowrap;
+    }
+
+    &__link {
+        position: relative;
+        color: $gLinkColor;
+        overflow: hidden;
+        white-space: nowrap;
+
+        &:hover {
+            color: $gLinkColorHover;
+        }
+
+        &:after {
+            display: block;
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            border-bottom: 1px dotted;
+        }
+    }
+
+    .test-case-description_rows.active,
+    .test-case-description_rows.highlight & {
+        display: flex;
+    }
+}
+
+.test-case-description_rows.tau-sortable__placeholder-inner {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 11px;
+    white-space: normal;
+    text-align: center;
+}
+
+.test-case_list .tau-sortable__placeholder-inner {
+    background-color: $gHighlightBlockBackground !important;
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.20), 0 -1px 0 0 rgba(0, 0, 0, 0.20), inset 0 0 1px 0 rgba(0, 0, 0, 0.15);
+    color: $gFontColorLightGray !important;
+    display: block;
+}

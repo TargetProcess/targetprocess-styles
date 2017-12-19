@@ -1,0 +1,517 @@
+$quickAddEntityControlsWidth: 370px;
+$quickAddEntitySelectorBackground: $gBackgroundDefault;
+$quickAddTreeBorderColor: rgba(0,0,0, 0.1);
+
+.quick-add {
+    font-size: 13px;
+    display: flex;
+    background: $gBackgroundDefault;
+    min-height: 220px;
+    max-height: 90vh; /*the same as max-height for .quick-add__entity-controls for FF.
+                        also, see ui.extension.board.quick.add.entity.search: _computeMinScrollableHeight*/
+    overflow-y: hidden;
+
+    &__empty {
+        color: $gFontColorLightGray;
+        font-weight: normal;
+        padding: 20px;
+    }
+
+    &__entity-selector {
+        border-right: 1px solid #dae0e6;
+        padding: 10px 0;
+        flex-shrink: 0;
+    }
+
+    &__entity-search {
+        margin: 0 10px;
+        padding: 3px 0 13px;
+    }
+
+    &__entity-scroll {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    &__related-entity-group {
+        border-top: solid 1px $gHighlightBlockBorderColor;
+        padding-top: 5px;
+        margin-top: 5px;
+    }
+
+    &__entity-item {
+        display: block;
+        font-family: $gFontFamily;
+        font-size: 13px;
+
+        box-sizing: border-box;
+        background: none;
+        border: 0;
+        width: 100%;
+        text-align: left;
+        position: relative;
+        padding: 0 25px 0 36px;
+        line-height: 30px;
+        cursor: pointer;
+        white-space: nowrap;
+
+        &:hover {
+            background-color: $gActionBackgroundHover;
+        }
+
+        &:focus {
+            box-shadow: $gControlBoxShadowFocusDefault;
+            outline: none;
+            position: relative;
+        }
+
+        &.tau-active {
+            background-color: $gActionBackgroundActive;
+            cursor: default;
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            display: block;
+        }
+
+        &.tau-epic,
+        &.tau-feature,
+        &.tau-userstory,
+        &.tau-task,
+        &.tau-bug,
+        &.tau-request,
+        &.tau-testcase,
+        &.tau-testplan,
+        &.tau-testplanrun,
+        &.tau-release,
+        &.tau-iteration,
+        &.tau-teamiteration,
+        &.tau-build,
+        &.tau-projectmember,
+        &.tau-userprojectallocation,
+        &.tau-teamprojectallocation {
+
+            &:before {
+                left: 17px;
+                top: 10px;
+                width: 5px;
+                height: 5px;
+                border: solid 3px $quickAddEntitySelectorBackground;
+                border-radius: 50%;
+                z-index: 6;
+            }
+
+            &:hover:before {
+                border-color: $gActionBackgroundHover;
+            }
+
+            &.tau-active:before {
+                border-color: $gActionBackgroundActive;
+            }
+        }
+
+        &.tau-impediment,
+        &.tau-user,
+        &.tau-requester,
+        &.tau-project,
+        &.tau-program,
+        &.tau-team {
+
+            &:before {
+                top: 50%;
+                left: 13px;
+                margin-top: -8px;
+                width: 16px;
+                height: 16px;
+                z-index: 6;
+            }
+        }
+
+        &.tau-impediment:before {
+            background: svg("blocker");
+            left: 15px;
+        }
+
+        &.tau-user:before,
+        &.tau-requester:before {
+            background: svg("user");
+        }
+
+        &.tau-project:before,
+        &.tau-program:before {
+            background: svg("project");
+        }
+
+        &.tau-team:before {
+            background: svg("team");
+        }
+
+
+        .quick-add__level2 & {
+            padding-left: 46px;
+
+            &:before {
+                left: 29px;
+            }
+        }
+
+        .quick-add__level3 & {
+            padding-left: 54px;
+
+            &:before {
+                left: 37px;
+            }
+        }
+
+        .quick-add__level4 & {
+            padding-left: 62px;
+
+            &:before {
+                left: 45px;
+            }
+        }
+
+        &.quick-add__entity-item--lookup-term {
+            padding: 0 0 0 23px;
+            white-space: normal;
+            line-height: 20px;
+
+            &:before {
+                left: 6px;
+                top: 50%;
+                transform: translateY(-50%);
+                margin-top: 0;
+                border: none;
+            }
+
+            &.tau-impediment,
+            &.tau-user,
+            &.tau-requester,
+            &.tau-project,
+            &.tau-program,
+            &.tau-team,
+            &.tau-noentities {
+
+                &:before {
+                    left: 0;
+                }
+            }
+
+            &:focus {
+                box-shadow: none;
+            }
+
+            &:hover {
+                background-color: transparent;
+
+                &:before {
+                    box-shadow: none;
+                }
+
+                &.tau-impediment,
+                &.tau-user,
+                &.tau-requester,
+                &.tau-project,
+                &.tau-program,
+                &.tau-team,
+                &.tau-noentities {
+
+                    &:before {
+                        background-color: transparent;
+                    }
+                }
+            }
+
+            &:empty {
+                width: 16px;
+                height: 16px;
+                padding: 0;
+                margin: 0 1px 0 3px;
+            }
+        }
+    }
+
+    &__no-entities-message {
+        position: relative;
+        padding: 5px 15px 5px 36px;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 15px;
+            background: svg("stop", "[fill]: $gMessageColorError");
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    /*region hierarchical menu*/
+    .quick-add__level1,
+    .quick-add__level2,
+    .quick-add__level3,
+    .quick-add__level4 {
+        position: relative;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 24px;
+            bottom: 15px;
+            width: 1px;
+            background-color: $quickAddTreeBorderColor;
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 24px;
+            width: 5px;
+            height: 25px;
+            border-left: solid 1px $quickAddTreeBorderColor;
+            border-bottom: solid 1px $quickAddTreeBorderColor;
+            border-bottom-left-radius: $gBorderRadiusDefault;
+            z-index: 5;
+        }
+    }
+
+    .quick-add__level1 {
+        &:before {
+            display: none;
+        }
+    }
+
+    .quick-add__level2 {
+        &:after {
+            left: 34px;
+        }
+
+        &:before {
+            height: 2px;
+            top: 12px;
+            left: 25px;
+        }
+    }
+
+    .quick-add__level3 {
+        &:after {
+            left: 42px;
+        }
+
+        &:before {
+            left: 34px;
+        }
+    }
+
+    .quick-add__level4 {
+        &:after {
+            left: 50px;
+        }
+
+        &:before {
+            left: 42px;
+        }
+    }
+
+    &__entity-type-group {
+        margin: 4px 0;
+
+        &:first-child {
+            margin-top: 0;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    /*end region*/
+
+    &__entity-controls {
+        position: relative;
+        padding: 0 15px;
+        min-width: $quickAddEntityControlsWidth;
+        overflow-x: hidden;
+        overflow-y: auto;
+        max-height: 90vh; /*the same as max-height for quick-add for FF*/
+
+        &__message {
+            margin-bottom: 15px;
+
+            .tau-system-message__title {
+                font-size: 13px;
+            }
+        }
+    }
+
+    &__entity-actions {
+        display: inline-flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        &__control {
+            display: flex;
+            flex: 0 1 auto;
+
+            &:not(:last-child) {
+                margin-right: 4px;
+            }
+        }
+    }
+
+    .tau-note {
+        margin-bottom: 4px;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .tau-fieldset {
+        display: none;
+
+        &.tau-active {
+            display: block;
+        }
+    }
+
+    .tau-field {
+        position: relative;
+        margin: 14px 0 16px;
+
+        &.hide {
+            display: none;
+        }
+
+        &.tau-custom {
+            display: none;
+        }
+
+        &.tau-custom.show {
+            display: block;
+        }
+
+        &.cf-wrap {
+            &.hide {
+                display: none;
+            }
+
+            .cf-title {
+                margin-bottom: 4px;
+            }
+
+            .cf-wrap-url_value,
+            .cf-wrap-url_description {
+                position: relative;
+                margin: 0;
+            }
+
+            .cf-wrap-url_description {
+                margin-top: 8px;
+            }
+        }
+
+        .editableText:hover {
+            background: $gBackgroundDefault;
+        }
+
+        &__control {
+            display: inline-block;
+        }
+
+        &--button-wrap {
+            display: flex;
+            align-items: center;
+
+            .tau-field__control {
+                display: flex;
+                flex: 0 1 auto;
+
+                &:not(:first-child) {
+                    margin-left: 4px;
+                }
+            }
+        }
+
+        &--time {
+            .tau-field__colom {
+                display: inline-block;
+                white-space: nowrap;
+                margin-right: 30px;
+            }
+
+            span {
+                box-sizing: border-box;
+                display: inline-block;
+                padding-right: 8px;
+            }
+
+            .tau-field__input {
+                display: inline-flex;
+                width: 55px;
+                margin-top: -3px;
+            }
+        }
+
+        /*inside Custom workflow setup for quick add popup*/
+
+        &.custom-workflow-setup.tau-setup {
+            .tau-projects,
+            .tau-teams {
+                display: flex;
+            }
+        }
+
+        /*endregion*/
+
+        .tau-percent-field {
+            width: 55px;
+            padding: 0 4px;
+        }
+    }
+
+    .category-assignments {
+        width: $quickAddEntityControlsWidth;
+    }
+
+    .cf-wrap.hide {
+        display: none;
+    }
+
+    .cf-wrap-url_value,
+    .cf-wrap-url_description {
+        position: relative;
+        margin: 0;
+    }
+
+    .cf-wrap-url_description {
+        margin-top: 8px;
+    }
+
+    /*inside .tau-userStorySelector block*/
+    .tau-field_entity {
+        &__control {
+            position: absolute;
+            right: 0;
+            top: 0;
+
+            &.tau-within-entity-lookup {
+                top: 10px;
+                right: 10px;
+            }
+        }
+
+        .lookup-section__header {
+            padding-right: 36px;
+        }
+    }
+    /*endregion*/
+
+    .tau-noteam-warning,
+    .tau-noentity-warning {
+        font-weight: normal;
+        color: $gFontColorLightGray;
+        max-width: 400px;
+    }
+}

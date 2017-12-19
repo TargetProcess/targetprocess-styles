@@ -1,0 +1,33 @@
+.tau-autocomplete__menu {
+    position: absolute;
+    cursor: default;
+    background: white;
+
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding: 5px;
+    list-style: none;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+    border-radius: $gBorderRadiusDefault;
+    z-index: 130;
+}
+
+.tau-autocomplete__itemtrigger {
+    text-decoration: none;
+    display: block;
+    font-size: 12px !important;
+}
+
+.tau-autocomplete__menu__tags .tau-autocomplete__itemtrigger {
+    font-size: 11px !important;
+}
+
+.ui-state-focus .tau-autocomplete__itemtrigger,
+.ui-state-hover .tau-autocomplete__itemtrigger,
+.ui-state-active .tau-autocomplete__itemtrigger {
+    cursor: pointer;
+    text-decoration: none;
+    background: $gActionBackgroundHover;
+}

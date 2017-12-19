@@ -1,0 +1,15 @@
+.icon-login-page {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url("../../images/loginSprite.png");
+    background-repeat: no-repeat;
+}
+
+.icon-login-page-comment {
+    background-position: 0 -267px;
+}
+
+.icon-login-page-l-pointer {
+    background-position: 4px -308px;
+}

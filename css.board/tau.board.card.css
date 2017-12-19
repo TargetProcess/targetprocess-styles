@@ -1,0 +1,16 @@
+.tau-axis_highlighted {
+    animation-name: fadeSuccess;
+    animation-fill-mode: both;
+    animation-duration: 1s;
+}
+
+.i-browser_engine_ie .tau-axis_highlighted {
+    background: $gActionBackgroundSuccess;
+}
+
+.tau-operation_unit_added {
+    animation-name: bounce;
+    animation-fill-mode: both;
+    animation-duration: 1.6s;
+
+}

@@ -1,0 +1,178 @@
+.main-container-print {
+    font-family: $gFontFamily;
+    color: $gFontColorDefault;
+    padding: 10px;
+    font-size: 13px;
+}
+
+.main-container-print .b-tab,
+.main-container-print .b-section {
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.main-container-print .b-tab .ui-label,
+.main-container-print .b-section .ui-label {
+    cursor: default;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    vertical-align: baseline;
+    display: block;
+    margin-bottom: 10px;
+    height: 20px;
+    padding: 9px 5px 7px;
+}
+
+.main-container-print .state-selector {
+    padding-top: 10px;
+}
+
+.main-container-print .state-selector .b-section .ui-label {
+    display: inline-block;
+    margin: 0;
+    font-weight: normal;
+}
+
+.main-container-print .b-tab .ui-ctrl-title {
+    background-color: transparent;
+    margin-bottom: 0;
+}
+
+.main-container-print .b-tab .ui-tags,
+.main-container-print .b-tab .ui-all-comments,
+.main-container-print .b-tab .ui-description,
+.main-container-print .b-tab .ui-timeList-content,
+.main-container-print .b-section .ui-base-info-list-content {
+    padding: 0 0 10px 0;
+}
+
+.main-container-print .ui-attach .toolbar,
+.main-container-print .external-view {
+    display: none;
+}
+
+.i-print .ui-attach > .inner {
+    cursor: default;
+}
+
+.i-print .ui-attach > .inner:hover {
+    border-style: dashed;
+    box-shadow: none;
+    border-color: #e3e4e5;
+}
+
+body.print-mode {
+    background: $gBackgroundDefault !important;
+}
+
+.main-container-print a {
+    color: $gFontColorDefault;
+    cursor: default;
+    text-decoration: none;
+}
+
+.main-container-print .tau-linkentity__inner {
+    border-bottom: 0;
+}
+
+.main-container-print .tag-view,
+.main-container-print .tag-view:hover {
+    border: 1px solid $gFontColorDefault;
+    box-shadow: none;
+    color: $gFontColorDefault;
+    background: none;
+    cursor: default;
+}
+
+.main-container-print .assignments-table tr.tasks-row,
+.main-container-print .assignments-table tr.total-row {
+    background: none;
+}
+
+.main-container-print .assignments-table tr.head-row td {
+    border: none;
+}
+
+.main-container-print .entity-progress-box {
+    border: 0;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.main-container-print .assignments-table-readonly .user td.user-avatar-container,
+.main-container-print .assignments-table-readonly .user td.owner-avatar-container {
+    padding-left: 5px;
+}
+
+.main-container-print .ui-progressbar__progress {
+    border: 1px solid #252525;
+    background: black;
+}
+
+.main-container-print .test-case-run-buttons .hidden {
+    display: none;
+}
+
+.main-container-print .b-tab .additional-info-table .ui-label,
+.main-container-print .b-section .additional-info-table .ui-label {
+    cursor: default;
+    font-weight: normal;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    display: inline;
+    margin-bottom: 10px;
+    height: 20px;
+    line-height: 18px;
+    padding: 9px 10px 7px;
+}
+
+.main-container-print .tau-nonprintable {
+    display: none;
+}
+
+.main-container-print .additional-info {
+    margin-top: 10px;
+}
+
+.main-container-print .ui-description__inner {
+    padding: 0;
+}
+
+.print-mode .demo-container {
+    padding: 0;
+}
+
+.main-container-print .ui-comments-control, .main-container-print .ui-all-comments {
+    margin: 0;
+    padding: 0;
+}
+
+.main-container-print .tau-sharelink,
+.main-container-print .tau-followlink,
+.main-container-print .ui-field_empty_true .ui-description__inner:before {
+    display: none;
+}
+
+.main-container-print .ui-customfield__measure-unit,
+.main-container-print .ui-customfield__currency-sign {
+    padding: 0;
+    border: none;
+}
+
+.print-mode {
+    * {
+        color-adjust: exact;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .tau-page-entity .tau-board-list-view .tau-board-list-view__inner {
+        padding: 0;
+    }
+
+    .tau-relations {
+        padding: 0;
+    }
+}

@@ -1,0 +1,6 @@
+.report-settings {
+    &:before,
+    &:after {
+        display:none;
+    }
+}

@@ -1,0 +1,25 @@
+.tau-help-label {
+    font-size: $gFontSize;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+
+    &__text {
+        opacity: 0.5;
+        cursor: pointer;
+        transition: 0.3s opacity;
+        margin-left: 4px;
+    }
+
+    &__icon {
+        flex-shrink: 0;
+    }
+
+    &.tau-active,
+    &:hover {
+        .tau-help-label__text,
+        .tau-icon-help {
+            opacity: 1;
+        }
+    }
+}

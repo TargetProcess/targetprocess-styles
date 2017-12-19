@@ -1,0 +1,56 @@
+.capacity-bubble {
+    width: 300px;
+    font-size: calc($gFontSize - 1);
+
+    &__total {
+        border-bottom: solid 1px $gHighlightBlockBorderColor;
+        margin: 5px 8px 0 8px;
+        font-weight: 600;
+        font-size: $gFontSize;
+
+        .capacity-bubble__item {
+            padding: 5px 3px 8px 3px;
+        }
+    }
+
+    &__body {
+        padding: 5px 0;
+    }
+
+    &__item {
+        padding: 5px 11px;
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        justify-content: space-between;
+        overflow: hidden;
+
+        &--title {
+            font-weight: 600;
+            font-size: $gFontSize;
+        }
+
+
+        &__name {
+            @mixin ellipsis;
+        }
+
+        &__value {
+            flex: 0 0 auto;
+            min-width: 30%;
+            text-align: right;
+        }
+    }
+
+    &__message {
+        color: $gFontColorGray;
+        padding: 5px 11px;
+    }
+
+    &--warning.i-orientation_bottom {
+        .tau-bubble__arrow:after {
+            background-color: color($gMessageColorWarning tint(90%));
+        }
+    }
+}
+

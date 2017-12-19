@@ -1,0 +1,8 @@
+.tau-layout-board_south-visible_true.tau-layout-board_south-expanded_true .tau-board {
+    border-bottom-width: 6em;
+
+}
+
+.tau-layout-board_south-visible_true.tau-layout-board_south-expanded_false .tau-board {
+    border-bottom-width: 35px;
+}

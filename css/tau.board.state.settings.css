@@ -1,0 +1,264 @@
+/*  State settings
+--------------------------------------------------------------------------------*/
+
+.tau-state-settings {
+    display: flex;
+    flex-direction: row;
+    border-radius: $gBorderRadiusDefault;
+    background-color: $gHighlightBlockBackground;
+
+    .tau-checkbox__label {
+        display: inline-block;
+        padding-left: 6px;
+        margin: 0;
+
+        font-weight: normal;
+        line-height: 14px;
+        vertical-align: text-top;
+    }
+}
+
+.tau-state-settings__default-final {
+    /* Make it "nested" inside Final checkbox */
+    margin-left: 22px;
+}
+
+.tau-transitions-category {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    padding: 11px 0 48px;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 24px;
+        height: 24px;
+
+        margin-top: -12px;
+        margin-left: -12px;
+
+        overflow: hidden;
+        background: svg("paging-r") center center no-repeat;
+        transform: scale(5);
+
+        opacity: 0.07;
+    }
+}
+
+/*  Previous states
+--------------------------------------------------------------------------------*/
+
+.tau-transitions-states__list {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+
+    &__checkbox {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .tau-checkbox__label {
+        max-width: 120px;
+        padding-left: 6px;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 6px;
+
+        &:not(:first-child) {
+            margin-right: 5px;
+        }
+
+        &--current {
+            color: $gFontColorLightGray;
+            display: inline-block;
+            font-size: 13px;
+            line-height: 18px;
+            position: relative;
+
+            padding-left: 22px;
+            margin-top: 4px;
+            margin-bottom: -1px;
+
+            max-width: 124px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        &--current:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+
+            width: 16px;
+            height: 2px;
+            margin-top: -1px;
+
+            background-color: $gFontColorLightGray;
+            opacity: 0.8;
+        }
+
+        &:first-child {
+            margin-bottom: 18px;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &__icon {
+            vertical-align: middle;
+            display: inline-block;
+            margin-left: 4px;
+        }
+    }
+}
+
+.tau-state-settings .tau-transitions-category__title {
+    max-width: 100px;
+    font-size: 13px;
+    font-weight: 600;
+
+    &--updater {
+        display: block;
+        max-width: 100%;
+        padding-top: 3px;
+        padding-bottom: 4px;
+        margin-top: 0;
+    }
+
+}
+
+.tau-transitions-category.tau-previous-states {
+    width: 160px;
+    padding-left: 20px;
+
+}
+
+/*  Next states
+--------------------------------------------------------------------------------*/
+
+.tau-transitions-category.tau-next-states {
+    width: 180px;
+
+    .tau-transitions-states__list__item {
+        margin-left: 21px;
+    }
+}
+
+/*  Settings updater
+--------------------------------------------------------------------------------*/
+
+.tau-transitions-updater {
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 215px;
+    max-width: 285px;
+    padding: 11px 20px 16px;
+
+    border: 1px solid $gHighlightBlockBorderColor;
+    border-width: 0 1px 0 1px;
+    background: $gBackgroundDefault;
+
+    &:before {
+        display: none;
+    }
+
+    &.tau-no-transitions {
+        border: none;
+    }
+
+    .tau-transitions-states__select {
+        margin-bottom: 7px;
+    }
+
+    &__checkboxes {
+        &__line {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            max-width: 250px;
+            margin-bottom: 4px;
+        }
+    }
+
+    &__checkbox {
+        display: inline-flex;
+        align-items: center;
+        flex: 0 1 auto;
+    }
+}
+
+.tau-transitions-updater-comment {
+    margin: 3px 0 12px 0;
+    font-size: 12px;
+    line-height: 14px;
+    max-width: 250px;
+    color: $gFontColorLightGray;
+}
+
+.tau-transitions-updater-planned {
+    margin: 12px 0 0 0;
+    font-size: 12px;
+    line-height: 14px;
+    color: $gFontColorGray;
+}
+
+.tau-transitions-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 20px;
+
+    &__item {
+        display: flex;
+        flex: 1 1 auto;
+        overflow: hidden;
+        margin: 0 4px 4px 0;
+
+        &:last-child {
+            flex-direction: row-reverse;
+            margin-right: 0;
+        }
+    }
+}
+
+/*  Transitions setup bubble
+--------------------------------------------------------------------------------*/
+
+.tau-state-settings__content {
+    max-width: 194px;
+    width: 194px;
+
+    .tau-buttons {
+        margin-top: 6px;
+
+        &__control {
+            &:last-child {
+                flex: 1 0 auto;
+                display: flex;
+                flex-direction: row-reverse;
+            }
+        }
+    }
+
+    .tau-state-settings__new-state {
+        margin: 0;
+        width: 100%;
+        height: 28px;
+    }
+
+    .tau-bubble-tooltipArticle & > p > span {
+        line-height: 14px;
+    }
+}

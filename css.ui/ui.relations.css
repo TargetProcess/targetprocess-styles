@@ -1,0 +1,452 @@
+.tau-relations {
+    padding-top: 13px;
+
+    &__filters {
+        padding: 5px 16px;
+        min-height: 30px;
+        display: flex;
+        align-items: center;
+
+        &__item {
+            margin-left: 20px;
+            color: $gFontColorGray;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+
+    &__filter {
+        display: flex;
+        align-items: center;
+
+        .drop-down-option {
+            display: flex;
+            align-items: center;
+        }
+
+        .tau-filter-placeholder {
+            border-bottom: dotted 1px $gFontColorGray;
+            color: $gFontColorGray;
+            cursor: pointer;
+        }
+
+        &__text,
+        &__text__wrap {
+            display: flex;
+            align-items: center;
+        }
+
+        &__reset {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            margin-left: 4px;
+        }
+    }
+
+    .tau-denied-relations {
+        padding: 10px;
+        border-bottom: solid 1px $gHighlightBlockBorderColor;
+        background-color: $gActionBackgroundSystem;
+        display: none;
+
+        > i {
+            color: $gMessageColorError;
+            font-style: normal;
+            font-weight: 600;
+        }
+    }
+
+    &__table-wrapper {
+        border-bottom: solid 1px $gHighlightBlockBorderColor;
+
+        .tau-relation-type {
+            width: 90px;
+            white-space: nowrap;
+        }
+
+        .tau-table__entity-id {
+            width: 40px;
+            text-align: right;
+        }
+
+        .tau-entity-type {
+            width: 20px;
+        }
+
+        .tau-entity-control {
+            width: 28px;
+        }
+
+        .tau-entity-field {
+            width: 10%;
+            padding: 5px 0 5px 5px;
+
+            &__wrap {
+                display: inline-block;
+            }
+        }
+
+        .tau-entity-state {
+            white-space: nowrap;
+        }
+
+        tr:hover {
+            .i-role-remove {
+                visibility: visible;
+            }
+        }
+    }
+
+    .i-role-remove {
+        visibility: hidden;
+    }
+
+    &__connection {
+        height: 58px;
+        font-size: 18px;
+        text-align: center;
+        line-height: 58px;
+        color: $gFontColorGray;
+
+        .tau-in-bg {
+            position: relative;
+            display: inline-block;
+            padding: 0 5px;
+
+            &:before {
+                width: 21px;
+                height: 2px;
+                top: 28px;
+                left: -21px;
+            }
+
+            &:after {
+                width: 2px;
+                height: 28px;
+                top: 0;
+                left: -21px;
+            }
+        }
+
+        .tau-out-bg {
+            &:before {
+                width: 21px;
+                height: 2px;
+                top: 28px;
+                right: -21px;
+            }
+
+            &:after {
+                width: 2px;
+                height: 28px;
+                top: 30px;
+                right: -21px;
+            }
+
+            b {
+                font-weight: 600;
+                display: inline-block;
+                vertical-align: baseline;
+            }
+        }
+
+        .tau-in-bg:before,
+        .tau-in-bg:after,
+        .tau-out-bg:before,
+        .tau-out-bg:after {
+            content: '';
+            background-color: $gHighlightBlockBorderColor;
+            display: block;
+            position: absolute;
+        }
+
+        &__icon {
+            background: svg("relations-big");
+            display: inline-block;
+            vertical-align: baseline;
+            width: 50px;
+            height: 16px;
+            margin: 0 5px;
+            position: relative;
+            top: 2px;
+        }
+
+    }
+
+    .tau-list__table__row_isfinalstate_true {
+        .tau-entity-type,
+        .tau-entity-name {
+            color: $gFontColorGray;
+        }
+    }
+
+    /*Relations in additional-info column*/
+    &--duplicate {
+        padding-top: 0;
+
+        .tau-relations-item__header {
+            background-color: transparent;
+            border: 0;
+        }
+
+        .tau-relations-item--master .tau-relations-item__header {
+            display: none;
+        }
+
+        .tau-relations__table-wrapper {
+            border-bottom: 0;
+            border-top: solid 1px $gHighlightBlockBorderColor;
+
+            .tau-relation-type {
+                display: none;
+            }
+
+            &__entity-id {
+                text-align: center;
+
+            }
+
+            .tau-entity-field {
+                display: none;
+
+                &.tau-entity-state {
+                    display: table-cell;
+                }
+            }
+        }
+    }
+
+    &--batch {
+        padding: 0;
+
+        .tau-relations-item__header {
+            padding: 5px 7px 6px;
+            border-top: solid 1px $gHighlightBlockBorderColor;
+            border-bottom: none;
+            background-color: color($gHighlightBlockBackground a(60%));
+
+            &__title {
+                font-size: 13px;
+                padding: 0 0 0 3px;
+            }
+        }
+
+        .tau-relations-item--master .tau-relations-item__header {
+            border-top: none;
+        }
+    }
+}
+
+.tau-relations-item {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 7px;
+        background-color: $gHighlightBlockBackground;
+        border-bottom: solid 1px $gHighlightBlockBorderColor;
+
+        &__item {
+            flex: 0 0 auto;
+        }
+
+        &__search {
+            display: flex;
+            text-align: center;
+            justify-content: flex-end;
+            flex: 1 0 auto;
+            margin-left: 5px;
+
+            &__text {
+                display: block;
+                font-size: 11px;
+                color: $gFontColorGray;
+                margin-right: 8px;
+                line-height: 24px;
+            }
+        }
+
+        &__title {
+            font-size: 18px;
+            line-height: 18px;
+            font-weight: normal;
+            margin: 0;
+            padding: 0 0 0 5px;
+            flex-shrink: 0;
+        }
+
+        &__icon {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            position: relative;
+            top: 1px;
+            margin-left: 4px;
+        }
+    }
+}
+
+.tau-relations-list {
+    padding: 7px 0;
+    margin: 0;
+    list-style: none;
+
+    &__item {
+        padding: 2px 7px 1px;
+    }
+
+    &__relation {
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        flex: 0 1 auto;
+        font-size: 13px;
+        line-height: 20px;
+        overflow: hidden;
+
+        &__name {
+            display: block;
+            flex: 0 1 auto;
+            overflow: hidden;
+            padding: 0 7px 0 5px;
+            line-height: 16px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        &__id {
+            flex-shrink: 0;
+            font-size: 11px;
+            margin-right: 5px;
+
+            &,
+            &:hover {
+                color: $gFontColorGray;
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        &--not-linked {
+            .tau-relations-list__relation__name {
+                padding-left: 2px;
+                color: $gFontColorWarning;
+            }
+        }
+    }
+
+    &__icon {
+        display: flex;
+        flex: 0 0 auto;
+
+        &--relation-type {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+        }
+
+        &--entity-type {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+.tau-relations-message {
+    padding: 7px 12px 9px;
+    font-size: 13px;
+    line-height: 20px;
+    color: $gFontColorGray;
+}
+
+.tau-relations-table {
+    width: 100%;
+    margin: 9px 0 5px;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    &__td {
+        width: 20px;
+        padding: 4px 0;
+        text-align: left;
+        vertical-align: top;
+
+        &:first-child {
+            padding-left: 7px;
+        }
+
+        &:last-child {
+            padding-right: 7px;
+        }
+
+        &--name {
+            width: auto;
+
+            .tau-relations-list__relation {
+                position: relative;
+                display: inline-block;
+                line-height: 16px;
+                padding-left: 5px;
+                padding-right: 7px;
+
+                &__name {
+                    display: inline;
+                    white-space: normal;
+                    padding: 0 7px 0 0;
+                }
+            }
+
+            .tau-relations-list__icon {
+                position: relative;
+                top: 3px;
+                display: inline-block;
+                height: 16px;
+                margin-top: -4px;
+            }
+        }
+    }
+
+    .tau-relations-list {
+        &__relation__id {
+            line-height: 18px;
+        }
+
+        &__icon--entity-type {
+            align-self: flex-start;
+        }
+    }
+}
+
+.relation-type-property {
+    display: flex;
+    align-items: center;
+
+    &__icon {
+        display: flex;
+        flex: 0 0 auto;
+        align-items: center;
+        margin-right: 6px;
+    }
+}
+
+/*Relations bubbles*/
+.tau-bubble-project,
+.tau-bubble-team {
+    max-width: 250px;
+
+    .tau-bubble-txt {
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+

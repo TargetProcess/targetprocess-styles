@@ -1,0 +1,814 @@
+$labelBoxShadowColorDefault: $gBoardBackground;
+
+$limitOverheadCounterBackground: color($gMessageColorError shade(7%));
+$limitOverheadAxisBackground: color($gMessageColorError tint(90%));
+$capacityOverheadAxisBackground: color($gMessageColorError tint(90%));
+$capacityLeftAxisBackground: color($gMessageColorSuccess tint(80%));
+$capacityWarningAxisBackground: color($gMessageColorWarning tint(80%));
+$limitWarningCounterBackground: color($gMessageColorWarning tint(75%));
+$limitWarningAxisBackground: color($gMessageColorWarning tint(90%));
+$limitNotAvailableBackground: color($gBoardBackground shade(6%));
+
+$cellHolderSelectedBackgroundColor: color($gActionBackgroundSystem tint(70%));
+
+/*****************************************************************************************************
+
+    Board's View common elements
+
+    Contents:
+
+        - General
+        - X header
+        - Line headers
+        - Rows header
+        - Cols header
+        - Backlog
+        - Cell holder
+        - Cell
+        - Label
+        - Selector
+        - Collapser
+        - Team Memebers
+
+*****************************************************************************************************/
+
+/* General
+----------------------------------------------------------------------------------------------------*/
+
+.tau-board-view {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* X header  --- crossing of two axes
+----------------------------------------------------------------------------------------------------*/
+
+.tau-board-view .tau-x-header {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: $gBoardBorderColor;
+
+    width: 240px;
+
+    height: 32px;
+    box-sizing: border-box;
+}
+
+.tau-board-view .tau-x-header:after {
+    position: absolute;
+    top: 0;
+    right: -1px;
+    border-right: 1px solid $gBoardBorderColor;
+    width: 1px;
+    height: 100%;
+    content: '';
+}
+
+.additional-info_x .tau-board-view .tau-x-header {
+    height: 70px;
+}
+
+.tau-board-view.tau-no-rows .tau-x-header,
+.tau-board-view.tau-no-cols .tau-x-header {
+    display: none;
+}
+
+.tau-board-view.rows-h-collapsed .tau-x-header {
+    width: 104px;
+}
+
+/* Line headers
+----------------------------------------------------------------------------------------------------*/
+
+.tau-board-view .tau-rows-header,
+.tau-board-view .tau-cols-header,
+.tau-board-view .tau-backlog {
+    position: absolute;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.tau-board-view .tau-rows-header > ul,
+.tau-board-view .tau-cols-header > ul,
+.tau-board-view .tau-backlog > .tau-backlog-body > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tau-board-view .tau-backlog > .tau-backlog-body > ul {
+    height: 100%;
+}
+
+.tau-board-view .tau-rows-header > ul > li.tau-hidden,
+.tau-board-view .tau-cols-header > ul > li.tau-hidden,
+.tau-board-view .tau-backlog > .tau-backlog-body > ul li.tau-hidden {
+    display: none;
+}
+
+.tau-board-view .tau-cards-count {
+    z-index: 2;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0 5px 5px 5px;
+}
+
+.tau-board-view .tau-rows-header .tau-cards-count,
+.tau-board-view .tau-cols-header .tau-cards-count,
+.tau-board-view .tau-timeline .tau-cards-count,
+.tau-board-view .tau-backlog-header .tau-cards-count {
+    top: 5px;
+    padding-top: 3px;
+    line-height: 0;
+}
+
+.tau-board-view .tau-timeline-scale .tau-cards-count {
+    opacity: 0;
+}
+
+.tau-board-view .tau-cards-count span {
+    display: inline-block;
+    border: 1px solid $gBoardBorderColor;
+    color: $gFontColorLightGray;
+    font-size: 11px;
+    padding: 2px 6px;
+    margin: 0;
+    line-height: 10px;
+    border-radius: 10px;
+    cursor: default;
+    background-color: $gBoardSettingsBackground;
+}
+
+.tau-board-view .tau-header-inboundrelations .tau-cards-count :before,
+.tau-board-view .tau-header-outboundrelations .tau-cards-count :after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 8px;
+    background: svg("relations") right center no-repeat;
+}
+
+.tau-board-view .tau-axis-limit_overhead_x .tau-cards-count span,
+.tau-board-view .tau-axis-limit_overhead_y .tau-cards-count span {
+    border-color: color($limitOverheadCounterBackground shade(8%));
+    color: $gFontColorWhite;
+    background-color: $limitOverheadCounterBackground;
+}
+
+.tau-board-view .tau-axis-limit_warning_x .tau-cards-count span,
+.tau-board-view .tau-axis-limit_warning_y .tau-cards-count span {
+    border-color: color($gMessageColorWarning a(60%));
+    color: $gMessageColorWarning;
+    background-color: $limitWarningCounterBackground;
+}
+
+/* Rows header
+----------------------------------------------------------------------------------------------------*/
+
+.tau-board-view .tau-rows-header {
+    top: 32px;
+    bottom: 0;
+    left: 0;
+
+    border-right: 1px solid $gBoardBorderColor;
+    width: 15em; /* 240/16 */
+
+}
+
+.additional-info_x .tau-board-view .tau-rows-header {
+    top: 70px;
+}
+
+.tau-board-view.tau-no-rows .tau-rows-header {
+    display: none;
+}
+
+.tau-board-view.tau-no-cols .tau-rows-header {
+    top: 0;
+}
+
+.tau-board-view.rows-h-collapsed .tau-rows-header {
+    width: 104px;
+}
+
+/* Cols header
+----------------------------------------------------------------------------------------------------*/
+
+.tau-board-view .tau-cols-header {
+    top: 0;
+    right: 0;
+    left: 240px;
+
+    border-bottom: 1px solid $gBoardBorderColor;
+    height: 32px;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+.additional-info_x .tau-board-view .tau-cols-header {
+    height: 70px;
+}
+
+.tau-board-view.tau-no-cols .tau-cols-header {
+    display: none;
+}
+
+.tau-board-view.tau-no-rows .tau-cols-header {
+    left: -1px;
+}
+
+.tau-board-view.rows-h-collapsed .tau-cols-header {
+    left: 104px;
+}
+
+.tau-board-view .tau-cols-header > ul {
+    display: inline-block;
+    border-right: 1px solid $gBoardBorderColor;
+    height: 100%;
+    white-space: nowrap;
+}
+
+/* Backlog
+----------------------------------------------------------------------------------------------------*/
+.tau-board-view .tau-backlog-timeline-header-cell,
+.tau-board-view .tau-backlog {
+    width: 240px;
+}
+
+.tau-board-view .tau-backlog {
+    position: absolute;
+    left: 241px;
+    top: 0;
+    z-index: 1;
+    border-right: 1px solid $gBoardBorderColor;
+    height: 100%;
+}
+
+.tau-board-view .tau-backlog .tau-backlog-header {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: $gBoardBorderColor;
+    width: 100%;
+    height: 32px;
+}
+
+.tau-board-view .tau-backlog .tau-backlog-body {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+/* Cell holder
+----------------------------------------------------------------------------------------------------*/
+
+.tau-board-view .tau-cellholder {
+    box-sizing: border-box;
+
+}
+
+.tau-board-view .tau-rows-header .tau-cellholder,
+.tau-board-view .tau-backlog-body .tau-cellholder,
+.tau-board-view .tau-timeline .tau-cellholder {
+    border-bottom: 1px solid $gBoardBorderColor;
+}
+
+.tau-board-view .tau-cols-header .tau-cellholder {
+    display: inline-block;
+    border-left: 1px solid $gBoardBorderColor;
+    height: 100%;
+}
+
+.tau-board-view .tau-grid .tau-cellholder {
+    vertical-align: top;
+    border: solid $gBoardBorderColor;
+    border-width: 0 0 1px 1px;
+}
+
+.tau-axis-limit_overhead_x.tau-cellholder,
+.tau-axis-limit_overhead_y.tau-cellholder {
+    background: $limitOverheadAxisBackground;
+}
+
+.tau-capacity_overhead {
+    background: $capacityOverheadAxisBackground;
+}
+
+.tau-capacity_left {
+    background: $capacityLeftAxisBackground;
+}
+
+.tau-capacity_warning {
+    background: $capacityWarningAxisBackground;
+}
+
+.tau-axis-limit_warning_x.tau-cellholder,
+.tau-axis-limit_warning_y.tau-cellholder {
+    background: $limitWarningAxisBackground;
+}
+
+.tau-cell-not_available.tau-cellholder {
+    background-color: $limitNotAvailableBackground;
+}
+
+.tau-board-view .tau-rows-header .tau-cellholder:last-child,
+.tau-board-view .tau-backlog-body .tau-cellholder:last-child,
+.tau-board-view .tau-timeline .tau-cellholder:last-child {
+    border-bottom: none;
+    min-height: 100%;
+
+}
+
+/* Cell
+----------------------------------------------------------------------------------------------------*/
+
+.tau-board-view .tau-cell {
+    box-sizing: border-box;
+}
+
+.tau-board-view .tau-x-header .tau-cell,
+.tau-board-view .tau-rows-header .tau-cell,
+.tau-board-view .tau-cols-header .tau-cell,
+.tau-board-view .tau-backlog-header .tau-cell {
+    padding: 0 8px;
+    line-height: 32px;
+}
+
+.tau-board-view .tau-x-header .tau-cell,
+.tau-board-view .tau-backlog-header .tau-cell {
+    position: relative;
+    height: 100%;
+}
+
+.tau-board-view .tau-rows-header .tau-cell,
+.tau-board-view .tau-cols-header .tau-cell {
+    position: relative;
+}
+
+.tau-board-view .tau-cols-header .tau-cell {
+    height: 100%;
+}
+
+.tau-board-view .tau-grid .tau-cell,
+.tau-board-view .tau-backlog-body .tau-cell,
+.tau-board-view .tau-timeline .tau-timeline-flow .tau-cell {
+    min-height: 32px;
+    padding: 8px;
+    position: relative;
+}
+
+.tau-board-view .tau-timeline .tau-timeline-flow .tau-cell {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.tau-board-view .tau-grid .tau-collapsed .tau-cell,
+.tau-board-view .tau-backlog-body .tau-collapsed .tau-cell {
+    line-height: 0;
+}
+
+.additional-info_y .tau-board-view .tau-rows-header .tau-cell,
+.additional-info_y .tau-board-view .tau-grid .tau-cell,
+.additional-info_y .tau-board-view .tau-backlog-body .tau-cell,
+.additional-info_y .tau-board-view .tau-timeline .tau-timeline-flow .tau-cell {
+    min-height: 90px;
+}
+
+.additional-info_y .tau-board-view .tau-timeline .tau-timeline-flow .tau-collapsed_y .tau-cell,
+.additional-info_y .tau-board-view .tau-backlog-body .tau-collapsed_y .tau-cell,
+.additional-info_y .tau-board-view .tau-rows-header .tau-collapsed .tau-cell,
+.additional-info_y .tau-board-view .tau-grid .tau-collapsed_y .tau-cell,
+.tau-board-body--additional-avatars .tau-board-view .tau-rows-header .tau-collapsed .tau-cell,
+.tau-board-body--additional-avatars .tau-board-view .tau-grid .tau-collapsed_y .tau-cell {   /*tau-board-body--additional-avatars is needed for height cell calculation in collapsed rows cell (team axis)*/
+    min-height: 32px;
+}
+
+.tau-board-body--additional-avatars .tau-board-view .tau-rows-header .tau-cell,
+.tau-board-body--additional-avatars .tau-board-view .tau-grid .tau-cell,
+.tau-board-body--additional-avatars .tau-board-view .tau-backlog-body .tau-cell,
+.tau-board-body--additional-avatars .tau-board-view .tau-timeline .tau-timeline-flow .tau-cell {
+    min-height: 58px;
+}
+
+.tau-grid .tau-cell,
+.tau-rows-header .tau-cell {
+    position: relative;
+}
+
+/* Label
+----------------------------------------------------------------------------------------------------*/
+
+.tau-board-view .tau-x-header .tau-label,
+.tau-board-view .tau-rows-header .tau-label,
+.tau-board-view .tau-cols-header .tau-label,
+.tau-board-view .tau-backlog-header .tau-label {
+    font-size: 12px;
+    position: absolute;
+    overflow: hidden;
+    white-space: nowrap;
+
+}
+
+
+.tau-board-view .tau-label .tau-x-header__warning {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    top: -1px;
+    margin-left: 4px;
+}
+
+.tau-board-view .tau-rows-header .tau-label,
+.tau-board-view .tau-cols-header .tau-label {
+    left: 42px;
+    right: 0;
+}
+
+.tau-cellholder,
+.tau-x-header,
+.tau-backlog-header {
+
+    .tau-label:after {
+        z-index: 1;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 1px;
+        content: '';
+        display: block;
+        width: 24px;
+        box-shadow: -12px 0 8px 0 $labelBoxShadowColorDefault inset;
+    }
+}
+
+.tau-cards-count span {
+    box-shadow: 0 0 3px 6px $labelBoxShadowColorDefault;
+}
+
+.tau-cellholder {
+
+    &.tau-selected {
+
+        .tau-label:after {
+            box-shadow: -12px 0 8px 0 $cellHolderSelectedBackgroundColor inset;
+        }
+
+        .tau-cards-count span {
+            box-shadow: 0 0 3px 3px $cellHolderSelectedBackgroundColor;
+        }
+    }
+
+    &:not(.tau-selected) {
+
+        &.tau-axis-limit_overhead_x,
+        &.tau-axis-limit_overhead_y {
+
+            .tau-label:after {
+                box-shadow: -12px 0 8px 0 $limitOverheadAxisBackground inset;
+            }
+
+            .tau-cards-count span {
+                box-shadow: 0 0 3px 3px $limitOverheadAxisBackground;
+            }
+        }
+
+        &.tau-axis-limit_warning_x,
+        &.tau-axis-limit_warning_y {
+
+            .tau-label:after {
+                box-shadow: -12px 0 8px 0 $limitWarningAxisBackground inset;
+            }
+
+            .tau-cards-count span {
+                box-shadow: 0 0 3px 3px $limitWarningAxisBackground;
+            }
+        }
+
+        &.tau-cell-not_available {
+
+            .tau-label:after {
+                box-shadow: -12px 0 8px 0 $limitNotAvailableBackground inset;
+            }
+
+            .tau-cards-count span {
+                box-shadow: 0 0 3px 3px $limitNotAvailableBackground;
+            }
+        }
+
+        &.tau-cellholder_dndcrossing_true {
+
+            .tau-label:after {
+                box-shadow: -12px 0 8px 0 $gActionBackgroundSystem inset;
+            }
+
+            .tau-cards-count span {
+                box-shadow: 0 0 3px 3px $gActionBackgroundSystem;
+            }
+        }
+    }
+
+}
+
+/* Board Grid View highlights
+----------------------------------------------------------------------------------------------------*/
+
+.tau-board-grid-view .tau-cellholder.tau-selected {
+    background-color: $cellHolderSelectedBackgroundColor !important;
+}
+
+.tau-board-grid-view .tau-cellholder.tau-selected.tau-selected_x.tau-selected_y {
+    background: $cellHolderSelectedBackgroundColor !important;
+}
+
+.tau-board-view .tau-rows-header .tau-collapsed .tau-label,
+.tau-board-view .tau-cols-header .tau-collapsed .tau-label {
+    color: $gFontColorGray;
+}
+
+.tau-board-view .tau-rows-header .tau-label {
+    left: 48px;
+}
+
+.tau-board-view.rows-h-collapsed .tau-rows-header .tau-label {
+    visibility: visible;
+}
+
+.tau-board-view .tau-x-header .tau-label,
+.tau-board-view .tau-backlog-header .tau-label {
+    right: 6px;
+    left: 18px;
+    line-height: 2.6;
+    text-transform: capitalize;
+}
+
+.tau-board-view .tau-cols-header .tau-collapsed .tau-label {
+    left: 19px;
+}
+
+.tau-board-view .tau-label__text_current {
+    color: $gFontColorGray;
+}
+
+.tau-board-view .tau-cols-header .tau-collapsed .tau-label__text {
+    display: none;
+}
+
+.tau-board-view.rows-h-collapsed .tau-rows-header .tau-label .tau-label__text,
+.tau-board-view.rows-h-collapsed .tau-rows-header .tau-label .tau-label__text {
+    visibility: hidden;
+}
+
+.tau-board-view .tau-label__user,
+.tau-board-view .tau-label__date {
+    display: block;
+    color: $gFontColorGray;
+    font-size: 11px;
+    line-height: 14px;
+}
+
+.tau-board-view .tau-label__user {
+    @mixin ellipsis
+}
+
+.tau-board-view .tau-collapsed .tau-label__user,
+.tau-board-view .tau-collapsed .tau-label__date {
+    display: none;
+}
+
+.tau-board-view .tau-cols-header .tau-label__user,
+.tau-board-view .tau-cols-header .tau-label__date {
+    left: 1.8em !important;
+    top: 29px;
+}
+
+.tau-board-view .tau-rows-header .tau-label__user,
+.tau-board-view .tau-rows-header .tau-label__date {
+    top: 31px;
+}
+
+.tau-board-view.rows-h-collapsed .tau-rows-header .tau-label__user,
+.tau-board-view.rows-h-collapsed .tau-rows-header .tau-label__date {
+    left: 10px !important;
+}
+
+.tau-board-view .tau-label__date_current .time-left {
+    color: $gFontColorLightGray;
+}
+
+.tau-board-view .tau-label__finish {
+    cursor: pointer;
+    text-decoration: underline;
+    color: $gLinkColor;
+}
+
+.tau-board-view .tau-label__finish:hover {
+    color: $gLinkColorHover;
+}
+
+.tau-board-view .tau-label__effort {
+    display: block;
+    font-size: 11px;
+    top: 44px;
+    line-height: 14px;
+}
+
+.tau-board-view .tau-label__effort_previous {
+    color: $gFontColorGray;
+}
+
+.tau-board-view .tau-cols-header .tau-label__effort {
+    left: 1.8em !important;
+    padding-top: 5px;
+}
+
+.tau-board-view .tau-label .tau-axiscell__item__burn-down {
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    top: -3px;
+}
+
+.tau-board-view .tau-rows-header .tau-label__effort {
+    left: 47px !important;
+    top: 46px;
+    padding-top: 5px;
+}
+
+.tau-board-view .tau-collapsed .tau-label__effort {
+    display: none;
+}
+
+.tau-board-view.rows-h-collapsed .tau-rows-header .tau-label__effort {
+    left: 10px !important;
+}
+
+.tau-board-view .tau-label__velocity {
+    display: block;
+    font-size: 14px;
+    top: 44px;
+    line-height: 14px;
+}
+
+.tau-board-view .tau-cols-header .tau-label__velocity {
+    left: 1.8em !important;
+    padding-top: 5px;
+}
+
+.tau-board-view .tau-rows-header .tau-label__velocity {
+    left: 47px !important;
+    top: 46px;
+    padding-top: 5px;
+}
+
+.tau-board-view .tau-collapsed .tau-label__velocity {
+    display: none;
+}
+
+.tau-board-view.rows-h-collapsed .tau-rows-header .tau-label__velocity {
+    left: 10px !important;
+}
+
+.tau-board-view .tau-rows-header .tau-label__user__velocity {
+    white-space: normal;
+}
+
+.tau-board-view .tau-label__velocity_perfect {
+    color: $gFontColorSuccess;
+}
+
+.tau-board-view .tau-label__velocity_overhead {
+    color: $gFontColorAttention;
+}
+
+.tau-board-view .tau-label__velocity_warning {
+    color: $gFontColorWarning;
+}
+
+.tau-board-view .tau-rows-header .tau-label__velocity_perfect,
+.tau-board-view .tau-rows-header .tau-label__velocity_overhead,
+.tau-board-view .tau-rows-header .tau-label__velocity_warning {
+    display: block;
+}
+
+.tau-board-view .tau-rows-header .tau-label__user__velocity .tau-label__velocity_perfect,
+.tau-board-view .tau-rows-header .tau-label__user__velocity .tau-label__velocity_overhead,
+.tau-board-view .tau-rows-header .tau-label__user__velocity .tau-label__velocity_warning {
+    display: inline-block;
+}
+
+.tau-board-grid-view .tau-label_mark {
+    font-weight: 600;
+}
+
+.tau-board-view .tau-rows-header .tau-label .tau-name,
+.tau-board-view .tau-cols-header .tau-label .tau-name {
+    vertical-align: top;
+    padding-left: 6px;
+}
+
+.tau-board-view .tau-cols-header .tau-collapsed .tau-label .tau-name {
+    padding-left: 0.5em;
+    vertical-align: top;
+}
+
+.tau-board-view.rows-h-collapsed .tau-rows-header.tau-header-userstory .tau-name,
+.tau-board-view.rows-h-collapsed .tau-rows-header.tau-header-feature .tau-name {
+    display: none;
+}
+
+/* Selector
+----------------------------------------------------------------------------------------------------*/
+
+.tau-board-view .tau-rows-header .tau-selector,
+.tau-board-view .tau-cols-header .tau-selector {
+    position: absolute;
+    top: 8px;
+    left: 21px;
+    margin: 0;
+    line-height: normal;
+}
+
+.tau-board-view .tau-rows-header .tau-selector {
+    left: 25px;
+}
+
+.tau-board-view .tau-rows-header .tau-collapsed .tau-selector {
+    visibility: hidden;
+}
+
+.tau-board-view.rows-h-collapsed .tau-rows-header .tau-cellholder:not(.tau-collapsed) .tau-selector {
+    visibility: visible;
+}
+
+.tau-board-view .tau-cols-header .tau-collapsed .tau-selector {
+    display: none;
+}
+
+/* Collapser
+----------------------------------------------------------------------------------------------------*/
+
+.tau-board-view .tau-collapser {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    line-height: 0;
+    transform: translateY(-50%);
+}
+
+.tau-board-view .tau-rows-header .tau-collapser,
+.additional-info_x .tau-board-view .tau-cols-header .tau-collapser {
+    top: 16px;
+}
+
+.additional-info_x .tau-board-view .tau-x-header .tau-collapser {
+    top: 16px;
+}
+
+.tau-board-view.rows-h-collapsed .tau-rows-header .tau-collapser {
+    visibility: visible;
+}
+
+.tau-board-view .tau-collapser button {
+    vertical-align: middle;
+}
+
+.tau-board-view .tau-rows-header .tau-collapser button {
+    margin: 0 0 0 5px;
+}
+
+.tau-board-view .tau-cols-header .tau-collapser button,
+.tau-board-view .tau-x-header .tau-collapser button {
+    margin: 0 0 0 3px;
+}
+
+.tau-rows-header .tau-cell__wrap__members {
+    position: absolute;
+    top: 1.8em;
+    right: .5em;
+    left: 3em;
+    overflow: hidden;
+}
+
+.tau-cols-header .tau-cell__wrap__members,
+.tau-board-body--additional-avatars .tau-rows-header .tau-collapsed .tau-cell__wrap__members,
+.tau-board-body--additional-avatars .rows-h-collapsed .tau-rows-header .tau-cell__wrap__members {
+    display: none;
+}

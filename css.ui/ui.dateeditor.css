@@ -1,0 +1,243 @@
+$datepickerBackgroundActive: #8091a3;
+$datepickerBackgroundHover: color($datepickerBackgroundActive a(20%));
+$datepickerBackgroundPeriod: $gSelectedTagBackground;
+
+
+
+/* timepicker */
+.ui-timepicker-div {
+    padding: 10px 0 0 0;
+}
+
+.ui-timepicker-div .ui-widget-header {
+    margin-bottom: 8px;
+}
+
+.ui-timepicker-div dl {
+    margin: 0;
+    padding-right: 8px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ui-timepicker-div dl dt {
+    width: 30%;
+    flex-shrink: 0;
+    padding: 8px 0;
+}
+
+.ui-timepicker-div dl dd {
+    width: 65%;
+    flex-grow: 1;
+    margin: 8px 0 8px 5%;
+}
+
+.ui-timepicker-div dd .ui-slider {
+    top: 4px;
+}
+
+.ui_tpicker_hour_label,
+.ui_tpicker_minute_label,
+.ui_tpicker_second_label,
+.ui_tpicker_millisec_label {
+    color: $gFontColorGray;
+    font-size: 11px;
+}
+
+.ui-timepicker-div .ui_tpicker_unit_hide {
+    display: none;
+}
+
+.ui-tpicker-grid-label {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ui-timepicker-div .ui_tpicker_time_label {
+    font-weight: 600;
+}
+
+/* >>> Datepicker---------------------------------------------------*/
+.ui-datepicker {
+    width: 17em;
+    display: none;
+    padding: 10px;
+    font-size: 11px;
+    background-color: $gBackgroundDefault;
+    color: $gFontColorDefault;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.10), 0 5px 12px 0 rgba(0, 0, 0, 0.40);
+    border-radius: $gBorderRadiusDefault;
+}
+
+.ui-datepicker .ui-datepicker-header {
+    position: relative;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 0 0 6px 0;
+    border-bottom: solid 1px $gHighlightBlockBorderColor;
+    min-height: 24px;
+    margin-bottom: 5px;
+}
+
+.ui-datepicker .ui-datepicker-title {
+    line-height: 24px;
+}
+
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next {
+    position: absolute;
+    top: 0;
+    box-sizing: border-box;
+    width: 24px;
+    height: 24px;
+
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+
+    border: solid 1px $gButtonBorderColorDefault;
+    background-image: $gButtonBackgroundDefault;
+}
+
+.ui-datepicker .ui-datepicker-prev {
+    border-radius: $gBorderRadiusDefault 0 0 $gBorderRadiusDefault;
+    right: 23px;
+}
+
+.ui-datepicker .ui-datepicker-next {
+    border-radius: 0 $gBorderRadiusDefault $gBorderRadiusDefault 0;
+    right: 0;
+}
+
+.ui-datepicker .ui-datepicker-prev:after {
+    content: '';
+    background: svg("l-caret") center center no-repeat;
+    display: block;
+    width: 5px;
+    height: 8px;
+    position: absolute;
+    top: 7px;
+    left: 8px;
+}
+
+.ui-datepicker .ui-datepicker-next:after {
+    content: '';
+    background: svg("r-caret") center center no-repeat;
+    display: block;
+    width: 5px;
+    height: 8px;
+    position: absolute;
+    top: 7px;
+    right: 8px;
+}
+
+.ui-datepicker .ui-datepicker-prev-hover,
+.ui-datepicker .ui-datepicker-next-hover {
+    background-image: $gButtonBackgroundHover;
+}
+
+.ui-datepicker .ui-datepicker-prev span,
+.ui-datepicker .ui-datepicker-next span {
+    display: none;
+}
+
+.ui-datepicker select.ui-datepicker-month-year {
+    width: 100%;
+}
+
+.ui-datepicker select.ui-datepicker-month,
+.ui-datepicker select.ui-datepicker-year {
+    width: 49%;
+}
+
+.ui-datepicker table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.ui-datepicker th {
+    padding: 4px;
+    text-align: center;
+    font-weight: normal;
+    color: $gFontColorLightGray;
+    margin: 0;
+}
+
+.ui-datepicker td {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    width: 14.28%;
+}
+
+.ui-datepicker td span,
+.ui-datepicker td a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.ui-dateeditor input {
+    width: 85px;
+    margin: 0 3px 0 0;
+    border: 1px solid $gControlBorderColorDefault;
+    padding: 0 4px;
+    height: $gControlHeightDefault;
+    box-sizing: border-box;
+    font-size: 13px;
+    color: $gFontColorDefault;
+    background-color: $gBackgroundDefault;
+    outline: 0;
+    position: relative;
+    z-index: 10000;
+}
+
+.ui-dateeditor input:focus {
+    box-shadow: $gControlBoxShadowFocusDefault;
+    border-color: $gControlBorderColorFocusDefault;
+}
+
+.ui-dateeditor .ui-datepicker-trigger {
+    background: svg("calendar") center center no-repeat;
+    border: 0 none;
+    cursor: pointer;
+    text-indent: -9999px;
+    padding: 0;
+    margin: 0;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    flex: 0 0 auto;
+    outline: 0;
+    top: 1px;
+}
+
+.ui-datepicker .ui-state-default {
+    color: $gFontColorDefault;
+    padding: 4px;
+}
+
+.ui-datepicker-calendar .ui-daterange-region {
+    background-color: $gSelectedTagBackground;
+}
+
+.ui-datepicker .ui-state-default.ui-state-highlight {
+    box-shadow: 0 0 0 2px $datepickerBackgroundActive inset;
+}
+
+.ui-datepicker-calendar .ui-daterange-region .ui-state-default.ui-state-active {
+    box-shadow: none;
+    background-color: $datepickerBackgroundActive;
+    color: $gFontColorWhite;
+}
+
+.ui-datepicker td:not(.ui-state-disabled) .ui-state-default:hover {
+    cursor: pointer;
+    background-color: $datepickerBackgroundHover;
+}
+
+/* <<< Datepicker---------------------------------------------------*/

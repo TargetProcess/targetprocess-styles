@@ -1,0 +1,262 @@
+/* region Pseudo-clear  --------------------------------------------------*/
+
+.account-settings:after,
+.account-settings-statistics:after,
+.account-settings-general-info:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* endregion */
+
+
+/* region Page layout  --------------------------------------------------*/
+
+.account-settings {
+    font-family: $gFontFamily;
+    padding: 24px 4.8% 0;
+
+    box-sizing: border-box;
+    width: 90.4%;
+
+    font-size: 12px;
+    color: $gFontColorDefault;
+    background: $gBackgroundDefault;
+    -webkit-font-smoothing: antialiased;
+}
+
+.account-settings h1, .account-settings h2, .account-settings h3, .account-settings h4, .account-settings p {
+    margin: 0;
+    padding: 0;
+}
+
+.account-settings ul, .account-settings ol {
+    list-style: none;
+    padding: 0;
+}
+
+/* endregion */
+
+
+/* region General  --------------------------------------------------*/
+
+.account-settings a, .account-settings a:visited {
+    font-size: 12px;
+    line-height: 17px;
+    text-decoration: none;
+}
+
+.account-settings a:hover {
+    text-decoration: underline;
+}
+
+.account-settings a:active {
+    background-color: transparent;
+}
+
+.account-settings h1 {
+    font-size: 22px;
+    line-height: 31px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.account-settings h1 em {
+    font-style: normal;
+    font-weight: 300;
+    color: $gFontColorGray;
+}
+
+/* endregion */
+
+
+/* region Header  --------------------------------------------------*/
+
+.account-settings-header .account-settings-general-info {
+    margin-top: 25px;
+}
+
+.account-settings-header .account-settings-general-info .unique-identifier {
+    color: $gFontColorGray;
+}
+
+.account-settings-header .account-settings-general-info li span:first-child {
+    display: inline-block;
+    width: 130px;
+    padding-right: 5px;
+    margin-bottom: 10px;
+}
+
+.account-settings-header .account-settings-general-info li strong {
+    font-weight: 600;
+}
+
+.account-settings-header .account-settings-general-info .unique-identifier span {
+    display: block;
+    width: auto;
+    margin-bottom: 7px;
+}
+
+.account-settings-header .account-settings-general-info .unique-identifier strong {
+    font-size: 15px;
+    line-height: 21px;
+    font-weight: normal;
+}
+
+/* endregion */
+
+
+/* region Statistics section  --------------------------------------------------*/
+
+.account-settings-statistics {
+    margin: 30px 0;
+}
+
+.account-settings-statistics > li {
+    box-sizing: border-box;
+    width: 44.3%;
+    min-width: 510px;
+    padding: 16px 2%;
+    margin-bottom: 20px;
+    border: 1px solid #e6e6e6;
+    border-radius: $gBorderRadiusDefault;
+}
+
+.account-settings-statistics > li:nth-child(odd) {
+    margin-right: 2.63%;
+}
+
+.account-settings-statistics > li p {
+    display: inline-block;
+    color: $gFontColorGray;
+}
+
+.account-settings-statistics > li.limit p {
+    color: $gFontColorAttention;
+}
+
+.account-settings .buy-more-licenses {
+    position: relative;
+    top: -5px;
+
+    display: inline-block;
+    border-radius: $gBorderRadiusDefault;
+    color: $gFontColorWhite;
+    padding: 6px 14px;
+    margin-left: 5px;
+    text-decoration: none;
+    background: #73a2ff;
+}
+
+.account-settings .buy-now {
+    top: -5px;
+
+    border-radius: $gBorderRadiusDefault;
+    color: $gFontColorWhite;
+    padding: 6px 14px;
+    margin-left: 5px;
+    text-decoration: none;
+
+    background: #73a2ff;
+    font: bold 12px Arial;
+}
+
+.account-settings .buy-more-licenses:active, .account-settings .buy-now:active {
+    top: -3px;
+}
+
+.account-settings-statistics > li.near-limit {
+    border-color: $gFontColorWarning;
+}
+
+.account-settings-statistics > li.limit {
+    border-color: $gFontColorAttention;
+}
+
+.account-settings-statistics > li h1 {
+    position: relative;
+    display: block;
+    padding: 0 0 2px 50px;
+}
+
+.account-settings-statistics > li h1:before {
+    content: '';
+
+    position: absolute;
+    top: 5px;
+    left: 0;
+    overflow: hidden;
+
+    background: url(images/icons-spr.svg) no-repeat 0 0;
+}
+
+.account-settings-statistics > li.account-settings-users h1:before {
+    width: 36px;
+    height: 23px;
+
+    top: 6px;
+
+    background-position: -9px -15px;
+}
+
+.account-settings-statistics > li.account-settings-entities h1:before {
+    width: 31px;
+    height: 21px;
+
+    background-position: -61px -15px;
+}
+
+.account-settings-statistics > li.account-settings-public-views h1:before {
+    width: 39px;
+    height: 23px;
+
+    background-position: -108px -15px;
+}
+
+.account-settings-statistics > li.account-settings-processes h1:before {
+    width: 37px;
+    height: 20px;
+
+    background-position: -157px -15px;
+}
+
+.account-settings-statistics .account-settings-help {
+
+    position: relative;
+    top: 3px;
+
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+
+    text-align: left;
+    text-indent: -9999px;
+
+    background: url(images/icons-spr.svg) no-repeat -4px -54px;
+}
+
+/* endregion */
+
+
+/* region Footer --------------------------------------------------*/
+
+.account-settings-footer {
+    color: $gFontColorDefault;
+}
+
+.account-settings-footer a, .account-settings-footer a:visited,
+.account-settings-general-info a, .account-settings-general-info a:visited {
+    display: inline-block;
+    line-height: 15px;
+    text-decoration: none;
+    border-bottom: 1px solid #979797;
+}
+
+.account-settings-footer a:hover, .account-settings-general-info a:hover {
+    border-bottom: none;
+    text-decoration: none;
+}
+
+/* endregion */

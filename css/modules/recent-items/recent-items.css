@@ -1,0 +1,129 @@
+$recentItemsBorderColor: color($gBoardBorderColor a(50%));
+
+.recent-items {
+    font-size: $gFontSize;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+
+    &__title {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 18px 15px 12px 20px;
+        flex: 0 0 auto;
+    }
+
+    &__tabs {
+        flex: 0 0 auto;
+        padding: 0 15px 15px 0;
+    }
+
+    &__body {
+        flex: 1 1 auto;
+        overflow: auto;
+        padding: 0 10px 10px 10px;
+        border-top: 1px solid $gBoardBorderColor;
+        @mixin custom-scroll
+    }
+
+    &__category {
+
+        &__title {
+            display: flex;
+            justify-content: space-between;
+            text-transform: uppercase;
+            align-items: center;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 20px 5px 5px 10px;
+
+            &__text {
+                flex: 1 1 auto;
+                display: flex;
+                align-items: center;
+            }
+
+            &__icon {
+                flex: 0 0 auto;
+                margin-left: 5px;
+                display: flex;
+                align-items: center;
+            }
+
+            &__assignments-link {
+                flex: 0 0 auto;
+                margin-left: 10px;
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        &__body {
+
+            &--loading {
+                margin-top: 10px;
+            }
+        }
+    }
+
+    &__message {
+        color: $gFontColorGray;
+        padding: 10px;
+        border-top: 1px solid $recentItemsBorderColor;
+    }
+
+    &__show-more {
+        padding: 5px;
+        font-size: 11px;
+        cursor: pointer;
+        color: $gFontColorGray;
+
+        &:hover {
+            color: $gFontColorDefault;
+        }
+    }
+
+    &__mark-read {
+        flex: 0 0 auto;
+        cursor: pointer;
+        color: $gFontColorDefault;
+        opacity: 0.8;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &__loader {
+        position: relative;
+        margin-top: -1px;
+
+        &__table {
+            margin-top: 42px;
+        }
+
+        .loader-table__cell {
+            &:nth-child(1) {
+                min-width: 24px;
+            }
+
+            &:nth-child(2) {
+                min-width: 51px;
+            }
+
+            &:nth-child(3) {
+                min-width: 63px;
+            }
+
+            &:nth-child(4) {
+                min-width: 42px;
+            }
+
+            &:last-child {
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,168 @@
+$chartLegendIconSize: 30px;
+$chartLegendIconMargin: 15px;
+
+$chartLegendImgArrowBorderWidth: 3px;
+
+$chartLegendImgArrowColorBlocker: #bf0000;
+$chartLegendImgArrowColorDependency: #000;
+$chartLegendImgArrowColorRelation: #aaa;
+$chartLegendImgArrowColorLink: #36ab45;
+
+.chart-legend {
+    padding: 20px;
+    font-size: 13px;
+    min-width: 240px;
+    max-width: 350px;
+
+    &__item {
+        margin-top: 24px;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    &__component {
+        display: flex;
+        align-items: center;
+
+        &__wrap {
+            flex: 1 1 auto;
+        }
+    }
+
+    &__row {
+        display: flex;
+    }
+
+    &__col {
+        flex: 1 1 auto;
+        margin-left: 30px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+
+    &__name {
+        font-weight: 600;
+        margin-bottom: 3px;
+
+        &--colloms {
+            margin-left: calc($chartLegendIconSize + $chartLegendIconMargin);
+        }
+    }
+
+    &__components-list {
+
+        &__item {
+            display: flex;
+            margin-top: 10px;
+            align-items: center;
+        }
+    }
+
+    &__img-arrow {
+        display: block;
+        width: $chartLegendIconSize;
+        height: 1px;
+        margin-right: $chartLegendIconMargin;
+        position: relative;
+        flex-shrink: 0;
+
+        &:before {
+            display: block;
+            content: '';
+            position: absolute;
+            right: 0;
+            top: -$chartLegendImgArrowBorderWidth;
+            width: 1px;
+            height: 1px;
+            border-style: solid;
+            border-color: transparent;
+            border-width: $chartLegendImgArrowBorderWidth 0 $chartLegendImgArrowBorderWidth 6px;
+            box-sizing: content-box;
+        }
+
+        &--blocker {
+            background: $chartLegendImgArrowColorBlocker;
+            &:before {
+                border-left-color: $chartLegendImgArrowColorBlocker;
+            }
+        }
+
+        &--dependency {
+            background: $chartLegendImgArrowColorDependency;
+            &:before {
+                border-left-color: $chartLegendImgArrowColorDependency;
+            }
+        }
+
+        &--relation {
+            background: $chartLegendImgArrowColorRelation;
+            &:before {
+                border-left-color: $chartLegendImgArrowColorRelation;
+            }
+        }
+
+        &--link {
+            background: $chartLegendImgArrowColorLink;
+            &:before {
+                border-left-color: $chartLegendImgArrowColorLink;
+            }
+        }
+    }
+
+    .tau-card-v2 {
+        height: calc($chartLegendIconSize - 15);
+        width: calc($chartLegendIconSize + 5);
+        margin-right: $chartLegendIconMargin;
+        flex-shrink: 0;
+        background: #eaeaea;
+    }
+
+    .tau-entity-type {
+        text-transform: lowercase
+    }
+
+}
+
+.chart-legend-icon {
+    display: block;
+    width: $chartLegendIconSize;
+    height: $chartLegendIconSize;
+    margin-right: $chartLegendIconMargin;
+    flex-shrink: 0;
+
+    &--y-axis {
+        background: url(../../../css.board/images/charts-legends/arrow-top.png) no-repeat 0 3px;
+    }
+
+    &--x-axis {
+        background: url(../../../css.board/images/charts-legends/arrow-right.png) no-repeat 0 3px;
+    }
+
+    &--color {
+        background: url(../../../css.board/images/charts-legends/color-circles.png) no-repeat 0 3px;
+    }
+
+    &--bar-chart {
+        background: url(../../../css.board/images/charts-legends/bar-chart-sample.png) no-repeat 0 5px;
+    }
+
+    &--multi-bar-chart {
+        background: url(../../../css.board/images/charts-legends/multi-bar-chart-sample.png) no-repeat 0 3px;
+    }
+
+    &--line-chart {
+        background: url(../../../css.board/images/charts-legends/line-chart-sample.png) no-repeat 0 3px;
+    }
+
+    &--relations-network {
+        background: url(../../../css.board/images/charts-legends/relations-network.png) no-repeat 0 0;
+        width: 116px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+}

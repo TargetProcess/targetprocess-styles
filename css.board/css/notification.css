@@ -1,0 +1,201 @@
+.notification__body {
+    overflow-y: auto;
+    font-size: 12px;
+    background: $gBackgroundDefault;
+}
+
+.notification__item {
+    position: relative;
+    padding: 15px 15px 15px 40px;
+}
+
+.notification__item:not(:first-child) {
+    border-top: 1px solid $gHighlightBlockBorderColor;
+}
+
+.notification__item--follow {
+    padding-left: 30px;
+}
+
+.notification__item.animation {
+    overflow: hidden;
+}
+
+.notification__item.animation .notification__comment {
+    transition: background-color 0.5s;
+    background-color: $gHighlightBlockBackground;
+    z-index: 3;
+}
+
+.follow-description .tau-user-avatar {
+    position: relative;
+    top: 2px;
+}
+
+.notification__user,
+.notification__team,
+.notification__text {
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.notification__user {
+    margin-right: 20px;
+}
+
+.notification__user .tau-user-avatar {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 0;
+    left: -23px;
+}
+
+.notification__user .tau-user-name {
+    font-weight: 600;
+}
+
+.notification__user + .notification__team,
+.notification__text + .notification__information {
+    margin-top: -5px
+}
+
+.notification__information:not(:last-child) {
+    margin-bottom: 8px;
+}
+
+.notification__information,
+.notification__comment__reply {
+    color: $gFontColorGray;
+    font-size: 11px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.notification__comment {
+    background-color: $gActionBackgroundSystem;
+    position: relative;
+    padding: 8px 10px 10px 10px;
+    margin: 5px 0;
+}
+
+.notification__comment__user,
+.notification__comment__reply {
+    margin: 0 0 3px 0;
+}
+
+.notification__comment__message {
+    background-color: $gBackgroundDefault;
+    color: $gFontColorGray;
+    border-color: transparent;
+    border-radius: $gBorderRadiusDefault;
+    padding: 2px 5px 0 5px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+.notification__comment__message > textarea {
+    background: transparent;
+    font-family: inherit;
+    border-color: transparent;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    min-height: 35px;
+    display: block;
+    resize: vertical;
+}
+
+.notification__comment__message > textarea:focus {
+    box-shadow: none;
+    outline: none;
+    border-color: transparent;
+}
+
+.notification__entity-wrap {
+    overflow: hidden;
+    margin: 5px 0;
+}
+
+.notification__item a,
+.notification__item a:hover {
+    text-decoration: none;
+}
+
+.notification__team > a,
+.notification__user > a,
+.follow-description > a {
+    color: inherit;
+}
+
+.notification__team > a:hover,
+.notification__user > a:hover {
+    color: $gFontColorDefault;
+    text-decoration: none;
+}
+
+.notification__item a.gray-link {
+    color: $gFontColorDefault;
+    vertical-align: top;
+}
+
+.notification__attached-data {
+    clear: both;
+    margin: 0 0 0 49px;
+    padding: 3px 0 4px 0;
+    list-style: none;
+}
+
+.notification__attached-data__item {
+    position: relative;
+    margin: 2px 5px 5px 0;
+
+    font-size: 11px;
+}
+
+.notification__attached-data__item:first-child:last-child {
+    float: left;
+}
+
+.notification__attached-data__item:last-child {
+    margin-bottom: 0;
+}
+
+.notification__attached-data__link,
+.notification__attached-data__link:hover,
+.notification__attached-data__link:visited {
+    position: relative;
+    display: inline-block;
+    font-size: 11px;
+    color: $gFontColorGray;
+}
+
+.notification__attached-data__link > span {
+    display: inline-block;
+    vertical-align: middle;
+}
+.notification__attached-data__link__text {
+    padding-left: 2px;
+}
+
+/*  follow */
+.follow-title {
+    font-size: 13px;
+    font-weight: 600;
+    margin-left: -10px;
+    margin-bottom: 5px;
+    margin-right: 20px;
+}
+
+.follow-description .tau-user-avatar {
+    width: 16px;
+    height: 16px;
+}
+
+.follow-description__state {
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* end follow */

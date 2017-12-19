@@ -1,0 +1,142 @@
+/*!
+ * jQuery contextMenu - Plugin for simple contextMenu handling
+ *
+ * Version: 1.6.5
+ *
+ * Authors: Rodney Rehm, Addy Osmani (patches for FF)
+ * Web: http://medialize.github.com/jQuery-contextMenu/
+ *
+ * Licensed under
+ *   MIT License http://www.opensource.org/licenses/mit-license
+ *   GPL v3 http://opensource.org/licenses/GPL-3.0
+ *
+ */
+
+.context-menu {
+
+    &__card-info {
+        position: relative;
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        overflow: hidden;
+
+        &__icon {
+            flex-shrink: 0;
+        }
+
+        &__text {
+            margin-left: 4px;
+            font-size: 11px;
+            @mixin ellipsis;
+        }
+    }
+}
+
+.context-menu-list {
+    margin: 0;
+    padding: 5px;
+
+    min-width: 150px;
+    max-width: 250px;
+    position: absolute;
+    list-style-type: none;
+
+    background-color: $gBackgroundDefault;
+    border-radius: $gBorderRadiusDefault;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3), 0 0 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.context-menu-item,
+.custom-context-menu-item {
+    font-size: 13px;
+    padding: 5px;
+    line-height: 16px;
+
+    position: relative;
+    user-select: none;
+}
+
+.context-menu-separator {
+    height: 0;
+    padding: 0;
+    margin: 3px;
+    overflow: hidden;
+
+    border-top: 1px solid $gHighlightBlockBorderColor;
+}
+
+.context-menu-item > label > input,
+.context-menu-item > label > textarea {
+    user-select: text;
+}
+
+.context-menu-item.hover,
+.custom-context-menu-item.hover {
+    cursor: pointer;
+    background-color: $gActionBackgroundHover;
+}
+
+.tau-context-menu-delete {
+    color: $gActionColorDelete;
+}
+
+.tau-context-menu-delete.separate-item {
+    position: relative;
+    margin-top: 7px;
+    &:before {
+        position: absolute;
+        top: -4px;
+        left: 3px;
+        right: 3px;
+
+        content: '';
+        height: 1px;
+        background: $gHighlightBlockBorderColor;
+     }
+}
+
+.tau-context-menu-delete.hover {
+    background-color: $gActionBackgroundDelete;
+}
+
+.context-menu-item.disabled {
+    display: none;
+}
+
+.context-menu-item > .context-menu-list {
+    display: none;
+    /* re-positioned by js */
+    right: -5px;
+    top: 5px;
+}
+
+.context-menu-item.context-menu-submenu-pinned > .context-menu-list,
+.context-menu-item.hover > .context-menu-list {
+    display: block;
+}
+
+.custom-context-menu-item {
+    display: flex;
+    align-items: center;
+    max-width: 250px;
+
+    &__icon {
+        display: block;
+        margin-right:5px;
+        flex: 0 0 auto;
+    }
+
+    &__text {
+        display: block;
+        flex: 1 1 auto;
+        @mixin ellipsis;
+    }
+}
+
+
+.convert-menu-items {
+    margin: 0;
+    padding: 5px;
+    width: 140px;
+}

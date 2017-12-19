@@ -1,0 +1,86 @@
+@media screen and (max-width: 1280px) {
+
+    .tau-media-screen-empty-selector {
+        display: none;
+    }
+
+    .tau-list__table__cell-assignments {
+        width: 100px !important;
+    }
+
+    .tau-list__table__cell-actions {
+        width: 6px !important;
+    }
+
+    .tau-list__table__cell-actions .tau-entity-actions-target {
+        background-position: -18px 0 !important;
+    }
+
+    .tau-list__table__cell-actions .tau-entity-actions-target:hover {
+        background-position: -18px -17px !important;
+    }
+
+}
+
+@media screen and (max-width: 1050px) {
+
+    .tau-media-screen-empty-selector {
+        display: none;
+    }
+
+    .tau-list__table__cell-progress > * {
+        display: none !important;
+    }
+
+    .tau-list__table__cell-progress {
+        display: none !important;
+        width: 0 !important;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+
+    .tau-media-screen-empty-selector {
+        display: none;
+    }
+
+    .tau-list__table__cell-actions {
+        width: 6px !important;
+    }
+
+    .tau-list__table__cell-actions .tau-entity-actions-target {
+        background-position: -18px 0 !important;
+    }
+
+    .tau-list__table__cell-actions .tau-entity-actions-target:hover {
+        background-position: -18px -17px !important;
+    }
+
+    .tau-list__table__cell-effort {
+        width: 70px !important;
+    }
+}
+
+@media screen and (max-width: 950px) {
+
+    .tau-media-screen-empty-selector {
+        display: none;
+    }
+
+    .tau-list__table__cell-assignments {
+        width: 80px !important;
+    }
+
+    .tau-list__table__cell-project > * {
+        display: none !important;
+    }
+
+    .tau-list__table__cell-project {
+        width: 0 !important;
+    }
+
+    .tau-list__table__cell-state,
+    .tau-list__table__cell-priority {
+        width: 65px;
+    }
+}

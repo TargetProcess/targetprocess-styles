@@ -1,0 +1,119 @@
+.print-block-cards .tau-card-v2 {
+    width: 278px!important;
+}
+
+@media print {
+    body, html {
+        overflow: visible !important;
+    }
+
+    body.print-cards > * {
+        visibility: hidden;
+    }
+
+    body.print-cards * {
+        visibility: hidden !important;
+    }
+
+    .controls-inline-group,
+    .i-role-board-tooltip {
+        position: static!important;
+    }
+
+    * .print-block-cards,
+    .print-block-cards_hide {
+        display: block;
+        visibility: visible;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: auto;
+        height: auto;}
+
+    .print-block-cards{
+        width: 1270px!important;
+    }
+    body .print-block-cards *,
+    .print-block-cards * {
+        visibility: visible!important;
+    }
+    .tau-bubble  {
+        display: none;
+    }
+
+    .title-cards-for-print:before{
+        clear: both;
+        content: '';
+        display: block;
+    }
+    .title-cards-for-print{
+        page-break-after: avoid;
+
+    }
+    .title-cards-for-print + .tau-ui-size-l{
+        page-break-before: avoid;
+
+    }
+
+    .wrap-cards-for-print{
+        display: inline-block;
+        margin: 0 5px 5px 0;
+        overflow: hidden;
+        position: relative;
+        page-break-inside: avoid;
+    }
+
+    .wrap-cards-for-print *{
+        page-break-before: avoid;
+        page-break-after: avoid;
+    }
+
+
+    body,
+    .tau-ui-size-l{
+        background: none!important;
+    }
+
+
+    .tau-card-v2 {
+        position: absolute;
+        left: 0;
+        outline: 1px solid #999;
+
+        box-shadow: none!important;
+
+        transform-origin: 0 0;
+        transform: scale(1.92, 1.92);
+
+        box-sizing: border-box!important;
+
+        -webkit-print-color-adjust: exact;
+    }
+
+    .tau-board-unit:before{
+        box-shadow: none!important;
+    }
+
+    .tau-card-v2 .tau-board-unit > .tau-board-unit__value{
+        box-shadow: none!important;
+    }
+
+    .tau-avatar img{
+        opacity: 1!important;
+    }
+}
+
+@page {
+    margin: 1cm;
+}
+
+@media screen {
+    .print-block-cards_hide{
+        position: absolute;
+        top: 0;
+        z-index: -1;
+        overflow: hidden;
+        width: 1px;
+        height: 1px;
+    }
+}

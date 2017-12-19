@@ -1,0 +1,62 @@
+.blog-article {
+    margin: 0 0 50px 0;
+    display: flex;
+    justify-content: space-between;
+
+    &:last-child {
+        margin-bottom: 40px;
+    }
+
+    &__user {
+        flex: 0 0 auto;
+        overflow: hidden;
+        width: 40px;
+        height: 40px;
+        margin: 0 0 0 25px;
+        border-radius: 20px;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__wrap {
+        flex: 1 1 auto;
+        overflow: hidden;
+        
+        a {
+            color: $gFontColorDefault;
+
+            &:hover {
+                border-bottom-color: color($gFontColorDefault a(50%));
+            }
+        }
+    }
+
+    &__name {
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 1.4;
+
+    }
+
+    &__info {
+        margin: 5px 0 15px 0;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 1.3;
+        color: $gFontColorGray;
+    }
+
+    &__comments {
+        display: flex;
+        align-content: center;
+
+        &__count {
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 16px;
+            margin-left: 5px;
+        }
+    }
+}

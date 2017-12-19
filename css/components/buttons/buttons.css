@@ -1,0 +1,850 @@
+$buttonHeightDefault: 24px;
+$buttonHeightSmall: 20px;
+$buttonHeightBig: 28px;
+$buttonHeightLarge: 40px;
+
+$buttonLineHeightDefault: $gButtonLineHeightDefault;
+$buttonLineHeightSmall: 18px;
+$buttonLineHeightBig: 26px;
+$buttonLineHeightLarge: 38px;
+
+$buttonFontSizeDefault: 11px;
+$buttonFontSizeSmall: $buttonFontSizeDefault;
+$buttonFontSizeMedium: 13px;
+$buttonFontSizeBig: $buttonFontSizeMedium;
+$buttonFontSizeLarge: 18px;
+
+$buttonBorderRadius: $gBorderRadiusDefault;
+
+$buttonColorDefault: $gButtonColorDefault;
+$buttonBackgroundDefault: $gButtonBackgroundDefault;
+$buttonBorderColorDefault: $gButtonBorderColorDefault;
+
+$buttonBoxShadowFocus: $gControlBoxShadowFocusDefault;
+$buttonBorderColorFocus: $gControlBorderColorFocusDefault;
+
+$buttonBackgroundHover: $gButtonBackgroundHover;
+
+$buttonBackgroundActive: $gButtonBackgroundActive;
+
+$buttonBorderColorDisabled: $gButtonBorderColorDisabled;
+
+$buttonColorChecked: $gButtonColorChecked;
+$buttonBorderColorChecked: $gButtonBorderColorChecked;
+$buttonBackgroundChecked: $gButtonBackgroundChecked;
+
+.tau-btn {
+    box-sizing: border-box;
+    display: block;
+    padding: 0 9px;
+    margin: 0;
+    height: $buttonHeightDefault;
+    line-height: $buttonLineHeightDefault;
+    font-family: $gFontFamily;
+    font-size: $buttonFontSizeDefault;
+    font-weight: normal;
+    text-decoration: none;
+    text-shadow: none;
+    white-space: nowrap;
+    color: $buttonColorDefault;
+    min-width: 5em;
+    border: solid 1px $buttonBorderColorDefault;
+    border-radius: $buttonBorderRadius;
+    background: $buttonBackgroundDefault;
+    text-align: center;
+    cursor: pointer;
+
+    &::-moz-focus-inner {
+        border: none;
+        padding: 0;
+    }
+
+    &:hover:not(:disabled) {
+        background: $buttonBackgroundHover;
+    }
+
+    &:active:not(:disabled) {
+        background: $buttonBackgroundActive;
+    }
+
+    &:disabled {
+        cursor: default;
+        opacity: $gControlDisabledOpacity;
+
+    }
+
+    &:focus {
+        box-shadow: $buttonBoxShadowFocus;
+        border-color: $gControlBorderColorFocusDefault;
+        outline: none;
+        position: relative; /*to lift up box-shadow in groups*/
+    }
+
+    &.tau-checked {
+        color: $buttonColorChecked;
+        border-color: $buttonBorderColorChecked;
+
+        &,
+        &:hover {
+            background: $buttonBackgroundChecked;
+        }
+
+        &:disabled {
+            opacity: 0.7;
+        }
+    }
+
+    &__icon {
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        top: -1px;
+        margin: 0 2px;
+
+        &:first-child {
+            margin-left: -4px;
+        }
+
+        &:last-child {
+            margin-right: -4px;
+        }
+    }
+
+    &--ellipsis {
+        max-width: 100%;
+        @mixin ellipsis;
+    }
+
+    &--icon {
+        min-width: 0;
+    }
+
+    &--view-switch {
+        position: relative;
+        min-width: 0;
+
+        .tau-btn__icon {
+            margin-left: 0;
+            margin-right: 0;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+    }
+
+    &--wide {
+        width: 100%;
+    }
+
+    /* region Loading Button (.tau-btn--loader) --------------------------------------------------*/
+
+    &--loader {
+        position: relative;
+        cursor: default;
+
+        &:disabled {
+            border-color: $gButtonBorderColorDefault;
+            color: $gButtonColorDefault;
+
+            &:before,
+            &:after {
+                opacity: 1;
+            }
+        }
+
+        &:before,
+        &:after {
+            display: block;
+            box-sizing: border-box;
+            position: absolute;
+            content: '';
+        }
+
+        &:before {
+            z-index: 2;
+            background: svg("loader.svg") !important;
+            width: 16px;
+            height: 16px;
+            top: 50%;
+            left: 50%;
+            margin: -8px 0 0 -8px;
+            animation: tau-list-collapser-loading 0.8s steps(12, end) infinite;
+        }
+
+        &:after {
+            min-width: 100%;
+            min-height: 100%;
+            background: linear-gradient(to top, rgba(232, 232, 232, 0.9), rgba(255, 255, 255, 0.9));
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            border-radius: $buttonBorderRadius;
+            box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+        }
+
+        &.tau-primary:after,
+        &.tau-danger:after,
+        &.tau-success:after {
+            background: rgba(255, 255, 255, 0.7);
+        }
+    }
+    /* endregion */
+
+    /* region Large Buttons --------------------------------------------------*/
+
+    &.tau-btn-large {
+        height: $buttonHeightLarge;
+        line-height: $buttonLineHeightLarge;
+        padding: 0 20px;
+        font-size: $buttonFontSizeLarge;
+
+        .tau-btn__icon {
+            margin: 0 5px;
+            top: -2px;
+
+            &:first-child {
+                margin-left: -8px;
+            }
+
+            &:last-child {
+                margin-right: -8px;
+            }
+        }
+    }
+
+    /* endregion */
+
+    /* region Big Buttons --------------------------------------------------*/
+    &.tau-btn-big {
+        height: $buttonHeightBig;
+        line-height: $buttonLineHeightBig;
+        padding: 0 10px;
+        font-size: $buttonFontSizeBig;
+
+        .tau-btn__icon {
+            top: -2px;
+        }
+    }
+
+    /* endregion */
+
+    /* region Medium Buttons --------------------------------------------------*/
+
+    &.tau-btn-medium {
+        font-size: $buttonFontSizeMedium;
+        padding-bottom: 1px;
+
+        .tau-btn__icon {
+            top: -2px;
+        }
+    }
+
+    /* endregion */
+
+    /* region  Small Buttons --------------------------------------------------*/
+    &.tau-btn-small {
+        height: $buttonHeightSmall;
+        line-height: $buttonLineHeightSmall;
+        padding: 0 8px;
+        font-size: $buttonFontSizeSmall;
+
+        .tau-btn__icon {
+
+            &:first-child {
+                margin-left: -5px;
+            }
+
+            &:last-child {
+                margin-right: -5px
+            }
+        }
+    }
+
+    /* endregion */
+
+    /* region tau-btn-emoji-icon button --------------------------------------------------*/
+
+    &.tau-btn-emoji-icon {
+        min-width: 0;
+        padding: 0 5px;
+    }
+
+    &.tau-btn-emoji-icon-name-editor {
+        line-height: 32px;
+        height: 32px;
+        padding: 0 5px;
+        min-width: 0;
+        margin: 0;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    /* endregion */
+    /* region Special Buttons --------------------------------------------------*/
+
+    /* region feedback button */
+
+    &.tau-btn-feedback {
+        color: $gFontColorWhite;
+        background: #E79615;
+        background-image: linear-gradient(-180deg, #E7AA15 0%, #E79615 100%);
+        border-color: #D1860D;
+
+        &:hover:not(:disabled) {
+            background-image: linear-gradient(-180deg, #FFC900 0%, #DE8800 100%);
+            border-color: #DE8800;
+        }
+
+        &.tau-checked,
+        &.tau-checked:hover {
+            background-image: linear-gradient(-180deg, #E79615 0%, #E7AA15 100%);
+        }
+
+        &:active:not(:disabled) {
+            background-image: linear-gradient(-180deg, #DE8800 0%, #FFC900 100%);
+        }
+    }
+
+    /* endregion */
+
+    /* region primary button */
+
+    &.tau-primary {
+        color: $gFontColorWhite;
+        background: #3f99eb;
+        background-image: linear-gradient(-180deg, #0099f1 0%, #0089d7 100%);
+        border-color: #347bbc;
+
+        &:hover:not(:disabled) {
+            background-image: linear-gradient(-180deg, #3caef9 0%, #0079c9 100%);
+            border-color: #347bbc;
+        }
+
+        &.tau-checked,
+        &.tau-checked:hover {
+            background-image: linear-gradient(-180deg, #0089d7 0%, #0099f1 100%);
+        }
+
+        &:active:not(:disabled) {
+            background-image: linear-gradient(-180deg, #0079c9 0%, #3caef9 100%);
+        }
+    }
+
+    /* endregion */
+
+    /* region danger button */
+
+    &.tau-danger {
+        color: $gFontColorWhite;
+        background: #eb4e50;
+        background-image: linear-gradient(-180deg, #eb4e50 0%, #da484a 100%);
+        border-color: #c24d4b;
+
+        &:hover:not(:disabled) {
+            background-image: linear-gradient(-180deg, #f85f61 0%, #c94244 100%);
+            border-color: #c24d4b;
+        }
+
+        &.tau-checked,
+        &.tau-checked:hover {
+            background-image: linear-gradient(-180deg, #da484a 0%, #eb4e50 100%);
+        }
+
+        &:active:not(:disabled) {
+            border-color: #c24d4b;
+            background-image: linear-gradient(-180deg, #c94244 0%, #f85f61 100%);
+        }
+    }
+    /* endregion */
+
+    /* region success button */
+
+    &.tau-success {
+        box-shadow: none;
+        color: $gFontColorWhite;
+        background: #7ca843;
+        background-image: linear-gradient(-180deg, #a1c94b 0%, #7ca843 100%);
+        border-color: #699836;
+
+        &:hover:not(:disabled) {
+            border-color: #699836;
+            background-image: linear-gradient(-180deg, #b4e154 0%, #6f963c 100%);
+        }
+
+        &:active:not(:disabled),
+        &.tau-checked,
+        &.tau-btn-quick-add--expand {
+            border-color: #699836;
+            background-image: linear-gradient(-180deg, #7ca843 0%, #a1c94b 100%);
+        }
+
+        &.tau-checked,
+        &.tau-checked:hover,
+        &.tau-btn-quick-add--expand,
+        &.tau-btn-quick-add--expand:hover {
+            background-image: linear-gradient(-180deg, #7ca843 0%, #a1c94b 100%);
+        }
+    }
+    /* endregion */
+
+    /* region attention button */
+
+    &.tau-attention:not(:disabled) {
+        color: #c33;
+
+        &:hover:not(:disabled) {
+            color: $gFontColorWhite;
+            border-color: #bf3f41;
+            background: #c94244;
+            background-image: linear-gradient(-180deg, #f85f61 0%, #c94244 100%);
+        }
+
+        &.tau-checked,
+        &.tau-checked:hover {
+            border-color: $gButtonBorderColorDefault;
+            color: #f85f61;
+            background: #1e1f23;
+            background-image: $gButtonBackgroundChecked;
+        }
+    }
+    /* endregion */
+
+    &.tau-primary:disabled,
+    &.tau-danger:disabled,
+    &.tau-success:disabled {
+        opacity: 0.5;
+    }
+
+    &.tau-danger:focus,
+    &.tau-primary:focus,
+    &.tau-attention:focus,
+    &.tau-success:focus,
+    &.tau-btn-feedback:focus {
+        box-shadow: $buttonBoxShadowFocus;
+    }
+
+    /* endregion */
+
+    /* region Highlight Button (.tau-btn--active-highlight) */
+    &--active-highlight {
+        color: #e09824;
+        background: linear-gradient(to bottom, rgba(255, 240, 182, 1) 0%, rgba(251, 220, 114, 1) 100%);
+        border: 1px solid #f3d05e;
+        box-shadow: 0 0 6px #FFD235, inset 0 1px white;
+        transition: 0.5s ease-in;
+
+        &:hover:not(:disabled) {
+            box-shadow: none;
+            background: linear-gradient(to bottom, rgba(255, 240, 182, 1) 0%, rgba(251, 220, 114, 1) 100%);
+            transition: 0.2s ease-out;
+        }
+
+        &:disabled,
+        &.tau-checked {
+            box-shadow: none;
+        }
+    }
+    /* endregion */
+
+    /* region buttons .tau-passed, .tau-failed, .tau-onhold, .tau-blocked, .tau-notrun  --------------------------------------------------*/
+
+    &.tau-passed,
+    &.tau-failed,
+    &.tau-onhold,
+    &.tau-blocked,
+    &.tau-notrun {
+        position: relative;
+        border-color: transparent;
+        background: transparent;
+
+        &:focus {
+            box-shadow: none;
+        }
+
+        &:disabled {
+            opacity: 0.6;
+
+            & .tau-btn__icon {
+                opacity: 0.7;
+            }
+        }
+    }
+
+    &.tau-passed,
+    &.tau-failed,
+    &.tau-onhold,
+    &.tau-blocked {
+
+        &.tau-checked {
+
+            &,
+            &:hover {
+                color: $gButtonColorChecked;
+                border-color: transparent;
+            }
+
+            &:not(:disabled):hover {
+                color: transparent;
+
+                & .tau-btn__icon {
+                    visibility: hidden;
+                }
+
+                &:after {
+                    display: block;
+                }
+            }
+        }
+
+        &:after {
+            display: none;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            content: attr(data-clear-label);
+            color: $gFontColorWhite;
+            top: 0;
+            left: 0;
+            line-height: 26px;
+        }
+    }
+
+    &.tau-passed {
+        color: $gPassedColor;
+
+        &:hover:not(:disabled):not(.tau-checked) {
+            background: color($gPassedColor a(20%));
+        }
+
+        &.tau-checked {
+            background: $gPassedColor;
+        }
+    }
+
+    &.tau-failed {
+        color: $gFailedColor;
+
+        &:hover:not(:disabled):not(.tau-checked) {
+            background: color($gFailedColor a(20%));
+        }
+
+        &.tau-checked {
+            background: $gFailedColor;
+        }
+    }
+
+    &.tau-onhold {
+        color: $gOnholdColor;
+
+        &:hover:not(:disabled):not(.tau-checked) {
+            background: color($gOnholdColor a(20%));
+        }
+        &.tau-checked {
+            background: $gOnholdColor;
+        }
+    }
+
+    &.tau-blocked {
+        color: $gBlockedColor;
+
+        &:hover:not(:disabled):not(.tau-checked) {
+            background: color($gBlockedColor a(20%));
+        }
+        &.tau-checked {
+            background: $gBlockedColor;
+        }
+    }
+
+    &.tau-notrun {
+        color: $gNotrunColor;
+
+        &:hover:not(:disabled):not(.tau-checked) {
+            background: color($gNotrunColor a(20%));
+        }
+    }
+
+    /* endregion */
+
+    /* region Entity Buttons */
+
+    &.tau-btn--entity {
+        position: relative;
+        overflow: visible;
+        font-weight: normal;
+        min-width: 0;
+
+        &:before {
+            position: absolute;
+            content: '';
+            display: block;
+        }
+    }
+
+    &.tau-userstory,
+    &.tau-task,
+    &.tau-bug,
+    &.tau-epic,
+    &.tau-feature,
+    &.tau-request,
+    &.tau-testplan,
+    &.tau-testcase,
+    &.tau-testcaserun,
+    &.tau-testplanrun,
+    &.tau-release,
+    &.tau-iteration,
+    &.tau-teamiteration,
+    &.tau-build,
+    &.tau-projectmember,
+    &.tau-userprojectallocation,
+    &.tau-teamprojectallocation {
+        padding-left: 11px;
+
+        &:before {
+            top: -1px;
+            left: -1px;
+            width: 3px;
+            height: 24px;
+            border-radius: $buttonBorderRadius 0 0 $buttonBorderRadius;
+            box-shadow: inset 1px 0 rgba(0, 0, 0, .15);
+        }
+
+        &.tau-checked:before {
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(255, 255, 255, .2));
+        }
+    }
+
+    /* region entity button with icon  */
+
+    &.tau-impediment,
+    &.tau-user,
+    &.tau-requester,
+    &.tau-team,
+    &.tau-project,
+    &.tau-program {
+        padding-left: 24px;
+
+        &:before {
+            top: 50%;
+            margin-top: -8px;
+            left: 5px;
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    &.tau-impediment {
+
+        &:before {
+            background: svg("blocker");
+        }
+
+        &.tau-checked:before {
+            background: svg("blocker", "[fill]: #fff");
+        }
+    }
+
+    &.tau-user,
+    &.tau-requester {
+        padding-left: 23px;
+
+        &:before {
+            background: svg("user");
+        }
+
+        &.tau-checked:before {
+            background: svg("user", "[fill]: #fff");
+        }
+    }
+
+    &.tau-team {
+        &:before {
+            background: svg("team");
+        }
+
+        &.tau-checked:before {
+            background: svg("team", "[fill]: #fff");
+        }
+    }
+
+    &.tau-project,
+    &.tau-program {
+
+        &:before {
+            background: svg("project");
+        }
+
+        &.tau-checked:before {
+            background: svg("project", "[fill]: #fff");
+        }
+    }
+
+    /* endregion */
+
+    /* endregion */
+}
+
+/* region Quick Add Buttons */
+
+.tau-btn.tau-btn-quick-add {
+    padding-left: 3px;
+    padding-right: 3px;
+    box-sizing: border-box;
+    text-align: center;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:before {
+        background: svg("add") center center no-repeat;
+        content: '';
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 3px;
+    }
+
+    &__text {
+        margin: 0 5px 0 2px;
+    }
+
+    &:empty:not(.tau-btn-quick-add--big) {
+        min-width: 0;
+    }
+
+    &.tau-success:before {
+        background: svg("add", "[fill]: #fff") center center no-repeat;
+    }
+
+    /* region .tau-btn-quick-add with loader */
+
+    &.tau-btn--loader {
+
+        &:before {
+            z-index: 2;
+            position: relative;
+            background: svg("loader.svg") !important;
+            top: auto;
+            left: auto;
+            margin: 3px 0 0 0;
+        }
+    }
+
+    /* endregion */
+
+    /* region Common styles for Scale button with icons */
+
+    &.tau-btn-big {
+        padding-left: 5px;
+        padding-right: 5px;
+
+        &:before {
+            margin-top: 5px;
+        }
+    }
+
+    &.tau-btn-small {
+        padding-left: 1px;
+        padding-right: 1px;
+
+        &:before {
+            margin-top: 1px;
+        }
+    }
+
+    /* endregion */
+
+    /* region .tau-btn-quick-add--big-text-btn */
+    &--big-text-btn {
+        font-size: 14px;
+        line-height: 28px;
+        height: $buttonHeightBig;
+        min-width: 0;
+        border: none;
+        padding-left: 5px;
+        padding-right: 5px;
+
+        &:before {
+            margin-top: 6px;
+        }
+    }
+    /* engregion .tau-btn-quick-add--big-text-btn */
+    /* region .tau-btn-quick-add--big */
+
+    &--big {
+        height: 29px;
+        min-width: 29px;
+        padding: 0;
+
+        &:before {
+            width: 21px;
+            height: 21px;
+            background: svg("add-big");
+            margin: 0 auto;
+            display: block;
+        }
+
+        &.tau-success:before {
+            background: svg("add-big", "[fill]: #fff");
+        }
+    }
+    /* endregion */
+
+    /* region .tau-btn-quick-add--wide */
+
+    &--wide {
+        width: 100%;
+        border-radius: 0;
+    }
+    /* endregion */
+}
+
+/* endregion */
+
+/* region Color Buttons --------------------------------------------------*/
+
+/* region .tau-btn-green --------------------------------------------------*/
+
+.tau-btn-green {
+    color: #347500;
+
+    &.tau-checked,
+    &.tau-checked:hover {
+        background: #347500;
+        background: linear-gradient(to bottom, #347500 0%, #3F8F27 100%);
+        border-color: transparent;
+    }
+}
+
+/* endregion */
+
+/* region .tau-btn-gray --------------------------------------------------*/
+
+.tau-btn-gray {
+
+    &.tau-checked,
+    &.tau-checked:hover {
+        background: #85919B;
+        background: linear-gradient(to bottom, #85919B 0%, #ACB6BF 100%);
+        border-color: #85919B;
+    }
+}
+
+/* endregion */
+
+/* region .tau-btn-red --------------------------------------------------*/
+
+.tau-btn-red {
+    color: #9E0000;
+
+    &.tau-checked,
+    &.tau-checked:hover {
+        background: #9E0000;
+        background: linear-gradient(to bottom, #9E0000 0%, #CE0000 100%);
+        border-color: transparent;
+    }
+}
+
+/* endregion */
+
+/* endregion */

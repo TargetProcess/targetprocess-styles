@@ -1,0 +1,114 @@
+.entity-tabs {
+
+    &__holder {
+        display: flex;
+        border-bottom: solid 1px $gHighlightBlockBorderColor;
+        line-height: 0;
+        height: 29px;
+        font-size: 13px;
+        color: color($gFontColorDefault a(80%));
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        display: inline-flex;
+        flex-wrap: wrap;
+        flex-grow: 1;
+        flex-shrink: 1;
+        height: 30px;
+    }
+
+    .tab-item,
+    .ui-menu-actions,
+    .entity-tabs__quick-add {
+        box-sizing: border-box;
+        line-height: 28px;
+        height: 30px;
+        margin-right: -1px;
+        margin-bottom: -1px;
+        border: solid 1px $gHighlightBlockBorderColor;
+        border-radius: 2px 2px 0 0;
+        cursor: pointer;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .entity-tabs__quick-add {
+        display: flex;
+        width: 36px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .tab-item {
+        display: inline-block;
+        padding: 0 12px;
+
+        &:hover {
+            color: $gFontColorDefault;
+        }
+
+        &.selected {
+            font-weight: 600;
+            background-color: $gBackgroundDefault;
+            color: $gFontColorDefault;
+            border-bottom-color: $gBackgroundDefault;
+        }
+
+        .ui-label,
+        .ui-quantity {
+            vertical-align: middle;
+            display: inline-block;
+        }
+    }
+
+    .tab-item-more-trigger {
+        &__icon {
+            position: relative;
+            top: 2px;
+            margin-left: 5px;
+            line-height: 0;
+            display: inline-block;
+        }
+    }
+
+    .tab-item-right-part {
+        flex-shrink: 0;
+
+        .tau-container {
+            display: flex;
+        }
+
+        .ui-menu-actions {
+            display: inline-block;
+            padding: 0 12px;
+            border-radius: 2px 0 0 0;
+        }
+
+        &:hover {
+            color: $gFontColorDefault;
+        }
+    }
+
+    .ui-label-container {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .ui-label {
+        text-align: center;
+
+        &:after {
+            color: transparent;
+            content: attr(data-title);
+            display: block;
+            font-weight: 800;
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+        }
+    }
+}

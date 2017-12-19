@@ -1,0 +1,12 @@
+.tau-daterange-picker {
+    &__container {
+        float: left;
+        position: relative;
+        top: 16px;
+        left: 0;
+    }
+
+    &__bubble {
+        outline: none;
+    }
+}

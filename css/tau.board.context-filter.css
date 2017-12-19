@@ -1,0 +1,427 @@
+/* wrapper bubble
+--------------------------------------------------------------------------------*/
+
+.tau-teams-projects-manager {
+
+    &__body {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.tau-teams-projects-manager-wrapper {
+
+    .tau-managed-category,
+    .tau-managed-category__message {
+        width: 360px;
+    }
+
+    .ui-spinner {
+        width: 608px;
+    }
+}
+
+/* new entity form
+--------------------------------------------------------------------------------*/
+
+.tau-new-entity-form {
+
+    border: 1px solid $gHighlightBlockBorderColor;
+
+    padding: 0.5625em /* 9/16 */;
+
+    background-color: $gBackgroundDefault;
+
+}
+
+.tau-new-entity-form .tau-new-entity-process {
+    position: relative;
+}
+
+.tau-new-entity-form .tau-new-entity-team-project {
+    position: relative;
+}
+
+.tau-new-entity-form .tau-note {
+    font-size: 13px;
+    line-height: 1.7em;
+    padding-top: 1em;
+    padding-bottom: 2px;
+}
+
+.tau-new-entity-form .tau-note b {
+    font-weight: 600;
+}
+
+.tau-new-entity-form .tau-no-items {
+    padding: 5px 8px 6px;
+}
+
+
+/*multi-teams-projects  filter*/
+.tau-multi-teams-projects {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+
+    .tau-field-caption {
+        white-space: nowrap;
+        margin-bottom: 0;
+        font-weight: 600;
+    }
+
+    .tau-multi-teams-projects-filter {
+        padding-left: 10px;
+    }
+}
+/**/
+
+/*  region search --------------------------------------------------------------------------------*/
+
+.tau-teams-projects-manager .tau-teams-projects-search {
+    margin: 0;
+    padding: 16px;
+    text-align: center;
+    background-color: $gHighlightBlockBackground;
+    border-bottom: 1px solid $gHighlightBlockBorderColor;
+    position: relative;
+}
+
+.tau-teams-projects-manager .tau-teams-projects-search:after {
+    content: '';
+    width: 10px;;
+    height: 10px;
+    background-color: $gHighlightBlockBackground;
+    position: absolute;
+    left: 44px;
+    top: -4px;
+    transform: rotate(45deg);
+    z-index: 1100;
+}
+/*  endregion */
+
+/* region managed category general --------------------------------------------------------------------------------*/
+
+.tau-managed-category {
+    box-sizing: border-box;
+    padding: 10px;
+    min-width: 14em;
+
+    &.tau-projects {
+        order: 1;
+    }
+
+    &.tau-teams {
+        order: 2;
+    }
+    /* region .tau-managed-category__header  */
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        border-bottom: 1px solid $gHighlightBlockBorderColor;
+        padding: 0 0 10px 6px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        position: relative;
+
+        .tau-checkbox__label {
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        &__selected {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding-left: 4px;
+            background-color: $gBackgroundDefault;
+            min-width: 100%;
+
+
+            &__text {
+                font-size: 13px;
+                font-weight: 600;
+                line-height: 18px;
+            }
+
+            &__icon {
+                flex-shrink: 0;
+                margin-right: 6px;
+                margin-left: 1px;
+            }
+        }
+    }
+
+
+
+    /*  endregion */
+
+    /* region .tau-managed-category__add-new  */
+
+    &__add-new {
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        flex: 0 0 auto;
+        box-sizing: border-box;
+        cursor: default;
+        margin: 0 10px;
+
+        &__link {
+            cursor: pointer;
+            color: $gActionColorAdd;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+
+            &:hover,
+            &:visited {
+                color: $gActionColorAdd;
+            }
+        }
+
+        &__icon {
+            display: flex;
+            align-items: center;
+            margin-right: 3px;
+            position: relative;
+            top: 1px;
+        }
+
+        &__separator {
+            margin: 0 4px;
+        }
+    }
+    /*  endregion */
+
+    /* region .tau-managed-category__message  */
+
+    &__message {
+        color: $gFontColorLightGray;
+        font-size: 14px;
+        display: none;
+        max-width: 20em;
+        padding: 0 4px;
+
+        &--isempty {
+            display: none;
+        }
+
+        .tau-managed-category_filtered_none & {
+            display: block;
+
+            &--isempty {
+                display: none;
+            }
+
+            &:before {
+                content: attr(data-text-not-found);
+            }
+        }
+    }
+    /*  endregion */
+
+    /* region .tau-managed-category--isempty-true  */
+
+    .tau-no-message,
+    &--isempty-true .tau-managed-category__message {
+        display: none;
+    }
+
+    &--isempty-true {
+
+        .tau-no-message {
+            display: block;
+        }
+        .category-assignments {
+            display: none;
+        }
+    }
+
+    &--isempty-true &__header {
+        padding-left: 0.5em;
+
+        input,
+        i,
+        button {
+            display: none;
+        }
+    }
+
+    .tau-no-message {
+        padding: 12px 16px;
+        max-width: 320px;
+
+        &__icon {
+            display: flex;
+            align-items: center;
+        }
+
+        p {
+            font-size: 13px;
+            line-height: 1.3;
+            margin: 5px 0 15px 0;
+        }
+    }
+
+    /*  endregion */
+}
+
+/* endregion */
+/* managed category new item
+--------------------------------------------------------------------------------*/
+
+.tau-teams-projects-manager .tau-managed-category .tau-new-entity-form {
+    border: none;
+    padding: 6px;
+    background-color: $gBackgroundDefault;
+
+    &__footer {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.tau-teams-projects-manager .tau-managed-category .tau-new-entity-form__row {
+    margin-bottom: 1em;
+
+    &__control {
+        display: flex;
+        flex-shrink: 0;
+
+        &:not(:last-child) {
+            margin-right: 4px;
+        }
+    }
+
+    &__icon {
+        flex: 0 0 auto;
+        margin-left: 4px;
+    }
+}
+
+.tau-teams-projects-manager .tau-managed-category .tau-new-entity-form__row:last-child {
+    margin-bottom: 0;
+}
+
+.tau-teams-projects-manager .tau-managed-category .tau-note {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 0 2px 0;
+}
+
+.tau-teams-projects-manager .tau-managed-category .tau-new-entity-form .pointer {
+    display: none;
+}
+
+.tau-teams-projects-manager .tau-managed-category .tau-new-item_active_true .tau-pointer {
+    display: block;
+    height: 6px;
+    width: 9px;
+    overflow: hidden;
+
+    position: absolute;
+    top: -6px;
+    right: 3em;
+    z-index: 111;
+}
+
+.tau-teams-projects-manager .tau-managed-category .tau-new-item_active_true .tau-pointer:after {
+    display: block;
+    background-color: $gBackgroundDefault;
+    border: 1px solid $gHighlightBlockBorderColor;
+    content: "";
+    height: 10px;
+    left: -1px;
+    position: absolute;
+    top: 3px;
+    transform: rotate(45deg);
+    width: 10px;
+}
+
+.tau-teams-projects-manager .tau-managed-category .tau-new-item_active_false {
+    display: none;
+}
+
+.tau-teams-projects-manager .tau-managed-category .tau-new-item:before,
+.tau-teams-projects-manager .tau-managed-category .tau-new-item:after {
+    position: absolute;
+    content: '';
+
+    border-style: solid;
+    border-color: transparent;
+
+    top: -16px;
+    right: 32px;
+
+    border-width: 8px;
+}
+
+.tau-teams-projects-manager .tau-managed-category .tau-new-item:before {
+    border-bottom-color: $gHighlightBlockBorderColor;
+}
+
+.tau-teams-projects-manager .tau-managed-category .tau-new-item:after {
+    margin-top: 1px;
+    border-bottom-color: $gBackgroundDefault;
+}
+
+.tau-teams-projects-manager .tau-managed-category .tau-invite-widget .tau-invite-field {
+    margin-bottom: 0;
+    min-height: 8.6em;
+}
+
+/* endregion*/
+
+.tau-teams-projects-manager .tau-teams-projects-updater {
+    justify-content: space-between;
+    margin: 0 0.65em;
+    border-top: 1px solid $gHighlightBlockBorderColor;
+    padding: 1em 0;
+    display: none;
+
+    &__control {
+        margin: 0 2px;
+    }
+}
+
+.tau-teams-projects-manager .tau-teams-projects-updater_state_enabled {
+    display: flex;
+}
+
+.tau-teams-projects-manager .tau-added {
+    background-color: $gActionBackgroundSuccess;
+    border-radius: 0.188em;
+
+    animation-name: fadeOut;
+    animation-fill-mode: both;
+    animation-duration: 1.5s;
+}
+
+.tau-teams-projects-submit_highlighted_true {
+    animation-name: shortShake;
+    animation-fill-mode: both;
+    animation-duration: 0.3s;
+}
+
+.i-browser_engine_ie .tau-teams-projects-submit_highlighted_true {
+    background: $gActionBackgroundSuccess;
+}
+
+/*region  .tau-teams-projects-manager */
+
+.tau-teams-projects-manager {
+
+    .category-assignments {
+        width: 330px;
+    }
+}
+
+/*endregion*/

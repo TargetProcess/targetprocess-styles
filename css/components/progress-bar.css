@@ -1,0 +1,72 @@
+.tau-progress-bar {
+    position: relative;
+    border: 1px solid $gIconsGeneralColor;
+    width: 20px;
+    height: 6px;
+    background: $gBackgroundDefault;
+
+    &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+        display: none;
+        height: 100%;
+        background-color: $gIconsGeneralColor;
+    }
+
+    &.tau-v-0:before {
+        width: 0;
+    }
+
+    &.tau-v-10:before {
+        display: block;
+        width: 10%;
+    }
+
+    &.tau-v-20:before {
+        display: block;
+        width: 20%;
+    }
+
+    &.tau-v-30:before {
+        display: block;
+        width: 30%;
+    }
+
+    &.tau-v-40:before {
+        display: block;
+        width: 40%;
+    }
+
+    &.tau-v-50:before {
+        display: block;
+        width: 50%;
+    }
+
+    &.tau-v-60:before {
+        display: block;
+        width: 60%;
+    }
+
+    &.tau-v-70:before {
+        display: block;
+        width: 70%;
+    }
+
+    &.tau-v-80:before {
+        display: block;
+        width: 80%;
+    }
+
+    &.tau-v-90:before {
+        display: block;
+        width: 90%;
+    }
+
+    &.tau-v-100:before {
+        display: block;
+        width: 100%;
+    }
+
+}

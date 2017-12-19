@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1280px" height="720px" viewBox="0 0 1280 720" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>placeholder-report</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path id="path-1" d="M1280.00156,43.5015624 L1260.50312,83 L1220.5,83 L1180.5,103 L1141,3 L1100.50312,23 L1060.5,23 L1020.5,63 L980.5,43 L940.5,43 L900.5,63 L860.5,63 L820.5,83 L780.5,83 L740.5,163.5 L700.5,123 L660.5,123 L620.5,143 L580.5,143 L540.5,163 L500.5,143 L460.5,163 L420.5,163 L380.5,183 L340.5,183 L300.496875,183 L260.498438,222.998438 L220.5,203 L180.5,243 L140.496875,243 L100.498438,262.998438 L60.5,262.998438 L20.4968946,262.998438 L0.997665966,282.497666"></path>
+        <circle id="path-2" cx="3" cy="263" r="3"></circle>
+        <circle id="path-3" cx="43" cy="263" r="3"></circle>
+        <circle id="path-4" cx="83" cy="263" r="3"></circle>
+        <circle id="path-5" cx="123" cy="243" r="3"></circle>
+        <circle id="path-6" cx="163" cy="243" r="3"></circle>
+        <circle id="path-7" cx="203" cy="203" r="3"></circle>
+        <circle id="path-8" cx="243" cy="223" r="3"></circle>
+        <circle id="path-9" cx="283" cy="183" r="3"></circle>
+        <circle id="path-10" cx="323" cy="183" r="3"></circle>
+        <circle id="path-11" cx="363" cy="183" r="3"></circle>
+        <circle id="path-12" cx="403" cy="163" r="3"></circle>
+        <circle id="path-13" cx="443" cy="163" r="3"></circle>
+        <circle id="path-14" cx="483" cy="143" r="3"></circle>
+        <circle id="path-15" cx="523" cy="163" r="3"></circle>
+        <circle id="path-16" cx="563" cy="143" r="3"></circle>
+        <circle id="path-17" cx="603" cy="143" r="3"></circle>
+        <circle id="path-18" cx="643" cy="123" r="3"></circle>
+        <circle id="path-19" cx="683" cy="123" r="3"></circle>
+        <circle id="path-20" cx="723" cy="163" r="3"></circle>
+        <circle id="path-21" cx="763" cy="83" r="3"></circle>
+        <circle id="path-22" cx="803" cy="83" r="3"></circle>
+        <circle id="path-23" cx="843" cy="63" r="3"></circle>
+        <circle id="path-24" cx="883" cy="63" r="3"></circle>
+        <circle id="path-25" cx="923" cy="43" r="3"></circle>
+        <circle id="path-26" cx="963" cy="43" r="3"></circle>
+        <circle id="path-27" cx="1003" cy="63" r="3"></circle>
+        <circle id="path-28" cx="1043" cy="23" r="3"></circle>
+        <circle id="path-29" cx="1083" cy="23" r="3"></circle>
+        <circle id="path-30" cx="1123" cy="3" r="3"></circle>
+        <circle id="path-31" cx="1163" cy="103" r="3"></circle>
+        <circle id="path-32" cx="1203" cy="83" r="3"></circle>
+        <circle id="path-33" cx="1243" cy="83" r="3"></circle>
+    </defs>
+    <g id="Report" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g sketch:type="MSLayerGroup">
+            <g id="Horizontal-lines" fill="#DADDE5" sketch:type="MSShapeGroup" opacity="0.400000006">
+                <rect id="Rectangle-476" x="0" y="360" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="0" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="480" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="120" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="600" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="240" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="380" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="20" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="500" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="140" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="620" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="260" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="400" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="40" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="520" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="160" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="640" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="280" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="420" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="60" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="540" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="180" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="660" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="300" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="440" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="80" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="560" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="200" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="680" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="320" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="460" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="100" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="580" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="220" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="700" width="1280" height="1"></rect>
+                <rect id="Rectangle-476" x="0" y="340" width="1280" height="1"></rect>
+            </g>
+            <g id="Vertical-lines" fill="#DADDE5" sketch:type="MSShapeGroup" opacity="0.400000006">
+                <rect id="Rectangle-77" x="640" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-78" x="660" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-79" x="680" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-80" x="700" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-81" x="720" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-82" x="740" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-83" x="760" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-84" x="780" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-85" x="800" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-86" x="820" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-87" x="840" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-88" x="860" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-89" x="880" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-90" x="900" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-91" x="920" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-106" x="940" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-92" x="960" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-93" x="980" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-94" x="1000" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-95" x="1020" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-96" x="1040" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-97" x="1060" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-98" x="1080" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-99" x="1100" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-100" x="1120" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-101" x="1140" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-102" x="1160" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-103" x="1180" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-104" x="1200" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-105" x="1220" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-110" x="1240" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-107" x="1260" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-109" x="0" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-111" x="20" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-112" x="40" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-113" x="60" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-114" x="80" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-115" x="100" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-116" x="120" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-117" x="140" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-118" x="160" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-119" x="180" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-120" x="200" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-121" x="220" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-122" x="240" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-123" x="260" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-124" x="280" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-125" x="300" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-126" x="320" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-127" x="340" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-128" x="360" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-129" x="380" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-130" x="400" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-131" x="420" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-132" x="440" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-133" x="460" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-134" x="480" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-135" x="500" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-136" x="520" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-137" x="540" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-138" x="560" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-139" x="580" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-140" x="600" y="0" width="1" height="720"></rect>
+                <rect id="Rectangle-141" x="620" y="0" width="1" height="720"></rect>
+            </g>
+            <path d="M0.5,410.5 L1280,410.5" id="Line-4" stroke="#A1A7B3" stroke-linecap="square" stroke-dasharray="4,3" opacity="0.5" sketch:type="MSShapeGroup"></path>
+            <g id="Path-+-Points" transform="translate(0.000000, 277.000000)">
+                <g id="Path" stroke-width="2">
+                    <use stroke="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+                    <use stroke-opacity="0.5" stroke="#8FBF4D" xlink:href="#path-1"></use>
+                </g>
+                <g id="Points" transform="translate(17.000000, 0.000000)">
+                    <g id="Oval-96">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-2"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-2"></use>
+                    </g>
+                    <g id="Oval-97">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-3"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-3"></use>
+                    </g>
+                    <g id="Oval-98">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-4"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-4"></use>
+                    </g>
+                    <g id="Oval-99">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-5"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-5"></use>
+                    </g>
+                    <g id="Oval-100">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-6"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-6"></use>
+                    </g>
+                    <g id="Oval-101">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-7"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-7"></use>
+                    </g>
+                    <g id="Oval-102">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-8"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-8"></use>
+                    </g>
+                    <g id="Oval-103">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-9"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-9"></use>
+                    </g>
+                    <g id="Oval-104">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-10"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-10"></use>
+                    </g>
+                    <g id="Oval-105">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-11"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-11"></use>
+                    </g>
+                    <g id="Oval-106">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-12"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-12"></use>
+                    </g>
+                    <g id="Oval-107">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-13"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-13"></use>
+                    </g>
+                    <g id="Oval-108">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-14"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-14"></use>
+                    </g>
+                    <g id="Oval-109">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-15"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-15"></use>
+                    </g>
+                    <g id="Oval-110">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-16"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-16"></use>
+                    </g>
+                    <g id="Oval-111">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-17"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-17"></use>
+                    </g>
+                    <g id="Oval-112">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-18"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-18"></use>
+                    </g>
+                    <g id="Oval-113">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-19"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-19"></use>
+                    </g>
+                    <g id="Oval-114">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-20"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-20"></use>
+                    </g>
+                    <g id="Oval-115">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-21"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-21"></use>
+                    </g>
+                    <g id="Oval-116">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-22"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-22"></use>
+                    </g>
+                    <g id="Oval-117">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-23"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-23"></use>
+                    </g>
+                    <g id="Oval-118">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-24"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-24"></use>
+                    </g>
+                    <g id="Oval-119">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-25"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-25"></use>
+                    </g>
+                    <g id="Oval-120">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-26"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-26"></use>
+                    </g>
+                    <g id="Oval-121">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-27"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-27"></use>
+                    </g>
+                    <g id="Oval-122">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-28"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-28"></use>
+                    </g>
+                    <g id="Oval-123">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-29"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-29"></use>
+                    </g>
+                    <g id="Oval-124">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-30"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-30"></use>
+                    </g>
+                    <g id="Oval-125">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-31"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-31"></use>
+                    </g>
+                    <g id="Oval-126">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-32"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-32"></use>
+                    </g>
+                    <g id="Oval-127">
+                        <use fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-33"></use>
+                        <use fill-opacity="0.5" fill="#8FBF4D" xlink:href="#path-33"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,54 @@
+$viewInnerPopupOverlayBackground: color($gBackgroundInvert a(70%));
+$viewInnerPopupBackground: $gBackgroundDefault;
+$viewInnerPopupBoxShadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+$viewInnerPopupPositionLeft: 6%;
+
+.layered-popup {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: $gOverlayZIndex;
+
+    &__overlay {
+        position: absolute;
+        background: $viewInnerPopupOverlayBackground;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: $gOverlayZIndex;
+    }
+
+    &__page {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: $viewInnerPopupPositionLeft;
+        right: 0;
+        z-index: $gOverlayZIndex;
+
+        &__body {
+            box-sizing: border-box;
+            overflow: auto;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            background: $viewInnerPopupBackground;
+            box-shadow: $viewInnerPopupBoxShadow;
+            font-size: $gFontSize;
+        }
+    }
+
+    &__close {
+        position: absolute;
+        left: -40px;
+        top: 20px;
+        cursor: pointer;
+    }
+
+    &--inner &__page {
+        left: calc($viewInnerPopupPositionLeft * 2);
+    }
+}

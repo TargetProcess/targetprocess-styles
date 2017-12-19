@@ -1,0 +1,75 @@
+$coverPanelLeftSidePadding: 7px;
+
+.cover-panel {
+    z-index: $gOverlayZIndex;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+
+    transition: background-color 0.3s linear 0s, left 0s linear 0.3s;
+
+    &__container {
+        z-index: calc($gOverlayZIndex + 2);
+        position: absolute;
+        width: 28%;
+        min-width: 320px;
+        height: 100%;
+        top: 0;
+        right: 0;
+        background: #fff;
+
+        transition: transform 0.3s ease 0s, opacity 0.3s ease;
+        transform: translateX(40%);
+
+        opacity: 0;
+    }
+
+    &__content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        padding: 12px 10px;
+        overflow: auto;
+    }
+
+    &__close {
+        opacity: 0;
+        position: absolute;
+        left: -40px;
+        top: 20px;
+        transition: opacity 0.17s linear 0s;
+    }
+
+    &.tau-active {
+        background-color: rgba(0, 0, 0, 0.5);
+        left: 0;
+        transition-delay: 0s, 0s;
+
+        .cover-panel__container {
+            transform: translateX(0);
+            opacity: 1;
+            transition-delay: 0s, 0s;
+        }
+
+        .cover-panel__dimmer {
+            z-index: calc($gOverlayZIndex + 1);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .cover-panel__close {
+            opacity: 0.7;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+$recentItemMarkReadSize: 5px;
+$recentItemMarkReadClickAreaSide: 18px;
+
+.recent-item-mark-read {
+    display: flex;
+    position: relative;
+    margin-right: -6px;
+    width: $recentItemMarkReadClickAreaSide;
+    height: $recentItemMarkReadClickAreaSide;
+    cursor: inherit;
+
+    &:before {
+        display: block;
+        content: "";
+        margin: auto;
+        width: $recentItemMarkReadSize;
+        height: $recentItemMarkReadSize;
+        border-radius: 50%;
+        background: $gFontColorSuccess;
+    }
+
+    &:hover:before {
+        background: transparent;
+        box-shadow: 0 0 2px 1px $gFocusBoxShadowColor;
+    }
+}

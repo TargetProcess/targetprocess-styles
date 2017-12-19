@@ -1,0 +1,89 @@
+@media screen and (max-width: 1601px) {
+
+    .tau-media-screen-empty-selector {
+        display: none;
+    }
+
+    .tau-list__table__cell-effort {
+        width: 70px !important;
+    }
+
+    .tau-board-composite-view .tau-list__table__cell-name .tau-entity-title.editableText {
+        padding-right: 10px;
+    }
+
+    .tau-board-composite-view .tau-list__table__cell-actions {
+        width: 6px !important;
+    }
+
+    .tau-board-composite-view .tau-list__table__cell-actions .tau-entity-actions-target {
+        background-position: -18px 0 !important;
+    }
+
+    .tau-board-composite-view .tau-list__table__cell-actions .tau-entity-actions-target:hover {
+        background-position: -18px -17px !important;
+    }
+
+    .tau-board-composite-view .tau-list__table__cell-responsible,
+    .tau-board-composite-view .tau-list__table__cell-assignments {
+        width: 80px !important;
+    }
+
+}
+
+@media screen and (max-width: 1450px) {
+
+    .tau-board-composite-view .tau-relations-item  td.tau-relation-type,
+    .tau-board-composite-view .tau-relations-item  td.tau-entity-type,
+    .tau-board-composite-view .tau-relations-item  td.tau-entity-project,
+    .tau-board-composite-view .tau-relations-item  td.tau-entity-state,
+    .tau-board-composite-view .tau-relations-item  td.tau-entity-field {
+        display: none;
+    }
+
+    .tau-list__table__cell .editableText {
+        padding-left: 0;
+    }
+
+}
+
+@media screen and (max-width: 1400px) {
+
+    .tau-list__table__cell-effort,
+    .tau-list__table__cell-progress {
+        width: 70px !important;
+    }
+}
+
+@media screen and (max-width: 1270px) {
+
+    .tau-board-composite-view .tau-list__table__cell-project,
+    .tau-board-composite-view .tau-list__table__cell-priority,
+    .tau-board-composite-view .tau-list__table__cell-severity {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+
+    .tau-board-composite-view .tau-list__table__cell-progress,
+    .tau-board-composite-view .tau-list__table__cell-quickadd {
+        display: none !important;
+    }
+
+}
+
+@media screen and (max-width: 980px) {
+
+    .tau-list__table__cell-priority,
+    .tau-list__table__cell-severity,
+    .tau-list__table__cell-progress,
+    .tau-list__table__cell-quickadd,
+    .tau-list__table__cell-project,
+    .tau-list__table__cell-effort,
+    .tau-list__table__cell-state,
+    .tau-list__table__cell-assignments {
+        display: none !important;
+    }
+
+}

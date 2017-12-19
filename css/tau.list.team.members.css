@@ -1,0 +1,104 @@
+/* <<< Team view */
+
+.tau-user-info {
+
+    a {
+        text-decoration: none;
+        color: $gFontColorDefault;
+    }
+
+    .tau-avatar {
+        float: left;
+        margin-top: 5px;
+        border-radius: 2px;
+    }
+
+    .tau-user-personal-data {
+        margin-left: 2em;
+
+        .tau-name {
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-top: 3px;
+        }
+
+        .tau-email {
+            font-size: 13px;
+            white-space: nowrap;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            a {
+                color: $gFontColorGray;
+            }
+        }
+    }
+}
+
+
+.tau-user-system-role {
+    background-color: $gActionBackgroundSelected;
+    color: $gFontColorGray;
+    font-size: 10px;
+    padding: 0 0.4em;
+    text-transform: uppercase;
+    font-weight: 600;
+    vertical-align: top;
+    position: relative;
+    top: 3px;
+}
+
+.tau-user-system-role-inactive {
+    background-color: $gIconsGeneralColor;
+    color: $gFontColorWhite;
+}
+
+.tau-user-assignments {
+
+    &__entity {
+        display: inline-flex;
+        align-items: center;
+        padding-right: 0.5em;
+
+        &__icon {
+            flex: 0 0 auto;
+        }
+        &__counter {
+            font-size: 11px;
+            padding: 0.1em 0 0.17em 0.2727em;
+        }
+    }
+}
+
+.tau-user-startDate, .tau-user-endDate {
+    font-size: 13px;
+    height: 18px;
+    margin-top: 5px;
+}
+
+.tau-user-startDate .ui-dateeditor,
+.tau-user-endDate .ui-dateeditor {
+    white-space: nowrap;
+    position: relative;
+    top: -3px;
+    left: -3px;
+}
+
+.tau-user-startDate > div, .tau-user-endDate > div {
+    height: 100%;
+}
+
+/* Team view >>> */
+/*Add to project View*/
+.tau-teamsProjects-tab .tau-actions .tau-active:after {
+    z-index: 20;
+}
+
+.tau-projectView .assignments-control .tau-new-entity-holder {
+    max-width: 310px;
+}

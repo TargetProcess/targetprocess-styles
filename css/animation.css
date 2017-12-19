@@ -1,0 +1,94 @@
+@keyframes fadeOut {
+    0% {
+        background: $gActionBackgroundSystem;
+    }
+    100% {
+        background: $gBackgroundDefault;
+    }
+}
+
+@keyframes fadeShake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    5%, 15%, 85%, 95% {
+        transform: translateX(-2px);
+    }
+
+    25%, 35%, 45%, 55%, 65%, 75% {
+        transform: translateX(-3px);
+    }
+    30%, 40%, 50%, 60%, 70% {
+        transform: translateX(3px);
+    }
+
+    10%, 20%, 80%, 90% {
+        transform: translateX(2px);
+    }
+}
+
+@keyframes shortShake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25%, 75% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+}
+
+@keyframes bounce {
+    0%, 50%, 100% {
+        background: $gBackgroundDefault;
+    }
+    25% {
+        background: $gActionBackgroundSelected;
+    }
+    75% {
+        background: $gActionBackgroundSelected;
+    }
+}
+
+@keyframes fadeSuccess {
+    10% {
+        background: $gActionBackgroundSuccess;
+    }
+    100% {
+        background: transparent;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* region animation for loader */
+
+@keyframes tau-list-collapser-loading {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* endregion */
+
+
+@keyframes animate-show-of-icon-floating-status {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+

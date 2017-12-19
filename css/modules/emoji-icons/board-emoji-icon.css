@@ -1,0 +1,68 @@
+$boardEmojiIconAnimation1Duration: 0.3s;
+$boardEmojiIconAnimation2Duration: 0.2s;
+
+.board-emoji-icon {
+    display: flex;
+    align-items: center;
+
+    &__wrap {
+        position: relative;
+        margin-left: -2px;
+        margin-right: -1px;
+    }
+
+    &__icon {
+        padding: 2px 0;
+        position: relative;
+        box-sizing: border-box;
+        min-height: 32px;
+        min-width: 0;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        will-change: min-width;
+        transition: min-width $boardEmojiIconAnimation1Duration ease-in-out $boardEmojiIconAnimation2Duration;
+
+        .tau-settings-active & {
+            min-width: 32px;
+            transition: min-width $boardEmojiIconAnimation1Duration ease-in-out;
+        }
+
+        &__transform {
+            padding: 0 2px;
+            flex: 0 0 auto;
+            transform-origin: center center;
+            transform: scale(1, 1);
+            will-change: transform;
+            transition: transform $boardEmojiIconAnimation1Duration ease-in-out $boardEmojiIconAnimation2Duration;
+
+            .tau-settings-active & {
+                transform: scale(0.7145, 0.7145);
+                transition: transform $boardEmojiIconAnimation1Duration ease-in-out;
+            }
+        }
+    }
+
+    &__toggle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        will-change: opacity;
+        transition: opacity $boardEmojiIconAnimation2Duration ease-in-out;
+        opacity: 0;
+        z-index: 0;
+
+        .tau-settings-active & {
+            transition: opacity $boardEmojiIconAnimation2Duration ease-in-out $boardEmojiIconAnimation1Duration;
+            opacity: 1;
+            z-index: 1;
+        }
+    }
+
+    &__default-icon {
+        padding: 2px 2px;
+        display: flex;
+        align-items: center;
+    }
+}

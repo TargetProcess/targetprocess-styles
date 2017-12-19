@@ -1,0 +1,241 @@
+.workflow__wrap {
+    font-size: $gFontSize;
+    font-family: $gFontFamily;
+}
+
+.workflow__header {
+    overflow: hidden;
+    margin: 25px 20px 25px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.workflow__header__name {
+    color: $gFontColorDefault;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 10px 0 0;
+    white-space: nowrap;
+}
+
+.workflow__wrap .help {
+    border-bottom: none;
+    border-top: none;
+    border-radius: 5px;
+    width: 100%;
+    margin: 20px 0;
+    position: relative;
+    box-sizing: border-box;
+    max-width: 790px;
+}
+
+.workflow__wrap .subAddContent {
+    margin-top: -10px;
+    padding: 0 15px 15px 15px;
+}
+
+.workflow__wrap .subAddContent > img:first-child {
+    margin: 20px 0;
+}
+
+.workflow__wrap .subAddContent .help {
+    margin: 10px 0;
+}
+
+.workflow__wrap .subAddContent input[type='checkbox'],
+.workflow__wrap .subAddContent input[type='radio'] {
+    margin: 0 5px 0 0;
+    position: relative;
+    top: 1px;
+}
+
+.workflow__wrap .subAdd {
+    border: none;
+    background: none $gBackgroundDefault;
+    border-radius: $gBorderRadiusDefault;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+}
+
+.workflow__wrap .subAddTitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: $gFontColorDefault;
+    margin: 0 0 10px;
+    padding: 15px 20px 0;
+}
+
+.workflow__links {
+    text-align: right;
+    font-size: 11px;
+    margin: 20px 0;
+    position: relative;
+}
+
+.workflow__links > a,
+.workflow__links > a:visited,
+.workflow__links > a:link {
+    margin-left: 15px;
+    color: $gFontColorGray;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px dotted $gFontColorGray;
+
+    &:last-child {
+        margin-right: 10px;
+    }
+}
+
+.workflow__states {
+    color: $gFontColorGray;
+    font-size: 11px;
+    margin: 7px;
+}
+
+.workflow__states > a {
+    color: $gFontColorGray;
+}
+
+.workflow__form__title {
+    margin: 10px 0 5px 0;
+
+}
+
+.workflow__wrap .required {
+    font-weight: 600;
+}
+
+.workflow__form__item {
+    margin: 5px 0 0 0;
+}
+
+.workflow__wrap .tau-btn-quick-add__wrap {
+    margin: 0 0 0 17px;
+    position: relative;
+    top: -3px;
+    float: left;
+}
+
+.workflow__wrap .tau-btn-quick-add__label {
+    position: relative;
+    float: left;
+}
+
+.workflow__daths:before {
+    content: '—';
+    color: $gFontColorGray;
+    display: block;
+}
+
+.workflow__wrap .generalTable .headRow {
+    background: $gHighlightBlockBackground;
+    margin: 15px 5px;
+}
+
+.workflow__wrap .generalTable th,
+#main .workflow__wrap .generalTable th,
+.workflow__wrap .generalTable td,
+#main .workflow__wrap .generalTable td {
+    padding: 7px 5px;
+}
+
+.workflow__wrap .generalTable th,
+.workflow__wrap .generalTable td {
+    border-top: 0 none;
+    border-bottom: solid 1px $gHighlightBlockBorderColor;
+}
+
+.workflow__wrap .generalTable td td {
+    border: 0 none;
+}
+
+.workflow__wrap .generalTable .generalTable__inner th,
+#main .workflow__wrap .generalTable .generalTable__inner th,
+.workflow__wrap .generalTable .generalTable__inner td,
+#main .workflow__wrap .generalTable .generalTable__inner td {
+    padding: 3px 5px;
+}
+
+.workflow__wrap .generalTable th,
+#main .workflow__wrap th {
+    background: $gHighlightBlockBackground;
+    color: $gFontColorDefault;
+    white-space: nowrap;
+}
+
+.workflow__wrap .generalTable td,
+#main .workflow__wrap td {
+    font-size: 13px;
+}
+
+.workflow__lbl {
+    position: relative;
+    top: -4px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.workflow__name {
+    font-weight: 600;
+}
+
+.workflow__wrap .tau-primary {
+    margin-top: 20px;
+}
+
+.workflow__wrap-btn {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    white-space: nowrap;
+
+    &__control {
+        flex-shrink: 0;
+
+        &:not(:last-child) {
+            margin-right: 4px;
+        }
+
+        a,
+        a:visited,
+        a:link {
+            color: $gButtonColorDefault;
+            font-weight: normal;
+        }
+    }
+}
+
+.generalTable__inner {
+    width: 450px;
+    margin: 10px 0;
+}
+
+.generalTable__inner .workflow__name {
+    display: block;
+}
+
+.generalTable__inner input[type='checkbox'] {
+    margin: 0 5px 0 0;
+    position: relative;
+    top: 1px;
+}
+
+.generalTable__inner td {
+    vertical-align: top;
+    padding-left: 20px;
+}
+
+.workflow__wrap .generalTable .generalTable-checkboxes td,
+#main .workflow__wrap .generalTable .generalTable-checkboxes td {
+    padding-bottom: 0;
+
+}
+
+.workflow-states-table {
+    margin-top: 15px;
+}
+
+.workflow-state-collapser {
+    width: 20px;
+}

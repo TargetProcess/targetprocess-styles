@@ -1,0 +1,21 @@
+.tau-board-unit_type_date {
+
+    /* US#90884 Remove icons from date units on lists; do not forget about "Customize Cards" */
+    .tau-list-line &,
+    .board-layout-customizer__list-module & {
+
+        &.tau-board-unit_type_anticipated-end-date,
+        &.tau-board-unit_type_last-comment-date,
+        &.tau-board-unit_type_planned-start-date,
+        &.tau-board-unit_type_planned-end-date,
+        &.tau-board-unit_type_forecasted-end-date,
+        &.tau-board-unit_type_start-date,
+        &.tau-board-unit_type_end-date,
+        &.tau-board-unit_type_creation-date{
+
+            .tau-board-unit__icon-wrapper {
+                display: none;
+            }
+        }
+    }
+}

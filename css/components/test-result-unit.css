@@ -1,0 +1,42 @@
+.tau-test-result-unit {
+    display: flex;
+    align-items: center;
+
+    &__icon {
+        flex: 0 0 auto;
+        margin: 0 2px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__text-onhold {
+        color: $gFontColorSelected;
+    }
+
+    &__text-blocked {
+        color: $gFontColorAttention;
+    }
+
+    &__text-separator {
+        color: $gFontColorGray;
+    }
+
+    &--passed {
+        color: $gFontColorSuccess;
+    }
+
+    &--failed {
+        color: $gFontColorFailed;
+    }
+
+    &--notrun {
+        color: $gFontColorGray;
+    }
+
+}

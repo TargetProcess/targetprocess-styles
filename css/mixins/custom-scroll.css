@@ -1,0 +1,30 @@
+/* region mixin for  custom scroll */
+@define-mixin custom-scroll {
+
+    &::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
+        height: 7px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: rgba(160, 160, 160, 0.1);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-clip: padding-box;
+        background-color: rgba(160, 160, 160, 0.7);
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(160, 160, 160, 1);
+    }
+
+    &::-webkit-scrollbar-corner {
+        background-color: rgba(160, 160, 160, 0.1);
+        border-bottom-right-radius: 5px;
+    }
+}
+/* endregion */
+

@@ -1,0 +1,179 @@
+$buttonLineHeight: $gButtonLineHeightDefault;
+
+.boardsettings-filter {
+    display: inline-block;
+
+    &__contener {
+        display: flex;
+        align-items: center;
+
+        &__button {
+            position: relative;
+            z-index: 1;
+
+            &:focus {
+                z-index: 2;
+            }
+        }
+    }
+
+    &__wrapper {
+        display: none;
+        align-items: center;
+        flex: 1 2 auto;
+
+        height: $gControlHeightDefault;
+        max-width: 100%;
+        margin-left: -1px;
+        box-sizing: border-box;
+        border: solid 1px $gControlBorderColorDefault;
+        border-radius: 0 2px 2px 0;
+        background-color: $gBackgroundDefault;
+
+        .boardsettings-filter--show &,
+        .lookup-section &,
+        .color-encoding-list__filter & {
+            display: flex;
+        }
+
+        .full & {
+            background-color: $gActionBackgroundSystem;
+            border-color: color($gActionBackgroundSystem shade(15%));
+        }
+
+        .active & {
+            box-shadow: $gControlBoxShadowFocusDefault;
+            border-color: $gControlBorderColorFocusDefault;
+        }
+
+        .tau-board-header & {
+            border-radius: 2px;
+        }
+    }
+
+    &__status {
+        display: block;
+
+        &--off {
+            color: $gFontColorLightGray;
+            visibility: visible;
+            height: auto;
+            display: inline-block;
+
+            .boardsettings-filter--on & {
+                visibility: hidden;
+                display: none;
+                height: 0;
+            }
+        }
+
+        &--on {
+            color: $gActionColorAddLight;
+            visibility: hidden;
+            display: none;
+            height: 0;
+
+            .boardsettings-filter--on & {
+                visibility: visible;
+                height: auto;
+                display: inline-block;
+            }
+        }
+    }
+
+    &__checkbox {
+        display: none;
+    }
+
+    &__toggle {
+        flex: 0 0 auto;
+
+        &:disabled ~ .boardsettings-filter__wrapper {
+            border-color: $gControlBorderColorDisabled;
+        }
+
+        &__content {
+            display: inline-block;
+            height: $buttonLineHeight;
+            overflow: hidden;
+        }
+    }
+
+    &__more {
+        flex: 0 0 auto;
+        width: 23px;
+        height: 20px;
+        padding: 0;
+        margin: 0 2px;
+        position: relative;
+        cursor: pointer;
+        background: transparent;
+        border-color: transparent;
+        box-sizing: border-box;
+
+        &.tau-checked,
+        &:focus {
+            background-color: $gActionBackgroundActive;
+            outline: none;
+        }
+
+        &__icon {
+            display: block;
+            flex: 0 0 auto;
+            margin-left: 3px;
+        }
+    }
+
+    &__help {
+        margin: 0 0 0 4px;
+        flex: 0 0 auto;
+        align-items: center;
+        display: none;
+    }
+
+    &__input {
+        flex: 1 2 auto;
+        display: flex;
+        align-items: center;
+
+        .boardsettings-filter__input__item {
+            border: none;
+            height: calc($gControlHeightDefault - 2px);
+            background: transparent;
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+
+        &__icon {
+            flex: 0 0 auto;
+            margin-left: 3px;
+            position: relative;
+        }
+    }
+
+    &--show &__toggle {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    &--show &__help {
+        display: flex;
+    }
+
+    &--disabled {
+        cursor: default;
+        opacity: $gControlDisabledOpacity;
+
+        .tau-board-header & {
+            cursor: not-allowed;
+
+            .boardsettings-filter__input__item,
+            .boardsettings-filter__toggle {
+                cursor: not-allowed;
+            }
+        }
+    }
+}
+

@@ -1,0 +1,222 @@
+/* region COMET STATUS INDICATOR */
+
+/* region animation REGION DISCONNECT */
+
+@keyframes maDisconnect {
+    from {
+        transform: translateX(7px);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes faDisconnect {
+    from {
+        transform: translateX(-6px);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes laDisconnect {
+    from {
+        fill-opacity: 0;
+    }
+    to {
+        fill-opacity: 1;
+    }
+}
+
+/* endregion animation REGION DISCONNECT */
+
+/* region animation REGION CONNECTED */
+
+@keyframes maConnected {
+    from {
+        transform: translateX(0px);
+    }
+    to {
+        transform: translateX(7px);
+    }
+}
+
+@keyframes faConnected {
+    from {
+        transform: translateX(0px);
+    }
+    to {
+        transform: translateX(-6px);
+    }
+}
+
+@keyframes laConnected {
+    from {
+        transform: scale(1, 1);
+    }
+    to {
+        transform: scale(0, 10);
+    }
+}
+
+/* endregion animation REGION CONNECTED */
+
+/* region animation REGION CONNECTING */
+
+@keyframes maConnecting {
+    from {
+        transform: translateX(0px);
+    }
+    to {
+        transform: translateX(7px);
+    }
+}
+
+@keyframes faConnecting {
+    from {
+        transform: translateX(0px);
+    }
+    to {
+        transform: translateX(-6px);
+    }
+}
+
+@keyframes laConnecting {
+    from {
+        transform: scale(1, 1);
+    }
+    to {
+        transform: scale(0, 10);
+    }
+}
+
+@keyframes spinnerConnecting {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes showSpinnerConnecting {
+    from {
+        fill-opacity: 0;
+    }
+    to {
+        fill-opacity: 1;
+    }
+}
+
+/* endregion animation REGION CONNECTING */
+
+.tau-comet-status {
+    width: 60px;
+    height: 30px;
+    align-self: center;
+
+    &.disconnected,
+    &.connected {
+        cursor: pointer;
+    }
+
+    /* region REGION DISCONNECT */
+    &.disconnected {
+
+        #leftPlug {
+            transform: translateX(7px);
+            animation: maDisconnect 0.2s ease-in 0.5s;
+            animation-fill-mode: forwards;
+        }
+
+        #rightPlug {
+            transform: translateX(-6px);
+            animation: faDisconnect 0.2s ease-in 0.5s;
+            animation-fill-mode: forwards;
+        }
+
+        #spark {
+            -webkit-transform-origin: 50% 50%;
+            -webkit-transform: scale(1);
+            fill-opacity: 0;
+            animation: laDisconnect 0.2s ease-in 0.5s;
+            transform-origin: 30px 7px;
+            animation-fill-mode: forwards;
+        }
+
+        .spinner {
+            display: none;
+        }
+    }
+    /* endregion  REGION DISCONNECT */
+
+    /* region REGION CONNECTED */
+
+    &.connected {
+        #leftPlug {
+            animation: maConnected 0.2s ease-in 0.5s;
+            animation-fill-mode: forwards;
+        }
+
+        #rightPlug {
+            animation: faConnected 0.2s ease-in 0.5s;
+            animation-fill-mode: forwards;
+        }
+
+        #spark {
+            -webkit-transform-origin: 50% 50%;
+            animation: laConnected 0.2s ease-in 0.5s;
+            transform-origin: 30px 7px;
+            animation-fill-mode: forwards;
+        }
+
+        .spinner {
+            display: none;
+        }
+    }
+    /* endregion REGION CONNECTED *//* region REGION CONNECTING */
+
+    &.connecting {
+        #leftPlug {
+            animation: maConnecting 0.2s ease-in 0.5s;
+            animation-fill-mode: forwards;
+        }
+
+        #rightPlug {
+            animation: faConnecting 0.2s ease-in 0.5s;
+            animation-fill-mode: forwards;
+        }
+
+        #spark {
+            -webkit-transform-origin: 50% 50%;
+            animation: laConnecting 0.2s ease-in 0.5s;
+            transform-origin: 30px 7px;
+            animation-fill-mode: forwards;
+        }
+
+        #spinner {
+            -webkit-transform-origin: 50% 50%;
+            -webkit-transform: rotate(360deg);
+            animation: spinnerConnecting 1s linear infinite;
+            transform-origin: 4.5px 4.5px;
+        }
+
+        .spinner {
+            animation: showSpinnerConnecting 0.2s ease-in 0.8s;
+            animation-fill-mode: forwards;
+            fill-opacity: 0;
+        }
+    }
+
+    /* endregion REGION CONNECTED */
+}
+
+.tau-comet-indicator-message {
+
+    &__offline {
+        font-weight: 600;
+    }
+}
+
+/* endregion COMET STATUS INDICATOR */

@@ -1,0 +1,109 @@
+.board-settings-component {
+    position: relative;
+
+    &__title {
+        display: flex;
+        align-items: center;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 600;
+        position: relative;
+        top: 3px;
+        margin: 0;
+        overflow: hidden;
+
+        &__text {
+            @mixin ellipsis;
+            display: inline-flex;
+        }
+
+
+
+        &__expand-trigger {
+            color: $gLinkColor;
+            border-bottom: dashed 1px $gLinkColor;
+            text-decoration: none;
+            cursor: pointer;
+
+            &:hover {
+                border-bottom-color: transparent;
+                color: $gLinkColorHover;
+            }
+
+            &--inactive {
+                border-bottom-color: transparent;
+                color: $gFontColorDefault;
+                cursor: default;
+            }
+        }
+
+        &.tau-attention {
+            overflow: visible;
+        }
+
+        &.tau-attention &__text {
+            background-color: color($gMessageColorError a(70%));
+            color: $gFontColorWhite;
+            padding: 2px 6px;
+            border-radius: $gBorderRadiusDefault;
+            margin-bottom: -2px;
+            margin-left: -6px;
+        }
+
+        &.tau-attention-shake &__text {
+            animation-name: shake;
+            animation-duration: .5s;
+            animation-iteration-count: 1;
+        }
+
+        &__icon {
+            display: flex;
+            flex-shrink: 0;
+            margin: 0 4px;
+        }
+    }
+
+    .dashboard-settings-layout,
+    .color-encoding-list,
+    .board-settings-context-filter,
+    .controls-group {
+        margin-top: 10px;
+    }
+
+    &__filter-full-wrap {
+        display: block;
+
+        .boardsettings-filter {
+            display: block;
+        }
+    }
+
+    &__context-placeholder {
+        display: inline-flex;
+        margin-top: 10px;
+    }
+
+    .custom-external-report__placeholder & {
+        &__context-placeholder {
+            display: flex;
+        }
+    }
+
+    &--setup-tab &__title {
+        left: -10px;
+    }
+
+    &__view-description {
+        margin-top: 10px;
+        font-size: $gFontSize;
+        max-width: 440px;
+        display: flex;
+
+        > textarea {
+           min-width: 440px;
+           max-height: 500px;
+           min-height: 50px;
+        }
+    }
+}
+

@@ -1,0 +1,11 @@
+.entity-selector {
+
+    &__item {
+        display: flex;
+        padding: 2px 0;
+
+        &:hover {
+            background-color: $gActionBackgroundSystem;
+        }
+    }
+}

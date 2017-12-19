@@ -1,0 +1,59 @@
+.access-tokens-setup {
+    padding: 10px 0;
+
+    &__status-message {
+        padding: 5px;
+    }
+
+    &__token-list {
+
+        &__token-item {
+
+            &__issued-text {
+                margin-right: 8px;
+
+                &__icon {
+                    display: inline-block;
+                    margin: 0 8px 0 4px;
+                    position: relative;
+                    top: 1px;
+                }
+            }
+        }
+    }
+
+    &__new-token {
+        margin: 10px 0 0 0;
+
+        &__form {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__actions {
+        display: inline-flex;
+        align-items: center;
+        margin-left: 2px;
+
+        &__control {
+            flex-shrink: 0;
+
+            &:not(:last-child) {
+                margin-right: 4px;
+            }
+        }
+    }
+
+    &__delete-cell__control {
+        float: right;
+        margin: 0 2px;
+    }
+
+}
+
+.access-tokens-setup__recently-created-token td,
+.access-tokens-setup__recently-created-token:hover td{
+    background-color: $gActionBackgroundSuccess;
+}
+

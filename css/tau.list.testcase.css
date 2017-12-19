@@ -1,0 +1,118 @@
+.tau-list__table__cell-expander,
+.tau-list__table__cell-expander-additional {
+    width: 32px;
+}
+
+.tau-list__table__cell-lastrundate {
+    overflow: visible;
+    width: 110px;
+}
+
+.tau-list__table__cell-laststatus {
+    width: 95px;
+}
+
+.tau-list__table__cell-testcaseactions {
+    text-align: right;
+    width: 150px;
+}
+
+.tau-list__table-additional {
+    display: none;
+}
+
+.tau-list__itemexpander {
+    text-align: center;
+    cursor: pointer;
+}
+
+.tau-list__itemexpander__indicator {
+    background-image: url("../css.ui/images/collapse-buttons-sprite.png");
+    background-repeat: no-repeat;
+    cursor: pointer;
+    height: 11px;
+    width: 11px;
+    display: inline-block;
+}
+
+.tau-list__itemexpander_state_open .tau-list__itemexpander__indicator {
+    background-position: -10px -41px;
+}
+
+.tau-list__itemexpander_state_open:hover .tau-list__itemexpander__indicator {
+    background-position: -10px -11px;
+}
+
+.tau-list__itemexpander_state_closed .tau-list__itemexpander__indicator {
+    background-position: -10px -71px;
+}
+
+.tau-list__itemexpander_state_closed:hover .tau-list__itemexpander__indicator {
+    background-position: -10px -101px;
+}
+
+.tau-list__table__cell-header-expander {
+    text-align: center;
+}
+
+.tau-list__table__cell-header-expander .tau-list__itemexpander {
+    display: inline-block;
+    padding: 5px 1px;
+}
+
+.tau-list__table-additional_state_open {
+    display: table;
+}
+
+.tau-list__table-additional_state_closed {
+    display: none;
+}
+
+.tau-list__table-additional .tau-list__table__cell {
+    vertical-align: top;
+}
+
+.tau-list__table-header {
+    height: 20px
+}
+
+.tau-list__table__cell-header .tau-list__itemexpander {
+    display: inline-block;
+    vertical-align: middle;
+
+}
+
+.tau-list__table__cell-header .tau-list__itemexpander__indicator {
+    width: 22px;
+}
+
+.tau-button-add {
+    display: inline-block;
+    background: none repeat scroll 0 50% transparent;
+    border-color: #0F6BBC;
+    border-style: none none dotted;
+    border-width: 0 0 1px;
+    color: #0F6BBC;
+    cursor: pointer;
+    font-style: normal;
+    padding: 0;
+    text-decoration: none;
+    vertical-align: middle;
+    margin-left: 0;
+}
+
+.tau-button-add:hover {
+    border-bottom: 1px transparent solid !important;
+}
+
+.tau-list-testcases .tau-list__group_flat_true {
+    padding-top: 5px;
+}
+
+.tau-list-testcases .tau-list__list {
+    padding-top: 0;
+}
+
+.i-print .tau-list__table__cell-testcaseactions {
+    display: none;
+}

@@ -1,0 +1,82 @@
+.color-picker {
+
+    &__list {
+        width: 200px;
+        line-height: 0;
+        padding: 5px;
+    }
+
+    &__item {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        box-sizing: border-box;
+        display: inline-block;
+
+        &:hover {
+            border: 1px solid #000000;
+        }
+
+        &--selected {
+            border: 2px solid #000000;
+        }
+
+        &--indicator {
+            width: 24px;
+            height: 24px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: $gBorderRadiusDefault;
+            margin: 0 7px;
+            position: relative;
+
+            &:hover {
+                border: 1px solid rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        &--actions-indicator {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: $gBorderRadiusDefault;
+            margin: 0 2px;
+            position: relative;
+
+            &:hover {
+                border: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            &:first-child {
+                margin: 0 2px 0 0;
+            }
+
+            &:last-child {
+                margin: 0 0 0 2px;
+            }
+        }
+
+        &--disabled {
+            cursor: default;
+        }
+    }
+
+    &__input-color {
+        display: inline-flex;
+        align-items: center;
+        width: calc(100% - 10px);
+        margin: 0 5px;
+
+        > .color-picker__item {
+            width: 24px;
+            height: 24px;
+            margin-right: 6px;
+
+            &:hover {
+                border: none;
+                cursor: default;
+            }
+        }
+    }
+
+    &__input {
+        flex: 1 1 100%;
+    }
+}

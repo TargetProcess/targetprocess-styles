@@ -1,0 +1,183 @@
+$searchBackgroundDefault: $gBackgroundDefault;
+$searchBackgroundDark: $gBoardPanelBackgroundDarker;
+$searchBackgroundDarkActive: color($gBoardPanelBackgroundDarker shade(50%));
+
+$searchColorDefault: $gFontColorDefault;
+$searchColorDark: $gFontColorWhite;
+
+$searchBorderRadius: 13px;
+$searchBorderColor: $gControlBorderColorDefault;
+
+$searchHeight: 26px;
+$searchWidthMin: 100px;
+$searchWidthMax: 250px;
+
+$searchPaddingHorizontal: 26px;
+
+$searchIconWidth: 16px;
+$searchIconHeight: 16px;
+
+$globalSearchWidth: 336px;
+$globalSearchBoxShadow: 0 0 1px 1px rgba(0, 0, 0, 0.5);
+$globalSearchInputTransition: min-width .3s ease;
+$globalSearchInputMinWidth: 34px;
+$globalSearchInputExpandedWidth: 270px;
+
+$largeSearchHeight: 40px;
+$largeSearchPaddingHorizontal: 43px;
+$largeSearchIconWidth: 24px;
+$largeSearchIconHeight: 24px;
+
+/*region Search*/
+/*--------------------------------------------------------------------------------------------*/
+.tau-search {
+    position: relative;
+    box-sizing: border-box;
+    height: $searchHeight;
+
+    &__wrap {
+        position: relative;
+        top: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: $searchHeight;
+        box-sizing: border-box;
+        border-radius: $searchBorderRadius;
+        padding: 0 0 0 $searchPaddingHorizontal;
+        border: 1px solid $gControlBorderColorDefault;
+        background: $searchBackgroundDefault;
+        color: $searchColorDefault;
+
+        &:before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 50%;
+            margin-top: calc(-($searchIconHeight / 2));
+            width: $searchIconWidth;
+            height: $searchIconHeight;
+            background: svg("search") center center no-repeat;
+        }
+    }
+
+    &__input {
+        position: relative;
+        display: block;
+        flex: 1 1 auto;
+        width: 100%;
+        font-size: 13px;
+        font-family: $gFontFamily;
+        color: inherit;
+        margin: 0;
+        padding: 0;
+        border: none;
+        background: none;
+        outline: none;
+        overflow: hidden;
+
+        &::-ms-clear {
+            display: none;
+        }
+    }
+
+    &__hidden-button {
+        opacity: 0;
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        font-size: 1px;
+    }
+
+    &__icon {
+        margin-right: 7px;
+        flex-shrink: 0;
+        flex-grow: 0;
+    }
+
+    &--small {
+        width: $searchWidthMin;
+
+        .tau-search__wrap {
+            position: absolute;
+            width: $searchWidthMin;
+            transition: width 0.3s linear;
+
+            &.active {
+                width: $searchWidthMax;
+            }
+        }
+    }
+
+    &--dark {
+        .tau-search__wrap {
+            background: $searchBackgroundDark;
+            border-color: transparent;
+            color: $searchColorDark;
+        }
+
+        &.active {
+            .tau-search__wrap {
+                background: $searchBackgroundDefault;
+                color: $searchColorDefault;
+            }
+        }
+
+        &.tau-search--jump {
+            &.active {
+                .tau-search__wrap {
+                    background: $searchBackgroundDarkActive;
+                    color: $searchColorDark;
+
+                    &:before {
+                        background-image: svg("jump-to-view", "[fill]: #fff");
+                    }
+                }
+            }
+        }
+    }
+
+    &--jump {
+        .tau-search__wrap:before {
+            background: svg("jump-to-view", "[fill]: $gIconsColorRevert") center center no-repeat;
+        }
+    }
+
+    &--large {
+        height: $largeSearchHeight;
+
+        .tau-search__wrap {
+            height: $largeSearchHeight;
+            border-radius: calc($largeSearchHeight / 2);
+            padding: 0 0 0 $largeSearchPaddingHorizontal;
+
+            &:before {
+                left: 12px;
+                width: $largeSearchIconWidth;
+                height: $largeSearchIconHeight;
+                background: svg("search-global");
+                margin-top: -12px;
+            }
+        }
+
+        .tau-search__input {
+            font-size: 21px;
+        }
+
+        .tau-search__icon {
+            margin-right: 12px;
+        }
+    }
+
+    &--global {
+        .tau-search__wrap {
+            box-shadow: $globalSearchBoxShadow;
+            border-radius: $gBorderRadiusDefault;
+            border: none;
+        }
+    }
+}
+
+/*endregion*/

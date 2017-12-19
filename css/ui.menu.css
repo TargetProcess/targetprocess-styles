@@ -1,0 +1,18 @@
+/* autocomplete css */
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+    background: $gHighlightBlockBackground;
+    border: none;
+    color: $gFontColorDefault;
+    border-radius: 0;
+    font-weight: normal;
+}
+
+.ui-menu--select {
+    border: 1px solid $gHighlightBlockBorderColor;
+    border-radius: 2px;
+    box-shadow: none;
+}
+
+.ui-menu--select > .ui-menu-item {
+    padding: 2px 5px;
+}

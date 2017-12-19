@@ -1,0 +1,51 @@
+.business-values {
+    &__col {
+        &__name {
+            width: 15%;
+        }
+
+        &__default {
+            width: 60px;
+        }
+
+        &__importance {
+            width: 130px;
+        }
+
+        &__edit {
+             width: 2%;
+        }
+
+        &__delete {
+            width: 2%;
+        }
+    }
+
+    &__search {
+        margin-bottom: 20px;
+    }
+
+    &__priority {
+        &--top {
+            color: $gFontColorAttention;
+        }
+    }
+
+    &__field {
+        margin-bottom: 20px;
+    }
+
+    &__note {
+        font-size: 11px;
+        padding-top: 3px;
+    }
+
+    &__controls {
+        display: flex;
+        align-items: center;
+    }
+
+    &__control:not(:first-child) {
+        margin-left: 10px;
+    }
+}

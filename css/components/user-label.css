@@ -1,0 +1,25 @@
+.tau-user-label {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    overflow: hidden;
+
+    &__icon {
+        flex-shrink: 0;
+        margin-right: 6px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__text {
+        flex: 1 1 auto;
+    }
+
+    &--ellipsis {
+        align-items: center;
+
+        &__text {
+            @mixin ellipsis
+        }
+    }
+}

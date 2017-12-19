@@ -1,0 +1,101 @@
+$propertyControlFontSize: $gFontSize;
+$propertyControlInnerMargin: 5px;
+$propertyControlInnerIconMargin: 5px;
+
+.property-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
+    height: $gControlHeightDefault;
+    padding: 0 0 0 $propertyControlInnerMargin;
+    font-size: $propertyControlFontSize;
+    background: $gFontColorWhite;
+    border-radius: $gBorderRadiusDefault;
+
+    &__icon {
+        flex: 0 0 auto;
+        margin: 0 $propertyControlInnerIconMargin;
+
+        &--close {
+            visibility: hidden;
+        }
+
+        &--arrow {
+            opacity: 0.8;
+            margin-left: 0;
+        }
+    }
+
+    &__value {
+        flex: 1 1 auto;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        display: flex;
+        height: 100%;
+        line-height: 22px;
+
+        /* region should be deleted */
+
+        .tau-linkentity {
+            display: flex;
+            align-items: center;
+            max-width: 100%;
+
+            &__inner {
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            &__icon {
+                flex: 0 0 auto;
+                margin-left: 0;
+                margin-top: -1px;
+            }
+        }
+
+        /* endregion should be deleted */
+    }
+
+    &__subtext {
+        font-size: 12px;
+        padding: 3px 0 0 5px;
+    }
+
+    &:hover {
+
+        .property-control {
+
+            &__icon {
+
+                &--close,
+                &--arrow {
+                    visibility: visible;
+                }
+            }
+        }
+    }
+
+    &--empty {
+
+        .property-control__value:before {
+            content: "...";
+            display: none;
+            flex: 1 1 auto;
+            margin: -0.2em $propertyControlInnerIconMargin 0 3px;
+            color: $gFontColorLightGray;
+            font-size: 1.4em;
+            letter-spacing: 0.1em;
+        }
+
+        &:hover {
+
+            .property-control__value:before {
+                display: block;
+            }
+        }
+    }
+}

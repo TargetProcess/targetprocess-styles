@@ -1,0 +1,49 @@
+$ckeditorHeaderBackground: $gHighlightBlockBackground;
+$ckeditorHeaderElementsBorder: #eee;
+
+$ckeditorIconOnBackground: rgba(0, 0, 0, 0.15);
+$ckeditorIconOnHoverBackground: rgba(0, 0, 0, 0.25);
+$ckeditorIconOffHoverBackground: rgba(0, 0, 0, 0.1);
+
+.ckeditor--flat {
+
+    &,
+    body > &,
+    &.cke_reset {
+        border: 1px solid $gControlBorderColorDefault;
+        border-radius: $gControlBorderRadiusDefault;
+    }
+
+    .cke_top {
+        background: $ckeditorHeaderBackground;
+    }
+
+    .cke_button_icon {
+        opacity: 0.8;
+    }
+
+    .cke_toolgroup,
+    .cke_combo_button {
+        border-color: $ckeditorHeaderElementsBorder;
+        border-radius: $gControlBorderRadiusDefault;
+    }
+
+    .cke_button_off:hover,
+    .cke_combo_button:hover {
+        background: $ckeditorIconOffHoverBackground;
+    }
+
+    .cke_button_on {
+        background: $ckeditorIconOnBackground;
+
+        &:hover {
+            background: $ckeditorIconOnHoverBackground;
+        }
+    }
+
+    .cke_bottom {
+        padding-top: 9px;
+        padding-bottom: 5px;
+        background: $ckeditorHeaderBackground;
+    }
+}

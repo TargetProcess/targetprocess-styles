@@ -1,0 +1,197 @@
+.globalSettings {
+    margin-bottom: 20px;
+    color: $gFontColorDefault;
+}
+
+.globalSettings-container {
+    width: 100%;
+}
+
+.globalSettings-content {
+    padding: 10px 10px 10px 20px;
+}
+
+.globalSettings .label {
+    font-size: 13px;
+    font-weight: bold !important;
+    padding: 0 0 3px;
+}
+
+.globalSettings .list .globalSettings-category .expanded .label, .globalSettings .list .globalSettings-category .collapsed .label {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    padding-left: 20px;
+}
+
+.globalSettings .input {
+    border: 1px solid $gControlBorderColorDefault;
+    border-radius: $gControlBorderRadiusDefault;
+    padding: 5px 6px;
+    box-sizing: border-box;
+}
+
+.globalSettings .input:focus {
+    box-shadow: $gControlBoxShadowFocusDefault;
+    border-color: $gControlBorderColorFocusDefault;
+}
+
+.globalSettings .input.error {
+    border: 1px solid $gMessageColorError;
+    color: $gMessageColorError;
+}
+
+.globalSettings .input.error:focus {
+    box-shadow: $gControlBoxShadowFocusError;
+}
+
+.globalSettings .select {
+    border: 1px solid $gControlBorderColorDefault;
+    border-radius: $gControlBorderRadiusDefault;
+    padding: 5px 6px;
+    box-sizing: border-box;
+}
+
+.globalSettings .select:focus {
+    box-shadow: $gControlBoxShadowFocusDefault;
+    border-color: $gControlBorderColorFocusDefault;
+}
+
+.globalSettings .list .globalSettings-category {
+    background: $gHighlightBlockBackground;
+    border-radius: $gBorderRadiusDefault;
+    margin: 10px 0;
+    padding: 15px 5px 15px 15px;
+}
+
+.globalSettings .list .globalSettings-category .expanded {
+    background-image: url("../css.ui/images/collapse-buttons-sprite.png");
+    background-position: -8px -3px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin: 0;
+    padding: 5px 5px 5px 0;
+}
+
+.globalSettings .list .globalSettings-category .expanded:hover {
+    background-position: -8px -33px;
+}
+
+.globalSettings .list .globalSettings-category .collapsed {
+    background-image: url("../css.ui/images/collapse-buttons-sprite.png");
+    background-position: -8px -93px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin: 0;
+    padding: 5px 5px 5px 0;
+}
+
+.globalSettings .list .globalSettings-category .collapsed:hover {
+    background-position: -8px -63px;
+}
+
+/* Collapsed Blocks and Accordeon */
+.globalSettings .collapsable {
+    background-image: url("../css.ui/images/collapse-buttons-sprite.png");
+    background-position: -8px -3px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin: 10px !important;
+    padding: 5px 5px 5px 20px;
+}
+
+.globalSettings .collapsable.expanded {
+    background-position: -8px -3px;
+    border-radius: $gBorderRadiusDefault $gBorderRadiusDefault 0 0;
+}
+
+.globalSettings .collapsable.expanded:hover {
+    background-position: -8px -33px;
+}
+
+.globalSettings .collapsable.collapsed {
+    background-position: -8px -93px;
+    border-radius: $gBorderRadiusDefault;
+}
+
+.globalSettings .collapsable.collapsed:hover {
+    background-position: -8px -63px;
+}
+
+.globalSettings .collapsable:hover {
+    background-position: -8px -33px;
+}
+
+.globalSettings .collapsable.accordeon {
+    font-size: 12px;
+    margin: 5px 0 0 !important;
+    padding: 5px 5px 5px 20px;
+    background-position: -4px -4px;
+    background-color: $gBackgroundDefault;
+    border: 1px solid $gHighlightBlockBorderColor;
+    border-radius: $gBorderRadiusDefault;
+    box-shadow: inset 0 1px 0 #fff;
+}
+
+.globalSettings .collapsable.accordeon:hover {
+    background-position: -4px -34px;
+}
+
+.globalSettings .collapsable.collapsed.accordeon:hover {
+    background-position: -4px -94px;
+}
+
+.globalSettings .collapsable.collapsed.accordeon:hover {
+    background-position: -4px -64px;
+}
+
+.globalSettings .collapsable.expanded.accordeon {
+    background-position: -4px -94px;
+}
+
+.globalSettings .inner-content {
+    margin: 0 0 10px 0;
+    border: 1px solid $gHighlightBlockBorderColor;
+    border-top: 0;
+    background: $gBackgroundDefault;
+    padding: 8px;
+}
+
+/* Custom Field settings */
+
+.custom-fields__table__actions {
+    display: flex;
+    align-items: center;
+
+    &__control {
+        flex-shrink: 0;
+        padding: ;
+
+        &:not(:last-child) {
+            margin-right: 4px;
+        }
+    }
+}
+
+/* TODO: remove me from here */
+.general-settings__clear-sample-data-container {
+    display: inline-block;
+}
+
+.save-indicator {
+    margin-left: 20px;
+    opacity: 0;
+    transition: opacity 1s ease-out;
+    display: flex;
+    align-items: center;
+    
+    &__text {
+        margin-left: 6px;
+    }
+
+    &.tau-active {
+        opacity: 1;
+        transition: opacity 0.1s  ease-in;
+    }
+}

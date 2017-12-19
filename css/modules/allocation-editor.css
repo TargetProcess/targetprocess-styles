@@ -1,0 +1,102 @@
+.tau-bubble-newlist-editor-allocation .allocation-feedback {
+    display: none;
+}
+
+.allocation-editor {
+    padding: 15px;
+    max-width: 520px;
+
+    input:invalid {
+        box-shadow: none;
+    }
+
+    input:focus:invalid {
+        outline: none;
+    }
+
+    &__settings {
+        margin-bottom: 15px;
+        display: flex;
+    }
+
+    &__date-settings {
+        margin-bottom: 15px;
+    }
+
+    &__percent {
+        padding-left: 4px;
+        margin-top: 2px;
+        font-size: 13px;
+
+        &__input {
+            width: 45px;
+            padding-right: 0;
+            margin-right: 4px;
+        }
+    }
+
+    &__calendar {
+        display: flex;
+
+        .ui-dateeditor {
+            border: 1px solid $gHighlightBlockBorderColor;
+            border-top: transparent;
+
+            &:first-child {
+                border-right-color: transparent;
+            }
+
+            .ui-datepicker {
+                box-sizing: border-box;
+                width: 205px;
+                box-shadow: none;
+                border-radius: 0;
+            }
+        }
+    }
+
+    &__checks__item {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 15px;
+        margin-bottom: 5px;
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 13px 0 13px;
+        margin: 0 -15px;
+        border-top: solid 1px $gHighlightBlockBorderColor;
+
+        &__control {
+            padding: 0 2px;
+        }
+    }
+
+    &__message{
+        margin-top: 10px;
+
+        .tau-system-message__title{
+            font-size: 13px;
+        }
+    }
+}
+
+.tau-in-text--allocation {
+
+    &:disabled {
+        opacity: 1;
+        background-color: #f2f2f2;
+    }
+
+    &.tau-error {
+        position: relative;
+        z-index: 1;
+
+        &:focus,
+        &:disabled {
+            z-index: 2;
+        }
+    }
+}

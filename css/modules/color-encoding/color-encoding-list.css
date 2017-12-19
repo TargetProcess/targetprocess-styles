@@ -1,0 +1,119 @@
+$colorEncodingListWidth: 510px;
+$colorEncodingTypeWidth: 160px;
+
+.color-encoding-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    &__item {
+        padding-bottom: 10px;
+        width: $colorEncodingListWidth;
+        position: relative;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+
+        &.t3-dragging {
+            display: none;
+        }
+
+        &--disabled {
+            padding-left: $gIconsSizeDefault;
+            padding-right: $gIconsSizeDefault;
+        }
+    }
+
+    &__sortable-helper {
+        display: inline-block;
+    }
+
+    &__filter {
+        flex: 1 1 auto;
+        display: inline-block;
+
+        .boardsettings-filter {
+            display: block;
+        }
+    }
+
+    &__drop-placeholder {
+        display: none;
+        position: absolute;
+        left: 5px;
+        top: -6px;
+        width: 100%;
+        height: 2px;
+        background: $gDnDPlaceholderBackground;
+
+        &:before,
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: -2px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: $gDnDPlaceholderBackground;
+        }
+
+        &:before {
+            left: 0;
+        }
+
+
+        &:after {
+            right: 0;
+        }
+
+        .color-encoding-list__item.t3-drop-before > & {
+            display: block;
+        }
+
+        .color-encoding-list__item.t3-drop-after > & {
+            display: block;
+            top: auto;
+            bottom: 4px;
+        }
+    }
+}
+
+.color-encoding-group {
+    width: calc($colorEncodingListWidth + $colorEncodingTypeWidth);
+
+    &--global {
+        .color-encoding-group__body {
+            border-bottom: solid 1px $gBoardBorderColor;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+    }
+
+    &__body {
+        display: flex;
+        padding-top: 10px;
+    }
+
+    &__type {
+        flex-shrink: 0;
+        box-sizing: border-box;
+        width: $colorEncodingTypeWidth;
+        padding-right: 10px;
+
+        &__note {
+            font-size: 11px;
+            display: block;
+            padding-left: 23px;
+        }
+
+        &__text {
+            font-size: $gFontSize;
+            padding-left: 23px;
+        }
+    }
+
+    &__add {
+        padding-left: 13px;
+    }
+}

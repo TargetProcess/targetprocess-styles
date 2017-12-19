@@ -1,0 +1,344 @@
+$default_color: #333; /*rgb(51, 51, 51)*/
+$undefined_color: #828282; /*rgb(130, 130, 130)*/
+$epic_color: #00bea0; /*rgb(0, 190, 160)*/
+$feature_color: #1c8300; /*rgb(28, 131, 0)*/
+$userstory_color: #6498d8; /*rgb(100, 152, 216)*/
+$bug_color: #d86464; /*rgb(216, 100, 100)*/
+$task_color: #191970; /*rgb(25, 25, 112)*/
+$request_color: #ffc600; /*rgb(255, 198, 0)*/
+$testcase_color: #cc6600; /*rgb(204, 102, 0)*/
+$teststep_color: #ADB300; /*rgb(173, 179, 0)*/
+$testcaserun_color: #dd7709; /*rgb(221, 119, 9)*/
+$testplan_color: #c7a503; /*rgb(199, 165, 3)*/
+$testrun_color: #b7874f; /*rgb(183, 135, 79)*/
+$testplanrun_color: #a7743e; /*rgb(167, 116, 62)*/
+$impediment_color: #8a2125; /*rgb(138, 33, 37)*/
+$release_color: #999; /*rgb(153, 153, 153)*/
+$iteration_color: #8ac0f0; /*rgb(138, 192, 240)*/
+$teamiteration_color: $iteration_color;
+$squaditeration_color: $iteration_color;
+$build_color: #449190; /*rgb(68, 145, 144)*/
+$allocation_color: #aecb6a; /*rgb(174, 203, 106)*/
+$projectmember_color: $allocation_color;
+$userprojectallocation_color: $allocation_color;
+$teamprojectallocation_color: $allocation_color;
+$comment_color: #8596a7; /*rgb(133, 150, 167)*/
+
+
+/*
+    Elements used to color code system entities: 'userstory', 'bug' etc.
+
+    Contents:
+
+        Default colors ('undefined')
+        'Program', 'Project', 'Team', 'User', 'AssignedUser', Time', 'Mytask', 'Requester', 'Process' colors
+        'Epic', 'Feature', 'Userstory', 'Task', 'Bug', 'Request', 'Test Case', 'Test Step', 'Test Case Run', 'Test Plan',  'Test Run', 'Test Plan Run', 'Release', 'Iteration', 'Teamiteration', 'Squaditeration', 'Build', 'Comment' colors
+        'Impediment' colors
+        'Project Member', 'User&Team Project Allocation' colors
+        'Graphical Report', passed, failed, onhold, blocked, notrun  colours
+        'Print entity colors'
+
+
+*/
+
+/* region 'undefined' colors */
+
+.tau-entity-icon.tau-entity-icon--undefined{
+    background-color: color($undefined_color a(20%));
+}
+/* endregion */
+
+/* region 'Program', 'Project' , 'Team', 'User', 'AssignedUser', 'Time' colors */
+
+@each $type in program, project, team, user, assigneduser, time, mytask, requester, process {
+
+    .tau-entity-icon.tau-entity-icon--$(type) {
+        color: color($default_color shade(20%));
+        background-color: $gBackgroundDefault;
+        border: 1px solid $default_color;
+    }
+
+    .tau-entity-text-color--$(type){
+        &,
+        &:visited,
+        &:hover {
+            color: color($default_color shade(20%));}
+    }
+
+    .tau-checkbox--entity--$(type){
+        > .tau-checkbox__icon {
+            border-color: color($default_color a(70%));
+        }
+
+        &:hover > .tau-checkbox__icon {
+            border-color: $default_color;
+        }
+
+       > input[type="checkbox"]:checked + .tau-checkbox__icon {
+            background-color: color($default_color a(70%));
+        }
+    }
+
+    .tau-list-$(type) > .tau-list-line > .tau-elems-table .tau-drag-handler {
+        background-color: $default_color;
+    }
+
+    ._tc-timeline-navigator > .tc-histogram > .tc-item > .tc-meter.tc-$(type) {
+        box-shadow: 1px 0 0 color($default_color a(60%));
+        background-color: $default_color;
+    }
+
+    .graphical-report__$(type) {
+        stroke: $default_color;
+        fill: $default_color;
+        background-color: $default_color;
+        border-color: $default_color;
+    }
+
+    .graphical-report__trendline.graphical-report__$(type) {
+        stroke: color($default_color shade(10%));
+    }
+}
+
+/* endregion */
+/* region 'Epic', 'Feature', 'Userstory', 'Task', 'Bug', 'Request',
+'Test Case', 'Test Step', 'Test Case Run', 'Test Plan',  'Test Run', 'Test Plan Run',
+'Release', 'Iteration', 'Teamiteration', 'Squaditeration', 'Build', 'Comment' colors  */
+
+@each $type in epic, feature, userstory, task, bug, request,
+testcase, teststep, testcaserun, testplan, testrun, testplanrun,
+release, iteration, teamiteration, squaditeration, build, comment {
+
+    .tau-entity-icon.tau-entity-icon--$(type){
+        background-color: color($($(type)_color) a(20%));
+        color: color($($(type)_color) shade(20%));
+    }
+
+    .tau-entity-background--$(type) {
+        background-color: color($($(type)_color) a(20%));
+    }
+
+    .tau-entity-text-color--$(type){
+        &,
+        &:visited,
+        &:hover {
+            color: color($($(type)_color) shade(20%));
+        }
+    }
+
+    .tau-checkbox--entity--$(type){
+        > .tau-checkbox__icon {
+            border-color: color($($(type)_color) a(70%));
+        }
+
+        &:hover > .tau-checkbox__icon {
+            border-color: $($(type)_color);
+        }
+
+         > input[type="checkbox"]:checked + .tau-checkbox__icon {
+            background-color: color($($(type)_color) a(70%));
+        }
+    }
+
+    .tau-card-v2_type_$(type):before,
+    .tau-btn.tau-$(type):before,
+    .quick-add__entity-item.tau-$(type):before,
+    .tau-list-$(type) > .tau-list-line > .tau-elems-table .tau-drag-handler {
+        background-color: $($(type)_color);
+    }
+
+    ._tc-timeline-navigator > .tc-histogram > .tc-item > .tc-meter.tc-$(type) {
+        box-shadow: 1px 0 0 color($($(type)_color) a(60%));
+        background-color: $($(type)_color);
+    }
+
+    .graphical-report__$(type){
+        stroke: $($(type)_color);
+        fill: $($(type)_color);
+        background-color: $($(type)_color);
+        border-color: $($(type)_color);
+
+        &.graphical-report__trendline {
+            stroke: color($($(type)_color) shade(10%));
+        }
+    }
+
+    line.$(type),
+    circle.$(type),
+    path.$(type) {
+            stroke: $($(type)_color);
+    }
+
+    .tau-process-control .scatterPlot circle.$(type).hover,
+    .tau-process-control .limits .$(type),
+    .tau-cycle-time-distribution .bar rect.$(type),
+    .tau-cycle-time-distribution text.max-val .$(type) {
+        fill: $($(type)_color);
+    }
+
+    .tau-cycle-time-distribution .top line.$(type) {
+        stroke: $($(type)_color);
+        fill: $($(type)_color);
+    }
+
+    span.$(type) {
+        color: $($(type)_color);
+    }/**/
+}
+/* endregion */
+
+/* region 'Impediment' colors --------------------------------------------------*/
+
+.tau-entity-icon.tau-entity-icon--impediment{
+    background-color: color($impediment_color a(90%));
+    color: $gFontColorWhite;
+}
+.tau-entity-background--impediment {
+    background-color: color($impediment_color a(90%));
+}
+
+.tau-entity-text-color--impediment {
+    color: $gFontColorWhite;
+}
+
+.tau-entity-text-color--impediment {
+    &,
+    &:visited,
+    &:hover {
+        color: color($impediment_color shade(20%));
+    }
+}
+
+.tau-checkbox--entity--impediment {
+    > .tau-checkbox__icon {
+        border-color: color($impediment_color a(70%));
+    }
+
+    &:hover > .tau-checkbox__icon {
+        border-color: $impediment_color;
+    }
+
+     > input[type="checkbox"]:checked + .tau-checkbox__icon {
+        background-color: color($impediment_color a(70%));
+    }
+}
+
+.tau-card-v2_type_impediment:before,
+.tau-list-impediment > .tau-list-line > .tau-elems-table .tau-drag-handler {
+    background-color: $impediment_color;
+}
+
+._tc-timeline-navigator > .tc-histogram > .tc-item > .tc-meter.tc-impediment {
+    box-shadow: 1px 0 0 color($impediment_color a(60%));
+    background-color: $impediment_color;
+}
+
+.graphical-report__impediment {
+	stroke: $impediment_color;
+	fill: $impediment_color;
+    background-color: $impediment_color;
+    border-color: $impediment_color;
+}
+
+.graphical-report__trendline.graphical-report__impediment {
+    stroke: color($impediment_color shade(10%));
+}
+
+.tau-board-unit_type_impediments-counter-alt .tau-board-unit__value {
+    color: $impediment_color;
+}
+
+/* endregion */
+
+/* region 'Project Member', 'User&Team Project Allocation' colors --------------------------------------------------*/
+
+.tau-card-v2_type_projectmember:before,
+.tau-btn.tau-projectmember:before,
+.quick-add__entity-item.tau-projectmember:before,
+.tau-list-projectmember > .tau-list-line > .tau-elems-table .tau-drag-handler,
+
+.tau-card-v2_type_userprojectallocation:before,
+.tau-btn.tau-userprojectallocation:before,
+.quick-add__entity-item.tau-userprojectallocation:before,
+.tau-list-userprojectallocation > .tau-list-line > .tau-elems-table .tau-drag-handler,
+
+.tau-card-v2_type_teamprojectallocation:before,
+.tau-btn.tau-teamprojectallocation:before,
+.quick-add__entity-item.tau-teamprojectallocation:before,
+.tau-list-teamprojectallocation > .tau-list-line > .tau-elems-table .tau-drag-handler{
+    background-color: $allocation_color;
+}
+
+.tau-entity-text-color{
+    &--projectmember,
+    &--userprojectallocation,
+    &--teamprojectallocation {
+
+        &,
+        &:visited,
+        &:hover {
+            color: color($allocation_color shade(20%));
+        }
+    }
+}
+._tc-timeline-navigator > .tc-histogram > .tc-item > .tc-meter {
+    &.tc-projectmember,
+    &.tc-userprojectallocation,
+    &.tc-teamprojectallocation {
+        box-shadow: 1px 0 0 color($allocation_color a(60%));
+        background-color: $allocation_color;
+    }
+}
+
+.graphical-report {
+
+    &__projectmember,
+    &__userprojectallocation,
+    &__teamprojectallocation {
+        stroke: $allocation_color;
+        fill: $allocation_color;
+        background-color: $allocation_color;
+        border-color: $allocation_color;
+    }
+
+    &.graphical-report__trendline {
+        stroke: color($allocation_color shade(10%));
+    }
+}
+
+
+/* endregion */
+
+
+/* region 'Graphical Report', passed, failed, onhold, blocked, notrun  colours*/
+
+$passed_color: $gPassedColor;
+$failed_color: $gFailedColor;
+$onhold_color: $gOnholdColor;
+$blocked_color: $gBlockedColor;
+$notrun_color: $gNotrunColor;
+
+@each $type in passed, failed, onhold, blocked, notrun {
+
+    .graphical-report__bar.tau-$(type),
+    .graphical-report__legend__guide.tau-$(type) {
+        fill: $($(type)_color);
+        background: $($(type)_color);
+    }
+}
+
+/* endregion */
+
+
+/*region for 'Print entity colors' */
+@media print {
+
+    @each $type in feature, userstory, task, bug, request, testcase, testplan, testplanrun, testrun,
+     impediment, release, iteration, build, projectmember, userprojectallocation, teamprojectallocation {
+
+        .tau-card-v2_type_$(type) {
+            border-left-color: $($(type)_color) !important;
+        }
+    }
+}
+/* endregion */

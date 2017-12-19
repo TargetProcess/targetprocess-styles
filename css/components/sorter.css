@@ -1,0 +1,88 @@
+.tau-sorter {
+    display: flex;
+    align-items: center;
+
+    &__button,
+    &__select {
+        margin: 0 -1px 0 0;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &:focus {
+            z-index: 2;
+        }
+    }
+
+    &__button {
+        flex: 0 0 auto;
+        min-width: 0;
+
+        &:first-child:not(:last-child) {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        &:last-child:not(:first-child) {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        &.tau-checked {
+            z-index: 1;
+        }
+
+        &--dec,
+        &--inc {
+            padding-left: 5px;
+            padding-right: 5px;
+            text-align: center;
+
+            &:first-child {
+                margin-left: 5px;
+            }
+
+            &:before {
+                content: '';
+                display: inline-block;
+                vertical-align: middle;
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        &--inc{
+            &:before {
+                background: svg("sort-inc");
+            }
+
+            &.tau-checked {
+                &:before {
+                    background: svg("sort-inc", "[fill]: #fff");
+                }
+            }
+        }
+
+        &--dec {
+            &:before {
+                background: svg("sort-dec");
+            }
+
+            &.tau-checked {
+                &:before {
+                    background: svg("sort-dec", "[fill]: #fff");
+                }
+            }
+        }
+    }
+
+    &__select{
+        display: none;
+        width: auto;
+    }
+
+    &.tau-active &__select {
+        display: block;
+    }
+}

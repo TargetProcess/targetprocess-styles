@@ -1,0 +1,487 @@
+/* region LookUp Block */
+$lookupHeaderBackground: $gHighlightBlockBackground;
+$lookupHeaderPadding: 10px;
+$scrollWidth: 20px;
+
+$lookupTableHeadHeight: 50px;
+$lookupTableHeadBorderColor: $gHighlightBlockBorderColor;
+
+$lookupStrokeBackgroundHover: $gBackgroundStrokeHighlight;
+$lookupStrokeBackgroundSelected: $gActionBackgroundSelected;
+$lookupStrokeBackgroundSelectedHover: color($gActionBackgroundSelected shade(3%));
+
+.lookup-section {
+    min-width: 500px;
+    font-size: 13px;
+    overflow: hidden;
+    outline: 0;
+
+    @media only screen and (min-width: 768px) {
+        min-width: 650px;
+    }
+
+    @media only screen and (min-width: 980px) {
+        min-width: 750px;
+    }
+
+    &__header {
+        background-color: $lookupHeaderBackground;
+        border-bottom: solid 1px $gHighlightBlockBorderColor;
+        padding: $lookupHeaderPadding;
+        border-radius: $gBorderRadiusDefault $gBorderRadiusDefault 0 0;
+    }
+
+    &__message {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        font-size: 24px;
+        color: $gFontColorGray;
+        padding: 20px 0;
+        box-sizing: border-box;
+    }
+
+    &--state-empty &__message {
+        display: flex;
+    }
+
+    &__body {
+        position: relative;
+        overflow: hidden;
+        padding-top: $lookupTableHeadHeight;
+    }
+
+    /*--region lookup table--*/
+
+    &__table-wrap {
+        outline: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        box-sizing: border-box;
+        max-height: 32vh;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:before {
+            content: '';
+            background-color: $gBackgroundDefault;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-bottom: solid 1px $lookupTableHeadBorderColor;
+            width: 100%;
+            height: $lookupTableHeadHeight;
+        }
+
+        &--fixed-height {
+            height: 40vh;
+            max-height: none;
+        }
+    }
+
+    &__table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin-top: -$lookupTableHeadHeight;
+        width: 100%;
+
+        &__th,
+        &__td {
+            box-sizing: border-box;
+
+            &:last-child {
+                padding-right: $scrollWidth;
+            }
+        }
+
+        &__th {
+            padding: 0;
+            height: $lookupTableHeadHeight;
+
+            &:first-child {
+                padding-left: 14px;
+            }
+
+            &__content {
+                position: absolute;
+                top: 0;
+                font-weight: normal;
+                padding: 7px 0 5px 0;
+                white-space: nowrap;
+                font-size: 11px;
+                vertical-align: top;
+                text-align: left;
+                color: $gFontColorGray;
+            }
+
+            .tau-bubble-target {
+
+                &__trigger {
+                    font-style: normal;
+                    font-size: 11px;
+                    cursor: pointer;
+                    margin-right: 3px;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+
+                    &__text {
+                        position: relative;
+
+                        &:after {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            height: 0;
+                            width: 100%;
+                            border-bottom: 1px dotted $gFontColorLightGray;
+                        }
+                    }
+
+                    /*&.tau-noborder:after {
+                        display: none;
+                    }*/
+                }
+            }
+
+            &__title,
+            &__filter {
+                padding-right: 14px;
+                padding-left: 5px;
+            }
+
+            &__title {
+                padding-bottom: 4px;
+            }
+
+            &__filter {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                position: relative;
+                max-width: 100%;
+
+                input {
+                    display: none;
+                    line-height: normal;
+                }
+
+                &__delete {
+                    flex: 0 0 auto;
+                }
+            }
+        }
+
+        &__td {
+            padding: 3px 14px 3px 5px;
+            font-size: 11px;
+
+            &:first-child {
+                padding-left: 14px;
+            }
+        }
+
+        /*:hover is for a mouse hover, .hover is for a keyboard stroke hover*/
+        &__tr:hover &__td,
+        &__tr.hover &__td {
+            background-color: $lookupStrokeBackgroundHover;
+            cursor: pointer;
+        }
+
+        &__tr.tau-selected &__td,
+        &__tr.tau-selected:hover &__td,
+        &__tr.tau-selected.hover &__td {
+            background-color: $lookupStrokeBackgroundSelected;
+            cursor: pointer;
+        }
+
+        &__tr.tau-selected.hover &__td,
+        &__tr.tau-selected:hover &__td {
+            background-color: $lookupStrokeBackgroundSelectedHover;
+        }
+
+        &__tr:last-child {
+            border-bottom: solid 1px $lookupTableHeadBorderColor;
+        }
+
+        /* region mouse :hover kill keyboard .hover */
+        &:hover {
+
+            .lookup-section__table__tr.hover {
+
+                .lookup-section__table__td {
+                    background-color: $gBackgroundDefault;
+                }
+
+                &:hover .lookup-section__table__td {
+                    background-color: $lookupStrokeBackgroundHover;
+                }
+
+                &.tau-selected {
+                    .lookup-section__table__td {
+                        background-color: $lookupStrokeBackgroundSelected;
+                    }
+
+                    &:hover .lookup-section__table__td {
+                        background-color: $lookupStrokeBackgroundSelectedHover;
+                    }
+                }
+            }
+        }
+        /* endregion mouse :hover kill keyboard .hover */
+
+        /* region th- td- names */
+
+        &__cell {
+
+            &--id {
+                color: $gFontColorGray;
+            }
+
+            .lookup-section__table &--type {
+
+                .tau-cell-content {
+                    width: auto;
+                }
+            }
+
+            &--release,
+            &--name {
+                max-width: 300px;
+            }
+
+            &--name {
+                font-size: 13px;
+            }
+        }
+
+        /* endregion */
+
+        .tau-cell-content {
+            display: inline-block;
+            vertical-align: middle;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            &__wrap {
+                display: inline-block;
+            }
+
+            .action & {
+                line-height: 16px;
+            }
+        }
+
+        img.tau-cell-content {
+            width: 20px;
+            height: 20px;
+        }
+
+        .tau-team-name {
+            display: flex;
+            align-items: center;
+
+            &__icon {
+                margin-right: 4px;
+                display: flex;
+                align-items: center;
+                flex-shrink: 0;
+            }
+
+            &__text {
+                font-style: normal;
+                font-size: 11px;
+            }
+
+            .tau-teams-amount {
+                color: $gFontColorGray;
+                margin-left: 3px;
+            }
+        }
+
+    }
+
+    /* endregion lookup table */
+
+    .boardsettings-filter {
+        display: block;
+
+        .boardsettings-filter__toggle {
+            display: none;
+        }
+    }
+}
+
+/*-- region lookup bubble */
+
+.tau-bubble-lookup > .tau-bubble__arrow[data-orientation=top]:after {
+    background-color: $lookupHeaderBackground;
+}
+
+.tau-bubble-lookup-project,
+.tau-bubble-lookup-team {
+    max-width: 220px;
+
+    .tau-bubble-txt {
+        overflow: hidden;
+        max-width: 100%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.tau-bubble-lookup-name .drop-down-option:hover,
+.tau-bubble-lookup-id .drop-down-option:hover {
+    background: none !important;
+}
+
+.tau-bubble-lookup__input {
+    .tau-bubble-lookup-name & {
+        width: 140px;
+    }
+
+    .tau-bubble-lookup-id & {
+        width: 80px;
+    }
+}
+
+/* <<< -------------------- LookUp Block---------------------------*/
+
+.tau-filter-drop-down-list {
+    max-height: 250px;
+    max-width: 400px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.tau-page-single .boardsettings-filter__wrapper {
+    font-size: 16px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.i-state_visible .tau-add-relations-dialog {
+    animation: fadeIn ease-in 1;
+    animation-fill-mode: forwards;
+    animation-duration: 0.5s;
+}
+
+.tau-add-relations-dialog {
+
+    .tau-entity-selector {
+        background: $lookupHeaderBackground;
+        border-top: solid 1px $gHighlightBlockBorderColor;
+        overflow: hidden;
+        padding: 0 10px;
+        position: relative;
+
+        .quick-add__entity-items {
+            list-style: none outside none;
+            margin: 0;
+            overflow: hidden;
+            padding: 10px 0;
+        }
+    }
+
+    .quick-add__entity-txt {
+        font-size: 13px;
+        padding-right: 10px;
+
+        &__counter {
+            display: inline-block;
+            margin: 0 5px;
+            vertical-align: middle;
+        }
+    }
+}
+
+/* endregion */
+
+/* needs refactoring  'userStory selector', using in lookup and quick-add*/
+.tau-userStorySelector {
+    overflow: hidden;
+    height: 24px;
+    border: 1px solid $gControlBorderColorDefault;
+    background-color: $gBackgroundDefault;
+    box-sizing: border-box;
+
+    &.releaseSelector {
+        width: calc(100% - 26px);
+        position: relative;
+    }
+
+    &:focus {
+        outline: 0;
+        box-shadow: $gControlBoxShadowFocusDefault;
+    }
+
+    &.tau-error {
+        border-color: $gMessageColorError;
+
+        &:focus {
+            box-shadow: $gControlBoxShadowFocusError;
+        }
+
+        .tau-linkentity__inner {
+            color: $gMessageColorError;
+        }
+    }
+
+    & > span:not(.tau-linkentity) {
+        display: block;
+        overflow: hidden;
+        width: 100%;
+        color: $gFontColorGray;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 13px;
+    }
+
+    .tau-linkentity {
+        box-sizing: border-box;
+        max-width: 100%;
+        padding-left: 5px;
+        line-height: 22px;
+    }
+    .tau-linkentity__icon {
+        margin: 0 3px 0 0;
+    }
+
+    .tau-linkentity__inner {
+        max-width: 100%;
+        @mixin ellipsis;
+        color: $gFontColorGray;
+
+        &_placeholder {
+            color: $gFontColorLightGray;
+        }
+    }
+
+    &__control {
+        display: none;
+        outline: none;
+
+        .ui-finder-header {
+            padding-top: 0;
+            border: none;
+
+            p {
+                margin: 0;
+            }
+        }
+    }
+}

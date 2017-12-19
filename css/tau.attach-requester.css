@@ -1,0 +1,18 @@
+.attach-requester {
+    padding: 10px 0 0;
+
+    .ui-finder-placeHolder {
+        font-size: 13px;
+    }
+
+    .ui-finder-header {
+        background: $gHighlightBlockBackground;
+        padding-top: 0;
+
+        .visual-search {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+}

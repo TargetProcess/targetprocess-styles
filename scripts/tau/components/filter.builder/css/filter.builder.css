@@ -1,0 +1,374 @@
+.filter-builder {
+    min-width: 480px;
+    max-width: 700px;
+    font-family: $gFontFamily;
+
+    &__popup {
+        .tau-bubble__inner {
+            max-height: 100%;
+            margin: 6px 0 0 0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), 0 0 1px 0 rgba(0, 0, 0, 0.3);
+            border-radius: 2px;
+        }
+    }
+
+    &__state-message {
+        font-size: 13px;
+        padding: 10px 15px;
+    }
+
+    &__body {
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: 480px;
+        padding-bottom: 5px;
+    }
+
+    &__table {
+        display: table;
+        font-size: 13px;
+        width: 100%;
+    }
+
+    &__row {
+        display: table-row;
+
+        &.active {
+            background-color: $gActionBackgroundSystem;
+
+            .filter-builder__cell {
+                border-color: color($gActionBackgroundSystem shade(10%));
+            }
+        }
+    }
+
+    &__cell {
+        display: table-cell;
+        vertical-align: top;
+        border-style: solid;
+        border-color: $gHighlightBlockBorderColor;
+        border-width: 0 0 1px 1px;
+
+        &:first-child {
+            border-left-width: 0;
+        }
+
+        &--label {
+            width: 140px;
+            padding: 6px 12px;
+        }
+
+        &--values {
+            min-width: 180px;
+            padding: 3px 0 0 3px;
+        }
+    }
+
+    &__filter-list {
+        font-size: 0;
+    }
+
+    &__filter-separator {
+        font-size: 13px;
+        display: inline-block;
+        margin: 0 6px 5px 3px;
+        color: $gFontColorLightGray;
+        vertical-align: middle;
+    }
+
+    &__filter {
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+        box-sizing: border-box;
+        border-radius: 2px;
+        overflow: hidden;
+        margin: 0 3px 3px 0;
+        padding: 3px 23px 4px 7px;
+        background-color: $gBackgroundDefault;
+        vertical-align: middle;
+
+        &,
+        &__editable,
+        &__editable-width {
+            font-size: 13px;
+        }
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &.placeholder {
+            background: transparent;
+
+            .filter-builder__filter__delete {
+                display: none;
+            }
+        }
+
+        &__delete {
+            position: absolute;
+            top: 50%;
+            margin-top: calc(-$gIconsSizeDefault / 2);
+            right: 3px;
+        }
+
+        .tau-avatar {
+            margin: -1px 3px -1px -4px;
+            vertical-align: top;
+        }
+
+        &__editable-new {
+            outline: none;
+            cursor: pointer;
+            display: block;
+        }
+
+        &__editable,
+        &__editable-new {
+            min-width: 8px;
+            max-width: 300px;
+            border-color: transparent;
+            background: transparent;
+            font-family: inherit;
+            box-sizing: border-box;
+            padding: 0;
+            border-width: 0;
+            font-size: 13px;
+
+            &::-ms-clear {
+                display: none;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        &--new &__editable {
+            cursor: pointer;
+            &-absolute-date, &-relative-date {
+                cursor: auto;
+            }
+        }
+
+        &__editable-parameter {
+            margin: 0;
+            min-width: 0;
+        }
+
+        &__editable-number,
+        &__editable-relative-date {
+            margin: 0 0 0 5px;
+            min-width: 0;
+        }
+
+        &__editable-absolute-date {
+            max-width: 180px;
+        }
+
+        &__editable-width {
+            /*
+            align left bound to pixel grid to prevent +-1px difference in measured offsetWidth
+            when client rect with subpixel width is aligned to the nearest pixels both on left and right bounds
+            e.g. div 7.4375px wide could have offsetWidth either 7 or 8 px depending on the position of its left bound
+            */
+            left: 0;
+            pointer-events: none;
+            position: absolute;
+            top: -100%;
+            visibility: hidden;
+            white-space: pre;
+            z-index: -1;
+        }
+
+        &__number-editor:after,
+        &__date-editor:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+    }
+
+    &__unsupported {
+        display: flex;
+        align-items: center;
+    }
+
+    &__icon-part {
+        margin-right: 3px;
+    }
+
+    &__unsupported-part {
+        opacity: 0.5;
+    }
+
+    &__editable-part,
+    &__date-clickable-part {
+        color: #007ec1;
+        box-shadow: inset 0 -1px 1px -1px rgba(0, 126, 193, 0.8);
+    }
+
+    &__unsupported-part,
+    &__static-text-part,
+    &__editable-part,
+    &__date-clickable-part {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: pre;
+        max-width: 300px;
+    }
+
+    &__icon-part,
+    &__filter__editable,
+    &__unsupported-part,
+    &__static-text-part,
+    &__editable-part,
+    &__date-clickable-part,
+    &__number-clickable-part,
+    &__number-part {
+        outline: none;
+        display: block;
+        float: left;
+    }
+
+    &__icon-part {
+        top: 1px;
+    }
+
+    &__editable-part,
+    &__date-clickable-part,
+    &__number-clickable-part,
+    &__number-part {
+        cursor: pointer;
+    }
+
+    &__editable-part:not(:first-child),
+    &__static-text-part:not(:first-child),
+    &__date-clickable-part:not(:first-child),
+    &__number-part:not(:first-child),
+    &__number-clickable-part:not(:first-child) {
+        margin-left: 5px;
+    }
+
+    &__controls {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 5px 10px 10px 10px;
+
+        &__item {
+            flex: 0 0 auto;
+            margin: 0 0 0 5px;
+        }
+
+        &__select {
+            max-width: 192px;
+            margin-left: 2px;
+        }
+
+        .filter-builder__whitespace {
+            display: flex;
+            flex: 1 0 auto;
+            flex-direction: row-reverse;
+        }
+    }
+}
+
+.filter-builder-autocomplete-list {
+
+    &.tau-autocomplete__menu {
+        padding: 0;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), 0 0 1px 0 rgba(0, 0, 0, 0.3);
+        border-radius: 2px;
+        max-width: 500px;
+    }
+
+    &.drop-down-list {
+        .drop-down-option {
+            padding: 6px 15px;
+            font-size: 13px !important;
+        }
+
+        .ui-menu-item:first-child .drop-down-option {
+            padding-top: 8px;
+        }
+
+        .ui-menu-item:last-child .drop-down-option {
+            padding-bottom: 8px;
+        }
+    }
+
+    .objectvalue + .stringvalue {
+        border-top: 1px solid #ebebeb;
+    }
+}
+
+.filter-builder-user-autocomplete.tau-user-autocomplete {
+    .ui-autocomplete-category {
+        padding: 6px 15px 4px 15px;
+        text-transform: uppercase;
+        font-size: 11px;
+        color: $gFontColorLightGray;
+    }
+
+    .tau-item {
+        font-size: 13px;
+        padding: 3px 15px;
+        overflow: hidden;
+
+        span {
+            padding-right: 0;
+        }
+    }
+
+    .ui-menu-item {
+        &:first-child .tau-item {
+            padding-top: 6px;
+        }
+
+        &:last-child .tau-item {
+            padding-bottom: 8px;
+        }
+    }
+
+    .tau-item:hover span:after,
+    .tau-item.ui-state-hover span:after,
+    .active .tau-item span:after,
+    .tau-item.ui-state-focus span:after {
+        display: none;
+    }
+}
+
+.filter-builder__error {
+    border-bottom: 1px solid $gHighlightBlockBorderColor;
+    padding: 60px 40px;
+    width: 410px;
+}
+
+.filter-builder__error-message {
+    font-weight: 600;
+}
+
+.filter-builder__error-show-details {
+    color: $gLinkColor;
+    cursor: pointer;
+
+    &:hover {
+        color: $gLinkColorHover;
+    }
+}
+
+.filter-builder__error-show-details,
+.filter-builder__error-details {
+    font-size: 13px;
+}
+
+.filter-builder__error-show-details,
+.filter-builder__error-details {
+    margin-top: 5px;
+}
+
+.filter-builder__error-details {
+    white-space: pre-wrap;
+}

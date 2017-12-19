@@ -1,0 +1,59 @@
+.ui-popup .tau-list__sortable__true {
+    /*FOR SCROLL WHEN SORT LISTS IN POPUP!!!!!*/
+    /* in CHROME works wrong when  not in popup */
+    position: relative;
+}
+
+.tau-list__group_sortable_true .dragdrop_indicator,
+.ui-sortable-helper .dragdrop_indicator {
+    background-image: url(images/drag-drop-indicator-icon.png);
+    background-repeat: no-repeat;
+    background-position: 2px 0;
+    cursor: move !important;
+    width: 7px;
+    height: 14px;
+    padding-left: 3px;
+}
+
+.tau-list__group_sortable_true .tau-list__table__cell-dragdrop,
+.ui-sortable-helper .tau-list__table__cell-dragdrop {
+    cursor: move !important;
+}
+
+.tau-list__list .ui-sortable-helper {
+    background: white;
+    opacity: 0.6 !important;
+}
+
+.tau-list__sortable-placeholder {
+    max-height: 30px;
+    min-height: 30px;
+    background-color: $gActionBackgroundSystem;
+    border: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tau-list__group_collapsed_true .tau-list__sortable-placeholder {
+    display: none;
+}
+
+.tau-list__group_available_false {
+    opacity: 0.3;
+}
+
+.tau-list__group_available_false .tau-list__list__item {
+    opacity: 0.3;
+}
+
+.tau-list__group_available_false .tau-list__table__cell-name,
+.tau-list__group_available_false .tau-list__group__title {
+    color: $gFontColorGray;
+}
+
+.tau-list__group_sortover_true .tau-list__group__header {
+    background: $gActionBackgroundSystem;
+}
+
+

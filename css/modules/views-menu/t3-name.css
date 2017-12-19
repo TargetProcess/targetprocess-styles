@@ -1,0 +1,31 @@
+.t3-name {
+    font-size: 13px;
+    position: relative;
+    margin: 3px 5px 3px 36px;
+    height: 18px;
+    padding: 3px;
+    line-height: 18px;
+    color: $gFontColorWhite;
+    @mixin ellipsis;
+
+    &.t3-edit {
+        z-index: 10;
+        margin-right: 7px;
+        background: $gBackgroundDefault;
+        color: inherit;
+        padding-right: 3px;
+        text-overflow: clip;
+        outline: 1px solid rgba(0, 0, 0, 0.15);
+        cursor: text;
+        user-select: text;
+    }
+
+    .tau-sp-collapsed & {
+        display: none;
+    }
+
+    .t3-hidden &:not(.t3-edit),
+    .t3-inactive &:not(.t3-edit) {
+        opacity: 0.3;
+    }
+}

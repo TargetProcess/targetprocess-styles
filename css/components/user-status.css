@@ -1,0 +1,26 @@
+.tau-user-status {
+    display: block;
+    box-sizing: border-box;
+    cursor: default;
+    min-width: 9px;
+    line-height: 18px;
+    height: 20px;
+    padding: 0 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 10px;
+    font-style: normal;
+    text-shadow: none;
+    text-align: center;
+    text-transform: uppercase;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: $gControlBorderRadiusDefault;
+    color: $gFontColorGray;
+    background: $gActionBackgroundSystem;
+
+    &--inactive {
+        color: $gFontColorWhite;
+        background: $gIconsGeneralColor;
+    }
+}

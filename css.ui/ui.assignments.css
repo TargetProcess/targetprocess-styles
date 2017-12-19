@@ -1,0 +1,569 @@
+$editableText_icons-padding: 22px;
+$editableTextColumnWidth: 120px;
+
+.assignments-table {
+    width: 100%;
+    border-collapse: collapse;
+    padding: 0;
+    margin: 0;
+
+    &__title {
+        background-color: color($gHighlightBlockBackground a(50%));
+        color: $gFontColorLightGray;
+        font-size: 12px;
+    }
+
+    &__footer {
+        background-color: color($gHighlightBlockBackground a(70%));
+        color: color($gFontColorDefault a(90%));
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    &__body {
+        font-size: 14px;
+    }
+
+    &__row {
+
+        &--task {
+
+            .assignments-table__cell {
+                font-weight: normal;
+            }
+        }
+    }
+
+    &__cell {
+        padding: 3px 10px 3px 0;
+        vertical-align: middle;
+
+        &:first-child {
+            padding-left: 10px;
+            width: 90%;
+        }
+
+        .effort {
+            padding: 5px 18px 5px 5px;
+            margin-left: -3px;
+
+            &--multiple {
+                font-size: 13px;
+                font-style: italic;
+            }
+        }
+
+        .point {
+            padding-left: 3px;
+        }
+
+        &--title {
+            color: color($gFontColorDefault a(80%));
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        &--efforts {
+            white-space: nowrap;
+        }
+
+        &--user {
+            padding-top: 0;
+            padding-bottom: 0;
+
+            .assignments-user {
+                margin-bottom: 5px;
+            }
+        }
+
+        &--message {
+            padding-top: 6px;
+            padding-bottom: 7px;
+            font-size: 13px;
+            font-weight: normal;
+            color: $gFontColorGray;
+
+            .assignments-table__body & {
+                padding-top: 10px;
+                padding-bottom: 11px;
+            }
+        }
+
+        &__control {
+            position: relative;
+            top: -2px;
+            display: inline-flex;
+            align-items: center;
+            vertical-align: top;
+            margin-left: -4px;
+        }
+    }
+
+    &__body + &__body &__cell {
+        padding-top: 0;
+    }
+
+    .editableText,
+    .editableText.active {
+        box-sizing: border-box;
+        min-height: 22px;
+        min-width: 85px;
+        padding: 0 $editableText_icons-padding 0 2px;
+        white-space: nowrap;
+    }
+
+    .editableText.active {
+        padding-right: 2px;
+    }
+
+    .assignments-user {
+        border-spacing: 0;
+        table-layout: fixed;
+    }
+
+    .assignments-add-btn__control {
+        top: 3px;
+        display: inline-block;
+        margin: -9px 0 0 -4px;
+        vertical-align: middle;
+    }
+}
+
+.assignments-add-btn__control {
+    position: relative;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 2px;
+}
+
+.owner-avatar {
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+}
+
+.user-avatar-container {
+    width: 32px;
+    height: 32px;
+    padding: 0 3px 0 20px;
+}
+
+.owner-avatar-container {
+    width: 16px;
+    height: 16px;
+    padding: 0 3px 0 0;
+}
+
+.user-groups {
+    padding-top: 5px;
+}
+
+.users {
+    width: 200px;
+}
+
+.users-list a {
+    font-size: 12px;
+}
+
+.show-more-users {
+    padding-top: 10px;
+}
+
+.show-more-users-link {
+    font-size: 12px;
+}
+
+.assignments-table .updating {
+    background: $gActionBackgroundSystem;
+}
+
+.user-name {
+    font-weight: normal;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.assignments-responsible .user-name {
+    font-weight: 600;
+}
+
+.user-info-table {
+    width: 100%;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.user-info {
+    padding: 5px 0;
+}
+
+.hover-user-table {
+    border: 1px solid #91d8fe;
+    background-color: #e7f8ff;
+    box-shadow: $gControlBoxShadowFocusDefault;
+}
+
+.assignments-user {
+    width: 100%;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.hover-user {
+    border: 1px solid #91d8fe;
+    background-color: #e7f8ff;
+    box-shadow: $gControlBoxShadowFocusDefault;
+}
+
+.user-added {
+    background-color: $gActionBackgroundSystem;
+}
+
+.user-updated {
+    background-color: $gActionBackgroundSystem;
+}
+
+.user-deleted {
+    background-color: $gActionBackgroundDelete;
+    text-decoration: line-through;
+}
+
+.more-link {
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.filtered-user-list {
+    padding: 0;
+    font-size: 13px;
+
+    &__header {
+        padding: 5px;
+    }
+
+    &__footer {
+        border-top: 1px solid $gHighlightBlockBorderColor;
+        padding: 5px;
+        text-align: center;
+    }
+
+    &__search {
+        background-color: $gHighlightBlockBackground;
+        border-top: 1px solid $gHighlightBlockBorderColor;
+        border-bottom: 1px solid $gHighlightBlockBorderColor;
+        padding: 5px;
+    }
+
+    .user-name {
+        font-weight: normal;
+
+        border-bottom: none;
+    }
+
+    a {
+        font-size: 12px;
+    }
+
+    .user {
+        padding: 3px 5px;
+
+        .user-avatar-container {
+            height: 32px;
+            padding: 0 5px 0 0;
+            width: 32px;
+        }
+    }
+
+    .user:hover,
+    .user_hover {
+        cursor: pointer;
+        background-color: $gActionBackgroundHover;
+    }
+
+    &:hover .user:hover .user-name,
+    .user_hover .user-name {
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .owner .owner-avatar-container {
+        height: 16px;
+        padding: 0 5px 0 0;
+        width: 16px;
+    }
+}
+
+.user-role {
+    color: $gFontColorGray;
+    font-size: 11px;
+}
+
+.assignments-table-readonly .tau-btn-add-assignment {
+    display: none !important;
+}
+
+.assignments-table-readonly .user-name {
+    text-decoration: none;
+}
+
+.assignments-table-readonly .user {
+    cursor: default;
+    padding: 5px 0 5px 0;
+    margin: 0;
+    border: 0;
+}
+
+.assignments-table-readonly .user td {
+    padding: 0;
+}
+
+.user-list {
+    &__title {
+        color: $gFontColorGray;
+        width: 100%;
+        font-size: 11px;
+        padding: 3px 5px;
+        background-color: color($gHighlightBlockBackground a(70%));
+        border-bottom: solid 1px color($gHighlightBlockBorderColor a(70%));
+        box-sizing: border-box;
+    }
+}
+
+.tau-assignments-effort-only {
+    font-size: 12px;
+    width: 100%;
+    border-collapse: collapse;
+    padding: 0;
+    margin: 0;
+    color: $gFontColorGray;
+}
+
+.tau-assignments-effort-only tbody > tr > td {
+    padding: 3px 3px 3px 5px;
+}
+
+.tau-assignments-effort-only .tau-header-row td,
+.tau-assignments-effort-only .tau-footer-row td {
+    background-color: color($gHighlightBlockBackground a(70%));
+}
+
+.tau-assignments-effort-only .tau-header-row .tau-header-cell-title {
+    width: 60%;
+}
+
+.tau-assignments-effort-only .tau-header-row .tau-header-cell-value {
+    width: 40%;
+}
+
+.tau-assignments-effort-only .tau-header-row.tau-row-delimiter td {
+    border-bottom: solid 1px color($gHighlightBlockBorderColor a(70%));
+}
+
+.tau-assignments-effort-only .tau-footer-row.tau-row-delimiter td {
+    border-top: 1px solid $gHighlightBlockBorderColor;
+}
+
+.tau-assignments-effort-only .tau-row .tau-cell-role-effort-value {
+    padding-left: 0;
+}
+
+.tau-cell-role-effort-value {
+
+    .effort {
+        padding: 5px 18px 5px 5px;
+        min-height: 17px;
+    }
+
+    .point {
+        padding-left: 3px;
+    }
+}
+
+.tau-assignments-effort-only .tau-footer-row.tau-footer-row-total td {
+    font-weight: bold;
+}
+
+.tau-bubble__inner .tau-assignments-effort-only .tau-header-row td,
+.tau-bubble__inner .tau-assignments-effort-only .tau-footer-row td {
+    background-color: transparent;
+}
+
+.tau-bubble__inner .tau-assignments-effort-only .tau-header-row .tau-header-cell-title {
+    width: 100px;
+}
+
+.tau-bubble__inner .tau-assignments-effort-only .tau-header-row .tau-header-cell-value {
+    width: auto;
+}
+
+/*Assignments from context menu*/
+
+.tau-context-menu-assignments {
+
+    .tau-bubble__inner {
+        width: 250px;
+        max-height: 325px;
+    }
+}
+
+/* region No role assignments  --------------------------------------------------*/
+
+.assignments-warning {
+    position: relative;
+    padding: 10px 20px 10px 38px;
+    line-height: 14px;
+    font-size: 12px;
+
+    &__icon {
+        position: absolute;
+        left: 10px;
+        top: 11px;
+        display: flex;
+    }
+}
+
+/* endregion */
+
+/* region Assignments category  --------------------------------------------------*/
+
+.assignments-category__item {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    &__text {
+        flex: 0 1 auto;
+        padding-right: 7px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 13px;
+        line-height: 20px;
+        color: $gFontColorWarning;
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        margin-right: 6px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* endregion */
+
+/* region Assignments for batch panel  --------------------------------------------------*/
+
+.assignments-table--batch {
+    .user-avatar {
+        display: block;
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
+    }
+
+    .user-avatar-container {
+        width: 23px;
+        height: auto;
+        padding-left: 30px;
+    }
+
+    .user-info {
+        padding: 4px 10px 4px 0;
+
+        &__item {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-name {
+            margin-right: 7px;
+        }
+    }
+
+    .unassign-category {
+        width: 16px;
+        padding-right: 10px;
+        text-align: right;
+    }
+
+    .assignments-table {
+        &__cell {
+            width: $editableTextColumnWidth;
+
+            &:first-child {
+                width: auto;
+            }
+
+            &:empty {
+                height: 25px;
+            }
+
+            &__icon {
+                display: flex;
+                align-items: center;
+            }
+
+            &--title {
+                padding-bottom: 0;
+            }
+
+            &--user {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+
+        &__item:last-child {
+            margin-bottom: 0;
+        }
+
+        &__body + &__body .assignments-table__cell {
+            padding-top: 0;
+        }
+
+        &__body {
+            .assignments-table__row:last-child {
+                .assignments-table__cell {
+                    padding-bottom: 6px;
+                }
+            }
+        }
+    }
+
+    .tau-in-text--effort-edit {
+        box-sizing: border-box;
+        height: 22px;
+        margin-left: -5px;
+        width: calc($editableTextColumnWidth + 5px);
+    }
+
+    .assignments-category {
+        table-layout: fixed;
+        border-spacing: 0;
+        border: 1px solid transparent;
+        width: 100%;
+
+        &__td {
+            padding: 0 10px 0 20px;
+            cursor: default;
+        }
+    }
+
+    .assignments-user {
+        width: 100%;
+        border: none;
+        cursor: default;
+    }
+
+    .effort {
+        align-items: inherit;
+        display: flex;
+    }
+}
+
+/* endregion */

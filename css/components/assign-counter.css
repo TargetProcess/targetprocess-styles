@@ -1,0 +1,16 @@
+.tau-assign-counter {
+    font-size: 11px;
+    margin-bottom: 5px;
+
+    &__link {
+        margin-left: 5px;
+        line-height: 20px;
+        text-decoration: underline;
+        color: $gFontColorLightGray;
+
+        &:hover {
+            color: currentColor;
+            text-decoration: none;
+        }
+    }
+}

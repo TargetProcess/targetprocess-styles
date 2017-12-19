@@ -1,0 +1,11 @@
+.custom-external-report {
+
+    &__placeholder {
+        height: 100%;
+
+        &--progress {
+            visibility: hidden;
+        }
+    }
+
+}

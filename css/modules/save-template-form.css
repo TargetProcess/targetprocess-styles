@@ -1,0 +1,11 @@
+.save-template-form {
+    padding: 15px 13px;
+
+    .tau-field {
+        margin-bottom: 10px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

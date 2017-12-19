@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <marker id="connector-start" viewBox="0 0 5 10" refX="0" refY="5" markerUnits="userSpaceOnUse" markerWidth="5"
+                markerHeight="10" orient="auto">
+            <path d="M0,0 a6,6 0 0,1 0,10" fill="#727bf6"></path>
+        </marker>
+        <marker id="connector-end" viewBox="0 0 5 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="5"
+                markerHeight="10" orient="auto">
+            <path d="M5,0 a6,6 0 0,0 0,10" fill="#727bf6"></path>
+        </marker>
+    </defs>
+    <line x1="0%" y1="50%" x2="100%" y2="50%" stroke="#727bf6" stroke-width="1" marker-start="url(#connector-start)"
+          marker-end="url(#connector-end)"></line>
+</svg>

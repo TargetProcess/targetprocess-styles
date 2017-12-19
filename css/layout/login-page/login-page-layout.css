@@ -1,0 +1,35 @@
+$loginPageFontSize: 14px;
+$loginPageLinksColor: #4f9f4f;
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: $gFontFamily;
+    font-size: $loginPageFontSize;
+    color: $gFontColorDefault;
+
+    > * {
+        box-sizing: border-box;
+    }
+}
+
+a {
+    transition: color .3s, border-color .3s;
+    color: $loginPageLinksColor;
+    border-bottom: 1px solid transparent;
+
+    &,
+    &:hover,
+    &.no-hover {
+        text-decoration: none;
+    }
+
+    &:hover {
+        border-bottom-color: color($loginPageLinksColor a(50%));
+    }
+}

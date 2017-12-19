@@ -1,0 +1,109 @@
+.t3-views-controls {
+    flex: 0 0 auto;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    border-top: 1px solid $gBoardPanelBackgroundDarker;
+    width: 100%;
+
+    .t3-add-view-trigger,
+    .t3-show-hidden-views-trigger {
+        position: relative;
+        z-index: 40;
+        height: 34px;
+        cursor: pointer;
+        background: $gBoardPanelBackgroundLighter;
+
+        &:hover,
+        &.t3-pressed {
+            background: $gBoardPanelBackgroundLighterHover;
+        }
+    }
+
+    .t3-add-view-trigger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1 1 100%;
+        font-size: 13px;
+        line-height: 36px;
+        text-align: center;
+        color: $gActionColorAddLight;
+
+        &__text {
+            padding-left: 5px;
+        }
+
+        .tau-sp-collapsed & {
+            &__text {
+                display: none;
+            }
+        }
+    }
+
+    .t3-show-hidden-views-trigger {
+        flex: 1 0 25%;
+        box-shadow: inset 2px 0 0 -1px $gBoardPanelBackgroundDarker;
+
+        &:before {
+            content: '';
+            position: relative;
+            left: 50%;
+            top: 50%;
+            display: block;
+            margin: calc(-$gIconsSizeDefault / 2) 0 0 calc(-$gIconsSizeDefault / 2);
+            width: $gIconsSizeDefault;
+            height: $gIconsSizeDefault;
+            background: svg("hide", "[fill]: $gIconsColorRevert");
+        }
+
+        &.t3-pressed:before {
+            background: svg("unhide", "[fill]: $gIconsColorRevert");
+            margin-top: -7px;
+        }
+
+        .tau-sp-collapsed & {
+            display: none;
+        }
+    }
+}
+
+.t3-add-list {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 30;
+    width: 100%;
+    background-color: $gBoardPanelBackgroundLighterHover;
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.2s ease 0s, opacity 0.2s ease 0s, visibility 0.2s ease 0s;
+
+    &__item {
+        &--group {
+            .t3-icon-container {
+                left: 8px;
+                top: 6px;
+            }
+        }
+    }
+
+    &__loader {
+        height: 210px; /* size of 7 items - number of default items */
+
+        .tau-loader-logo {
+            background-color: $gBoardPanelBackgroundLighterHover;
+        }
+    }
+
+    .t3-header:hover {
+        background-color: $gBoardPanelBackgroundDarker;
+    }
+
+    &--opened {
+        margin-top: -1px;
+        opacity: 1;
+        transform: translateY(-100%);
+        visibility: visible;
+    }
+}

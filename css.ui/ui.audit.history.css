@@ -1,0 +1,142 @@
+.tau-audit-history {
+    padding: 20px 15px;
+    font-size: 13px;
+
+    .tau-actions {
+        margin-bottom: 10px;
+        color: $gFontColorGray;
+
+        span {
+            margin: 0 8px;
+        }
+
+        a {
+            text-decoration: none;
+            color: $gFontColorGray;
+            border-bottom: dotted 1px $gFontColorGray;
+            line-height: 15px;
+            display: inline-block;
+
+            &:hover {
+                border-bottom: none;
+            }
+        }
+    }
+
+    .tau-more__control {
+        display: inline-flex;
+        margin-right: 2px;
+    }
+}
+
+.tau-audit-history-info {
+    padding: 0;
+    margin: 0 0 18px 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+    word-break: break-all;
+
+    td {
+        vertical-align: top;
+        padding: 7px 10px;
+    }
+
+    tr:hover td {
+        background-color: $gActionBackgroundHover;
+        cursor: pointer;
+    }
+
+    .tau-date {
+        font-weight: 600;
+        white-space: nowrap;
+        width: 90px;
+        padding-left: 0;
+    }
+
+    tr:hover .tau-date,
+    tr.tau-open .tau-date,
+    tr.tau-open:hover .tau-date,
+    tr:not(.tau-open) td:hover.tau-date ~ td {
+        background-color: transparent;
+        cursor: auto;
+    }
+
+    .tau-time {
+        color: $gFontColorGray;
+        width: 60px;
+        white-space: nowrap;
+        text-align: right;
+    }
+
+    .tau-person {
+        line-height: 0;
+        white-space: nowrap;
+        font-size: 11px;
+
+        img {
+            width: 15px;
+            height: 15px;
+        }
+
+        img,
+        span {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        span {
+            line-height: 16px;
+            margin-left: 5px;
+        }
+    }
+
+    .tau-description {
+        width: 70%;
+
+        .tau-updates .tau-txt {
+            padding-top: 3px;
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    .tau-open {
+
+        td,
+        &:hover td {
+            background-color: $gHighlightBlockBackground;
+        }
+
+        .tau-updates {
+
+            .tau-txt {
+                display: block;
+
+                p {
+                    margin:0 0 5px 0;
+                }
+
+                ul,
+                ol {
+                    margin: 0 0 10px 0;
+                    padding-left: 25px;
+                }
+            }
+
+        }
+    }
+
+    .tau-new-data {
+        color: $gFontColorSuccess;
+    }
+
+    .tau-old-data {
+        color: $gFontColorAttention;
+    }
+}
+
+

@@ -1,0 +1,85 @@
+$unitNameFontSize: 13px;
+$customizerLibraryItemWidth: 270px;
+
+.customizer-library {
+
+    &__filter {
+        display: block;
+        padding: 0 15px 5px 10px;
+    }
+
+    &__filter-message {
+        margin: 12px 0 0 35px;
+        font-size: $unitNameFontSize;
+        color: $gFontColorGray;
+    }
+
+    &__wrap {
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__list {
+        flex: 1 1 auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        align-items: flex-start;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        user-select: none;
+        max-height: 320px;
+        overflow-y: auto;
+        box-sizing: border-box;
+    }
+
+    &__item {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        align-items: flex-start;
+        margin: 0;
+        padding: 5px 5px 5px 10px;
+        width: $customizerLibraryItemWidth;
+        vertical-align: top;
+
+        &.tau-is-disabled {
+            display: none;
+            cursor: default;
+        }
+
+        &.tau-is-active .tau-board-unit_dnd_source {
+            opacity: 0.4;
+        }
+
+        &.tau-is-disabled .tau-board-unit_dnd_source {
+            cursor: default;
+        }
+
+        .tau-board-unit {
+            flex: 0 0 auto;
+            margin-top: 0;
+        }
+    }
+
+    &__item-name {
+        align-self: center;
+        font-size: $unitNameFontSize;
+        display: inline-block;
+        margin: 0 0 5px 6px;
+        color: $gFontColorGray;
+
+        .tau-board-unit_format_max + & {
+            display: none;
+        }
+    }
+
+    .tau-item-hide,
+    .tau-item-hide-by-search,
+    .tau-is-disabled {
+        display: none;
+    }
+
+}

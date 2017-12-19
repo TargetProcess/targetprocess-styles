@@ -1,0 +1,33 @@
+.tau-cardtooltip {
+    width: 14.9em;
+}
+
+.tau-cardtooltip_type_project,
+.tau-cardtooltip_type_team {
+    width: 18.8125em;
+}
+
+.tau-cardtooltip-header {
+    width: 7em;
+}
+
+.tau-cardtooltip-header-team,
+.tau-cardtooltip-header-project {
+    width: auto;
+}
+
+.tau-cardtooltip-header-project .tau-name,
+.tau-cardtooltip-header-team .tau-name {
+    padding: 0.375em !important;
+    width: 12em !important;
+    height: auto !important;
+}
+
+.tau-cardtooltip-header-user {
+    width: auto;
+    white-space: nowrap;
+}
+
+.tau-cardtooltip-header-user .tau-name {
+    padding-right: 0.6em !important;
+}

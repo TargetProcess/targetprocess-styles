@@ -1,0 +1,163 @@
+/* region Chart templates */
+.tau-chart-template {
+  svg > g {
+    display: none;
+  }
+
+  circle {
+    opacity: 0.7;
+  }
+
+  rect {
+    opacity: 0.8;
+  }
+
+  path {
+    opacity: 0.9;
+  }
+
+  g.line {
+    fill: none;
+  }
+
+  g.facet.line {
+    stroke: #377eb8;
+  }
+
+  g.line1 {
+    stroke: #377eb8;
+  }
+
+  g.line2 {
+    stroke: #e41a1c;
+  }
+
+  g.scatter1,
+  g.bar {
+    fill: #377eb8;
+  }
+
+  g.scatter2 {
+    fill: #e41a1c;
+  }
+
+  &.line1-decrease g.line1.decrease,
+  &.line2-decrease g.line2.decrease,
+  &.line1-stable g.line1.stable,
+  &.line2-stable g.line2.stable,
+  &.line1-increase g.line1.increase,
+  &.line2-increase g.line2.increase,
+  &.scatterplot1-increase g.scatter1.increase,
+  &.scatterplot2-increase g.scatter2.increase,
+  &.scatterplot1-stable g.scatter1.stable,
+  &.scatterplot2-stable g.scatter2.stable,
+  &.scatterplot1-decrease g.scatter1.decrease,
+  &.scatterplot2-decrease g.scatter2.decrease,
+  &.bar1-increase g.bar.increase,
+  &.bar1-stable g.bar.stable,
+  &.bar1-decrease g.bar.decrease,
+  &.horizontalBar g.horizontalBar,
+  &.facet-stacked g.facet.stacked,
+  &.facet-bar g.facet.bar {
+      display: block;
+  }
+
+  &.facet-stacked {
+    g.stacked.facet{display:block}
+    g.bar.facet{display:block}
+    g.bar{fill: #6297DA}
+    g.stacked{fill: #da6361; stroke-width: 1; stroke: #fff}
+  }
+
+  &.staked-userstories-and-bugs {
+    g.stacked.stable{display:block}
+    g.bar.stable{display:block}
+    g.bar{fill: #6297DA}
+    g.stacked{fill: #df2b59; stroke-width: 1; stroke: #fff}
+  }
+
+
+
+  &.line1-userstory g.line1,
+  &.line2-userstory g.line2 {
+    stroke: #6297DA;
+  }
+
+  &.line1-bug g.line1,
+  &.line2-bug g.line2 {
+    stroke: #DA6361;
+  }
+
+  &.line1-feature g.line1 {
+    stroke: #1c8300;
+  }
+
+  &.line2-request g.line2 {
+    stroke: #ffc600;
+  }
+
+  &.bar1-userstory g.bar,
+  &.scatterplot1-userstory g.scatter1,
+  &.scatterplot2-userstory g.scatter2,
+  &.horizontalBar-userstory g.horizontalBar path {
+    fill: #6297DA;
+  }
+
+  &.scatterplot1-project g.scatter1 {
+    fill: #16343b;
+  }
+
+  &.scatterplot1-feature g.scatter1 {
+    fill: #1c8300;
+  }
+
+  &.scatterplot1-epic g.scatter1 {
+    fill: #00bea0;
+  }
+
+  &.scatterplot1-request g.scatter1,
+  &.scatterplot2-request g.scatter2,
+  &.bar1-request g.bar {
+    fill: #ffc600;
+  }
+
+  &.scatterplot2-release g.scatter2 {
+    fill: #999999;
+  }
+
+  &.scatterplot2-iteration g.scatter2,
+  &.scatterplot2-teamiteration g.scatter2 {
+    fill: #8ac0f0;
+  }
+
+  &.bar1-bug g.bar,
+  &.scatterplot1-bug g.scatter1,
+  &.horizontalBar-bug g.horizontalBar path {
+    fill: #DA6361;
+  }
+
+  &.facet-bug g.facet {
+    stroke: #DA6361;
+    fill: #DA6361;
+  }
+
+  &.facet-userstory g.facet {
+    stroke: #6297DA;
+    fill: #6297DA;
+  }
+
+  &.facet-line g.facet.line {
+    display: block;
+    fill: none;
+  }
+
+  /*
+  g.bar{fill: #6297DA}
+  g.h-bar{fill: #6297DA}
+  g.stacked{fill: #DA6361; stroke-width: 1; stroke: #fff}
+  g.h-stacked{fill: #DA6361; stroke-width: 1; stroke: #fff}
+
+  */
+}
+
+/*endregion*/

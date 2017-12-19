@@ -1,0 +1,22 @@
+.tau-team-label {
+    display: flex;
+    align-items: center;
+
+    &__icon {
+        flex-shrink: 0;
+        margin-right: 6px;
+    }
+
+    &__text {
+        flex: 1 1 auto;
+    }
+
+    &--ellipsis {
+        align-items: center;
+        overflow: hidden;
+
+        .tau-team-label__text {
+            @mixin ellipsis;
+        }
+    }
+}

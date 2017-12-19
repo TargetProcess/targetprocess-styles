@@ -1,0 +1,122 @@
+$emojiIconUrl: url(../../css.board/images/emoji/sheet_apple_64_indexed_256.png);
+
+$emojiIconSmallSize: 16px;
+$emojiIconMediumSize: 20px;
+$emojiIconLargeSize: 28px;
+
+$emojiCategoryIconBackgroundImageColor: #606c7b;
+$emojiCategoryIconInvertBackgroundImageColor: #fff;
+
+.tau-emoji-icon {
+    display: block;
+    position: relative;
+    background-image: $emojiIconUrl;
+    background-size: 4100%;
+
+    &--small {
+        width: $emojiIconSmallSize;
+        height: $emojiIconSmallSize;
+    }
+
+    &--medium {
+        width: $emojiIconMediumSize;
+        height: $emojiIconMediumSize;
+    }
+
+    &--large {
+        width: $emojiIconLargeSize;
+        height: $emojiIconLargeSize;
+    }
+
+    &--flexible {
+        width:100%;
+        height: 100%;
+    }
+}
+
+.tau-emoji-category-icon {
+    display: block;
+    position: relative;
+    width: $emojiIconSmallSize;
+    height: $emojiIconSmallSize;
+
+    &--fav {
+        background-image: svg('emoji-category-fav', '[fill]: $emojiCategoryIconBackgroundImageColor');
+    }
+
+    &--fav-inverted {
+        background-image: svg('emoji-category-fav', '[fill]: $emojiCategoryIconInvertBackgroundImageColor');
+    }
+
+    &--people {
+        background-image: svg('emoji-category-people', '[fill]: $emojiCategoryIconBackgroundImageColor');
+    }
+
+    &--people-inverted {
+        background-image: svg('emoji-category-people', '[fill]: $emojiCategoryIconInvertBackgroundImageColor');
+    }
+
+    &--foods {
+        background-image: svg('emoji-category-foods', '[fill]: $emojiCategoryIconBackgroundImageColor');
+    }
+
+    &--foods-inverted {
+        background-image: svg('emoji-category-foods', '[fill]: $emojiCategoryIconInvertBackgroundImageColor');
+    }
+
+    &--activity {
+        background-image: svg('emoji-category-activity', '[fill]: $emojiCategoryIconBackgroundImageColor');
+    }
+
+    &--activity-inverted {
+        background-image: svg('emoji-category-activity', '[fill]: $emojiCategoryIconInvertBackgroundImageColor');
+    }
+
+    &--flags {
+        background-image: svg('emoji-category-flags', '[fill]: $emojiCategoryIconBackgroundImageColor');
+    }
+
+    &--flags-inverted {
+        background-image: svg('emoji-category-flags', '[fill]: $emojiCategoryIconInvertBackgroundImageColor');
+    }
+
+    &--nature {
+        background-image: svg('emoji-category-nature', '[fill]: $emojiCategoryIconBackgroundImageColor');
+    }
+
+    &--nature-inverted {
+        background-image: svg('emoji-category-nature', '[fill]: $emojiCategoryIconInvertBackgroundImageColor');
+    }
+
+    &--objects {
+        background-image: svg('emoji-category-objects', '[fill]: $emojiCategoryIconBackgroundImageColor');
+    }
+
+    &--objects-inverted {
+        background-image: svg('emoji-category-objects', '[fill]: $emojiCategoryIconInvertBackgroundImageColor');
+    }
+
+    &--places {
+        background-image: svg('emoji-category-places', '[fill]: $emojiCategoryIconBackgroundImageColor');
+    }
+
+    &--places-inverted {
+        background-image: svg('emoji-category-places', '[fill]: $emojiCategoryIconInvertBackgroundImageColor');
+    }
+
+    &--symbols {
+        background-image: svg('emoji-category-symbols', '[fill]: $emojiCategoryIconBackgroundImageColor');
+    }
+
+    &--symbols-inverted {
+        background-image: svg('emoji-category-symbols', '[fill]: $emojiCategoryIconInvertBackgroundImageColor');
+    }
+}
+
+.tau-emoji-picker-icon {
+    display: block;
+    cursor: pointer;
+    width:  $emojiIconSmallSize;
+    height:  $emojiIconSmallSize;
+    background-image: svg('emoji-picker', '[fill]: $emojiCategoryIconBackgroundImageColor');
+}

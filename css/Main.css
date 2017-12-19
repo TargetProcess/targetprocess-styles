@@ -1,0 +1,498 @@
+﻿IFRAME BODY {border: 1px solid #000}
+html {height: 100%}
+BODY {padding: 0; padding-right: 10px; margin: 0; font: 12px Arial; background: #e5eef7; height: 100%;}
+H1 {color: #103565; font: bold 20px Arial; margin-top: 0; margin-bottom: 15px}
+H2 {color: #103565; font: bold 16px Arial; margin-top: 0; margin-bottom: 15px}
+H3 {color: #103565; font: bold 14px Arial; margin-top: 0; margin-bottom: 15px}
+H4 {color: #103565; font: bold 12px Arial; margin-top: 0; margin-bottom: 15px}
+.h2 {color: #103565; font: bold 16px Arial}
+.h3 {color: #103565; font: 14px Arial}
+
+.box {box-sizing: border-box;}
+
+.wordHighlight {font-weight:bold; color:red}
+
+.lastAction, .lastWarning {padding:3px 5px; float: left; text-align: left !important}
+.lastAction A {color: #28428B !important; border-bottom: none !important; text-decoration: underline !important}
+.lastAction A:hover {color: #28428B !important; border-bottom: none !important; text-decoration: none !important}
+.lastWarning {margin: 0 5px;background:rgb(255, 179, 179);padding-left: 15px;padding-right: 15px;}
+
+.warning {color: $gFontColorWhite; padding: 2px; line-height: 2}
+.greenBg {background: #BCE2B1}
+.gridErrorRow{background-color: #ffbebe}
+.weekend {background: #ffccc0}
+.done {background-color: #999}
+
+/* Link base styles */
+a.relink { border-bottom: 1px dotted #28428B;
+    color: #28428B;
+    cursor: pointer;
+    font-style: normal;
+    text-decoration: none;
+}
+
+a.relink:hover { border-bottom: 0 dotted #28428B;
+}
+
+/* Aligns Basic Class*/
+.vtop {vertical-align: top !important}
+.vmiddle {vertical-align: middle !important}
+.vbottom {vertical-align: bottom !important}
+
+.text-left {text-align: left !important}
+.text-center {text-align: center !important}
+.text-right {text-align: right !important}
+
+.progressStatusRed {background:#FD4444}
+.progressStatusYellow, .highlightText {background:#FFFF84}
+.progressStatusGreen {background:#BCE2B1}
+
+/* Subversion Diff styles */
+.lineAdded {background: #BCE2B1}
+.lineDeleted {background: #febbbb;}
+.lineUpdated {background: #FFEC84}
+
+.topPriority {color: #ED1B23}
+.topSeverity {color: #CA0007}
+.lowSeverity {color: #999}
+
+A:link {color: #28428B}
+A:visited {color: #28428B}
+A.infoLink {color: #666; font-size: 11px;}
+A.tbFilterLink {color: #666; font-size: 11px;}
+
+.moreLink {padding-right: 8px !important; background: url('../css.ui/images/arr-d.png') right 3px no-repeat; color: #000 !important; text-decoration: none; border-bottom: 1px dotted #606B73; cursor: pointer}
+.moreLink:hover { text-decoration: none !important; border-bottom: 0 dotted #606B73; cursor: pointer}
+
+.secondaryInfo a {text-decoration: none !important; border-bottom: 1px dotted #8ba0dc; }
+.secondaryInfo a:hover { text-decoration: none !important; border-bottom: 0 dotted #8ba0dc; }
+.row-edit-link { text-decoration: none; border-bottom: 0 solid #8ba0dc; }
+.row-edit-link:hover { text-decoration: none; border-bottom: 1px solid #8ba0dc; }
+.delLink { text-decoration: none; border-bottom: 0 dotted #C30; color: #C30 !important; }
+.delLink:hover { text-decoration: none; border-bottom: 1px dotted #C30; color: #C30 !important; }
+
+.sortUpLink {padding-right: 8px !important; background: url('images/icons/sort_up.gif') right 5px no-repeat; color: #777 !important; text-decoration: underline; cursor: pointer}
+.sortDownLink {padding-right: 8px !important; background: url('images/icons/sort_down.gif') right 5px no-repeat; color: #777 !important; text-decoration: underline; cursor: pointer}
+a.delLink {margin-left:5px; margin-right: 5px}
+li a.delLink {margin-left:0}
+
+.assignedLink span {text-decoration: none; cursor: pointer; border-bottom: 0 dotted #28428B; color: #28428B}
+.assignedGroupLink span{font-weight:bold; cursor: pointer; color: #000}
+.assignedToMeLink span{text-decoration: none; cursor: pointer; color: green}
+.showMoreAssLink span{text-decoration: none; cursor: pointer; color: black}
+.unassignedLink { color: #C30 !important; text-decoration: none; border-bottom: 0 dotted #C30; }
+.unassignedLink span { color: #C30 !important; text-decoration: none; border-bottom: 0 dotted #C30; }
+.unassignedLink:hover span { color: #C30 !important; text-decoration: none; border-bottom: 0 dotted #C30; }
+a .unassignedLink, a .unassignedLink span {text-decoration: none !important; border-bottom: 1px dotted #C30; cursor: pointer; color: #C30 !important}
+a .unassignedLink:hover, a .unassignedLink:hover span {text-decoration: none !important; border-bottom: 0 dotted #C30; cursor: pointer; color: #C30 !important}
+
+/* All Hover styles */
+A:hover {text-decoration: none; color: #28428B}
+.projectSelectionMenu TR:hover {background-color: #E4F6D9}
+.subMenu A:hover {padding: 3px 22px; text-decoration: underline; color: #28428B}
+.moreLink:hover {color: #28428B; text-decoration: underline}
+A.delLink:hover {color: $gFontColorWhite !important; background-color: #C30; text-decoration: none}
+.draggableItem:hover {color: #28428B; cursor: move}
+.entityBoxOver {cursor:move; background: #F8931D !important;}
+.dnd-not-allowed {cursor: not-allowed}
+
+/* Labels styles */
+.importantLabel {font: bold 12px Arial}
+.veryImportantLabel {font: bold 14px Arial; color: #333;}
+.noticeLabel {color: red;}
+
+/* Top bar styles */
+#top {width: 100%; height: auto; min-width: 700px; margin-bottom: 5px;}
+#logout { font-size: 11px; text-align: right; color: #999; white-space: nowrap; min-width: 550px; width: auto; vertical-align: top; display: block;}
+
+/* Main area styles */
+#main {padding: 10px 10px 30px 10px;}
+#main th, .generalTable th {text-align: left; font-size: 11px; font-weight: normal; color: #606B73}
+#main .tau-table-forms th {font-size: inherit; font-weight: inherit; color: inherit;}
+#main th A:link {color: #606B73; text-decoration: none; border-bottom: 1px dotted #606B73}
+#main th A:link:hover {color: #606B73; text-decoration: none; border-bottom: 0 dotted #606B73}
+#main th.centered {text-align: center}
+
+.tabControlPanel {padding: 0; display:block; margin: 0; float: left; width: 100%; border-bottom: #46a337 1px solid; text-align: left}
+.tabControlItem {border: #46a337 1px solid; padding: 5px 7px; display: block; background: #bce2b1; float: left; margin: 0 2px; cursor: pointer; border-bottom-style: none}
+.tabControlSelectedItem {border: #46a337 1px solid; padding: 5px 15px; display: block; font-weight: bold; float: left; margin: 0 2px; cursor: pointer; background: #FFF; position: relative; top: 1px; border-bottom-style: none}
+.tabControlDisabledItem {border: #f1f2f3 1px solid; padding: 5px 7px; display: block; background: #f2f2f2; float: left; margin: 0 2px; cursor: default; border-bottom-style: none; color:#ccc;}
+.tabControlContent {clear: both; padding-top: 5px; background: #FFF}
+.TabButton {border: none; padding: 4px 7px; cursor: pointer; border-top: 1px solid #46A337; border-right: 1px solid #46A337; border-left: 1px solid #46A337; position: relative; top: -4px; text-decoration: none}
+
+.tableHead {width: 100%; margin-bottom: 10px}
+.tableTitle {font: normal 18px Arial; color: #333}
+.tableSubTitle { color: #333; font: bold 14px Arial;margin-top: 10px; margin-bottom:5px }
+.editPageTitle {margin-left: 2px}
+
+.subAddTitle  {color: #126F03; padding: 10px}
+
+#main .projectTitle {font-size: 14px; color: #333; font-weight: bold; padding-bottom: 5px; display: block; height: 1.2em}
+#main .projectTitle span {color: #333; font-weight: normal;}
+
+/* Tables styles */
+.generalTable {width: 100%}
+.generalTable tr td { border-top: 1px solid #ddd; }
+.generalTable tr td table tr td { border: none; }
+.generalTable tr tr {background: none}
+.generalTable .headRow {background: none; vertical-align: middle}
+.generalTable .footerRow { border-bottom: 1px solid #f2f2f2 !important; }
+.generalTable .footerRow table tr {  border-bottom: 1px solid #fff !important; }
+.generalTable .footerRow td {background: #fff; vertical-align: top; border-top: 1px solid #ddd}
+.generalTable .footerRow td table tr td {background: #fff; vertical-align: top; border: none}
+.generalTable tr td.effortTd {width:40%; vertical-align: top;}
+.generalTable tr td.actionsTd {width:60%; text-align:left; vertical-align: top;}
+
+.headRow {color: #606B73}
+.footerRow td {font-size: 10px}
+.rowDone td {background-color: #EEE; color: #666}
+.rowDone td * {color: #666}
+.rowDone td td, .rowDone td td td {background: none}
+div.table {border-bottom: 1px solid #f2f2f2}
+img.sort {margin: 0 0 0 5px; border: none; position: relative; top: 2px}
+
+#footer { margin-bottom: 10px; }
+#copy {width: 90%; font-size: 11px; margin: 8px 0 0 10px; color: #666}
+#copy a { color: #666; }
+
+/* Form styles */
+SELECT:not(.tau-select) {max-width: 300px;}
+TEXTAREA {font: 12px Arial; border-top:1px solid #555; border-left:1px solid #555; border-bottom: 1px solid #CCC; border-right: 1px solid #CCC; padding: 2px}
+.input, .dictionaryTable input {border-color: #C4C4C4 #E9E9E9 #E9E9E9 #C4C4C4; border-style: solid;  border-width: 1px; padding: 3px 2px;}
+.checkbox {position: relative; top: 2px}
+input[type=button], input[type=submit] {cursor: pointer}
+a.buttonSecondary {margin-left: 10px;}
+a.buttonSecondary:hover {text-decoration: none;}
+.required {font-weight: bold; white-space: nowrap}
+
+/* Dialog Box styles */
+.dialogBoxTable {z-index: 9000; font-size: 12px; position:absolute; border: 1px solid #c1daf0; border-radius: $gBorderRadiusDefault; box-shadow: 2px 5px 10px #999;}
+.dialogBoxTable .loader { padding: 10px 10px 0 10px; margin: 10px 10px 0 10px; background: url('images/preloader.gif') top left no-repeat; width: 30px; height: 10px; }
+.dialogBoxTable table tr td { padding: 3px 8px 3px 5px; }
+.dialogBoxTable tr.group { background: #e9f4fe !important; }
+.dialogBoxTitle {font-size: 14px; font-weight: bold; color: #333; padding: 6px 8px;}
+.dialogBoxContainerCell {text-align: left; height: 100%; vertical-align: top;}
+.dialogBoxSubTitle {font-weight: bold; margin: 5px 0; position: relative; top: 5px}
+.dialogBoxTable input[type=button] {margin-right: 5px;}
+.dialogBoxTable label {display: block; white-space: normal; margin: 4px 0 0 20px; line-height: 14px; vertical-align: middle }
+.dialogBoxTable input[type=checkbox] {position: relative; top: 2px; float: left}
+
+/* only for webkit */
+@media screen and (-webkit-min-device-pixel-ratio:0){
+.dialogBoxTable input[type=checkbox], .dialogBoxTable input[type=radio] {vertical-align: middle; line-height: 14px; margin: 0; padding: 0; margin-right: 5px; float: left;}
+.dialogBoxTable label {display: block; margin: 0 0 0 20px; line-height: 14px; vertical-align: middle;}
+}
+
+.ext-safari .x-form-field-wrap .x-form-trigger {right: inherit !important;}
+.customizeDialog {position: absolute; z-index: 5000}
+.customizeDialog INPUT[type=checkbox] {position: relative; top: 2px; float: left}
+
+/* Time Sheet styles */
+.tC {text-align:center}
+td.timeTotal { background: #E4F6D9; text-align: center; }
+td.timeTotal span { font-weight: bold; text-align: center; }
+.today {color: #FD4444; font-weight: bold}
+.timeButton {border: 1px solid #28428B; font-size: 12px; padding: 0; background-color: #fff; width:42px}
+.timeButtonToday {border-color: #FD4444}
+.task-name {font-size: 12px; padding: 3px 3px 3px 0; display: block;}
+
+/* Drag & Drop */
+.dropZoneNormal {padding: 4px}
+.dropZoneOver {background: #FFFF51; border: 2px solid orange; padding: 4px}
+.dropZoneHighlight {background: #FFFFC1; border: 2px solid orange; padding: 4px}
+.draggableItem {cursor: pointer}
+
+.smallFont {font-size: 10px}
+
+.rowCheckSelected td {background: #fffccc}
+.dialogBoxContainerCell .rowCheckSelected TD, .tableHead .rowCheckSelected TD {background: none}
+
+.secondaryInfo, .id {color: #777}
+
+.subAdd {border-bottom: 1px solid #46A337; border-right: 1px solid #46A337; border-left: 1px solid #46A337}
+.subAddContent {padding: 10px}
+
+.expandedList {margin-left: 100px}
+
+.morePanel {
+    position: absolute;
+    z-index: 100000;
+    background: #DBEDFC !important;
+    white-space: nowrap;
+    line-height: 1.8;
+    border: 1px solid #c1daf0 !important;
+    border-radius: $gBorderRadiusDefault;
+    box-shadow: 2px 5px 10px #999;
+}
+
+.morePanel A {color: #28428B; text-decoration: none;}
+.morePanel A:hover {color: #28428B; text-decoration: underline !important; }
+
+
+.chSt {display: inline}
+
+/* Help styles */
+.help { width: 70%; padding: 10px; background: #DBEBF9; margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid #28428B; border-top: 1px solid #28428B; display: none}
+.addArrow { position: relative; top: -3px}
+.addArrowIcon { position: relative;top: 5px;margin-right:5px}
+
+/* Loader */
+.loadBar {
+    padding: 5px 8px 4px 0; margin: 0; left: 48%; top: -6px; position: fixed;
+    border: 1px solid #c7b56e;
+    height: 30px;
+    background: #f4edc9;
+    background: linear-gradient(to bottom, #f4edc9 0%,#f2e4af 100%);
+    opacity: 1;
+    border-radius: 5px;
+    box-sizing: border-box;
+    z-index: 9999;
+}
+
+.loadBar .icon { margin-right: 4px; position: relative; top: 1px; left: 3px; }
+.loadBar span { font: normal 11px Verdana; color: #c39327; position: relative; top: -5px; left: 0; display: inline-block; text-shadow: 0 1px 1px #fff; }
+
+/* used in Workflow only */
+.disabledLink {color: #999;}
+.disableSelection {user-select: none;}
+IMG.icon {margin: 0 3px 0 0; position: relative; top: 0}
+.wizardSideBar {line-height: 1.8}
+.key {border: 1px solid #000; padding: 0 5px; background: #FFF; color: #000; font-size: 9px}
+.specialArea { padding: 10px; margin: 0 0 15px 0; border: 1px solid #ddd; background: #f8f8f8;border-radius: 6px; }
+.specialAreaWhite {padding: 10px; margin: 0 0 15px 0; border: 0 solid #ddd; background: #fff; border-radius: 6px;}
+.specialArea table tr td, .specialAreaWhite table tr td {padding: 5px 5px 5px 0;}
+.specialArea h3, .specialAreaWhite h3 {margin: 0 0 5px 0 !important;}
+
+.tagCloudBundle {
+	font-weight: bold;
+	cursor: pointer;
+	background: #fff;
+	background:linear-gradient(to bottom, #fff 0%, #f1f1f1 50%, #e1e1e1 51%, #f6f6f6 100%);
+	border: 1px solid #C1C1C1;
+	display: block;
+	width: auto;
+	height: auto;
+	padding: 3px 5px;
+	margin: 5px 5px 5px 0;
+	border-radius: $gBorderRadiusDefault;
+}
+
+/* Rank styles */
+.rank0 {font-size: 10px; text-decoration: underline; cursor: pointer; }
+.rank1 {font-size: 11px; text-decoration: underline; cursor: pointer}
+.rank2 {font-size: 12px; text-decoration: underline; cursor: pointer}
+.rank3 {font-size: 13px; text-decoration: underline; cursor: pointer}
+.rank4 {font-size: 14px; text-decoration: underline; cursor: pointer}
+.rank5 {font-size: 15px; text-decoration: underline; cursor: pointer}
+.rank6 {font-size: 16px; text-decoration: underline; cursor: pointer}
+.rank7 {font-size: 17px; text-decoration: underline; cursor: pointer}
+.rank8 {font-size: 18px; text-decoration: underline; cursor: pointer}
+.rank9 {font-size: 20px; text-decoration: underline; cursor: pointer}
+.rank10 {font-size: 22px; text-decoration: underline; cursor: pointer}
+
+/* entityBox styles */
+.entityBox {border: 1px solid #ededed; border-left: 3px solid #507CB6; font: 11px Arial; padding: 2px 3px; height: 42px; float: left; width: 70px; overflow: hidden; margin: 2px; cursor: pointer}
+.entityBrowserStory {border-left: 3px solid #507CB6}
+.entityBrowserBug {border-left: 3px solid #CC060D}
+.entityBrowserFeature {border-left: 3px solid #1C8300}
+.entityBrowserRequest {border-left: 3px solid #FFC600}
+.entityBrowserRelease {border-left: 3px solid #888888}
+.entityBrowserIteration{border-left: 3px solid #66AFF0}
+.entityBrowserTestCase {border-left: 3px solid #DD7709}
+.entityBrowserTestPlanRun {border-left: 3px solid #A7743E}
+
+.chart {position: relative; z-index: 2}
+.fullScreen {left:0; top:0; position: absolute; width: 100%; z-index:9000}
+.entityBrowser {border: 2px solid #6699cc; padding: 5px; float: left; position: absolute; background: #fff}
+.story {border: 1px solid #999; font-size: 9px; padding: 3px; background:#CFC; height: 30px;float: left; width: 70px; overflow: hidden; margin: 1px}
+.tag {border: 1px solid #666; border-right: 2px solid #000; font-size: 10px; padding: 2px; background:#6CF; height: 38px; width: 200px; white-space: nowrap; opacity:0.8}
+.details-icon {position:absolute;width: 15px; height: 15px; display: block; background: url('images/detail.gif') no-repeat 0 0;}
+
+/* Plugin styles*/
+.profileHeader {padding-left:7px}
+
+/* For Print */
+#print {padding: 10pt 10pt}
+#print H3 {color: #103565; font: bold 14px Arial; margin: 10px 0 5px 0; padding: 0}
+#print TH {text-align: left; border-bottom: 1px solid #999}
+
+@media print
+{
+	H1 {margin: 0; padding: 0}
+	A {text-decoration: none}
+	BODY, #main, DIV.table {background: #FFF}
+
+	#top, #topTitle, #copy, #footer  {display: none}
+	#print .generalTable TD {border-bottom: 1px solid #BBB; padding: 0; margin:0}
+	#print .generalTable TD TD, #print .generalTable TD TD TD {border-bottom: none}
+
+	.tableTitle {font: 20px Arial; color: #000}
+	.tableHead {margin-top: 20pt}
+
+	.importantLabel {font-size: 12px}
+}
+
+.change-state { cursor:pointer; }
+.tDnD_whileDrag { background-color: #ddd !important; }
+.wrap { overflow: hidden; word-wrap: break-word; }
+.description { width: 750px; overflow: hidden; word-wrap: break-word; }
+.comment { width: 600px; overflow: hidden; word-wrap: break-word; }
+
+/* notification */
+.notificationPopup {position:absolute; height:auto; top:100px; left: 50%; padding: 15px; background:#fff; border: 3px solid #ccc; margin-left: -190px;  width: 380px; z-index: 1000002;border-radius: 5px;}
+.notificationPopup div.btnBlock {padding-top: 10px;}
+.notificationPopup input[type=checkbox], .notificationPopup label {vertical-align: middle;}
+
+/* Two Columns Template */
+.two-columns { width: 100%; height: 100%; padding: 0; margin: 0; border-collapse: collapse; }
+.two-columns .col-one { width: auto; vertical-align: top; }
+.two-columns .col-two { width: 100%; vertical-align: top;}
+
+.left-menu { background: #fff; padding: 0 0 10px 0; margin: 0; min-width: 240px; overflow: hidden; border: 1px solid #f1f2f3; border-radius: 5px; box-sizing: border-box;}
+.left-menu a.selected { color:#333; text-decoration:none; font-weight:bold; }
+.left-menu-closed { background : #fff; padding: 10px; margin: 0; width: 28px; min-width: 20px; height: 100%; min-height: 500px; overflow: hidden; border: 1px solid #f1f2f3;border-radius: 5px; box-sizing: border-box;}
+.left-menu-closed .hint { color: #ddd; font-size: 11px; white-space: nowrap; margin-top: 65px;transform: rotate(-90deg);}
+.left-menu .h2 { font-size: 14px; color: #333; white-space: nowrap; text-decoration: none; margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee; }
+.left-menu a, .left-menu span { display: block; padding: 3px 0; }
+.left-menu .hideReportMenu { background: url('images/icons/icons-collapse.png') no-repeat 0 -11px; width: 11px; height: 11px; display: block; position: relative; float: right; }
+.left-menu .hideReportMenu:hover { background: url('images/icons/icons-collapse.png') no-repeat -11px -11px; width: 11px; height: 11px; display: block; }
+.left-menu-closed:hover { background: #f2f2f2 }
+.left-menu-closed .showReportMenu { background: url('images/icons/icons-collapse.png') no-repeat 0 0; width: 11px; height: 11px; display: block; }
+.left-menu-closed .showReportMenu:hover { background: url('images/icons/icons-collapse.png') no-repeat -11px 0; width: 11px; height: 11px; display: block; }
+
+/* Administation Zone */
+.left-menu .personal { font-size: 14px; background: url(images/icons/icon-personal.png) top left no-repeat; padding-left: 20px; line-height: 22px; background-position: 0 6px }
+.left-menu .system { font-size: 14px; background: url(images/icons/icon-system.png) top left no-repeat; padding-left: 20px; line-height: 22px; background-position: 0 14px }
+.left-menu .samplecleanup { font-size: 14px; background: url(images/icons/icon-samplecleanup.png) top left no-repeat; padding-left: 20px; line-height: 22px; background-position: 0 14px; border-top: 1px solid #eee;padding-top: 10px;margin-top: 10px;}
+.left-menu .projectsettings { font-size: 14px; background: url(images/icons/icon-projectsettings.png) top left no-repeat; padding-left: 20px; line-height: 22px; background-position: 0 14px; border-top: 0;padding-top: 10px;margin-top: 0;}
+
+/* Email Notification */
+.email-template-block { width: 800px; height: 645px; }
+.email-template-block .email-template-top { width: 800px; height: 35px; background: url('images/email-template-top-bg.png'); }
+.email-template-block .email-template-top .add-top { width: 200px; clear: none; border: 1px solid #ddd; border-right: none; height: 35px; float: left; }
+.email-template-block .email-template-top .edit-preview-top { width: 600px; clear: none; border: 1px solid #ddd; height: 35px; float: right; }
+.email-template-block .email-template-main { width: 800px; height: 610px; background: #f7f7f7; }
+.email-template-block .email-template-main .email-template-list { float: left; clear: none; width: 200px; height: 610px; border: 1px solid #ddd; border-top: none; border-right: none; }
+.email-template-block .email-template-main .email-template-list .email-template-item { height: 35px; width: 200px; padding: 8px 10px 8px 20px; display: block; border-bottom: 1px solid #ddd; text-align: left; background: #f7f7f7; background-image: url('images/icons/email-template-icon.png'); background-repeat: no-repeat; background-position: 5px 12px; }
+.email-template-block .email-template-main .email-template-list .email-template-item:hover { background: #fff; background-image: url('images/icons/email-template-icon.png'); background-repeat: no-repeat; background-position: 5px 12px; }
+.email-template-block .email-template-main .email-template-list .active { background-color: #fff; color:#333; text-decoration:none; font-weight:bold; }
+.email-template-block .email-template-main .email-template-edit { float: left; clear: none; width: 600px; height: 610px; border: 1px solid #ddd; border-top: none; background: #fff;}
+.email-template-block .email-template-main .email-template-edit .edit-template-area { width: 588px; height: 510px; overflow: auto; background: #fff; border: 0 solid #fff !important; padding: 5px; margin: 0; }
+.email-template-block .email-template-main .email-template-edit .email-template-save-reset { border-top: 1px solid #ddd; padding: 10px 10px 0 10px; }
+.email-template-block .email-template-main .email-template-subject { padding: 10px 5px 10px 5px; background: #fff; border: none; }
+.email-template-block .email-template-main .email-template-subject input { width: 520px; border-color: #C4C4C4 #E9E9E9 #E9E9E9 #C4C4C4; border-style: solid; border-width: 1px;  font-size: 14px; font-weight: normal; padding: 3px 5px; }
+
+/* Reports */
+.left-menu .custom-report { font-size: 14px; background: url(images/icons/icon-custom-reports.png) top left no-repeat; padding-left: 20px; line-height: 22px; background-position: 0 6px }
+
+/* Add/Edit Stories Bugs */
+.completionListElem {background: #fff !important;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;box-shadow: 0 3px 8px #999;}
+.completionListElem li {list-style-type: none; padding: 5px;}
+.completionListElem li span {padding-right: 5px; vertical-align: top}
+.completionListElem li span img {margin-top: 2px}
+
+/* Add attach control */
+a.addBtn {background: url(images/icons/add.png) top left no-repeat; vertical-align: middle; width: 20px; height: 20px; display: inline-block;}
+a.removeBtn {background: url(images/icons/remove.png) top left no-repeat; vertical-align: middle; width: 20px; height: 20px; display: inline-block;}
+
+/* Popover users menu */
+.ui-menu { width: auto; height: auto; position: absolute; z-index: 10000000; background: #fff; color: #333; left: 610px; margin: 0; padding: 0; border-radius: 5px;box-shadow: 0 1px 10px #999; }
+.ui-menu li { list-style: none; }
+.ui-menu .ui-corner-all { text-decoration: none; }
+.ui-menu .ui-menu-item .ui-state-focus { cursor: pointer; background-color: #e6eff8 !important; display: block; }
+.ui-menu .ui-menu-item .user { padding: 0; margin: 5px; background: transparent; }
+.ui-menu .ui-menu-item .user div { display: inline-block; padding: 5px; width: 220px; list-style: none; overflow: hidden; zoom: 1; *display:inline; }
+.ui-menu .ui-menu-item .user .avatar { width: 25px; padding: 5px; float: left; }
+
+/* Warning */
+.warning { padding: 6px 10px 6px 25px; background-color: #ffffe1; background-image: url('images/icons/icon-yellow-notifier.png'); background-repeat: no-repeat; background-position: 6px 6px;  font-size: 12px; color: #947826; font-weight: normal; margin: 5px 0 10px 0; line-height: 16px; }
+.warning a { color: #947826; }
+.error-message { padding: 6px 10px 6px 25px; background-color: #ffe1e1; background-image: url('images/icons/icon-red-notifier.png'); background-repeat: no-repeat; background-position: 6px 6px; font-size: 12px; color: #b5283d; font-weight: normal; line-height: 16px; }
+.error-message a { color: #b5283d; }
+
+/* Footer Notification Block */
+.purchaseNotify { padding: 6px 10px 6px 25px; background-color: #ffffe1; background-image: url('images/icons/icon-yellow-notifier.png'); background-repeat: no-repeat; background-position: 6px 6px;  border-top: 1px solid #f8dba8; font-size: 12px; color: #947826; font-weight: normal; margin-top: -10px; line-height: 16px; }
+.purchaseNotify a:link { color: #947826; }
+.pluginsNotify { padding: 6px 10px 6px 25px; background-color: #ffe1e1; background-image: url('images/icons/icon-red-notifier.png'); background-repeat: no-repeat; background-position: 6px 6px; border-top: 1px solid #ffc7c7; border-bottom: 1px solid #ffc7c7; font-size: 12px; color: #b5283d; font-weight: normal; line-height: 16px; }
+.pluginsNotify a:link { color: #b5283d; }
+
+/* Used in mashups */
+tr.rowDisabled td {opacity: 20; }
+
+/* Template URL custom field */
+.placeholder.hide {
+	display: none;
+}
+.placeholder {
+	position: absolute;
+	color: #B0B0B0;
+	left: 3px;
+	font-family: MS Shell Dlg;
+	font-size: 13px;
+	font-weight: normal;
+	top: 4px;
+}
+.customFieldTemplateUrl {
+	position:relative;
+	display: inline-block;
+}
+
+.templatedUrlNote {
+	background-color: #F8F7FA;
+	border: 1px solid #DFDEE3;
+	padding: 8px;
+	margin-bottom: 5px;
+	width: 390px;
+}
+
+/* "Add dependent entity" popup for "Relations" tab */
+.i-role-entity-selector {
+    position: relative;
+    margin: 12px 0;
+    padding: 0 10px;
+}
+
+.tau-userStorySelector__control .ui-menu {
+    top:0;
+    left:0;
+    position: relative;
+    width: 100%;
+    border-radius: 0;
+    box-shadow:none;
+}
+
+/* "Add dependent entity" popup for "Relations" tab end */
+
+/* Process Admin Delegate */
+
+.autocomplete-delegate {
+	border-radius: inherit !important;
+}
+
+.tau-settings-actions {
+    display: inline-flex;
+    align-items: center;
+
+    &__control {
+        flex-shrink: 0;
+
+        &:not(:last-child) {
+            margin-right: 4px;
+        }
+    }
+}
+
+/* Warning bubble */
+
+/* region tau-warning-bubble */
+.tau-warning-bubble {
+    h3,
+    p {
+        color: $gFontColorDefault;
+        font-family: $gFontFamily;
+    }
+}
+
+.table__entity-wrap{
+    display: inline-block;
+}

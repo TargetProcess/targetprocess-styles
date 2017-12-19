@@ -1,0 +1,64 @@
+@import url("../css.board/css/components.css");
+@import url("../css.board/css/entity-colors.css");
+@import url("../css.board/tau.board.quick.add.css");
+@import url("../css.board/tau.changelog.css");
+@import url("../css.board/tau.board.filterHelp.css");
+
+@import url("../css/layout/view-header.css");
+
+@import url("../css/modules/tags/ui-tags.css");
+@import url("../css/modules/tags/tag-view.css");
+@import url("../css/modules/custom-rules.css");
+@import url("../css/modules/property-control.css");
+@import url("../css/modules/tau-table.css");
+@import url("../css/modules/category-assignments.css");
+@import url("../css/modules/implementation-history.css");
+@import url("../css/modules/global-settings/request-types.css");
+
+@import url("../css.ui/ui.quick.add.css");
+@import url("../css.ui/tau.list.editable.css");
+@import url("../css.ui/ui.additionalInfo.css");
+@import url("../css.ui/ui.application.css");
+@import url("../css.ui/ui.assignments.css");
+@import url("../css.ui/ui.attachments.css");
+@import url("../css.ui/ui.attachmentsPreview.css");
+@import url("../css.ui/ui.audit.history.css");
+@import url("../css.ui/ui.base.css");
+@import url("../css.ui/ui.breadcrumbs.css");
+@import url("../css.ui/ui.collapsable.css");
+@import url("../css.ui/ui.collapsableHeader.css");
+@import url("../css.ui/ui.comments.css");
+@import url("../css.ui/ui.confirmation.css");
+@import url("../css.ui/ui.customField.css");
+
+@import url("../css/modules/global-settings/single-signon.css");
+
+@import url("../css/components/toggle-switch.css");
+
+@import url("../css.ui/ui.dateeditor.css");
+@import url("../css.ui/ui.description.css");
+@import url("../css.ui/ui.entityPanel.css");
+@import url("../css.ui/ui.finder.css");
+@import url("../css.ui/ui.finder.requesters.css");
+@import url("../css.ui/ui.form.css");
+@import url("../css.ui/ui.indicator.css");
+@import url("../css.ui/ui.jquery.Jcrop.css");
+@import url("../css.ui/ui.menu.css");
+@import url("../css.ui/ui.messages.css");
+@import url("../css.ui/ui.popup.css");
+@import url("../css.ui/ui.popup-flexible.css");
+@import url("../css.ui/ui.print.css");
+@import url("../css.ui/ui.property.css");
+@import url("../css.ui/ui.relations.css");
+@import url("../css.ui/ui.reports.css");
+@import url("../css.ui/ui.requestList.css");
+@import url("../css.ui/ui.richeditor.css");
+@import url("../css.ui/ui.states.css");
+@import url("../css.ui/ui.switcher.css");
+@import url("../css.ui/ui.tabs.css");
+@import url("../css.ui/ui.tauBubble.css");
+@import url("../css.ui/ui.testcase.view.css");
+@import url("../css.ui/ui.testCasesRunResults.css");
+@import url("../css.ui/ui.timeList.css");
+@import url("../css.ui/ui.totalEffort.css");
+@import url("../css.ui/ui.tauCoverView.css");

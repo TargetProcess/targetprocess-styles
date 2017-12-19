@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="200px" height="96px" viewBox="0 0 200 96" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.2 (15855) - http://www.bohemiancoding.com/sketch -->
+    <title>ideas</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.631372549   0 0 0 0 0.654901961   0 0 0 0 0.701960784  0 0 0 0.7 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Dashboards-Empty-5" sketch:type="MSArtboardGroup" transform="translate(-344.000000, -1454.000000)">
+            <rect id="Input-2" fill="#FFFFFF" filter="url(#filter-1)" sketch:type="MSShapeGroup" x="344" y="1454" width="200" height="203"></rect>
+            <rect id="Rectangle-907" fill="#F3F5F8" sketch:type="MSShapeGroup" x="362" y="1470" width="42" height="76" rx="2"></rect>
+            <path d="M403,1471 L403,1470 L523.993011,1470 C525.097951,1470 526,1470.89263 526,1471.99375 L526,1544.00625 C526,1545.10692 525.10144,1546 523.993011,1546 L403,1546 L403,1545 L522.993011,1545 C524.10144,1545 525,1544.10427 525,1543.00153 L525,1472.99847 C525,1471.89474 524.097951,1471 522.993011,1471 L403,1471 Z" id="Rectangle-907" fill="#F2F4F7" sketch:type="MSShapeGroup"></path>
+            <rect id="Rectangle-575" opacity="0.800000012" fill="#FFC814" sketch:type="MSShapeGroup" x="369" y="1478" width="22" height="2"></rect>
+            <rect id="Rectangle-907" fill="#78BEFF" sketch:type="MSShapeGroup" x="362" y="1493" width="42" height="8"></rect>
+            <rect id="Rectangle-578" opacity="0.800000012" fill="#FFC814" sketch:type="MSShapeGroup" x="369" y="1487" width="18" height="2"></rect>
+            <rect id="Rectangle-588" fill="#FFFFFF" sketch:type="MSShapeGroup" x="369" y="1496" width="24" height="2"></rect>
+            <rect id="Rectangle-590" opacity="0.800000012" fill="#FFC814" sketch:type="MSShapeGroup" x="369" y="1505" width="16" height="2"></rect>
+            <rect id="Rectangle-575" fill="#8F9CAC" sketch:type="MSShapeGroup" x="415" y="1478" width="52" height="4"></rect>
+            <rect id="Rectangle-516" opacity="0.8" fill="#B9C1CB" sketch:type="MSShapeGroup" x="415" y="1488" width="62" height="2"></rect>
+            <rect id="Rectangle-516" opacity="0.8" fill="#B9C1CB" sketch:type="MSShapeGroup" x="415" y="1492" width="62" height="2"></rect>
+            <rect id="Rectangle-516" opacity="0.8" fill="#B9C1CB" sketch:type="MSShapeGroup" x="415" y="1516" width="62" height="2"></rect>
+            <rect id="Rectangle-516" opacity="0.8" fill="#B9C1CB" sketch:type="MSShapeGroup" x="415" y="1520" width="22" height="2"></rect>
+            <rect id="Rectangle-516" opacity="0.8" fill="#B9C1CB" sketch:type="MSShapeGroup" x="487" y="1478" width="32" height="2"></rect>
+            <rect id="Rectangle-516" opacity="0.8" fill="#B9C1CB" sketch:type="MSShapeGroup" x="487" y="1488" width="8" height="2"></rect>
+            <rect id="Rectangle-516" opacity="0.799999952" fill="#A1A7B3" sketch:type="MSShapeGroup" x="500" y="1488" width="18" height="2"></rect>
+            <rect id="Rectangle-516" opacity="0.8" fill="#B9C1CB" sketch:type="MSShapeGroup" x="487" y="1493" width="11" height="2"></rect>
+            <rect id="Rectangle-516" opacity="0.799999952" fill="#A1A7B3" sketch:type="MSShapeGroup" x="500" y="1493" width="15" height="2"></rect>
+            <rect id="Rectangle-516" opacity="0.8" fill="#B9C1CB" sketch:type="MSShapeGroup" x="487" y="1498" width="10" height="2"></rect>
+            <rect id="Rectangle-516" opacity="0.799999952" fill="#A1A7B3" sketch:type="MSShapeGroup" x="500" y="1498" width="19" height="2"></rect>
+            <rect id="Rectangle-516" opacity="0.8" fill="#B9C1CB" sketch:type="MSShapeGroup" x="487" y="1503" width="11" height="2"></rect>
+            <rect id="Rectangle-516" opacity="0.799999952" fill="#A1A7B3" sketch:type="MSShapeGroup" x="500" y="1503" width="18" height="2"></rect>
+            <rect id="Rectangle-516" opacity="0.8" fill="#B9C1CB" sketch:type="MSShapeGroup" x="487" y="1508" width="10" height="2"></rect>
+            <rect id="Rectangle-516" opacity="0.799999952" fill="#A1A7B3" sketch:type="MSShapeGroup" x="500" y="1508" width="15" height="2"></rect>
+            <rect id="Rectangle-516" opacity="0.8" fill="#B9C1CB" sketch:type="MSShapeGroup" x="415" y="1496" width="62" height="2"></rect>
+            <rect id="Rectangle-516" opacity="0.8" fill="#B9C1CB" sketch:type="MSShapeGroup" x="415" y="1500" width="62" height="2"></rect>
+            <rect id="Rectangle-516" opacity="0.8" fill="#B9C1CB" sketch:type="MSShapeGroup" x="415" y="1504" width="62" height="2"></rect>
+            <rect id="Rectangle-516" opacity="0.8" fill="#B9C1CB" sketch:type="MSShapeGroup" x="415" y="1508" width="62" height="2"></rect>
+            <rect id="Rectangle-516" opacity="0.8" fill="#B9C1CB" sketch:type="MSShapeGroup" x="415" y="1512" width="62" height="2"></rect>
+            <rect id="Rectangle-516" opacity="0.8" fill="#74AC6A" sketch:type="MSShapeGroup" x="487" y="1478" width="12" height="2"></rect>
+        </g>
+    </g>
+</svg>

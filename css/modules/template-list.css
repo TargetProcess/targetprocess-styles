@@ -1,0 +1,268 @@
+/* use for vizydrop suggestion factory  */
+
+.template-list {
+    min-height: 197px;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+
+    &__nav {
+        position: absolute;
+        top: 0;
+        z-index: 2;
+        height: 100%;
+        width: 48px;
+        cursor: pointer;
+
+        &__icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            opacity: 0.5;
+            transition: opacity 0.2s ease, color 0.2s ease;
+        }
+
+        &:hover &__icon {
+            opacity: 1;
+        }
+
+        &--right {
+            right: -5px;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, $gBoardSettingsBackground 100%);
+        }
+
+        &--left {
+            left: 0;
+            background: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, $gBoardSettingsBackground 100%);
+            display: none;
+        }
+    }
+
+    &__wrap {
+        position: relative;
+    }
+
+    &__item {
+        width: 200px;
+        margin: 0 10px 0 4px;
+        padding: 0 0 10px 0;
+        display: inline-flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+        vertical-align: top;
+        background-color: $gBackgroundDefault;
+        height: 197px;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+        border-radius: $gBorderRadiusDefault;
+
+        &__close {
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            border: 3px solid transparent;
+            display: none;
+            z-index: 1;
+            opacity: 0.6;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        &:hover {
+            cursor: default;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        &:hover &__close,
+        &.tau-hover &__close {
+            display: block;
+        }
+
+        &.tau-checked {
+
+            &,
+            &:hover {
+                box-shadow: 0 0 0 2px rgba(0, 145, 236, 0.50), 0 1px 1px 0 rgba(0, 0, 0, 0.25);
+            }
+
+            .template-list__preview__control {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+
+        &--no-description .template-list__preview {
+            flex-grow: 1;
+        }
+    }
+
+    &__preview {
+        flex: 0 0 auto;
+        border: none;
+        box-shadow: none;
+        min-height: 110px;
+        width: 100%;
+        position: relative;
+        background-color: $gBackgroundDefault;
+        display: inline-block;
+
+        &__control {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-top: 5px;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s linear;
+        }
+    }
+
+    &__preview-image {
+
+        &,
+        > img {
+            width: 100%;
+            display: block;
+            max-height: 100%;
+        }
+    }
+
+    &__name,
+    &__desc {
+        padding: 0 15px;
+        margin: 1px 0 2px 0;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+
+    &__name {
+        flex: 0 0 auto;
+        margin-top: 3px;
+        line-height: 15px;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    &__desc {
+        flex: 0 0 auto;
+        max-height: 60px;
+        margin-top: 4px;
+        font-size: 12px;
+        line-height: 15px;
+        color: $gFontColorGray;
+        overflow: hidden;
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: $gBackgroundDefault;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 1) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+        }
+    }
+
+    &__empty-message {
+        text-align: center;
+        font-weight: 300;
+        color: $gFontColorLightGray;
+        font-size: 18px;
+    }
+
+    /* region .template-list--chart for chart settings */
+    &--chart {
+        padding: 5px 0;
+    }
+
+    &--chart &__item {
+
+        &:not(.tau-checked):hover {
+            box-shadow: 0 1px 2px 1px rgba(0, 145, 236, 0.30), 0 1px 1px 0 rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+        }
+    }
+
+    /* endregion */
+
+    /* region .template-list--dashboard for dashboard settings */
+
+    &--dashboard {
+        padding: 5px 0;
+    }
+
+    &--dashboard &__item {
+
+        &:hover {
+
+            .tau-add-template-button {
+                visibility: visible;
+            }
+        }
+
+        .tau-add-template-button {
+            visibility: hidden;
+        }
+    }
+
+    /* endregion */
+
+    /* region .template-list--board for board settings */
+
+    &--board {
+        min-height: 0;
+        overflow: visible;
+        white-space: normal;
+        margin-top: -10px;
+        padding-bottom: 18px;
+
+        .templates-container--filtered-none & ~ .template-list__empty-message {
+            margin: 50px 0;
+            display: block;
+
+            &:before {
+                content: attr(data-text-not-found);
+                display: block;
+            }
+        }
+
+        &.template-list:empty ~ .template-list__empty-message {
+            display: block;
+
+            &:before {
+                content: attr(data-text-noitems);
+                display: block;
+            }
+        }
+    }
+
+    &--board &__item {
+        margin-top: 15px;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:not(.tau-checked):hover,
+        &.tau-hover:not(.tau-checked) {
+            box-shadow: 0 1px 2px 1px rgba(0, 145, 236, 0.30), 0 1px 1px 0 rgba(0, 0, 0, 0.25);
+        }
+
+        &--filtered-false {
+            display: none;
+        }
+    }
+
+    &--board &__preview {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    /* endregion */
+}

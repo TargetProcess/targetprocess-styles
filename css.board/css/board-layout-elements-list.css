@@ -1,0 +1,74 @@
+/* region Board layout elements' list ----------------------------------------------------------------------------------------------------*/
+
+.board-layout-elements-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &__item {
+        position: relative;
+        font-size: 12px;
+        cursor: pointer;
+        padding: 6px 6px 6px 48px;
+        color: $gFontColorGray;
+
+
+        /* region icons for card-size */
+
+        &:before {
+            content: '';
+            position: absolute;
+            width: 28px;
+            height: 16px;
+            left: 10px;
+            top: 8px;
+        }
+
+        &--card-xs:before {
+            background: svg("card-xs", "#card-xs-fill[fill]: #fff;");
+        }
+
+        &--card-s:before {
+            background: svg("card-s", "#card-s-fill[fill]: #fff;");
+        }
+
+        &--card-m:before {
+            background: svg("card-m", "#card-m-fill[fill]: #fff;");
+        }
+
+        &--card-l:before {
+            background: svg("card-l", "#card-l-fill[fill]: #fff;");
+        }
+
+        &--card-xl:before {
+            background: svg("card-xl", "#card-xl-fill[fill]: #fff;");
+        }
+
+        &--list-view:before {
+            background: svg("card-list", "#card-list-fill[fill]: #fff;");
+        }
+
+        /* endregion */
+
+        &:hover:not(.tau-is-disabled):not(.tau-is-active){
+            background-color: $gBoardBackground;
+        }
+
+        &.tau-is-active {
+            background-color: color($gBoardBackground shade(3%));
+        }
+
+        &.tau-is-disabled {
+            opacity: $gControlDisabledOpacity;
+            cursor: default;
+        }
+
+        &__name {
+            font-size: 13px;
+            color: $gFontColorDefault;
+        }
+    }
+}
+
+
+/* endregion */

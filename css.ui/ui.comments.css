@@ -1,0 +1,249 @@
+.view-comments {
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .ui-label {
+            flex:1 1 auto;
+        }
+    }
+}
+
+.ui-all-comments {
+    overflow: hidden;
+    position: relative;
+    margin: 0 0 10px 0;
+}
+
+.ui-comments-control {
+    padding: 5px 0;
+
+    .notify {
+        padding: 10px 0;
+        height: 15px;
+        display: block;
+
+        div {
+            display: block;
+            float: left;
+            font-size: 11px;
+            padding: 0 5px 0 0;
+
+            &.title {
+                padding: 3px 3px 3px 0;
+                color: $gFontColorGray;
+            }
+        }
+
+        input[type="checkbox"] {
+            float: left;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            line-height: 14px;
+            margin: 4px 0 0 20px;
+            vertical-align: middle;
+            white-space: normal;
+            font-size: 11px;
+        }
+    }
+}
+
+.ui-comment-new {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+
+    .ui-comment-heading {
+        width: 40px;
+        display: table-cell;
+        vertical-align: top;
+    }
+
+    .ui-comment-editor-placeholder {
+        display: table-cell;
+        position: relative;
+        vertical-align: top;
+        @mixin word-wrap;
+    }
+
+    .cke_contents {
+        height: auto !important;
+        @mixin word-wrap;
+    }
+}
+
+.ui-comment {
+    margin: 0;
+    padding: 5px 0 0 0;
+
+    .ui-comment-heading {
+        height: 36px;
+        padding: 3px 5px;
+        display: flex;
+
+        .ui-comment-avatar {
+            display: inline-block;
+            height: 32px;
+            width: 32px;
+            border-radius: 2px;
+        }
+
+        .ui-comment-name {
+            display: inline-block;
+            padding: 1px 5px 0 13px;
+            font-weight: 600;
+            font-size: 13px;
+            line-height: 17px;
+            white-space: nowrap;
+        }
+
+        .ui-comment-ago {
+            display: inline-block;
+            padding-top: 1px;
+            color: $gFontColorLightGray;
+            font-size: 12px;
+
+            @mixin ellipsis;
+        }
+
+        .ui-comment-attribute-icon {
+            padding: 0 4px;
+        }
+    }
+
+    .ui-comment-menu {
+        padding: 0 15px 0 10px;
+        display: none;
+        transform: translateY(-2px);
+    }
+
+    .ui-comment-body:hover .ui-comment-menu {
+        display: block;
+    }
+
+    .cke_contents {
+        height: auto !important;
+    }
+
+    &__status-icon {
+        position: absolute;
+        top: 4px;
+        right: 0;
+    }
+}
+
+.ui-comments-control {
+
+    .ui-comment-text {
+        padding: 5px 5px 5px 49px;
+        margin-top: -22px;
+        font-size: 13px;
+        @mixin word-wrap;
+
+        p {
+            margin: 5px 0;
+        }
+    }
+
+    .ui-deleted-comment {
+        font-size: 11px;
+
+        p {
+            padding: 3px 0;
+        }
+    }
+
+    .ui-comments {
+        margin-left: 20px;
+    }
+}
+
+.ui-comment-body {
+    background: $gBackgroundDefault;
+    padding: 8px 10px 8px 5px;
+    border: 1px solid $gHighlightBlockBorderColor;
+    position: relative;
+    display: block;
+    border-radius: $gBorderRadiusDefault;
+
+    &.ui-commets-comment-owner {
+        background: $gHighlightBlockBackground;
+        padding: 8px 10px 8px 5px;
+        border-radius: $gBorderRadiusDefault;
+    }
+
+    &.tau-comments-requester {
+        background-color: color($gActionBackgroundSuccess a(70%));
+        border: 1px solid color($gActionBackgroundSuccess shade(7%));
+    }
+
+    &:after { /*Bug with ck-editor table alignment #127453*/
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+
+.ui-comment.updating > .ui-comment-body {
+    background-color: color($gActionBackgroundSelected a(50%));
+}
+
+.ui-comment.deleting > .ui-comment-body {
+    background-color: $gActionBackgroundDelete;
+}
+
+.ui-comment-reply {
+    margin-left: 25px;
+    position: relative;
+}
+
+.ui-comment__mention-text {
+    float: right;
+    font-size: 11px;
+    color: $gFontColorGray;
+    margin-top: 12px;
+}
+
+.markdown-editor + .ui-comment__mention-text {
+    visibility: hidden;
+}
+
+.markdown-editor.tau-hide + .ui-comment__mention-text {
+    visibility: visible;
+}
+
+.tau-notification-practices-settings, .tau-comment-attributes {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px 5px;
+    font-size: 11px;
+
+    &__title {
+        color: $gFontColorGray;
+    }
+
+    &__title,
+    &__item {
+        margin-right: 10px;
+    }
+
+}
+
+.tau-comment-attributes__tooltip {
+    margin-left: -5px;
+}
+
+span[data-mention] {
+    color: $gLinkColor;
+    background-color: color($gLinkColor a(10%));
+}
+
+.ui-comment-text span[data-mention] {
+    background-color: transparent;
+}

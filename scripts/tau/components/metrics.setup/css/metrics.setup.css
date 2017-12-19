@@ -1,0 +1,222 @@
+$font-size: 13px;
+$bg-define-context: #f6f6f6;
+$metrics-type-bg-hover: #fbfbfc;
+
+.metrics-setup {
+    font-family: $gFontFamily;
+    font-size: $font-size;
+    max-width: 700px;
+
+    &__title {
+        margin: 20px 0 10px 0;
+    }
+
+    &__add-control {
+        position: relative;
+        top: 1px;
+        display: inline-flex;
+        align-items: center;
+        vertical-align: top;
+        margin-left: 10px;
+    }
+
+    > p {
+        margin: 10px 0 0 0;
+    }
+
+    &__input {
+        margin-top: 5px;
+
+        &:not(:last-child) {
+             margin-bottom: 10px;
+         }
+    }
+
+    .tau-section-cards {
+        margin-top: -10px;
+    }
+
+    .tau-teams-projects-manager {
+        background: $bg-define-context;
+        position: relative;
+
+        .tau-managed-category {
+            padding: 0;
+
+            &__header {
+                padding: 15px 13px;
+                margin: 0;
+            }
+
+            .category-assignments {
+                padding: 5px 6px;
+                max-height: 200px;
+                overflow-y: auto;
+                width: initial;
+            }
+        }
+
+        .metrics-setup__search {
+            position: absolute;
+            right: 10px;
+            top: 12px;
+        }
+    }
+
+    .metric-setup__affected-entities {
+        margin-top: 10px;
+    }
+
+    &__footer {
+        display: flex;
+        align-items: center;
+        margin: 40px 0;
+
+        &__control {
+            flex-shrink: 0;
+
+            &:not(:last-child) {
+                margin-right: 4px;
+            }
+        }
+    }
+
+    &__details {
+        margin-right: 40px;
+    }
+
+    &__description {
+        margin-right: 40px;
+        color: $gFontColorGray;
+    }
+
+    &__custom-settings {
+
+        .metrics-setup__textarea {
+            height: 250px;
+        }
+
+        &__recalculations-warning {
+            margin-top: 20px;
+        }
+    }
+
+    &__list {
+
+        &__item {
+            position: relative;
+
+            &__title {
+                margin: 20px 0 5px 0;
+            }
+
+            > p {
+                margin-top: 5px;
+                margin-bottom: 0;
+            }
+
+            &__control {
+                float: right;
+            }
+
+            &__status {
+                float: right;
+                margin: 1px 10px 0 0;
+                padding: 2px 4px;
+                font-size: 11px;
+                background: #d8d8d8;
+                border: 1px solid #888;
+            }
+        }
+    }
+
+    &__text {
+        &:not(:last-child) {
+            margin-right: 5px;
+        }
+    }
+
+    &__other-metrics-info {
+        margin: 20px 0 0 0;
+        font-size: 11px;
+        background: #d8d8d8;
+        border: 1px solid #888;
+        padding: 2px 4px;
+        overflow: auto;
+        max-height: 300px;
+
+        &__toggle {
+            margin-left: 5px;
+        }
+
+        &__content {
+            margin: 10px 0 0 0;
+            white-space: pre;
+        }
+    }
+
+    &__preview-changes {
+        margin-top: 25px;
+
+        .lookup-section {
+            min-width: 500px;
+        }
+    }
+
+    &__preview-changes__content {
+        margin-top: 10px;
+    }
+
+    &__preview-changes__collapser {
+        cursor: pointer;
+        font-weight: 600;
+        text-decoration: underline; /* TODO: use something it better */
+    }
+
+    &__preview-changes__finder-container {
+        margin-top: 10px;
+    }
+}
+
+.metrics-type {
+    font-size: 13px;
+    max-width: 250px;
+
+    &__item {
+        padding: 10px 15px;
+
+        &:first-child {
+            margin-top: 0
+        }
+        &:hover {
+            background: $metrics-type-bg-hover;
+        }
+        > a {
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+
+    &__title,
+    &__description {
+        display: block;
+    }
+    &__title {
+        font-weight: 600;
+    }
+
+    &__description {
+        color: $gFontColorGray;
+    }
+
+}
+
+pre.metrics-setup__list__item__formula {
+    white-space: pre-wrap;
+    margin: 5px 0;
+
+    .code-example {
+        padding: 5px;
+        overflow: auto;
+    }
+}

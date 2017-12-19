@@ -1,0 +1,206 @@
+.single-sign-on {
+    max-width: 700px;
+    font-family: $gFontFamily;
+    font-size: $gFontSize;
+
+    &__description {
+        margin: 0 0 20px 0;
+        line-height: 1.5;
+
+        p {
+            margin-bottom: 18px;
+            margin-top: 0;
+        }
+
+        ul {
+            padding: 0 0 0 24px;
+            margin: 0 0 18px 0;
+            list-style: none;
+        }
+
+        li {
+            margin-bottom: 5px;
+            display: inline-block;
+            vertical-align: top;
+            width: 40%;
+            margin-right: 10%;
+        }
+    }
+
+    &__information {
+        border-radius: $gBorderRadiusDefault;
+        margin: 0 0 30px 0;
+        padding: 14px 24px;
+        background-color: $gActionBackgroundSystem;
+
+        &__header {
+            margin-bottom: 9px;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: $gFontColorGray;
+        }
+
+        &__description {
+            margin-bottom: 9px;
+        }
+    }
+
+    &__tp-information {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        &__item {
+            display: flex;
+            align-items: center;
+        }
+
+        &__item:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__tp-information-name {
+        width: 170px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-weight: 600;
+        flex-shrink: 0;
+        padding-right: 10px;
+    }
+
+    &__tp-information-wrap {
+        width: calc(100% - 210px);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    &__tp-information-value {
+        width: 100%;
+        border: 0;
+        background-color: transparent;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    &__settings {
+        padding: 0;
+        margin: 0 0 28px 0;
+        list-style: none;
+
+        &__item:not(:last-child) {
+            margin-bottom: 18px;
+        }
+
+        &__item {
+            &__icon {
+                display: inline-block;
+                margin-left: 4px;
+                position: relative;
+                top: 3px;
+            }
+        }
+
+        &__parameters {
+            padding: 0;
+            margin: 18px 0 0 24px;
+            list-style: none;
+
+            &__item {
+                display: flex;
+
+                &:not(:last-child) {
+                    margin-bottom: 16px;
+                }
+            }
+
+            &__label {
+                flex-shrink: 0;
+                display: inline-block;
+                width: 88px;
+                padding: 7px 5px 0 0;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                font-weight: 600;
+            }
+        }
+
+        &__standard-access {
+            padding: 18px 0 0 24px;
+
+            &__title {
+                padding-bottom:18px;
+                font-weight: 600;
+            }
+        }
+
+        &__checkbox {
+            display: inline-flex;
+            align-items: center;
+        }
+    }
+
+    .tau-invite-widget{
+
+        .tau-user__name {
+            font-size: 12px;
+        }
+
+        .tau-user-invited {
+            background-color: $gActionBackgroundDelete;
+
+            .tau-user__name {
+                text-decoration: line-through;
+            }
+        }
+    }
+
+    &__input {
+        height: 32px;
+    }
+
+    .single-sign-on__textarea {
+        height: 110px;
+        margin-top: 2px;
+    }
+
+    .tau-primary {
+        min-width: 90px;
+    }
+
+    &__controls {
+        display: flex;
+        align-items: center;
+    }
+
+    &__state {
+        display: flex;
+        align-items: center;
+
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 20px;
+        margin-left: 20px;
+
+        &--saved:before {
+            content: '';
+            display: block;
+            height: 16px;
+            width: 16px;
+            margin-right: 4px;
+            background: svg("action-completed", "[fill]: $gMessageColorSuccess");
+        }
+
+        &--saving-failed {
+            color: $gFontColorAttention;
+        }
+    }
+
+}
+

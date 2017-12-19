@@ -1,0 +1,28 @@
+.visual-search {
+    margin: 5px;
+}
+
+.ui-finder-placeHolder {
+    font-size: 12px;
+}
+
+.ui-finder-header {
+    border-bottom: 1px solid $gHighlightBlockBorderColor;
+    padding-top: 2px;
+}
+
+.tau-no-results, .tau-resultList-load-more {
+    padding: 10px;
+    color: $gFontColorLightGray;
+}
+
+.tau-no-results {
+    display: none;
+}
+
+.tau-result-list-row:hover,
+.tau-result-list-row_hover {
+    cursor: pointer;
+    text-decoration: none;
+    background-color: $gActionBackgroundHover;
+}

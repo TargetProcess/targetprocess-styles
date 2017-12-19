@@ -1,0 +1,478 @@
+.tau-team-icon {
+    display: block;
+    width: $gIconsSizeDefault;
+    height: $gIconsSizeDefault;
+    position: relative;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    &--bordered {
+        box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+    }
+
+    &--small {
+        width: 12px;
+        height: 12px;
+    }
+
+    .tau-board-unit & {
+        vertical-align: bottom;
+        line-height: 0;
+        display: inline-block;
+    }
+
+    &--large {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+
+/*List of team icons*/
+.tau-team-icon--apple {
+    background-image: svg("team-icon-apple", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-apple", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--windows {
+    background-image: svg("team-icon-windows", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-windows", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--linux {
+    background-image: svg("team-icon-linux", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-linux", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--chrome {
+    background-image: svg("team-icon-chrome", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-chrome", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--firefox {
+    background-image: svg("team-icon-firefox", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-firefox", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--internet_explorer {
+    background-image: svg("team-icon-internet_explorer", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-internet_explorer", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--apache {
+    background-image: svg("team-icon-apache", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-apache", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--wrench {
+    background-image: svg("team-icon-wrench", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-wrench", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--binoculars {
+    background-image: svg("team-icon-binoculars", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-binoculars", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--camcorder {
+    background-image: svg("team-icon-camcorder", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-camcorder", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--camera {
+    background-image: svg("team-icon-camera", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-camera", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--money {
+    background-image: svg("team-icon-money", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-money", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--gamepad {
+    background-image: svg("team-icon-gamepad", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-gamepad", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--traveler {
+    background-image: svg("team-icon-traveler", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-traveler", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--finish {
+    background-image: svg("team-icon-finish", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-finish", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--achievement {
+    background-image: svg("team-icon-achievement", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-achievement", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--help {
+    background-image: svg("team-icon-help", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-help", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--call_center {
+    background-image: svg("team-icon-call_center", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-call_center", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--stethoscope {
+    background-image: svg("team-icon-stethoscope", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-stethoscope", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--wand {
+    background-image: svg("team-icon-wand", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-wand", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--horn {
+    background-image: svg("team-icon-horn", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-horn", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--bug {
+    background-image: svg("team-icon-bug", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-bug", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--skype {
+    background-image: svg("team-icon-skype", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-skype", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--phone {
+    background-image: svg("team-icon-phone", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-phone", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--pulse {
+    background-image: svg("team-icon-pulse", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-pulse", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--thermometer {
+    background-image: svg("team-icon-thermometer", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-thermometer", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--book {
+    background-image: svg("team-icon-book", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-book", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--food {
+    background-image: svg("team-icon-food", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-food", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--ball {
+    background-image: svg("team-icon-ball", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-ball", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--gun {
+    background-image: svg("team-icon-gun", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-gun", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--rabbit {
+    background-image: svg("team-icon-rabbit", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-rabbit", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--airplane {
+    background-image: svg("team-icon-airplane", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-airplane", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--truck {
+    background-image: svg("team-icon-truck", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-truck", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--helicopter {
+    background-image: svg("team-icon-helicopter", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-helicopter", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--spades {
+    background-image: svg("team-icon-spades", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-spades", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--laugh {
+    background-image: svg("team-icon-laugh", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-laugh", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--sunglasses {
+    background-image: svg("team-icon-sunglasses", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-sunglasses", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--angry {
+    background-image: svg("team-icon-angry", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-angry", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--skull {
+    background-image: svg("team-icon-skull", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-skull", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--doctor {
+    background-image: svg("team-icon-doctor", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-doctor", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--shamrock {
+    background-image: svg("team-icon-shamrock", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-shamrock", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--sun {
+    background-image: svg("team-icon-sun", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-sun", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--umbrella {
+    background-image: svg("team-icon-umbrella", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-umbrella", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--knight {
+    background-image: svg("team-icon-knight", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-knight", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--fish {
+    background-image: svg("team-icon-fish", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-fish", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--ufo {
+    background-image: svg("team-icon-ufo", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-ufo", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--smile {
+    background-image: svg("team-icon-smile", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-smile", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--batman {
+    background-image: svg("team-icon-batman", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-batman", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--superman {
+    background-image: svg("team-icon-superman", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-superman", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--captain_america {
+    background-image: svg("team-icon-captain_america", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-captain_america", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--flash {
+    background-image: svg("team-icon-flash", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-flash", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--shield {
+    background-image: svg("team-icon-shield", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-shield", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--star {
+    background-image: svg("team-icon-star", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-star", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+.tau-team-icon--android {
+    background-image: svg("team-icon-android", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team-icon-android", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+/*end region*/
+
+
+/*Threeheads*/
+.tau-team-icon--threeheads {
+    background-image: svg("team", "[fill]: $gIconsTeamColor");
+
+    &_white {
+        background-image: svg("team", "[fill]: $gIconsTeamColorRevert");
+    }
+}
+
+/*end region*/
+

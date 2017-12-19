@@ -1,0 +1,97 @@
+$dashboardSettingsLayoutItemBorderRadius: $gBorderRadiusDefault;
+
+$dashboardSettingsLayoutItemBoxShadow: #000;
+$dashboardSettingsLayoutItemBackground: #fff;
+$dashboardSettingsLayoutItemBackgroundActive: $gBoardBackground;
+
+$dashboardSettingsLayoutSkeletonBorderRadius: $gBorderRadiusDefault;
+$dashboardSettingsLayoutSkeletonBackground: #66A5FF;
+$dashboardSettingsLayoutSkeletonActiveBackground: #a1a7b3;
+
+.dashboard-settings-layout {
+    display: flex;
+    width: 560px;
+    padding: 0;
+    list-style: none;
+
+    &__item {
+        position: relative;
+        box-sizing: border-box;
+        flex: 1 1;
+        min-height: 76px;
+        max-height: 76px;
+        padding: 0 10px;
+        overflow: hidden;
+
+        cursor: pointer;
+
+        box-shadow: 0 1px 2px 0 color($dashboardSettingsLayoutItemBoxShadow a(30%));
+        background-color: $dashboardSettingsLayoutItemBackground;
+
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 29px;
+        color: $gFontColorGray;
+        text-align: center;
+
+        &:hover {
+            color: $gFontColorDefault;
+
+            .dashboard-settings-layout__skeleton__item {
+                background: color($dashboardSettingsLayoutSkeletonBackground a(40%));
+            }
+        }
+
+        &.tau-active {
+            color: $gFontColorDefault;
+            font-weight: 600;
+            box-shadow: inset 1px 1px 1px 0 color($dashboardSettingsLayoutItemBoxShadow a(15%));
+            background-color: $dashboardSettingsLayoutItemBackgroundActive;
+
+            .dashboard-settings-layout__skeleton__item {
+                background: $dashboardSettingsLayoutSkeletonActiveBackground;
+            }
+        }
+
+        &:first-child {
+            border-top-left-radius: $dashboardSettingsLayoutItemBorderRadius;
+            border-bottom-left-radius: $dashboardSettingsLayoutItemBorderRadius;
+        }
+
+        &:last-child {
+            border-top-right-radius: $dashboardSettingsLayoutItemBorderRadius;
+            border-bottom-right-radius: $dashboardSettingsLayoutItemBorderRadius;
+        }
+    }
+
+    &__skeleton {
+        position: relative;
+        display: flex;
+        width: 55%;
+        max-width: 40px;
+        height: 24px;
+        margin: 20px auto 0;
+        padding: 0;
+        list-style: none;
+
+        &__item {
+            flex: 1 1 auto;
+            background: color($dashboardSettingsLayoutSkeletonBackground a(30%));
+
+            &:not(:last-child) {
+                margin-right: 2px;
+            }
+
+            &:first-child {
+                border-top-left-radius: $dashboardSettingsLayoutSkeletonBorderRadius;
+                border-bottom-left-radius: $dashboardSettingsLayoutSkeletonBorderRadius;
+            }
+
+            &:last-child {
+                border-top-right-radius: $dashboardSettingsLayoutSkeletonBorderRadius;
+                border-bottom-right-radius: $dashboardSettingsLayoutSkeletonBorderRadius;
+            }
+        }
+    }
+}
+

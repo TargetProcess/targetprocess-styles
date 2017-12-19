@@ -1,0 +1,41 @@
+.tau-loader {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: $gOverlayZIndex;
+    background-color: rgba(255, 255, 255, 0.8);
+    cursor: wait;
+
+    &:after {
+        content: '';
+        display: block;
+        width: $gIconsSizeDefault;
+        height: $gIconsSizeDefault;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: calc(-$gIconsSizeDefault / 2);
+        margin-left: calc(-$gIconsSizeDefault / 2);
+        background: svg("loader.svg");
+        background-size: contain;
+        animation: tau-list-collapser-loading 0.8s steps(12, end) infinite;
+    }
+
+    > div,
+    > span {
+        visibility: hidden;
+    }
+
+    &--gray {
+        background-color: color($gHighlightBlockBackground a(80%));
+    }
+}
+
+.tau-loader-container {
+    position: relative;
+    min-height: calc($gIconsSizeDefault + 10);
+    min-width: calc($gIconsSizeDefault + 10);
+}

@@ -1,0 +1,101 @@
+.ui-collapsible {
+    padding: 10px 0 0 0;
+
+    .ui-collapsible-header {
+        position: relative;
+        height: 20px;
+        padding: 9px 10px 7px;
+        cursor: pointer;
+        border-radius: $gBorderRadiusDefault;
+        background-color: $gHighlightBlockBackground;
+        border: 1px solid $gHighlightBlockBorderColor;
+
+        &:after {
+            position: absolute;
+            top: 10px;
+            right: 6px;
+
+            cursor: pointer;
+            margin: 0 2px;
+            border: none;
+            padding: 0;
+            width: 16px;
+            height: 16px;
+            content: '';
+
+            display: inline-block;
+            vertical-align: middle;
+            background-image: svg("t-direction");
+            opacity: 0.7;
+        }
+
+        &.expanded {
+            border-radius: $gBorderRadiusDefault $gBorderRadiusDefault 0 0;
+
+            &:hover:after {
+                opacity: 1;
+            }
+        }
+
+        &.collapsed {
+            border-radius: $gBorderRadiusDefault;
+
+            &:after {
+                background-image: svg("b-direction");
+                opacity: 0.7;
+            }
+
+            &:hover:after {
+                opacity: 1;
+            }
+        }
+
+        &--disabled {
+
+            &,
+            &.expanded {
+                border-radius: $gBorderRadiusDefault;
+            }
+
+            &:after {
+                display: none;
+            }
+        }
+    }
+
+    &__body {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        border-radius: $gBorderRadiusDefault;
+        padding: 10px;
+
+        &.ui-collapsible__body--without-header {
+            border: 1px solid $gHighlightBlockBorderColor;
+        }
+    }
+
+    > .tau-container {
+        margin: 0;
+        padding: 0;
+        border: 1px solid $gHighlightBlockBorderColor;
+        border-top-width: 0;
+        overflow-x: hidden;
+        border-radius: 0 0 $gBorderRadiusDefault $gBorderRadiusDefault;
+
+        &--loader{
+            position: relative;
+        }
+    }
+
+    &.active .ui-collapsible__body {
+        background-color: $gActionBackgroundSystem;
+        border-color: color($gActionBackgroundSystem shade(5%));
+    }
+
+}
+
+.ui-collapsible__body > .testplanrun-run__control {
+    float: left;
+}

@@ -1,0 +1,51 @@
+.tau-entity-full-name {
+    color: $gFontColorDefault;
+    white-space: normal;
+    font-size: 13px;
+    line-height: 16px;
+
+    &--small {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    &--ellipsis {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        /* region should be deleted */
+        .tau-board-unit & {
+            margin-top: 2px;
+            margin-bottom: 2px;
+
+            .tau-ui-size-min .tau-card-v2_type_epic &,
+            .tau-ui-size-min .tau-card-v2_type_feature &,
+            .tau-ui-size-min .tau-card-v2_type_userstory &,
+            .tau-ui-size-min .tau-card-v2_type_task &,
+            .tau-ui-size-min .tau-card-v2_type_bug &,
+            .tau-ui-size-min .tau-card-v2_type_testcase &,
+            .tau-ui-size-min .tau-card-v2_type_testplan &,
+            .tau-ui-size-min .tau-card-v2_type_testplanrun &,
+            .tau-ui-size-min .tau-card-v2_type_impediment &,
+            .tau-ui-size-min .tau-card-v2_type_build & {
+                color: $gFontColorWhite;
+            }
+
+            .tau-ui-size-min & {
+                line-height: 16px;
+                font-size: 11px;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+
+            .tau-ui-size-min .tau-card-planner .tau-card-v2 &,
+            .tau-ui-size-min .tau-card-v2.tau-selected &,
+            .tau-ui-size-min .tau-card-v2.tau-card-v2_final-state & {
+                color: $gFontColorDefault;
+            }
+
+        }
+        /* endregion should be deleted */
+    }
+}

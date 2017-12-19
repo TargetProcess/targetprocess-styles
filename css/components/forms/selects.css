@@ -1,0 +1,113 @@
+$selectWidthDefault: $gControlWidthDefault;
+$selectWidthSmall: $gControlWidthSmall;
+$selectWidthLarge: $gControlWidthLarge;
+$selectWidthXLarge: $gControlWidthXLarge;
+
+$selectHeightDefault: $gControlHeightDefault;
+$selectHeightLarge: 26px;
+$selectHeightXLarge: 28px;
+
+$selectFontSizeDefault: 13px;
+
+$selectColorDefault: $gFontColorDefault;
+$selectColorDisabled: $gFontColorLightGray;
+$selectBorderColorDefault: $gControlBorderColorDefault;
+$selectBoxShadowFocusDefault: $gControlBoxShadowFocusDefault;
+$selectBorderColorFocusDefault: $gControlBorderColorFocusDefault;
+$selectBackgroundColorDefault: $gBackgroundDefault;
+$selectBackgroundColorDisabled: rgb(229, 233, 238);
+
+$selectBorderRadiusDefault: $gControlBorderRadiusDefault;
+
+$selectBorderColorError: $gMessageColorError;
+$selectBoxShadowFocusError: $gControlBoxShadowFocusError;
+
+.tau-select {
+    display: inline-block;
+    position: relative;
+
+    border: 1px solid $selectBorderColorDefault;
+    border-radius: $selectBorderRadiusDefault;
+    width: $selectWidthDefault;
+    height: $selectHeightDefault;
+    padding: 2px;
+
+    font-size: $selectFontSizeDefault;
+    color: $selectColorDefault;
+    background-color: $selectBackgroundColorDefault;
+
+    &:focus {
+        box-shadow: $selectBoxShadowFocusDefault;
+        border-color: $selectBorderColorFocusDefault;
+        outline: none;
+    }
+
+    &[disabled] {
+        opacity: 0.3;
+        cursor: default;
+    }
+
+    &[multiple] {
+        height: auto;
+    }
+
+    option[disabled] {
+        color: $selectColorDisabled;
+    }
+
+    .i-browser_engine_ie & option[disabled] {
+        background-color: $selectBackgroundColorDisabled;
+    }
+
+    /* region Scale for .tau-select --------------------------------------------------*/
+
+    &--width-small {
+        width: $selectWidthSmall;
+    }
+
+    &--width-large {
+        width: $selectWidthLarge;
+    }
+
+    &--width-x-large {
+        width: $selectWidthXLarge;
+    }
+
+    &--wide {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* endregion */
+
+    /* region Height for .tau-select --------------------------------------------------*/
+
+    &--height-large {
+        height: $selectHeightLarge;
+    }
+
+    &--height-x-large {
+        &:not([multiple]) {
+            height: $selectHeightXLarge;
+        }
+    }
+
+    /* endregion */
+
+    &.tau-error {
+        border-color: $selectBorderColorError;
+
+        &:focus {
+            box-shadow: $selectBoxShadowFocusError;
+        }
+    }
+
+    optgroup {
+        padding: 0 10px;
+        font-style: normal;
+
+        option {
+            padding: 0 10px;
+        }
+    }
+}

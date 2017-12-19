@@ -1,0 +1,204 @@
+$splitLayoutControlPadding: 30px;
+$splitLayoutControlBottomPadding: 20px;
+
+.split-layout {
+    overflow: auto;
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__title {
+        position: relative;
+        height: 0;
+        flex: 0 0 auto;
+        box-sizing: border-box;
+
+        &__container-fixed {
+            position: absolute;
+            box-sizing: border-box;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: calc(100% - 18px);
+            background: color($gBackgroundDefault a(90%));
+            padding: 20px 30px 20px 30px;
+
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 100%;
+                height: 5px;
+                background: linear-gradient(to bottom, color($gBackgroundDefault a(100%)) 0%, color($gBackgroundDefault a(0%)) 100%);
+
+            }
+        }
+
+        &__btn-wrap {
+            flex: 0 0 auto;
+        }
+    }
+
+    &__body {
+        flex: 1 1 auto;
+        overflow: auto;
+        padding: 50px 0 0 0;
+    }
+
+    &__table {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        margin-bottom: 30px;
+
+        &__row {
+            display: table-row;
+            transition: background 0.1s ease-in-out;
+            background: transparent;
+
+            &--highlightable:hover {
+                background: $gActionBackgroundHover;
+            }
+        }
+
+        &__cell {
+            display: table-cell;
+            width: 50%;
+            padding: 0 $splitLayoutControlPadding 0 calc($splitLayoutControlPadding / 2);
+
+            &:first-child {
+                padding: 0 calc($splitLayoutControlPadding / 2) 0 $splitLayoutControlPadding;
+            }
+        }
+
+        &__title {
+            padding: 30px 0 5px 0;
+        }
+    }
+
+    &__entity-collections-controls {
+        padding-top: 10px;
+    }
+
+    &__control {
+        position: relative;
+        overflow: hidden;
+        margin: 0 -$splitLayoutControlPadding;
+        padding: 10px $splitLayoutControlPadding $splitLayoutControlBottomPadding $splitLayoutControlPadding;
+
+        &.tau-active {
+            background: $gActionBackgroundHover;
+        }
+
+        .markdown-editor {
+            min-height: 280px;
+
+            & > textarea.markdown-editor__textarea {
+                min-height: 280px;
+            }
+        }
+
+        &__error {
+            position: absolute;
+            bottom: calc($splitLayoutControlBottomPadding - 1.3em);
+            left: $splitLayoutControlPadding;
+            max-width: calc(100% - $splitLayoutControlPadding * 2);
+        }
+    }
+
+    &__property-entityName {
+        margin-top: 10px;
+    }
+
+    &__property-group-field {
+
+        &__item {
+            flex: 1 0 auto;
+            position: relative;
+            padding-bottom: 10px;
+            margin-right: 10px;
+
+            .split-layout__control__error {
+                right: 0;
+                width: auto;
+                left: calc(50% + 10px);
+                bottom: auto;
+                top: 0;
+                height: 100%;
+                line-height: 22px;
+            }
+
+            &:last-child {
+                padding-bottom: 0;
+            }
+
+            &__label {
+                font-size: 12px;
+                margin: 0 0 3px 0;
+            }
+
+        }
+    }
+
+    &__property-wrapper {
+        background: $gBackgroundDefault;
+        border-radius: $gBorderRadiusDefault;
+        min-height: $gControlHeightDefault;
+        box-sizing: border-box;
+        min-width: calc(50% - 10px);
+        max-width: 100%;
+        display: inline-block;
+        cursor: pointer;
+
+        &:focus,
+        &.tau-active {
+            box-shadow: $gControlBoxShadowFocusDefault;
+        }
+
+        .tau-linkentity {
+            color: inherit;
+        }
+
+        .property-control {
+            outline: none;
+            border: 1px solid $gControlBorderColorDefault;
+
+            &:focus {
+                box-shadow: $gControlBoxShadowFocusDefault;
+                border: solid 1px $gControlBorderColorFocusDefault;
+            }
+        }
+
+        &--error {
+            border-color: $gMessageColorError;
+
+            &:focus {
+                box-shadow: $gControlBoxShadowFocusError;
+            }
+
+            .property-control:focus {
+                box-shadow: $gControlBoxShadowFocusError;
+            }
+        }
+
+    }
+
+    &__btn-wrap {
+        text-align: right;
+        margin-top: 20px;
+        padding: 0 $splitLayoutControlPadding;
+    }
+
+    .field-container__label {
+        font-size: 15px;
+    }
+}

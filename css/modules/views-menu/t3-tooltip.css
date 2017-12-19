@@ -1,0 +1,32 @@
+.t3-view-menu-tooltip {
+
+    .tau-bubble-board__inner {
+        border-radius: 0 $gBorderRadiusDefault $gBorderRadiusDefault 0;
+        background-color: $gBoardPanelBackgroundLighterHover;
+        margin: 0;
+        padding: 6px 12px 7px 10px;
+        opacity: 1;
+    }
+
+    &.t3-active {
+        .tau-bubble-board__inner {
+            background-color: $gBoardPanelBackgroundDarker;
+        }
+    }
+
+    &.t3-hidden {
+        .tau-bubble-board__inner span {
+            opacity: 0.3;
+        }
+    }
+
+    &.i-state_visible {
+        visibility: visible;
+        animation-fill-mode: none;
+        animation-duration: 0s;
+    }
+
+    &.i-state_visible.i-orientation_left {
+        animation-name: none;
+    }
+}

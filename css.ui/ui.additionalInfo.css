@@ -1,0 +1,389 @@
+.additional-info-table {
+    border-spacing: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+
+    /* hack for 1st column width if the 1st row cell is spanned for 2 columns */
+    & > tbody::before {
+        content: '';
+        display: table-cell;
+        width: 130px; /* equal to width + paddings of .ui-additionalinfo__label */
+    }
+}
+
+.ui-additionalinfo__label {
+    width: 110px;
+    color: $gFontColorGray;
+    vertical-align: middle;
+    padding: 6px 10px;
+    line-height: 18px;
+
+    .ui-label-container {
+        display: flex;
+        align-items: center;
+
+        &__help {
+            margin-left: 4px;
+            flex: 0 0 auto;
+        }
+    }
+
+    &--italic {
+        font-style: italic;
+    }
+
+    &--separator {
+        position: relative;
+        padding: 8px 0;
+
+        &:before {
+            position: absolute;
+            top: 50%;
+            left: 7px;
+            right: 7px;
+
+            content: '';
+            height: 1px;
+            background: $gHighlightBlockBorderColor;
+        }
+    }
+
+}
+
+.ui-additionalinfo__value {
+    .property,
+    .property-text {
+        overflow: hidden;
+        max-width: 100%;
+        @mixin word-wrap;
+    }
+}
+
+.ui-additionalinfo__value .property {
+    overflow: visible;
+    min-height: $gIconsSizeDefault;
+}
+
+.ui-additionalinfo__value .tau-editable {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+/* padding should be the same as of .ui_custom_field_value_container in ui.customField.css */
+.ui-additionalinfo__value {
+    padding: 6px 20px 6px 10px;
+
+    .tau-in-text--cf-edit {
+        width: 100%;
+        height: auto;
+        min-height: 18px;
+        padding: 4px;
+        font-weight: 400;
+    }
+}
+
+.ui-additionalinfo_editable_true.ui-additionalinfo_empty_true .ui-additionalinfo__value {
+    text-decoration: none;
+}
+
+.ui-additionalinfo_editable_true {
+
+    &:hover .tau-property_empty_true.tau-property_editable_true,
+    &.ui-additionalinfo_empty_true:hover .ui-additionalinfo__value {
+
+        &:before {
+            visibility: visible;
+        }
+    }
+
+    .tau-property_empty_true.tau-property_editable_true,
+    &.ui-additionalinfo_empty_true .ui-additionalinfo__value {
+
+        &:before {
+            content: attr(data-placeholder);
+            font-weight: normal;
+            cursor: pointer;
+            color: $gFontColorGray;
+            visibility: hidden;
+        }
+
+    }
+
+    .tau-property_empty_true.ui-validationerror {
+        padding: 4px 22px 4px 4px;
+        margin-left: -5px;
+    }
+
+    > .ui-additionalinfo__label {
+        cursor: pointer;
+    }
+}
+
+.ui-additionalinfo__value span.attr-item {
+    margin-left: 1px;
+    min-height: 15px;
+}
+
+.ui-additionalinfo__value .owner-avatar  {
+    margin-left: -3px;
+}
+
+.ui-additionalinfo__value .user-avatar-container {
+    padding-left: 0;
+}
+
+.ui-additionalinfo__value table.user {
+    border-bottom: 0;
+    cursor: inherit;
+}
+
+.ui-additionalinfo__value .user-name {
+    text-decoration: none;
+}
+
+.ui-additionalinfo_editable_true .ui-additionalinfo__label.updating,
+.ui-additionalinfo_editable_true .ui-additionalinfo__value.updating {
+    background: $gActionBackgroundSystem;
+}
+
+.ui-additionalinfo_editable_true .ui-additionalinfo__label.updating.before-animate,
+.ui-additionalinfo_editable_true .ui-additionalinfo__value.updating.before-animate {
+    background: $gBackgroundDefault;
+}
+
+.ui-additionalinfo_editable_true .ui-additionalinfo__value.updating {
+    background-color: $gActionBackgroundSystem;
+    background-image: svg("loader.svg");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    cursor: wait;
+}
+
+.ui-additionalinfo__value .point {
+    padding-left: 3px;
+}
+
+.ui-additionalinfo_editable_true:hover .ui-additionalinfo__label,
+.ui-additionalinfo_editable_true:hover .ui-additionalinfo__value {
+    background-color: $gActionBackgroundHover;
+}
+
+.ui-additionalinfo_editable_true:hover .ui-additionalinfo__value {
+    background-image: svg("pencil", "[fill]: $gFontColorDefault");
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    background-size: 16px 16px;
+}
+
+.ui-additionalinfo_editable_true .before-animate.ui-additionalinfo__label,
+.ui-additionalinfo_editable_true .before-animate.ui-additionalinfo__value {
+    background-color: $gBackgroundDefault;
+}
+
+.ui-additionalinfo__value {
+    .tau-property-icon__value,
+    .tau-property-color__value {
+        overflow: visible;
+        border-bottom: none;
+    }
+
+    .tau-property__icon {
+        margin-left: 3px;
+    }
+
+    .tau-property__icon--multiple-value {
+        top: -1px;
+        margin-right: 5px;
+        margin-left: 0;
+    }
+
+    .property .tau-property__icon--flex {
+        display: flex;
+        align-items: center;
+        position: relative;
+        top: -1px;
+    }
+}
+
+/* glue end */
+
+.ui-additionalinfo__value .green {
+    color: green;
+}
+
+.ui-additionalinfo__value .red {
+    color: red;
+}
+
+.ui-additionalinfo__value .property-text.editableText {
+    display: block;
+    float: left;
+    background-image: none;
+    font-weight: normal;
+    padding-left: 5px;
+    min-height: 15px;
+    line-height: 15px;
+    position: relative;
+    color: $gFontColorDefault;
+    left: -5px;
+}
+
+.ui-additionalinfo__value .property-text.editableText.active {
+    float: left;
+    background-image: none;
+    font-weight: normal;
+    padding-left: 5px;
+    min-height: 15px;
+}
+
+.property.property_editable_true {
+    cursor: pointer;
+}
+
+.property .ui-checkbox {
+    width: 13px;
+    height: 13px;
+    cursor: pointer;
+    margin-left: 3px;
+    background: url("images/customField-checkbox-checked.gif") no-repeat scroll 0 0;
+}
+
+.property .ui-checkbox.checked {
+    background: url("images/customField-checkbox-checked.gif") no-repeat scroll 0 0;
+}
+
+.property .ui-checkbox.unchecked {
+    background: url("images/customField-checkbox-unchecked.gif") no-repeat scroll 0 0;
+}
+
+.ui-additionalinfo__value .tau-property-abbreviation {
+    text-transform: uppercase;
+}
+
+.additional-info .ui-customfield .editableText.ui-validationerror {
+    padding-left: 4px;
+}
+
+.additional-info .ui-customfield__container {
+    display: flex;
+
+    padding-right: 20px;
+    border: 1px solid transparent;
+}
+
+.additional-info .ui-customfield__container .ui-customfield__value {
+    padding: 4px 0 4px 4px;
+}
+
+.additional-info .ui-customfield__container .ui-customfield__value.ui-validationerror,
+.additional-info .ui-customfield__container .ui-customfield__value.active {
+    flex-grow: 2;
+}
+
+.additional-info .ui-customfield .tau-linkentity__inner:first-child,
+.additional-info .ui-customfield.ui-customfield-checkbox .ui-customfield__value {
+    margin-left: 0;
+}
+
+/* region  Cell for multiproject in Release (.additional-info-table) */
+
+.tau-additionalinfo__projects > .ui-additionalinfo__label,
+.tau-additionalinfo__projects > .ui-additionalinfo__value {
+    vertical-align: top;
+}
+
+.tau-additionalinfo__projects > .ui-additionalinfo__value {
+    padding-top: 6px;
+}
+
+.tau-additionalinfo__projects > .ui-additionalinfo__label {
+    padding-top: 8px
+}
+
+/* endregion */
+
+/* region  .tau-property-line wrapper for multiproject in Release (.additional-info-table)*/
+
+.tau-property-line {
+    margin-bottom: 8px;
+}
+
+/* endregion */
+
+/* region additional info table for Custom Fields */
+
+.custom-fields-table {
+    .ui-customfield-checkbox + .tau-property__icon {
+        display: none;
+    }
+
+    .ui-additionalinfo__value .property-text.editableText.ui-validationerror {
+        float: none;
+        display: block;
+        left: 0;
+        padding-left: 4px;
+    }
+
+}
+
+.tau-bubble__cf-datepicker {
+    .tau-bubble__inner {
+        margin: 16px 0 12px 0;
+        overflow: visible;
+    }
+}
+
+/* endregion */
+
+.custom-fields-table {
+    &__checkbox {
+        padding: 0;
+    }
+}
+
+.feature-to-product-link {
+    box-sizing: border-box;
+    display: flex;
+    flex: 0 1 auto;
+    align-items: center;
+    font-size: 13px;
+    font-style: italic;
+    line-height: 20px;
+    overflow: hidden;
+
+    &__name {
+        display: block;
+        flex: 0 1 auto;
+        padding: 0 7px 0 0;
+        line-height: 16px;
+        letter-spacing: 0.2px;
+        color: $gFontColorGray;
+
+        @mixin ellipsis;
+    }
+
+    &__icon {
+        display: flex;
+        flex: 0 0 auto;
+
+        &__close {
+            display: block;
+            width: 16px;
+            height: 16px;
+            position: relative;
+            background-position: 50%;
+            background-repeat: no-repeat;
+            background-image: svg("close");
+            cursor: pointer;
+
+            &:hover {
+                background-image: svg("close", "[fill]: $gMessageColorError");
+            }
+        }
+    }
+}

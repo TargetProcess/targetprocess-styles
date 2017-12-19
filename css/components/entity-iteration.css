@@ -1,0 +1,10 @@
+.tau-entity-iteration {
+    white-space: nowrap;
+    color: $gFontColorDefault;
+    font-size: 13px;
+    @mixin ellipsis;
+
+    &--wrap {
+        white-space: normal;
+    }
+}

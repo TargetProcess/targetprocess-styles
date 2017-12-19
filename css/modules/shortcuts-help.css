@@ -1,0 +1,111 @@
+$shortcutHelpKeyBackground: #f9f3c2;
+$shortcutHelpKeyBoxShadow: 0 1px 1px 0 #bdb889;
+$shortcutHelpLabelContextColor: #4885ff;
+
+.shortcut-help {
+    font-size: 13px;
+    padding: 25px 30px;
+
+    &__header {
+        display: flex;
+        align-items: center;
+
+        &__keys {
+            margin: 0 10px;
+        }
+    }
+
+    &__warning {
+        display: inline-block;
+    }
+
+    &__feedback {
+        margin: 0 0 0 auto;
+        display: inline-block;
+    }
+
+    &__body {
+        display: flex;
+        flex-wrap: wrap;
+
+        &__item {
+            min-width: 300px;
+        }
+    }
+
+    &__group-title {
+        margin: 20px 0 10px 0;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__list {
+        padding: 0 30px 0 20px;
+        margin: 0;
+        display: table;
+
+        &__item {
+            display: table-row;
+            justify-content: space-between;
+
+            &__name,
+            &__keys {
+                display: table-cell;
+                padding: 0 0 7px 0;
+                vertical-align: top;
+            }
+
+            &__name {
+                padding-right: 20px;
+                width: 215px;
+            }
+        }
+    }
+
+    &__keys {
+        display: flex;
+        align-items: center;
+
+        &__punctuation-mark,
+        &__separator {
+            flex-shrink: 0
+        }
+
+        &__punctuation-mark {
+            margin: 0 2px;
+        }
+
+        &__separator {
+            margin: 0 7px;
+        }
+    }
+    &__key {
+        flex-shrink: 0;
+        margin: 0 2px;
+        box-sizing: border-box;
+        padding: 0 4px;
+        line-height: 20px;
+        white-space: nowrap;
+        border-radius: $gBorderRadiusDefault;
+        background-color: $shortcutHelpKeyBackground;
+        box-shadow: $shortcutHelpKeyBoxShadow;
+        min-width: 20px;
+        text-align: center;
+    }
+
+    &__show-more {
+        margin: 0 10px;
+    }
+
+    &__label-context {
+        display: block;
+        line-height: 16px;
+        color: color($shortcutHelpLabelContextColor a(80%));
+        border-radius: 15px;
+        border: solid 1px $shortcutHelpLabelContextColor;
+        font-size: 11px;
+        padding: 0 8px;
+        margin: 3px 0 0 10px;
+    }
+}

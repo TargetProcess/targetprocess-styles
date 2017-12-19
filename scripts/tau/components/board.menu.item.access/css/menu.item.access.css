@@ -1,0 +1,129 @@
+.ui-access-popup {
+
+    .ui-popup-flexible__wrap {
+        min-width: 675px;
+        padding: 35px 20px;
+    }
+
+    .tau-help-label {
+        float: left;
+    }
+
+    .tau-access-settings__custom-sharing {
+
+        .tau-teams-projects-manager .tau-managed-category {
+            min-height: 213px;
+        }
+
+        &__user-list__content .tau-invite-field {
+            /* required to display inviter widget user suggestion popup and info tooltips */
+            z-index: calc($gOverlayZIndex + 1);
+        }
+    }
+}
+
+.tau-access-settings {
+
+    &__wrap {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 20px;
+    }
+
+    .tau-notification-block {
+        margin-top: 10px;
+    }
+
+    &__warning {
+        margin: 0 0 10px 0;
+        display: inline-block;
+    }
+    &__custom-sharing {
+
+        &__content {
+            display: flex;
+        }
+
+        &__user-list {
+            width: 250px;
+            margin-left: 10px;
+            padding: 10px;
+            background-color: $gBackgroundDefault;
+
+            &__header {
+                font-weight: 600;
+                font-size: 13px;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+
+                &.disabled {
+                    opacity: $gControlDisabledOpacity;
+                }
+            }
+
+            &__content {
+                overflow-y: auto;
+                max-height: 340px;
+            }
+        }
+
+        .tau-teams-projects-manager,
+        .tau-invite-widget {
+            background-color: $gBackgroundDefault;
+        }
+
+        .tau-invite-widget .tau-invite-field {
+            margin-bottom: 0;
+        }
+
+        .tau-teams-projects-manager {
+
+            .tau-teams-projects-search {
+                background-color: color($gHighlightBlockBackground shade(6%));
+                padding: 12px;
+
+                &:after {
+                    display: none;
+                }
+            }
+
+            li:hover {
+                padding-right: 0 !important;
+            }
+
+            .tau-teams-projects-updater {
+                display: none;
+            }
+
+            .tau-managed-category--isempty-true {
+
+                .tau-managed-category__message--isempty {
+                    display: block;
+                }
+
+                .tau-managed-category__header {
+                    display: none;
+                }
+            }
+
+            &.tau-disabled .tau-managed-category--isempty-true .tau-managed-category__message--isempty {
+                opacity: 0.3;
+            }
+        }
+    }
+}
+
+.tau-board-send-notification {
+    margin: 0 10px;
+    border-top: 1px solid $gHighlightBlockBorderColor;
+    padding: 15px 0 15px 4px;
+    font-size: 12px;
+}
+
+

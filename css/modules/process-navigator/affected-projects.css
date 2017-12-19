@@ -1,0 +1,30 @@
+.t3-processes-affected-projects {
+    &__item {
+        position: relative;
+        padding: 0 0 4px 13px;
+        font-size: 12px;
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+
+            width: 5px;
+            height: 5px;
+            margin-top: -2px;
+            border-radius: 50%;
+
+            background-color: $gFontColorLightGray;
+        }
+    }
+
+    &__link,
+    &__link:hover {
+        color: $gFontColorDefault;
+    }
+}

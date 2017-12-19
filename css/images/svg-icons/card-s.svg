@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="16" viewBox="0 0 28 16">
+  <g fill="none" fill-rule="evenodd" transform="translate(16 4)">
+    <path fill="#000000" d="M9,8 L2,8 L1,8 L0,8 L0,7 L0,1 L0,0 L1,0 L10,0 L10,1 L10,7 L10,8 L9,8 L9,8 L9,8 L9,8 Z M9,1 L2,1 L2,7 L9,7 L9,1 L9,1 L9,1 L9,1 Z"/>
+    <rect width="7" height="6" x="2" y="1" fill="#FFFFFF" id="card-s-fill"/>
+  </g>
+</svg>

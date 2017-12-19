@@ -1,0 +1,43 @@
+.tau-add-template-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -30px;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    padding: 0;
+    margin-top: -28px;
+    border: none;
+    border-radius: 50%;
+    text-indent: -9999px;
+    background: color($gActionColorAdd a(80%));
+    cursor: pointer;
+    outline: none;
+
+    &:hover,
+    &:active {
+        background: color($gActionColorAdd a(100%));
+    }
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        background: #fff;
+    }
+
+    &:before {
+        top: 21px;
+        left: 29px;
+        width: 3px;
+        height: 19px;
+    }
+
+    &:after {
+        top: 29px;
+        left: 21px;
+        width: 19px;
+        height: 3px;
+    }
+}

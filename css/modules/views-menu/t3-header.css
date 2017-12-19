@@ -1,0 +1,142 @@
+$viewsNavigatorDndPlaceholderBackground: color($gBoardPanelBackgroundLighter tint(15%) saturation(+15%));
+
+@define-mixin gradient-shadow $color: $gBoardPanelBackgroundLighter {
+    background-image: linear-gradient(to left, $color, color($color a(0)) 99%);
+}
+
+.t3-header {
+    position: relative;
+    overflow: hidden;
+    height: 30px;
+    cursor: pointer;
+    transition: height 0.3s, opacity 0.3s ease-in;
+    opacity: 1;
+
+    &__actions-trigger {
+        background-color: $gBoardPanelBackgroundLighter;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 1;
+        width: 32px;
+        height: 30px;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0s ease-out;
+
+        &__icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            transition: opacity 0.2s ease-out;
+        }
+
+        &:before {
+            position: absolute;
+            top: 0;
+            left: -10px;
+
+            content: '';
+            width: 10px;
+            height: 30px;
+            @mixin gradient-shadow;
+        }
+
+        &:hover {
+            .t3-actions-trigger__icon {
+                opacity: 1;
+            }
+        }
+
+        .tau-sp-collapsed & {
+            display: none;
+        }
+    }
+
+    &:hover,
+    &.t3-opened,
+    .t3-focused & {
+        background-color: $gBoardPanelBackgroundLighterHover;
+
+        .t3-header__actions-trigger {
+            background-color: $gBoardPanelBackgroundLighterHover;
+
+            &:before {
+                @mixin gradient-shadow $gBoardPanelBackgroundLighterHover;
+            }
+        }
+    }
+
+    &:hover,
+    .t3-opened {
+        .t3-header__actions-trigger,
+        .t3-header__actions-trigger.t3-pressed {
+            opacity: 1;
+            transition-duration: 0.2s;
+
+            .t3-header__actions-trigger__icon:not(:hover) {
+                opacity: 0.3;
+            }
+        }
+    }
+
+    .t3-active & {
+        background-color: $gBoardPanelBackgroundDarker;
+
+        .t3-header__actions-trigger {
+            background-color: $gBoardPanelBackgroundDarker;
+
+            &:before {
+                @mixin gradient-shadow $gBoardPanelBackgroundDarker;
+            }
+        }
+    }
+
+    .t3-group.t3-hidden > &,
+    .t3-view.t3-hidden & {
+        &:not(.t3-opened):not(:hover) {
+
+            &:after {
+                z-index: 1;
+                content: '';
+                position: absolute;
+                right: 8px;
+                top: 5px;
+                width: 16px;
+                height: 16px;
+                background: svg("hide", "[fill]: #fff");
+                opacity: 0.3;
+            }
+
+            .t3-header__actions-trigger {
+                opacity: 1;
+
+                &__icon {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    .tau-sp-collapsed .t3-hidden &:after {
+        display: none;
+    }
+
+    .t3-group:not(.t3-expanded) .t3-view &,
+    .t3-group:not(.t3-expanded) .t3-group & {
+        height: 0;
+        opacity: 0;
+    }
+
+    .tau-emoji-icon {
+        margin-left: -2px;
+        margin-top: -2px;
+
+        & + .t3-access-icon,
+        & + .t3-access-icon:before {
+            right: 0;
+        }
+    }
+}

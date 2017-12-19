@@ -1,0 +1,53 @@
+$selectionGroupBackgroundDefault: $gButtonBackgroundDefault;
+$selectionGroupBorderColorDefault: $gButtonBorderColorDefault;
+$selectionGroupLineHeight:;
+$selectionGroupBorderRadius: 9px;
+
+$selectionGroupBoxShadowFocus: $gControlBoxShadowFocusDefault;
+$selectionGroupBorderColorFocus: $gControlBorderColorFocusDefault;
+
+$selectionGroupBackgroundHover: $gButtonBackgroundHover;
+
+.tau-selection-group {
+    display: flex;
+    font-size: 11px;
+    line-height: 1;
+
+    &__counter,
+    &__button {
+        flex: 0 0 auto;
+        border: 1px solid $selectionGroupBorderColorDefault;
+        background: $selectionGroupBackgroundDefault;
+        box-sizing: border-box;
+        height: 20px;
+    }
+
+    &__counter {
+        padding: 3px 8px;
+        border-radius: $selectionGroupBorderRadius;
+
+        &.tau-selected{
+            background: none $gActionBackgroundSelected;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+
+        }
+    }
+
+    &__button {
+        border-top-right-radius: $selectionGroupBorderRadius;
+        border-bottom-right-radius: $selectionGroupBorderRadius;
+        padding: 0 4px 0 2px;
+        outline: none;
+        margin-left: -1px;
+
+        &:hover {
+            background: $selectionGroupBackgroundHover;
+        }
+
+        &:focus {
+            box-shadow: $selectionGroupBoxShadowFocus;
+            border-color: $selectionGroupBorderColorFocus;
+        }
+    }
+}

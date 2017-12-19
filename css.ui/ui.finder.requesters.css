@@ -1,0 +1,87 @@
+.tau-finder {
+    &__result {
+        overflow-x: hidden;
+        height: 300px;
+
+        &__loader {
+            display: none;
+        }
+
+        &__empty {
+            display: none;
+        }
+
+        &--state-loading .tau-finder__result__loader {
+            display: block;
+        }
+
+        &--state-empty .tau-finder__result__empty {
+            display: block;
+        }
+    }
+
+    &__table {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        border-spacing: 0;
+    }
+
+    &__cell {
+        padding: 5px;
+
+        &--name {
+            padding-left: 10px;
+        }
+        &--name,
+        &--email,
+        &--login {
+            width: 250px;
+        }
+    }
+
+    &__th {
+        padding-top: 5px;
+        padding-bottom: 8px;
+        text-align: left;
+        border-bottom: 1px solid $gHighlightBlockBorderColor;
+    }
+
+    &__sorttrigger {
+        border: none;
+        border-bottom: 1px dotted $gFontColorLightGray;
+        color: $gFontColorGray;
+        cursor: pointer;
+        text-decoration: none;
+        background: none transparent;
+        display: inline-block;
+        font-style: normal;
+        margin-left: 0;
+        padding: 0;
+        vertical-align: middle;
+        box-sizing: border-box;
+        font-size: 11px;
+        line-height: 14px;
+        position: relative;
+
+        &:active,
+        &:focus {
+            outline: none;
+        }
+
+        &:after {
+            position: absolute;
+            top: -1px;
+            right: -10px;
+        }
+
+        &--dir-asc:after {
+            content: " \2191";
+
+        }
+
+        &--dir-desc:after {
+            content: " \2193";
+        }
+    }
+}

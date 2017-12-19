@@ -1,0 +1,54 @@
+.source-configurator {
+
+    .board-settings-context-filter {
+
+        &__label {
+            display: none;
+        }
+
+        .board-settings-component__button {
+            width: 100%;
+        }
+    }
+
+    .boardsettings-filter {
+        display: block;
+
+        &__help {
+            display: none;
+        }
+    }
+
+    .board-settings-component__title__text {
+        font-weight: 600;
+
+        &:after {
+            content: ' *';
+            display: inline;
+            color: $gFontColorAttention;
+        }
+
+        &.notrequired:after {
+            display: none;
+        }
+    }
+
+
+    /* small rewrites for vizydrop*/
+    .board-settings-component__title {
+        left: auto;
+        top: 0;
+        margin-bottom: 5px;
+    }
+
+    .board-settings-component__context-placeholder {
+        margin-top: 5px;
+    }
+
+    .expand-collapse-block .board-settings-component {
+        margin-bottom: 15px;
+    }
+}
+
+
+

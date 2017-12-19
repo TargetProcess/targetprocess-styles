@@ -1,0 +1,456 @@
+@keyframes bubbleFadeInVertical {
+    0% {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bubbleFadeInHorizontal {
+    0% {
+        opacity: 0;
+        transform: translateX(5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* region tau-bubble */
+.tau-bubble {
+    font-size: $gFontSize;
+    position: absolute;
+    z-index: 999;
+    display: none;
+    visibility: hidden;
+
+    &.i-state_visible {
+        visibility: visible;
+    }
+
+    &__inner {
+        min-width: 150px;
+        margin: 13px 13px 12px; /*should be equal height of arrow, this case sqrt(9^2 / 2)*/
+        background-color: $gBackgroundDefault;
+        overflow: auto;
+        border-radius: $gBorderRadiusDefault;
+        box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3), 0 0 1px 0 rgba(0, 0, 0, 0.3);
+
+        .tau-bubble-auto-width & {
+            min-width: 80px;
+        }
+    }
+
+    &__control-close {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+
+    &__arrow {
+        position: absolute;
+        overflow: hidden;
+
+        &:after {
+            position: absolute;
+            content: "";
+            width: 14px;
+            height: 14px;
+            transform: rotate(45deg);
+            background-color: $gBackgroundDefault;
+        }
+
+        &[data-orientation=top],
+        &[data-orientation=bottom] {
+            width: 46px;
+            height: 14px;
+        }
+
+        &[data-orientation=left],
+        &[data-orientation=right] {
+            width: 14px;
+            height: 46px;
+        }
+
+        &[data-orientation=top]:after {
+            top: 7px;
+            left: 50%;
+            margin-left: -7px;
+            box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.15);
+        }
+
+        &[data-orientation=bottom]:after {
+            top: -5px;
+            left: 50%;
+            margin-left: -7px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+        }
+
+        &[data-orientation=left]:after {
+            top: 50%;
+            left: 7px;
+            margin-top: -7px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+        }
+
+        &[data-orientation=right]:after {
+            top: 50%;
+            left: -7px;
+            margin-top: -7px;
+            box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.15);
+        }
+    }
+
+    &__buttons-wrap {
+        padding: 5px 0;
+    }
+
+    &--full-page &__inner {
+        height: 100vh;
+        width: 600px;
+        margin-top: 0;
+        margin-bottom: 0;
+        border-radius: 0;
+        box-sizing: border-box;
+    }
+}
+
+/* endregion */
+
+/* region tau-bubble-board */
+
+.tau-bubble-board {
+    position: absolute;
+    z-index: 999;
+    display: none;
+    visibility: hidden;
+
+    &__inner {
+        border-radius: $gBorderRadiusDefault;
+        background-color: $gBackgroundDefault;
+        margin: 7px; /*should be equal height of arrow */
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+
+        &--nowrap {
+            white-space: nowrap;
+        }
+    }
+
+    &__arrow {
+        z-index: 1000;
+        position: absolute;
+        overflow: hidden;
+
+        &:after {
+            background-color: $gBackgroundDefault;
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            content: "";
+            transform: rotate(45deg);
+        }
+
+        &[data-orientation=top],
+        &[data-orientation=bottom] {
+            width: 14px;
+            height: 7px;
+        }
+
+        &[data-orientation=left],
+        &[data-orientation=right] {
+            width: 7px;
+            height: 14px;
+        }
+
+        &[data-orientation=top]:after {
+            left: 2px;
+            top: 3px;
+            box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.15);
+        }
+
+        &[data-orientation=bottom]:after {
+            left: 2px;
+            top: -6px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+        }
+
+        &[data-orientation=left]:after {
+            top: 2px;
+            left: 3px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+        }
+
+        &[data-orientation=right]:after {
+            top: 2px;
+            left: -6px;
+            box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.15);
+        }
+    }
+
+    &--without-arrow &__inner {
+        margin: 0;
+    }
+
+    &.i-state_visible {
+        visibility: visible;
+        animation-fill-mode: both;
+        animation-duration: 0.3s;
+
+        &.i-orientation_top,
+        &.i-orientation_bottom {
+            animation-name: bubbleFadeInVertical;
+        }
+
+        &.i-orientation_left,
+        &.i-orientation_right {
+            animation-name: bubbleFadeInHorizontal;
+        }
+    }
+}
+
+/* endregion */
+
+/* region tau-bubble-tooltip */
+
+.tau-bubble-tooltip {
+
+    .tau-bubble__inner {
+        font-size: 12px;
+        white-space: nowrap;
+        text-align: left;
+        width: auto;
+        padding: 10px;
+    }
+
+    &--hint .tau-bubble__inner {
+        width: 240px;
+        white-space: normal;
+    }
+
+    .tau-bubble-board__inner {
+        border-radius: 4px;
+        color: $gFontColorWhite;
+        font-weight: normal;
+        padding: .5em 1em;
+        background-color: color($gBoardPanelBackgroundLighter a(80%));
+        margin: 7px; /*should be equal height of arror */
+        box-shadow: none;
+    }
+
+    .tau-bubble-board__arrow:after {
+        background-color: color($gBoardPanelBackgroundLighter a(80%));
+        box-shadow: none;
+    }
+}
+
+/* endregion */
+
+/* region tau-bubble-tooltipArticle*/
+
+.tau-bubble-tooltipArticle {
+
+    .tau-bubble-board__inner {
+        font-weight: normal;
+        opacity: 1;
+        margin: 7px; /*should be equal height of arror */
+        font-size: 12px;
+        text-align: left;
+        max-width: 225px;
+
+        background-color: $gActionBackgroundSystem;
+        border-radius: 4px;
+        box-shadow: 0 0 1px rgba(0, 0, 0, .1), 0 2px 8px rgba(0, 0, 0, .3);
+        padding: 15px;
+
+        p {
+            margin: 0 0 5px 0;
+            font-size: 12px;
+            line-height: 16px;
+        }
+
+        > p:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .tau-bubble-board__arrow:after {
+        background-color: $gActionBackgroundSystem;
+        opacity: 1;
+    }
+}
+
+/* endregion */
+
+.tau-bubble,
+.tau-bubble-board {
+
+    .tau-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 5px;
+
+        &__control {
+            display: inline-block;
+
+            &:not(:last-child) {
+                margin-right: 5px;
+                margin-bottom: 5px;
+            }
+        }
+    }
+
+}
+
+/* region tau-warning-bubble */
+.tau-warning-bubble {
+    z-index: 10001;
+    max-width: 260px;
+    font-size: 13px;
+
+    .tau-bubble__inner {
+        background-color: $gActionBackgroundSystem;
+        border-radius: $gBorderRadiusDefault;
+        box-shadow: 0 0 1px rgba(0, 0, 0, .1), 0 2px 8px rgba(0, 0, 0, .3);
+        padding: 15px;
+    }
+
+    .tau-bubble__arrow {
+        background: none;
+        position: absolute;
+        overflow: hidden;
+
+        &:after {
+            content: '';
+            display: block;
+            width: 13px;
+            height: 13px;
+            background-color: $gActionBackgroundSystem;
+            box-shadow: 0 2px 7px rgba(0, 0, 0, .2);
+            transform: rotate(45deg);
+        }
+    }
+
+    &.i-orientation_right .tau-bubble__inner {
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+    }
+
+    &.i-orientation_left .tau-bubble__inner {
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-right: 0;
+    }
+
+    &.i-orientation_top .tau-bubble__inner {
+        margin-bottom: 0;
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    &.i-orientation_bottom .tau-bubble__inner {
+        margin-top: 0;
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .tau-bubble__arrow[data-orientation="left"] {
+        top: 50%;
+        margin-top: -15px;
+        left: 0;
+        width: 13px;
+        height: 30px;
+
+        &:after {
+            position: relative;
+            left: 8px;
+            top: 8px;
+        }
+    }
+
+    .tau-bubble__arrow[data-orientation="right"] {
+        top: 50%;
+        margin-top: -15px;
+        right: 0;
+        width: 13px;
+        height: 30px;
+
+        &:after {
+            position: relative;
+            left: -8px;
+            top: 8px;
+        }
+    }
+
+    .tau-bubble__arrow[data-orientation="top"] {
+        top: 0;
+        left: 50%;
+        margin-left: -15px;
+        width: 30px;
+        height: 13px;
+
+        &:after {
+            position: relative;
+            left: 12px;
+            top: 7px;
+        }
+    }
+
+    .tau-bubble__arrow[data-orientation="bottom"] {
+        bottom: 0;
+        left: 50%;
+        margin-left: -15px;
+        width: 30px;
+        height: 13px;
+
+        &:after {
+            position: relative;
+            left: 12px;
+            top: -7px;
+        }
+    }
+
+    h3 {
+        margin: 0 0 5px 0;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    p {
+        margin: 0 0 5px 0;
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .tau-bubble__form-field {
+        padding-top: 5px;
+        margin-left: -2px;
+    }
+}
+
+/* endregion */
+
+.tau-info-bubble {
+    .tau-bubble__inner {
+        padding: 10px;
+        font-size: 12px;
+    }
+}
+
+/* region entity-view inner-list context-actions */
+.tau-bubble.entity-list-context-actions {
+    .tau-bubble__inner {
+        border-radius: 0;
+        .ui-menu__item-action:hover {
+            cursor: pointer;
+            background-color: $gActionBackgroundHover;
+        }
+    }
+}
+/* endregion */

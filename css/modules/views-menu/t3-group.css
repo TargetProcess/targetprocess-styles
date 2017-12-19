@@ -1,0 +1,81 @@
+.t3-group {
+    position: relative;
+    background-color: $gBoardPanelBackgroundLighter; /* duplicate for dragging item*/
+
+    .t3-views-section__body > &.t3-expanded {
+
+        & > .t3-group__content {
+            padding-bottom: 6px;
+        }
+    }
+
+    /* region group hierarchy */
+
+    & > .t3-group__content { /*2nd Level*/
+
+        .t3-name {
+            margin-left: 44px;
+        }
+
+        .t3-icon-container {
+            left: 20px;
+        }
+
+        .t3-icon-container--group {
+            left: 16px;
+        }
+    }
+
+    /* Required to fix drag-n-drop image in Chrome */
+    &.t3-drag-ghost:not(.t3-expanded) > .t3-group__content {
+        display: none;
+    }
+
+    & .t3-group > .t3-group__content { /*3d Level*/
+
+        .t3-name {
+            margin-left: 52px;
+        }
+
+        .t3-icon-container {
+            left: 28px;
+        }
+
+        .t3-icon-container--group {
+            left: 22px;
+        }
+    }
+
+    & .t3-group .t3-group > .t3-group__content { /*4d Level*/
+
+        .t3-name {
+            margin-left: 60px;
+        }
+
+        .t3-icon-container {
+            left: 36px;
+        }
+
+        .t3-icon-container--group {
+            left: 30px;
+        }
+    }
+
+    /* endregion group hierarchy */
+
+
+    /* region removing visual group hierarchy */
+
+    .tau-sp-collapsed & {
+
+        .t3-icon-container {
+            left: 12px !important;
+        }
+
+        .t3-icon-container--group {
+            left: 8px !important;
+        }
+    }
+
+    /* endregion removing visual group hierarchy */
+}

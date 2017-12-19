@@ -1,0 +1,54 @@
+.tau-assignments {
+    display: table;
+    width: 100%;
+}
+.tau-assignments .tau-user-autocomplete {
+    max-width: none;
+}
+.tau-bubble-newlist-editor .tau-assignments {
+    box-sizing: border-box;
+    font-size: 12px;
+}
+
+.tau-assignments__group {
+    display: table-row;
+    height: 33px;
+    outline: 0;
+}
+
+.tau-assignments__group:focus,
+.tau-assignments_state_loaded .tau-assignments__group:hover {
+    background: $gActionBackgroundHover;
+}
+
+.tau-assignments__grouptitle,
+.tau-assignments__users,
+.tau-assignments form {
+    display: table-cell;
+    vertical-align: top;
+    padding: 6px 2px;
+}
+
+.tau-assignments__grouptitle {
+    padding: 8px 5px;
+}
+
+.tau-assignments__group .tau-invite-widget {
+    max-width: 270px;
+}
+
+.tau-assignments__group .tau-invite-widget .tau-invite-field {
+    padding: 4px 4px 0;
+    margin: 0;
+    position: static;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: $gBackgroundDefault;
+    min-height: 50px;
+    min-width: 260px;
+    font-size: 12px;
+}
+
+.tau-bubble-newlist-editor-assignments .tau-bubble__inner {
+    min-width: 50px;
+}

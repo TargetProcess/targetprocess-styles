@@ -1,0 +1,86 @@
+.tags-manager {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &__search {
+        padding-bottom: 18px;
+        max-width: 900px;
+    }
+
+    &__body {
+        position: absolute;
+        left: 40px;
+        top: 130px;
+        right: 0;
+        bottom: 0;
+        overflow: auto;
+    }
+
+    &__list {
+        padding-bottom: 20px;
+        max-width: 900px;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+
+        &__item {
+            width: 200px;
+            margin-right: 10px;
+            padding: 3px 0 3px 5px;
+            margin-bottom: 1px;
+
+            &:hover {
+                background-color: $gActionBackgroundHover;
+            }
+
+            &--checked,
+            &--checked:hover {
+                background-color: $gActionBackgroundActive;
+            }
+
+            &--editable {
+                background-color: $gActionBackgroundSystem;
+
+                .tau-checkbox__label__text {
+                    display: none;
+                }
+            }
+
+            .tau-emoji-holder {
+                position: absolute;
+                top: 4px;
+                right: 4px;
+            }
+        }
+    }
+
+    &__input {
+        padding-right: 22px;
+    }
+
+    &__paging {
+        max-width: 900px;
+    }
+
+}
+
+.tags-manager-bubble {
+    &__select {
+        margin: 0 0 7px 0;
+    }
+
+    .tau-txt {
+        padding-bottom: 3px;
+    }
+
+    &.tau-warning-bubble p {
+        font-size: 11px;
+    }
+}
+
+.tag-space-formatter {
+    white-space: pre;
+}

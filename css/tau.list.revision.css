@@ -1,0 +1,92 @@
+table.ui-revisionList {
+    background: $gBackgroundDefault;
+    margin: 15px 0;
+    padding: 0;
+    border-spacing: 0;
+    width: 100%;
+}
+
+table.ui-revisionList td {
+   padding: 10px 10px 10px 2px;
+   border-top: 1px solid $gHighlightBlockBorderColor;
+}
+
+table.ui-revisionList tr:hover td {
+   background: $gBackgroundStrokeHighlight;
+}
+
+.ui-revisionList .toggler {
+    width: 25px;
+    padding-right: 0;
+    color: $gFontColorGray;
+}
+
+.ui-revisionList .revision-id {
+    width: auto;
+    padding-left: 5px;
+    color: $gFontColorDefault;
+    white-space: nowrap !important;
+}
+
+.ui-revisionList .toggler .extra-info {
+    width: 15px;
+    height: 15px;
+}
+
+.ui-revisionList .toggler .extra-info.expand div {
+    background: url(images/icons/plus-small.png) no-repeat scroll -1px -1px transparent;
+}
+
+.ui-revisionList .toggler .extra-info.collapse div {
+    background: url(images/icons/minus-small.png) no-repeat scroll -1px -1px transparent;
+}
+
+.ui-revisionList .author{
+    font-weight: bold;
+}
+.ui-revisionList .revision {
+    padding-left: 0;
+}
+
+.ui-revisionList .revision-comment {
+    font-size: 11px;
+    color: $gFontColorGray;
+}
+
+.ui-revisionList .revision-files{
+    padding-left: 0;
+}
+
+.ui-revisionList .collapsed .revision-files {
+    display: none;
+}
+
+.ui-revisionList .revision-files table {
+    width: 100%;
+    font-size: 11px;
+}
+
+.ui-revisionList .revision-files td {
+    padding: 5px 5px 5px 0;
+    border-top: 0 solid $gHighlightBlockBorderColor;
+}
+
+.ui-revisionList .revision-files .files{
+    width: 100%;
+}
+
+.ui-revisionList .revision-files .actions span {
+     background: $gHighlightBlockBackground;
+     color: $gFontColorGray;
+     border-radius: 2px;
+     padding: 3px 4px;
+}
+
+._viewDiffPopup._refreshing  .diffHeader,
+._viewDiffPopup._refreshing  .diffContainer{
+    display: none;
+}
+
+.ui-revisionList .vcsViewDisabled{
+    color: $gFontColorDefault;
+}

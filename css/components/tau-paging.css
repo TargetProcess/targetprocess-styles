@@ -1,0 +1,42 @@
+.tau-paging-wrap {
+    border-top: solid 1px $gHighlightBlockBorderColor;
+    margin-top: 20px;
+}
+
+.tau-paging {
+    padding: 20px 0;
+    font-size: 13px;
+
+    &__list {
+        padding: 10px 0 0 0;
+        overflow: hidden;
+    }
+
+    &__item {
+        display: inline-block;
+        padding: 0 5px;
+        line-height: 20px;
+        min-width: 20px;
+        text-align: center;
+        box-sizing: border-box;
+
+        &.active {
+            border: solid 1px $gHighlightBlockBorderColor;
+            font-weight: 600;
+        }
+    }
+
+    a {
+        color: $gFontColorGray;
+    }
+
+    &__prev {
+        margin-right: 30px;
+    }
+
+    &__prev.disabled,
+    &__next.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+}

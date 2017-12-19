@@ -1,0 +1,39 @@
+.tau-section-cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    &__control {
+        margin-top: 10px;
+        margin-right: 8px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &.collapsed {
+            display: none;
+        }
+
+        &--impediment,
+        &--request,
+        &--program,
+        &--build,
+        &--teamprojectallocation {
+            margin-right: 24px;
+        }
+
+        .report-settings &,
+        .tau-customReport-info & {
+            margin-right: 4px;
+
+            &--request,
+            &--impediment {
+                &,
+                &:last-child {
+                    margin-right: 18px;
+                }
+            }
+        }
+    }
+}

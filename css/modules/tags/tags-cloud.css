@@ -1,0 +1,224 @@
+.tags-cloud {
+    border: 1px solid $gHighlightBlockBorderColor;
+    margin-bottom: 18px;
+
+    /* region trigger for tags-cloud */
+
+    &__trigger {
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding: 3px 5px;
+        cursor: pointer;
+
+        &:hover {
+            color: $gFontColorDefault;
+        }
+
+        /* region arrow for tags-cloud */
+
+        &__arrow {
+            display: none;
+            position: absolute;
+            left: 50%;
+            bottom: -14px;
+            z-index: 20;
+
+            border-style: solid;
+            border-width: 0 9px 10px 9px;
+            border-color: transparent transparent $gHighlightBlockBorderColor transparent;
+            height: 0;
+            width: 0;
+            margin-left: -9px;
+
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 1px;
+                left: -9px;
+                border-style: solid;
+                border-width: 0 9px 10px 9px;
+                border-color: transparent transparent $gBackgroundDefault transparent;
+                height: 0;
+                width: 0;
+
+            }
+        }
+
+        &--filter-true.tau-active &__arrow {
+            &:after {
+                border-bottom-color: $gHighlightBlockBackground;
+            }
+        }
+
+        &.tau-active &__arrow {
+            display: block;
+        }
+
+        &.tau-active &__icon {
+            .tau-icon-tags {
+                background: svg("tags", "[fill]: #000");
+            }
+        }
+
+        /* endregion */
+
+        &__text {
+            flex: 1 1 auto;
+            font-style: normal;
+        }
+
+        &.tau-active &__text {
+            border-bottom-color: transparent;
+        }
+
+        &__icon {
+            flex: 0 0 auto;
+            margin-right: 7px;
+            opacity: 0.8;
+            display: flex;
+            align-items: center;
+
+            .tags-cloud__trigger:hover & {
+                opacity: 1;
+            }
+        }
+
+        &.tau-active {
+            background-color: $gActionBackgroundActive;
+            border-radius: 2px;
+        }
+
+    }
+
+    /* endregion */
+
+    &__search {
+        position: relative;
+        background-color: $gHighlightBlockBackground;
+        border-bottom: solid 1px $gHighlightBlockBorderColor;
+        padding: 13px 16px;
+    }
+
+    &__body {
+        padding: 16px;
+    }
+
+    &__list {
+        font-size: 10px;
+        margin: -3px;
+    }
+
+    &__item {
+        display: inline-block;
+        vertical-align: bottom;
+        white-space: nowrap;
+        cursor: pointer;
+        padding: 3px 4px;
+        color: $gLinkColor;
+        margin: 3px;
+
+        &:hover {
+            background: $gActionBackgroundHover;
+        }
+
+        &.tau-active {
+            background-color: $gActionBackgroundActive;
+        }
+
+        &.tau-tag-rank-1 {
+            font-size: 1.2em;
+
+            .tag-view__content__icon {
+                width: 14px;
+                height: 14px;
+            }
+        }
+
+        &.tau-tag-rank-2 {
+            font-size: 1.4em;
+
+            .tag-view__content__icon {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        &.tau-tag-rank-3 {
+            font-size: 1.6em;
+
+            .tag-view__content__icon {
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        &.tau-tag-rank-4 {
+            font-size: 1.8em;
+
+            .tag-view__content__icon {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        &.tau-tag-rank-5 {
+            font-size: 2.0em;
+
+            .tag-view__content__icon {
+                width: 22px;
+                height: 22px;
+            }
+        }
+
+        &.tau-tag-rank-6 {
+            font-size: 2.2em;
+
+            .tag-view__content__icon {
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        &.tau-tag-rank-7 {
+            font-size: 2.4em;
+
+            .tag-view__content__icon {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        &--hidden-true,
+        &--filtered-false {
+            display: none;
+        }
+
+        &--filtered-true&--hidden-true {
+            display: inline-block;
+        }
+    }
+
+    &__message {
+        color: $gFontColorLightGray;
+        font-size: 12px;
+        white-space: nowrap;
+        display: none;
+    }
+
+    &--filtered-none &__message,
+    &__list:empty ~ &__message {
+        display: block;
+    }
+
+    &__list:empty ~ &__message:before {
+        content: attr(data-text-noitems);
+        display: block;
+    }
+
+    &--filtered-none &__message:before {
+        content: attr(data-text-not-found);
+        display: block;
+    }
+}

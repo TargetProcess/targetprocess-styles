@@ -1,0 +1,58 @@
+$btnAddAssignmentBoxShadowFocus: $gControlBoxShadowFocusDefault;
+
+.tau-btn-add-assignment {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    text-indent: -99999px;
+
+    &::-moz-focus-inner {
+        border: none;
+        padding: 0;
+    }
+
+    &:focus {
+        border-color: $gControlBorderColorFocusDefault;
+        outline: none;
+
+        &:after {
+            box-shadow: $btnAddAssignmentBoxShadowFocus;
+        }
+
+        &.disabled:after {
+            box-shadow: none;
+        }
+    }
+
+    &.disabled {
+        cursor: default;
+        opacity: $gControlDisabledOpacity;
+
+        &:after {
+            border-color: #d9d9d9;
+            background-image: linear-gradient(0deg, #fff, #fff), linear-gradient(0deg, #fff, #fff), linear-gradient(to bottom, #dedede, #d5d5d5);
+        }
+    }
+
+    &:after {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+
+        content: '';
+        width: 14px;
+        height: 14px;
+        border: 1px solid #79bb25;
+        border-radius: 50%;
+
+        background-image: linear-gradient(0deg, #fff, #fff), linear-gradient(0deg, #fff, #fff), linear-gradient(to bottom, #bbe74e, #8fd130);
+        background-size: 2px 8px, 8px 2px, 100% 100%;
+        background-position: 50% 50%, 50% 50%, 0 0;
+        background-repeat: no-repeat, no-repeat, repeat;
+    }
+}

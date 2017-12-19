@@ -1,0 +1,119 @@
+﻿.disabledAction {
+    text-decoration: none;
+    color: $gFontColorLightGray;
+    cursor: default;
+}
+
+a.disabledAction:hover, a.disabledAction {
+    color: $gFontColorLightGray !important;
+    text-decoration: none;
+}
+
+a[disabled].disabledAction:hover {
+    text-decoration: none;
+}
+
+.tab span {
+    text-align: center;
+    width: 100%;
+    padding: 5px 15px;
+    cursor: move;
+    color: $gFontColorWhite;
+}
+
+.tabToAdd span {
+    text-decoration: none;
+    padding: 3px 10px;
+}
+
+.tabToAdd {
+    cursor: move;
+}
+
+.tab a:hover {
+    color: $gLinkColorHover;
+    text-decoration: underline;
+}
+
+.tab {
+    padding: 4px 0;
+    border: 1px solid #456ea1;
+    background: #5a84b8;
+    background: linear-gradient(to bottom, #5A84B8 0%, #638BBC 92%, #4E6B93 100%);
+    box-shadow: inset 0 1px 1px 0 #789bc5;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.tab:hover {
+    background: #6594ce;
+    background: linear-gradient(to bottom, #6594CE 1%, #6D97CE 93%, #4E6B93 100%);
+    box-shadow: inset 0 1px 1px 0 #789bc5;
+}
+
+.tab a {
+    font-size: 14px;
+    font-weight: normal;
+    text-decoration: none;
+    padding: 6px 10px 6px 10px;
+}
+
+.tab a:link, .tab a:visited, .tab a:hover {
+    color: $gFontColorWhite !important;
+    text-decoration: none !important
+}
+
+.tab span a {
+    padding: 0 5px
+}
+
+/* Selected tab */
+.selectedTab {
+    background: #fff;
+    border: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    box-shadow: inset 0 1px 1px 0 #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position: relative;
+    top: -1px;
+}
+
+.selectedTab:hover {
+    background: #fff !important;
+    box-shadow: inset 0 1px 1px 0 #fff;
+}
+
+.selectedTab a.selectedTabLink {
+    font-size: 14px;
+    color: $gFontColorGray !important;
+    font-weight: bold;
+}
+
+/* Drop down panel */
+.dropDownPanel {
+    font-weight: normal;
+    background-color: #fff;
+    display: none;
+    position: absolute;
+    z-index: 9000;
+    width: auto;
+    border: 0;
+    padding: 0;
+    margin-left: 0;
+    margin-top: 4px;
+    border-radius: 6px;
+    border-top-left-radius: 0;
+    box-shadow: 0 7px 12px rgba(0, 0, 0, .4)
+}
+
+.dropDownPanel table {
+    padding: 5px;
+    border: 0;
+}
+
+.dropDownPanel table tr td {
+    line-height: 1.4;
+    white-space: nowrap;
+    border: 0;
+}

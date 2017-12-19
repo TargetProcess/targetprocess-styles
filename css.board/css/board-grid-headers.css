@@ -1,0 +1,182 @@
+/*  Styles for board grid headers. */
+
+.tau-axiscell__item {
+
+    &__wrap {
+        display: inline-block;
+        vertical-align: text-bottom;
+
+        .tau-board-grid-view .tau-header-userstory.tau-rows-header .tau-axiscell__item &,
+        .tau-board-grid-view .tau-header-feature.tau-rows-header .tau-axiscell__item & {
+            margin-right: 4px;
+        }
+
+        .tau-board-grid-view .tau-header-userstory.tau-rows-header .tau-collapsed .tau-axiscell__item &,
+        .tau-board-grid-view .tau-header-feature.tau-rows-header .tau-collapsed .tau-axiscell__item & {
+            display: none;
+        }
+
+        /*endregion*/
+    }
+
+    &__icon {
+        display: inline-block;
+        margin-right: 6px;
+        vertical-align: middle;
+        line-height: 0;
+        margin-top: -1px;
+    }
+}
+
+/* region Team lane */
+
+.tau-cols-header.tau-header-team {
+
+    .tau-cellholder .tau-label {
+        height: 100%;
+
+        .i-role-cellaxis-viewtrigger {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            line-height: normal;
+
+        }
+    }
+}
+
+.tau-header-team .i-role-cellaxis-viewtrigger {
+
+    .tau-label__text {
+        vertical-align: middle;
+    }
+}
+
+/* endregion Team lane */
+
+.tau-board-grid-view {
+
+    .tau-rows-header {
+
+        /* region Userstory, Feature, Epic, Testplan lane */
+        &.tau-header-userstory,
+        &.tau-header-feature,
+        &.tau-header-epic,
+        &.tau-header-testplan {
+
+            .tau-cell {
+                min-height: 30px;
+
+                .tau-axiscell__item {
+
+                    .tau-state {
+                        font-size: 11px;
+                        display: inline;
+                        color: $gFontColorLightGray;
+                    }
+
+                    .tau-name {
+                        padding: 0;
+                        line-height: normal;
+                        white-space: normal;
+                    }
+                }
+            }
+
+            .tau-collapsed .tau-cell {
+
+                .tau-axiscell__item {
+
+                    .tau-state {
+                        display: none;
+                    }
+
+                    .tau-name {
+                        display: inline-block;
+                        line-height: 30px;
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+
+        /* endregion Userstory, Feature, Epic, Testplan lane */
+
+        /* region Userstory, Feature, Epic, Testplan, Project, Tag lane */
+        &.tau-header-userstory,
+        &.tau-header-feature,
+        &.tau-header-epic,
+        &.tau-header-testplan,
+        &.tau-header-project,
+        &.tau-header-tag {
+
+            .tau-cell .tau-label {
+                position: static;
+                margin: 0 12px 0 42px;
+
+                &:after {
+                    right: 18px;
+                }
+            }
+
+            .tau-cellholder:not(.tau-collapsed) .tau-label:after {
+                display: none;
+            }
+        }
+        /* endregion Userstory, Feature, Epic, Testplan, Project, Tag lane */
+
+        /* region Project lane */
+
+        &.tau-header-project {
+
+            .tau-cell {
+
+                .tau-axiscell__item {
+
+                    .i-role-cellaxis-viewtrigger {
+                        display: block;
+                    }
+
+                    .tau-label__text {
+                        display: inline-block;
+                        padding: 0 25px 0 0;
+                        line-height: normal;
+                        vertical-align: text-top;
+                        white-space: normal;
+                    }
+                }
+            }
+
+            .tau-collapsed .tau-cell {
+
+                .tau-axiscell__item {
+
+                    .tau-label__text {
+                        line-height: 30px;
+                        vertical-align: middle;
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+
+        /* endregion Project lane */
+
+        /* region Tag lane */
+
+        &.tau-header-tag {
+
+            .tau-cell {
+
+                .tau-axiscell__item {
+
+                    .i-role-cellaxis-viewtrigger {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        /* endregion Tag lane */
+    }
+}

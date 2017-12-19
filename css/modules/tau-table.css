@@ -1,0 +1,147 @@
+$tableBackgroundColor: $gHighlightBlockBackground;
+$tableBorderColor: $gHighlightBlockBorderColor;
+
+.tau-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: $gFontSize;
+
+    &--fixed {
+        table-layout: fixed;
+    }
+
+    &__tr {
+
+        &:hover {
+            td {
+                background-color: $gBackgroundStrokeHighlight;
+            }
+        }
+
+        &--inactive {
+
+            td {
+                opacity: 0.3;
+
+                &:last-child {
+                    opacity: 1;
+                }
+            }
+
+            &:hover td {
+                background-color: transparent;
+
+            }
+        }
+    }
+
+    &__th,
+    &__td {
+        padding: 0.75em 0.5em;
+        border-bottom: 1px solid $tableBorderColor;
+        text-align: left;
+
+        &:first-child {
+            padding-left: 14px;
+        }
+
+        &--center {
+            text-align: center;
+        }
+    }
+
+    &__th {
+        background-color: $tableBackgroundColor;
+        font-weight: normal;
+
+        &--us-progress,
+        &--bug-progress {
+            width: 13%;
+        }
+
+        &--us-total,
+        &--bug-total {
+            width: 11%;
+        }
+
+        &--actions {
+            width: 22%;
+        }
+
+        &--assign-info {
+            width: 20%;
+        }
+
+        &--assign-actions {
+            width: 6%;
+        }
+
+        &--token-name {
+            width: 250px;
+        }
+
+        &--role {
+            width: 150px;
+
+            @media screen and (max-width: 1400px) {
+                width: 135px;
+            }
+        }
+
+        &--user-start-date,
+        &--user-end-date {
+            width: 100px;
+            white-space: nowrap;
+        }
+
+        &--name {
+            width: 28%;
+        }
+
+        &--id {
+            width: 40px;
+        }
+
+        &--date {
+            width: 90px;
+        }
+
+        &--linked-entity-name {
+            width: 15%;
+        }
+
+        &--email {
+            width: 10%;
+        }
+
+        &--button {
+            width: 95px;
+        }
+    }
+
+    &__td {
+        vertical-align: middle;
+
+        &--right-align {
+            text-align: right;
+
+            .tau-table__td__control {
+                float: right;
+            }
+        }
+    }
+
+    &__thead--shifted &__th:not(:first-child) {
+        padding-left: 1%;
+    }
+
+    &--light &__td {
+        padding: 5px;
+        border-bottom: none;
+
+        &:first-child {
+            padding-left: 14px;
+        }
+    }
+}

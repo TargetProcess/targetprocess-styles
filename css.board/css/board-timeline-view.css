@@ -1,0 +1,1869 @@
+$tauCellProjectEdgeWidth: 1.2em;
+$tauCellProjectEdgeLineWidth: 4px;
+$tauCellProjectEdgeTextMargin: 6px;
+
+$timelineNavigatorBorderColor: color($gBoardBorderColor shade(10%));
+$timelineNavigatorHoverBorderColor: $gBoardPanelBackgroundLighter;
+
+/*****************************************************************************************************
+
+    Board's Timeline View
+
+    Contents:
+
+        - Timeline General
+        - Timeline Scale
+        - Timeline Canvas
+        - Timeline Navigator
+        - Timeline Card
+        - Timeline Milestones General
+        - Timeline Milestones Marker
+        - Timeline Milestones Marker on One Date
+        - Edit Milestones popup
+        - Milestones popup calendar
+        - Add Milestones popup
+        - Timeline Card Section connector
+
+*****************************************************************************************************/
+
+/* Timeline Settings
+----------------------------------------------------------------------------------------------------*/
+
+.i-role-timeline-period-choice {
+    width: 185px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Timeline General
+----------------------------------------------------------------------------------------------------*/
+
+.tau-board-timeline-view .tau-cols-header {
+
+    overflow: visible;
+
+}
+
+.tau-board-timeline-view .tau-timeline {
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    width: auto;
+
+    height: auto;
+
+}
+
+.tau-board-timeline-view .tau-rows-header + .tau-timeline {
+
+    left: 241px;
+
+}
+
+.tau-board-timeline-view .tau-backlog + .tau-timeline {
+
+    left: 241px;
+
+}
+
+/* should be removed along with navigator feature toggling */
+.tau-board-timeline-view .tau-timeline-grid {
+
+    position: absolute;
+    top: 32px;
+    left: 0;
+    right: 0;
+    bottom: 60px;
+}
+
+.tau-board-timeline-view .tau-rows-header {
+    bottom: 60px;
+}
+
+.tau-board-timeline-view.tau-board-grid-view > .tau-page-navigation-button--down {
+    margin-bottom: 5em;
+}
+
+/* Timeline Scale
+----------------------------------------------------------------------------------------------------*/
+
+.tau-board-timeline-view .tau-timeline-scale {
+
+    position: relative;
+
+    height: 32px;
+    line-height: 32px;
+    overflow: hidden;
+
+}
+
+.tau-board-timeline-view .tau-timeline-scale > .tau-scale-ruler {
+
+    position: relative;
+
+    height: 100%;
+
+    min-width: 100%;
+
+    white-space: nowrap;
+}
+
+.tau-board-timeline-view .tau-timeline-scale > .tau-period-label {
+
+    font-size: 11px;
+
+    position: absolute;
+    left: 5px;
+    top: 0;
+
+    line-height: 16px;
+
+}
+
+.tau-board-timeline-view .tau-timeline-scale > .tau-scale-ruler > .tau-ruler-segment > .tau-notch-label {
+
+    position: absolute;
+    top: -30%;
+    z-index: 1000;
+    transform: translateX(-50%);
+}
+
+.tau-board-timeline-view .tau-timeline-scale > .tau-scale-ruler > .tau-ruler-segment-first > .tau-notch-label {
+    transform: inherit;
+}
+
+.tau-board-timeline-view .tau-timeline-scale > .tau-scale-ruler > .tau-ruler-segment.tau-is-period-start > .tau-notch-label {
+
+    z-index: 2;
+    top: -100%;
+    margin-top: 4px;
+
+}
+
+.tau-board-timeline-view .tau-timeline-scale > .tau-scale-ruler > .tau-ruler-segment {
+
+    font-size: 11px;
+
+    position: absolute;
+
+    display: inline-block;
+    bottom: 0;
+
+    height: 50%;
+    padding-bottom: 2px;
+
+    line-height: 16px;
+    text-align: center;
+
+}
+
+.tau-board-timeline-view .tau-timeline-scale > .tau-scale-ruler > .tau-ruler-segment:not(.tau-ruler-segment-part):before {
+
+    content: '';
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    height: 50%;
+
+    border-left: 1px solid $gBoardBorderColor;
+}
+
+.tau-board-timeline-view .tau-timeline-scale > .tau-scale-ruler > .tau-ruler-segment.tau-is-period-start:before {
+
+    height: 100%;
+
+}
+
+.tau-board-timeline-view .tau-timeline-scale > .tau-scale-ruler > .tau-timeline-now-marker {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+
+    margin-left: -2px;
+
+    width: 6px;
+
+    height: 6px;
+
+    background: #8fb947;
+
+    pointer-events: none;
+}
+
+/* Timeline Canvas
+----------------------------------------------------------------------------------------------------*/
+
+.tau-timeline > .tau-timeline-canvas {
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    overflow: auto;
+    overflow-x: hidden;
+
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow {
+
+    position: relative;
+
+    min-width: 100%;
+
+    min-height: 100%;
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow > .tau-timeline-now-marker,
+._tc-timeline-navigator > .tau-timeline-now-marker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+
+    width: 2px;
+
+    height: 100%;
+
+    background: rgba(143, 185, 71, 0.5);
+
+    pointer-events: none;
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow > .tau-timeline-now-marker:after {
+    position: absolute;
+    top: 0;
+    left: -4px;
+
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 5px solid #8fb947;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+
+    pointer-events: none;
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track,
+.tau-ui-size-xl .tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-collapsed .tau-timeline-track {
+
+    position: relative;
+    margin: 4px 0;
+
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-allocations-track.tau-timeline-allocations-track,
+.tau-ui-size-xl .tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-collapsed .tau-timeline-allocations-track.tau-timeline-allocations-track {
+
+    position: relative;
+    margin: 0;
+
+}
+
+.tau-ui-size-xl .tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track {
+
+    margin-top: 0;
+
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track:after {
+
+    content: '';
+
+    display: block;
+
+    clear: both;
+
+}
+
+.tau-board-timeline-view.rows-h-collapsed .tau-backlog {
+    left: 105px;
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow > .tau-cellholder > .tau-cell {
+
+    overflow: hidden;
+
+}
+
+.tau-timeline .tau-timeline-flow > .tau-cellholder {
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+.tau-timeline .tau-timeline-flow .tau-cell-planner {
+
+    position: absolute;
+    visibility: hidden;
+    top: 0;
+    bottom: 0;
+
+    height: 100%;
+
+    background: rgba(255, 255, 255, 0.2);
+
+}
+
+.tau-timeline .tau-timeline-flow .tau-cell-planner:before,
+.tau-timeline .tau-timeline-flow .tau-cell-planner:after {
+
+    content: '';
+
+    position: absolute;
+    top: 0;
+
+    width: 50px;
+
+    height: 100%;
+
+    opacity: 0.03;
+
+}
+
+.tau-timeline .tau-timeline-flow .tau-cell-planner:before {
+
+    right: 100%;
+
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+
+}
+
+.tau-timeline .tau-timeline-flow .tau-cell-planner:after {
+
+    left: 100%;
+
+    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+
+}
+
+/* region Cell Planner Interval Types --------------------------------------------------*/
+
+.tau-cell-project-edge {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    z-index: 5;
+    bottom: 0;
+    width: $tauCellProjectEdgeWidth;
+    height: 100%;
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: auto;
+        width: $tauCellProjectEdgeLineWidth;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.1);
+    }
+
+    &__text {
+        position: absolute;
+        width: 150px;
+        height: $tauCellProjectEdgeWidth;
+        line-height: $tauCellProjectEdgeWidth;
+        font-size: 11px;
+        color: $gFontColorLightGray;
+        text-align: right;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        pointer-events: none;
+        padding: 0 3px;
+
+        top: 0;
+        right: $tauCellProjectEdgeWidth;
+        transform: rotate(-90deg);
+        transform-origin: top right;
+    }
+
+    &--start {
+        margin-left: calc(-$tauCellProjectEdgeWidth);
+        &:before {
+            right: 0;
+            left: auto;
+        }
+    }
+
+    &--start &__text {
+        top: 0;
+        right: calc($tauCellProjectEdgeWidth + $tauCellProjectEdgeTextMargin);
+        transform: rotate(270deg);
+        transform-origin: top right;
+    }
+
+    &--planned {
+
+        &:before {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAKCAYAAAB8OZQwAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIFdpbmRvd3MiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NTQ2QzcyNTEzRjYwMTFFNTgyQzVBMDg5QjIwRTVCQTkiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NTQ2QzcyNTIzRjYwMTFFNTgyQzVBMDg5QjIwRTVCQTkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo1NDZDNzI0RjNGNjAxMUU1ODJDNUEwODlCMjBFNUJBOSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo1NDZDNzI1MDNGNjAxMUU1ODJDNUEwODlCMjBFNUJBOSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pqg2NVoAAAApSURBVHjaYrx87dZ/BjTA8u/vX3QxBiYGLIB4Qcb///9T20ysggABBgBBAAmMwlACDAAAAABJRU5ErkJggg==) repeat-y 0 0;
+        }
+    }
+
+    &--forecast {
+
+        &:before {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAKCAYAAAB8OZQwAAAAAXNSR0IArs4c6QAAAExJREFUCB1jYGBgEARiJiCGA2YgSwiIuYD4NxD/BWIGkCAvEDMCMUgCpOMXC5BABtxADhO64Feg4CeY4D8g5z0Q/wRiMMCwHSZBJg0AD2YIO3pyq7wAAAAASUVORK5CYII=) repeat-y 0 0;
+        }
+    }
+
+    &--anticipated {
+
+        &:before {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAKCAYAAAB8OZQwAAAAAXNSR0IArs4c6QAAACZJREFUCB1jZGBgkABiFMAC5DGhiGATACnAUIVTkBEowwySpTUAAB5kACrBVsuzAAAAAElFTkSuQmCC) repeat-y 0 0;
+        }
+    }
+}
+
+/* endregion */
+
+/* Timeline Navigator
+----------------------------------------------------------------------------------------------------*/
+.refresh-histogram__control {
+    z-index: 11;
+    position: absolute;
+    bottom: 4px;
+    right: 0;
+    opacity: 0.5;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.no-data-in-slice-container ._tc-timeline-navigator {
+    display: none;
+}
+
+._tc-timeline-navigator:before,
+._tc-timeline-navigator:after,
+._tc-timeline-navigator > .tc-focus-range:before,
+._tc-timeline-navigator > .tc-focus-range:after {
+
+    background: $gBoardBackground;
+    opacity: 0.75;
+
+}
+
+._tc-timeline-navigator {
+
+    position: relative;
+
+    height: 60px;
+
+    padding: 5px 0;
+
+    background: $gBackgroundDefault;
+
+}
+
+._tc-timeline-navigator:before,
+._tc-timeline-navigator:after {
+
+    content: '';
+
+    position: absolute;
+
+    left: -7px;
+    right: -7px;
+
+    margin-top: -1px;
+
+}
+
+._tc-timeline-navigator:before {
+
+    top: 0;
+    bottom: 0;
+
+    border-top: 1px solid $gBoardBorderColor;
+
+}
+
+._tc-timeline-navigator:after {
+
+    top: 0;
+
+    height: 3px;
+
+    border-top: 1px solid $gBoardBorderColor;
+
+}
+
+.tau-board-timeline-view ._tc-timeline-navigator {
+
+    position: absolute;
+    left: 7px;
+    right: 7px;
+    bottom: 0;
+    z-index: 101;
+    box-sizing: border-box;
+
+}
+
+._tc-timeline-navigator > .tc-focus-range {
+
+    position: absolute;
+    left: 0;
+    top: 3px;
+    bottom: 3px;
+
+    border: solid $timelineNavigatorBorderColor;
+    border-width: 1px 0;
+
+    width: 100%;
+
+}
+
+._tc-timeline-navigator > .tc-focus-range:before,
+._tc-timeline-navigator > .tc-focus-range:after {
+
+    content: '';
+
+    position: absolute;
+
+    width: 100vw;
+
+    height: 100%;
+
+}
+
+._tc-timeline-navigator > .tc-focus-range:before {
+
+    right: 100%;
+
+}
+
+._tc-timeline-navigator > .tc-focus-range:after {
+
+    left: 100%;
+
+}
+
+._tc-timeline-navigator > .tc-focus-range .tc-start,
+._tc-timeline-navigator > .tc-focus-range .tc-end {
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    width: 10px;
+
+    cursor: ew-resize;
+
+    z-index: 10;
+
+}
+
+._tc-timeline-navigator > .tc-focus-range .tc-start {
+
+    left: -5px;
+
+}
+
+._tc-timeline-navigator > .tc-focus-range .tc-end {
+
+    right: -5px;
+
+}
+
+._tc-timeline-navigator > .tc-focus-range .tc-start:before,
+._tc-timeline-navigator > .tc-focus-range .tc-end:before,
+._tc-timeline-navigator > .tc-focus-range .tc-start:after,
+._tc-timeline-navigator > .tc-focus-range .tc-end:after {
+
+    content: '';
+
+    position: absolute;
+
+}
+
+._tc-timeline-navigator > .tc-focus-range .tc-start:before,
+._tc-timeline-navigator > .tc-focus-range .tc-end:before {
+
+    top: -1px;
+    bottom: -1px;
+
+    width: 1px;
+
+    background: $timelineNavigatorBorderColor;
+
+}
+
+._tc-timeline-navigator > .tc-focus-range .tc-start:before {
+
+    left: 4px;
+
+}
+
+._tc-timeline-navigator > .tc-focus-range .tc-end:before {
+
+    right: 4px;
+
+}
+
+._tc-timeline-navigator > .tc-focus-range .tc-start:after,
+._tc-timeline-navigator > .tc-focus-range .tc-end:after {
+
+    top: 25%;
+
+    border: solid $timelineNavigatorBorderColor;
+    border-width: 0 1px;
+
+    width: 1px;
+
+    height: 50%;
+
+}
+
+._tc-timeline-navigator > .tc-focus-range .tc-start:after {
+
+    left: 0;
+
+}
+
+._tc-timeline-navigator > .tc-focus-range .tc-end:after {
+
+    right: 0;
+
+}
+
+._tc-timeline-navigator > .tc-focus-range:hover .tc-start:after,
+._tc-timeline-navigator > .tc-focus-range:hover .tc-end:after {
+
+    border: solid $timelineNavigatorHoverBorderColor;
+    border-width: 0 1px;
+    transition: border 0.4s ease-in-out;
+
+}
+
+._tc-timeline-navigator > .tc-focus-range:hover .tc-start:before,
+._tc-timeline-navigator > .tc-focus-range:hover .tc-end:before {
+
+    background: $timelineNavigatorHoverBorderColor;
+    transition: background 0.4s ease-in-out;
+
+}
+
+._tc-timeline-navigator > .tc-focus-range:hover {
+
+    border: solid $timelineNavigatorHoverBorderColor;
+    border-width: 1px 0;
+    transition: border 0.4s ease-in-out;
+
+}
+
+._tc-timeline-navigator > .tc-focus-range .tc-space {
+
+    position: absolute;
+
+    width: 100%;
+
+    height: 100%;
+
+    cursor: move;
+
+}
+
+._tc-timeline-navigator > .tc-histogram {
+
+    position: relative;
+    overflow: hidden;
+
+    height: 100%;
+
+    white-space: nowrap;
+}
+
+._tc-timeline-navigator > .tc-histogram:not(.tc-histogram-empty) {
+    background: $gBackgroundDefault;
+
+}
+
+._tc-timeline-navigator > .tc-histogram > .tc-item {
+
+    position: absolute;
+
+    display: inline-block;
+
+    width: 4px;
+
+    height: 100%;
+
+}
+
+._tc-timeline-navigator > .tc-histogram > .tc-item > .tc-meter {
+
+    background: #000;
+    margin-right: 1px;
+
+}
+
+/* Timeline Card
+----------------------------------------------------------------------------------------------------*/
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card {
+
+    position: relative;
+    float: left;
+
+    margin-left: -100%;
+
+    padding: 2px 0;
+
+    width: 100%;
+
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card .tau-card-holder {
+
+    overflow: hidden;
+
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card > .tau-card-holder {
+
+    position: relative;
+
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+
+    left: -100%; /* hidden by default, overriden by js */
+
+    margin-left: 100%;
+
+    min-width: 3px;
+
+    width: 100px;
+
+    top: -2px;
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card.tau-is-planned > .tau-card-holder {
+
+    box-shadow: none;
+
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card > .tau-card-planner {
+
+    position: absolute;
+    top: -1px;
+    box-sizing: border-box;
+
+    left: -100%; /* hidden by default, overriden by js */
+
+    margin-left: 100%;
+
+    border: dotted $timelineNavigatorHoverBorderColor;
+    border-width: 1px 0;
+
+    min-width: 3px;
+    height: calc(100% - 1px);
+
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track.tau-timeline-allocations-track > .tau-timeline-card > .tau-card-planner {
+    border: none;
+    border-width: 0;
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track.tau-timeline-allocations-track > .tau-timeline-card {
+    padding: 0;
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card > .tau-card-planner.tau-planned-fixed-date {
+    border-width: 0;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card > .tau-card-planner .tau-card-holder {
+
+    height: 100%;
+
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card > .tau-card-planner > .tau-end-date > .tau-end-date-arrow,
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card > .tau-card-planner > .tau-start-date > .tau-start-date-arrow {
+    display: none;
+    position: absolute;
+    top: 25%;
+    border: double $timelineNavigatorBorderColor;
+    border-width: 0 1px;
+    width: 1px;
+    bottom: 25%;
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card > .tau-card-planner > .tau-start-date > .tau-start-date-arrow {
+    left: -5px;
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card > .tau-card-planner > .tau-end-date > .tau-end-date-arrow {
+    right: -5px;
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card > .tau-card-planner:hover > .tau-end-date > .tau-end-date-arrow,
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card > .tau-card-planner:hover > .tau-start-date > .tau-start-date-arrow,
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card > .tau-card-planner > .tau-end-date:hover > .tau-end-date-arrow,
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card > .tau-card-planner > .tau-start-date:hover > .tau-start-date-arrow {
+    display: block;
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card > .tau-card-planner .tau-start-date,
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card > .tau-card-planner .tau-end-date {
+
+    position: absolute;
+
+    z-index: 20;
+
+    width: 4px;
+
+    height: 100%;
+
+    cursor: move;
+
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card > .tau-card-planner .tau-start-date {
+    left: 0;
+    border-width: 0 1px 0 0;
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card > .tau-card-planner .tau-end-date {
+    right: 0;
+    border-width: 0 0 0 1px;
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card > .tau-card-planner .tau-start-date:before,
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card > .tau-card-planner .tau-end-date:before {
+
+    content: '';
+
+    position: absolute;
+    top: 0;
+    box-sizing: border-box;
+
+    width: 1px;
+
+    height: 100%;
+
+    border: dotted $timelineNavigatorHoverBorderColor;
+
+    background-color: $gBoardBackground;
+
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card > .tau-card-planner .tau-start-date:before {
+    left: -1px;
+    border-width: 0 0 0 1px;
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card > .tau-card-planner .tau-end-date:before {
+    right: -1px;
+    border-width: 0 1px 0 0;
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card > .tau-card-planner .tau-start-date:hover:after {
+    right: 7px;
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card > .tau-card-planner .tau-end-date:hover:after {
+    left: 7px;
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card > .tau-card-planner.tau-planned-fixed-date .tau-end-date {
+    visibility: hidden;
+}
+
+.tau-timeline > .tau-timeline-canvas > .tau-timeline-flow .tau-timeline-track > .tau-timeline-card > .tau-card-predictor {
+    position: absolute;
+    left: 0;
+    width: 0;
+    top: 0;
+    bottom: 4px;
+    margin-left: 100%;
+    padding-right: 3px;
+    background-color: color($gBoardBackground a(65%));
+    opacity: 1;
+    z-index: 12;
+    pointer-events: none;
+}
+
+.tau-partial-card .tau-card-v2:before {
+    left: -2px;
+    z-index: 1;
+}
+
+.tau-board-timeline-view .tau-timeline .tau-card-holder:not(.tau-section-invisible),
+.tau-board-timeline-view .tau-timeline .tau-card-planner:not(.tau-section-invisible) {
+
+    .tau-card-v2.tau-card-v2_type_userprojectallocation,
+    .tau-card-v2.tau-card-v2_type_teamprojectallocation,
+    .tau-card-v2.tau-card-v2_type_project {
+        min-width: 100%;
+        width: auto;
+    }
+}
+
+$timelineOverlappedShorterCardBorder: rgba(0, 0, 0, 0.2) solid 1px;
+
+.tau-timeline {
+
+    .tau-card-v2 {
+        z-index: 12;
+    }
+
+    .tau-card-holder,
+    .tau-card-planner,
+    .tau-card-predictor {
+        &.tau-section-invisible {
+            visibility: hidden;
+        }
+
+        &.tau-overlapped-shorter-card {
+            .tau-card-v2:before {
+                visibility: hidden;
+            }
+            .tau-card-v2__section {
+                visibility: hidden;
+            }
+        }
+    }
+
+    .tau-card-planner:not(.tau-overlapped-shorter-card) {
+        z-index: 13;
+    }
+
+    .tau-card-holder {
+        &.tau-overlapped-shorter-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 20;
+            pointer-events: none;
+        }
+
+        &.tau-overlapped-on-left-card:before {
+            border-left: $timelineOverlappedShorterCardBorder
+        }
+
+        &.tau-overlapped-on-right-card:before {
+            border-right: $timelineOverlappedShorterCardBorder
+        }
+    }
+}
+
+/* region Timeline Milestones General -----------------------------------------------------------------------*/
+
+.tau-timeline-milestone--red,
+.tau-timeline-milestone--red:after,
+.tau-timeline-milestone--red > .tau-timeline-milestone-flag:after {
+    border-color: #ff744e;
+    background-color: #ff744e;
+    color: #ff744e;
+}
+
+.tau-timeline-milestone--orange,
+.tau-timeline-milestone--orange:after,
+.tau-timeline-milestone--orange > .tau-timeline-milestone-flag:after {
+    border-color: #ffb961;
+    background-color: #ffb961;
+    color: #ffb961;
+}
+
+.tau-timeline-milestone--yellow,
+.tau-timeline-milestone--yellow:after,
+.tau-timeline-milestone--yellow > .tau-timeline-milestone-flag:after {
+    border-color: #ffcf4e;
+    background-color: #ffcf4e;
+    color: #ffcf4e;
+}
+
+.tau-timeline-milestone--olive,
+.tau-timeline-milestone--olive:after,
+.tau-timeline-milestone--olive > .tau-timeline-milestone-flag:after {
+    border-color: #cecf6d;
+    background-color: #cecf6d;
+    color: #cecf6d;
+}
+
+.tau-timeline-milestone--green,
+.tau-timeline-milestone--green:after,
+.tau-timeline-milestone--green > .tau-timeline-milestone-flag:after {
+    border-color: #6fd482;
+    background-color: #6fd482;
+    color: #6fd482;
+}
+
+.tau-timeline-milestone--turquoise,
+.tau-timeline-milestone--turquoise:after,
+.tau-timeline-milestone--turquoise > .tau-timeline-milestone-flag:after {
+    border-color: #6cc8cc;
+    background-color: #6cc8cc;
+    color: #6cc8cc;
+}
+
+.tau-timeline-milestone--blue,
+.tau-timeline-milestone--blue:after,
+.tau-timeline-milestone--blue > .tau-timeline-milestone-flag:after {
+    border-color: #72a8d0;
+    background-color: #72a8d0;
+    color: #72a8d0;
+}
+
+.tau-timeline-milestone--orchid,
+.tau-timeline-milestone--orchid:after,
+.tau-timeline-milestone--orchid > .tau-timeline-milestone-flag:after {
+    border-color: #8c90e0;
+    background-color: #8c90e0;
+    color: #8c90e0;
+}
+
+.tau-timeline-milestone--violet,
+.tau-timeline-milestone--violet:after,
+.tau-timeline-milestone--violet > .tau-timeline-milestone-flag:after {
+    border-color: #da6fd5;
+    background-color: #da6fd5;
+    color: #da6fd5;
+}
+
+.tau-timeline-milestone--magenta,
+.tau-timeline-milestone--magenta:after,
+.tau-timeline-milestone--magenta > .tau-timeline-milestone-flag:after {
+    border-color: #f15f8e;
+    background-color: #f15f8e;
+    color: #f15f8e;
+}
+
+.tau-timeline-milestone-color {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+/* endregion */
+
+/* region Timeline Milestones Marker -----------------------------------------------------------------------*/
+
+.tau-timeline-milestone-marker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 3;
+
+    width: 2px;
+    height: 100%;
+    opacity: 0.6;
+}
+
+.tau-scale-ruler .tau-timeline-milestone-marker {
+    width: auto;
+    height: auto;
+    padding-top: 1px;
+    margin-left: -1px;
+
+    font-size: 11px;
+    line-height: 14px;
+    background: $gBoardBackground;
+    box-shadow: 0 -4px 2px 2px $gBoardBackground;
+    opacity: 1;
+}
+
+.tau-timeline-milestone-title {
+    display: none;
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.tau-timeline-milestone-marker.tau-hover,
+.tau-timeline-milestone-marker.tau-hover .tau-timeline-milestone-flag:after {
+    opacity: 1
+}
+
+.tau-scale-ruler .tau-timeline-milestone-marker.tau-hover {
+    width: auto;
+}
+
+.tau-hover .tau-timeline-milestone-title {
+    display: block;
+}
+
+.tau-timeline-milestone-flag {
+    position: relative;
+    display: inline-block;
+    width: 0;
+    height: 0;
+
+    border-width: 5px 5px 5px 7px;
+    border-style: solid;
+    border-right-color: transparent;
+    background-color: transparent;
+    cursor: pointer;
+
+    opacity: 1;
+}
+
+.tau-board-timeline-view .tau-timeline-milestone-flag {
+    position: absolute;
+    top: 19px;
+}
+
+.tau-scale-ruler .tau-timeline-milestone-marker > .tau-timeline-milestone-flag {
+    border-right-color: $gBoardBackground;
+    box-shadow: 0 0 2px 2px $gBoardBackground;
+}
+
+.tau-timeline-milestone-flag:after {
+    position: absolute;
+    bottom: -8px;
+    left: -7px;
+
+    content: '';
+    width: 2px;
+    height: 3px;
+
+    opacity: 0.65;
+}
+
+.tau-timeline-milestone-active {
+    opacity: 1;
+}
+
+/* endregion */
+
+/* region Timeline Milestones Marker on One Date -----------------------------------------------------------------------*/
+
+.tau-scale-ruler .tau-timeline-milestone-marker.tau-timeline-milestone--1-on-date {
+    z-index: 7;
+}
+
+.tau-scale-ruler .tau-timeline-milestone-marker.tau-timeline-milestone--2-on-date {
+    z-index: 6;
+    margin-left: 6px;
+}
+
+.tau-scale-ruler .tau-timeline-milestone-marker.tau-timeline-milestone--3-on-date {
+    z-index: 5;
+    margin-left: 14px;
+}
+
+.tau-scale-ruler .tau-timeline-milestone-marker.tau-timeline-milestone--4-on-date {
+    z-index: 4;
+    margin-left: 22px;
+}
+
+.tau-scale-ruler .tau-timeline-milestone-marker.tau-timeline-milestone--5-on-date {
+    z-index: 3;
+    margin-left: 30px;
+}
+
+.tau-timeline-flow .tau-timeline-milestone--2-on-date,
+.tau-timeline-flow .tau-timeline-milestone--3-on-date,
+.tau-timeline-flow .tau-timeline-milestone--4-on-date,
+.tau-timeline-flow .tau-timeline-milestone--5-on-date {
+    display: none;
+}
+
+.tau-scale-ruler .tau-timeline-milestone--1-on-date > .tau-timeline-milestone-flag,
+.tau-scale-ruler .tau-timeline-milestone--2-on-date > .tau-timeline-milestone-flag,
+.tau-scale-ruler .tau-timeline-milestone--3-on-date > .tau-timeline-milestone-flag,
+.tau-scale-ruler .tau-timeline-milestone--4-on-date > .tau-timeline-milestone-flag {
+    border-right-color: transparent;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.tau-scale-ruler .tau-timeline-milestone--1-on-date > .tau-timeline-milestone-flag {
+    box-shadow: -3px 0 2px 0 $gBoardBackground;
+}
+
+.tau-scale-ruler .tau-timeline-milestone--2-on-date > .tau-timeline-milestone-flag,
+.tau-scale-ruler .tau-timeline-milestone--3-on-date > .tau-timeline-milestone-flag,
+.tau-scale-ruler .tau-timeline-milestone--4-on-date > .tau-timeline-milestone-flag,
+.tau-scale-ruler .tau-timeline-milestone--5-on-date > .tau-timeline-milestone-flag {
+    border-left-width: 8px;
+}
+
+.tau-scale-ruler .tau-timeline-milestone--2-on-date > .tau-timeline-milestone-flag:after,
+.tau-scale-ruler .tau-timeline-milestone--3-on-date > .tau-timeline-milestone-flag:after,
+.tau-scale-ruler .tau-timeline-milestone--4-on-date > .tau-timeline-milestone-flag:after,
+.tau-scale-ruler .tau-timeline-milestone--5-on-date > .tau-timeline-milestone-flag:after {
+    display: none;
+}
+
+/* endregion */
+
+/* region Edit Milestones popup -----------------------------------------------------------------------*/
+
+.tau-timeline-milestone-popup {
+    z-index: 102;
+    position: absolute;
+    user-select: text;
+
+    min-width: 150px;
+    width: 270px;
+    max-width: 270px;
+    margin: 0;
+
+    font-size: 11px;
+
+    background-color: $gBackgroundDefault;
+    border-radius: $gBorderRadiusDefault;
+    border-bottom-left-radius: 5px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+
+    &__buttons {
+        margin: 7px -7px 0 -7px;
+        padding: 15px 10px 5px 10px;
+        border-top: 1px solid $gHighlightBlockBorderColor;
+    }
+}
+
+.tau-timeline-milestone-popup-wrapper {
+    position: relative;
+    padding: 10px 15px 13px 15px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    @mixin custom-scroll;
+}
+
+.tau-timeline-milestone-popup__edit {
+    display: none;
+}
+
+.tau-timeline-milestone-popup__info {
+    position: relative;
+
+    &__project {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 4px;
+
+        &__item {
+            margin-right: 2px;
+        }
+    }
+}
+
+.tau-timeline-milestone-popup__info__control {
+    float: right;
+    margin-left: 15px;
+}
+
+.tau-timeline-milestone-popup__info__title {
+    padding: 0 0 2px 0;
+    line-height: 16px;
+    background-color: transparent;
+}
+
+.tau-timeline-milestone-popup__info__date {
+    padding: 0 0 4px 0;
+    line-height: 13px;
+    background-color: transparent;
+}
+
+.tau-timeline-milestone-popup__info__description {
+    max-height: 300px;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+.tau-timeline-milestone-popup .tau-timeline-milestone-marker {
+    opacity: 1;
+    top: 37px;
+    height: calc(100% - 37px);
+    border-bottom-left-radius: 3px;
+}
+
+.tau-timeline-milestone-popup--right {
+    border-bottom-right-radius: 5px;
+}
+
+.tau-timeline-milestone-popup--right .tau-timeline-milestone-marker {
+    left: auto;
+    right: 0;
+}
+
+.tau-timeline-milestone-popup--right .tau-timeline-milestone-marker .tau-timeline-milestone-flag {
+    right: 0;
+    transform: rotate(180deg);
+}
+
+.tau-timeline-milestone-popup .tau-timeline-milestone-flag {
+    position: absolute;
+    top: -8px;
+}
+
+.tau-timeline-milestone-popup .tau-timeline-milestone-flag:after {
+    display: none;
+    top: 0;
+    bottom: auto;
+    height: 1200px;
+}
+
+.tau-timeline-milestone-popup .tau-timeline-milestone-title {
+    display: none;
+}
+
+.tau-timeline-milestone-popup--edit-mode .tau-timeline-milestone-popup__info {
+    display: none;
+}
+
+.tau-timeline-milestone-popup--edit-mode .tau-timeline-milestone-popup__edit {
+    display: block;
+}
+
+/* edit mode */
+
+.tau-timeline-milestone-popup__edit {
+    min-width: 230px;
+    padding: 0 5px;
+}
+
+.tau-timeline-input-group {
+    margin: 10px 0;
+    border: 1px solid $gControlBorderColorDefault;
+    border-radius: 2px;
+
+    &.tau-focus {
+        box-shadow: none;
+
+        &:not(.tau-error) {
+            border-color: $gControlBorderColorFocusDefault;
+        }
+    }
+
+    &.tau-error {
+        border-color: $gMessageColorError;
+        color: $gMessageColorError;
+    }
+
+    &__item {
+        border: none;
+        border-radius: 0;
+
+        &:focus {
+            box-shadow: none;
+        }
+
+        &:last-child:not(:only-child) {
+            border-top: 1px solid $gControlBorderColorDefault;
+        }
+    }
+}
+
+.tau-timeline-milestone-popup__edit_choose-color {
+    position: relative;
+    height: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.tau-timeline-milestone-popup__edit_choose-color__item {
+    position: absolute;
+    width: 10%;
+    height: 20px;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+
+.tau-timeline-milestone-popup__edit_choose-color__item:first-child {
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+.tau-timeline-milestone-popup__edit_choose-color__item:nth-child(2) {
+    left: 10%;
+}
+
+.tau-timeline-milestone-popup__edit_choose-color__item:nth-child(3) {
+    left: 20%;
+}
+
+.tau-timeline-milestone-popup__edit_choose-color__item:nth-child(4) {
+    left: 30%;
+}
+
+.tau-timeline-milestone-popup__edit_choose-color__item:nth-child(5) {
+    left: 40%;
+}
+
+.tau-timeline-milestone-popup__edit_choose-color__item:nth-child(6) {
+    left: 50%;
+}
+
+.tau-timeline-milestone-popup__edit_choose-color__item:nth-child(7) {
+    left: 60%;
+}
+
+.tau-timeline-milestone-popup__edit_choose-color__item:nth-child(8) {
+    left: 70%;
+}
+
+.tau-timeline-milestone-popup__edit_choose-color__item:nth-child(9) {
+    left: 80%;
+}
+
+.tau-timeline-milestone-popup__edit_choose-color__item:last-child {
+    left: 90%;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.tau-timeline-milestone-popup__edit_choose-color .tau-timeline-milestone-flag {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -5px 0 0 -5px;
+}
+
+.tau-timeline-milestone-popup__edit_choose-color .tau-timeline-milestone-flag:after {
+    opacity: 1;
+}
+
+.tau-timeline-milestone-popup__edit_choose-color__item:hover,
+.tau-timeline-milestone-popup__edit_choose-color__item.tau-active {
+    z-index: 1;
+    width: calc(10% + 2px);
+    height: 22px;
+    margin: -1px 0 0 -1px;
+    background-color: #4c4c4c;
+}
+
+.tau-timeline-milestone-popup__edit_choose-color__item:hover .tau-timeline-milestone-flag:after,
+.tau-timeline-milestone-popup__edit_choose-color__item.tau-active .tau-timeline-milestone-flag:after {
+    display: block;
+    height: 11px;
+}
+
+.tau-timeline-milestone-popup__edit__assign__title {
+    padding: 0 10px 9px 13px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid $gHighlightBlockBorderColor;
+}
+
+.tau-timeline-milestone-popup__edit__assign {
+    margin: 0 -10px;
+}
+
+.tau-timeline-milestone-popup__edit__assign > .tau-projects {
+    padding: 0 6px;
+}
+
+.tau-timeline-milestone-popup .tau-projects .category-assignments {
+    overflow-y: auto;
+    max-height: 140px;
+    white-space: nowrap;
+}
+
+.tau-timeline-milestone-popup__edit__datepicker {
+    display: flex;
+    align-items: flex-end;
+}
+
+.tau-timeline-milestone-popup__edit__title {
+    margin: 8px 0 6px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    20%, 60% {
+        transform: translateX(-5px);
+    }
+
+    40%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+.tau-milestone-shake {
+    animation-name: shake;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+}
+
+.assign-to-projects-label {
+
+    &.tau-active {
+        color: $gMessageColorError;
+    }
+}
+
+
+/* endregion */
+
+/* region Milestones popup calendar -----------------------------------------------------------------------*/
+
+.tau-timeline-milestone-popup__edit .ui-datepicker {
+    position: relative;
+    margin: 12px 0 14px;
+    box-shadow: none;
+    border: 1px solid $gHighlightBlockBorderColor;
+    border-radius: 2px;
+}
+
+.tau-timeline-milestone-popup__edit .ui-datepicker:before {
+    z-index: 1;
+    position: absolute;
+    top: -8px;
+    right: 14px;
+
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    margin-right: -1px;
+
+    border-color: $gHighlightBlockBorderColor transparent;
+    border-style: solid;
+    border-width: 0 8px 8px;
+}
+
+.tau-timeline-milestone-popup__edit .ui-datepicker:after {
+    z-index: 1;
+    position: absolute;
+    top: -7px;
+    right: 14px;
+
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+
+    visibility: visible;
+    border-color: $gBackgroundDefault transparent;
+    border-style: solid;
+    border-width: 0 7px 7px;
+}
+
+.tau-timeline-milestone-popup__edit .ui-datepicker-header {
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.tau-timeline-milestone-popup__edit .ui-datepicker .ui-datepicker-prev {
+    right: 33px;
+}
+
+.tau-timeline-milestone-popup__edit .ui-datepicker .ui-datepicker-next {
+    right: 10px;
+}
+
+/* endregion */
+
+/* region Add Milestones popup -----------------------------------------------------------------------*/
+
+.tau-btn-add-milestone {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    visibility: hidden;
+    width: 23px;
+    height: 16px;
+    cursor: pointer;
+    border: 1px solid $gActionColorAdd;
+    border-right: none;
+    box-shadow: 0 0 2px 5px $gBoardBackground;
+    background-color: $gActionColorAdd;
+    z-index: 1001;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+
+        content: '';
+        width: 14px;
+        height: 14px;
+        background: svg("add", "[fill]: #fff");
+        background-size: contain;
+    }
+
+    &:after {
+        position: absolute;
+        top: 1px;
+        right: -7px;
+
+        content: '';
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background-color: $gBoardBackground;
+        transform: rotate(45deg);
+    }
+
+    .tau-scale-ruler:hover & {
+        visibility: visible;
+    }
+}
+
+.tau-scale-ruler .tau-btn-add-milestone-visible {
+    visibility: visible;
+}
+
+/* endregion */
+
+.tau-board-unit__value > .tau-timeline-milestone-flag {
+    cursor: default;
+    margin-right: 7px;
+}
+
+/*region People Allocations*/
+
+.tau-board-body .tau-board-timeline-view .tau-timeline .tau-timeline-card .tau-card-planner .tau-card-v2.tau-card-bottom-stick-background {
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-color: #fff;
+}
+
+/* endregion */
+
+/*region Vacation and overload for allocation cards */
+
+.tau-timeline .tau-timeline-flow {
+    .tau-cell-vacation {
+        z-index: 11;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        overflow: hidden;
+        display: block;
+        height: 100%;
+        font-size: 11px;
+        text-align: left;
+        text-indent: -9999px;
+
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIFdpbmRvd3MiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM5MDAwRTYyNkU4MTFFNUEwM0ZBOTczRDUwMkE2NEIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM5MDAwRTcyNkU4MTFFNUEwM0ZBOTczRDUwMkE2NEIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzkwMDBFNDI2RTgxMUU1QTAzRkE5NzNENTAyQTY0QiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzkwMDBFNTI2RTgxMUU1QTAzRkE5NzNENTAyQTY0QiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqVqy3cAAABDSURBVHjaYnjz6FbL////+RiA4H+vhNffSWq9jCABRkbGTyCBf6x8zu8DtnxnhKmACQjLqnYxYggAdbGgC4AUAQQYAJstK6aWPobcAAAAAElFTkSuQmCC) 0 0 repeat;
+    }
+
+    .tau-cell-illness {
+        z-index: 11;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        overflow: hidden;
+        display: block;
+        height: 100%;
+        font-size: 11px;
+        text-align: left;
+        text-indent: -9999px;
+
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIFdpbmRvd3MiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6Qzc2QjEyQTYyNkU4MTFFNUJCMUU5RDhGNDI4NDkwOEQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6Qzc2QjEyQTcyNkU4MTFFNUJCMUU5RDhGNDI4NDkwOEQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpDNzZCMTJBNDI2RTgxMUU1QkIxRTlEOEY0Mjg0OTA4RCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpDNzZCMTJBNTI2RTgxMUU1QkIxRTlEOEY0Mjg0OTA4RCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PvFwOLUAAABZSURBVHjaYpi+dEvf3FXb1RmA4NXHj6rX7jyewGRvrs/05++/rGmrNqqL8fPfFhHlm8oIkn398lP20TOXGP6w/JmeFeZ/kxGmDVkCLIiQ+JBz9MyV/wABBgCHgDRXbFBnbgAAAABJRU5ErkJggg==) 0 0 repeat;
+    }
+
+    .tau-selected, .tau-is-selected-duplicate {
+        .tau-cell-overload {
+            opacity: 0;
+        }
+    }
+
+    .tau-cell-overload {
+        z-index: 11;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        display: block;
+        height: 100%;
+        font-size: 11px;
+        text-align: left;
+        text-indent: -9999px;
+        background: rgba(255, 40, 0, 0.50);
+        box-shadow: inset -1px 0 0 0 rgba(255, 255, 255, 0.5);
+        transition: 0.2s background ease-in;
+    }
+
+    .tau-cell-overload-hover {
+        background: rgba(233, 62, 29, 0.4);
+    }
+}
+
+.drag-n-drop-card-limit-shake {
+    animation-name: shortShake;
+    animation-fill-mode: both;
+    animation-duration: 0.5s;
+}
+
+/* endregion */
+
+/*region Vacation, Overload, Illness bubbles for allocation cards */
+
+.overload-statistics-bubble {
+    z-index: 102;
+}
+
+.overload-statistics {
+    width: 300px;
+    margin: 8px 6px;
+    font-size: $gFontSize;
+
+    &.project-overload-statistics {
+        width: 400px;
+    }
+
+    &__header {
+        border-bottom: solid 1px $gHighlightBlockBorderColor;
+        margin-bottom: 10px;
+        padding: 5px 0 6px 0;
+    }
+
+    &__line {
+        padding: 3px 14px 3px 11px;
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+    }
+
+    &__group:not(:last-child) {
+        margin-bottom: 8px;
+    }
+
+    &__entity {
+        line-height: 0;
+        font-size: 0;
+    }
+
+    &__entity,
+    &__period {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    &__period {
+        font-weight: 600;
+    }
+
+    &__percent {
+        width: 40px;
+        text-align: right;
+        flex-shrink: 0;
+
+        &.overloading {
+            color: $gMessageColorError;
+        }
+    }
+
+    &__interval {
+        font-weight: 600;
+        text-align: left;
+        line-height: 14px;
+    }
+
+    .tau-avatar {
+        position: relative;
+    }
+
+    &__icon {
+        margin-left: 3px;
+        margin-right: 6px;
+        display: flex;
+        align-items: center;
+
+        &--avatar {
+            margin-left: 0;
+        }
+    }
+
+    .tau-label__text {
+        display: inline-block;
+        vertical-align: middle;
+        max-width: calc(100% - 25px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        line-height: 20px;
+        font-size: 13px;
+
+        &.overload-statistics__caption {
+            font-weight: 600;
+            flex-grow: 1;
+        }
+    }
+
+    &__sub-period {
+        color: $gFontColorLightGray;
+        font-size: 11px;
+        line-height: 20px;
+        margin: 0 10px;
+        flex-shrink: 0;
+    }
+}
+
+.timeline-period-info {
+    padding: 8px 10px 7px;
+    font-size: 11px;
+    line-height: 16px;
+
+    &--illness {
+        color: #bbc3cd;
+    }
+
+    &--vacation {
+        color: #fe8f21;
+    }
+
+    &__title {
+        font-weight: 600;
+    }
+
+    &__interval {
+        color: $gFontColorDefault;
+    }
+}
+
+/* endregion */
+
+/*region Timeline Card Section connector */
+
+.tau-timeline {
+
+    .card-section-connector {
+        position: absolute;
+        top: -1px;
+        left: 0;
+        width: 100%;
+        height: calc(100% - 1px);
+        margin-left: 100%;
+        background: url(../../css.board/images/card-section-connector.svg) center center no-repeat;
+        background-size: 100% 100%;
+        z-index: 13;
+    }
+}
+
+/* endregion */

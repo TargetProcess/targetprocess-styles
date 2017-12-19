@@ -1,0 +1,72 @@
+.tau-avatar {
+    display: inline-block;
+    vertical-align: text-bottom;
+    position: relative;
+    width: 20px;
+    height: 20px;
+
+    &__icon {
+        position: absolute;
+        display: none;
+    }
+
+    img {
+        display: block;
+        margin: 0;
+        border-radius: 2px;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &.tau-avatar-not-active {
+
+        img {
+            opacity: 0.3;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    &.tau-owner-avatar &__icon {
+        display: block;
+        left: 2px;
+        top: -8px;
+    }
+
+    &.tau-last-commented-user-avatar &__icon {
+        display: block;
+        bottom: -9px;
+        left: -4px;
+    }
+
+    & + & {
+        margin-left: 4px;
+    }
+
+    .tau-board-grid-view .tau-rows-header > ul > li > .tau-cell .tau-label &,
+    .tau-board-grid-view .tau-cols-header > ul > li > .tau-cell .tau-label & {
+        width: 1.75em;
+        height: 1.75em;
+        line-height: 3.3em;
+
+        img {
+            width: 1.75em;
+            height: 1.75em;
+        }
+
+        + .count-users {
+            height: 1.91em;
+        }
+    }
+
+    .tau-board-grid-view .tau-rows-header > ul > li > .tau-cell .tau-label & {
+        padding-right: 0.1em;
+
+        img {
+            border-radius: 2px;
+        }
+    }
+}

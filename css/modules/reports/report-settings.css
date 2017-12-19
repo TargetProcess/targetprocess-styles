@@ -1,0 +1,164 @@
+$reportSettingsFontSize: 13px;
+$reportSettingsPadding: 20px;
+
+.report-settings {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    border: 1px solid $gHighlightBlockBorderColor;
+    padding: $reportSettingsPadding 0 0 $reportSettingsPadding;
+    background-color: $gBackgroundDefault;
+    font-size: $reportSettingsFontSize;
+
+    &:before,
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 64px;
+        top: -6px;
+        width: 0;
+        height: 0;
+        border-color: transparent transparent $gHighlightBlockBorderColor transparent;
+        border-style: solid;
+        border-width: 0 6px 6px 6px;
+    }
+
+    &:after {
+        top: -5px;
+        border-color: transparent transparent $gBackgroundDefault transparent;
+    }
+
+    &__toggle__control {
+        position: absolute;
+        top: 16px;
+        right: 20px;
+    }
+
+    &__item {
+        margin-right: $reportSettingsPadding;
+        margin-bottom: $reportSettingsPadding;
+        order: 1;
+
+        &--filter {
+            flex: 1 1 auto;
+
+            @media screen and (min-width: 768px) {
+                max-width: 40%;
+            }
+
+            .boardsettings-filter {
+                display: block;
+            }
+        }
+
+        &--empty {
+            white-space: normal;
+            padding: 0 30px;
+            text-align: center;
+        }
+    }
+
+    &__error-box {
+        flex: 1 100%;
+        border-radius: $gBorderRadiusDefault;
+        font-size: 12px;
+        line-height: 1.4;
+        margin-bottom: 5px;
+        color: $gMessageColorError;
+    }
+
+    .tau-section-cards {
+        margin-top: -10px;
+    }
+
+    .tau-dropdown {
+        min-width: 80px;
+    }
+}
+
+.report-settings-burndown--report {
+
+    .tau-in-label {
+        white-space: nowrap;
+    }
+
+    .report-settings__item {
+        overflow: hidden;
+    }
+
+    .report-settings__item--switch-units {
+        order: 0;
+
+        .tau-in-label {
+            display: none;
+        }
+    }
+}
+
+.report-settings-cumulative-flow--dashboard,
+.report-settings-burndown--dashboard {
+    width: 350px;
+
+    .report-settings {
+        flex-direction: column;
+        border: none;
+        padding: 0;
+        background: transparent;
+        align-items: flex-start;
+
+        &:before,
+        &:after {
+            display: none;
+        }
+
+        .tau-in-label {
+            flex-shrink: 0;
+            width: 135px;
+            text-align: right;
+        }
+
+        &__item {
+            max-width: 100%;
+            box-sizing: border-box;
+
+            &--selected-project,
+            &--selected-team {
+                margin-left: 120px;
+                max-width: calc(100% - 118px);
+            }
+
+            &--checkbox {
+                padding-left: 120px;
+            }
+        }
+    }
+}
+
+.report-settings-burndown--dashboard {
+    .field-container--inline .field-container__label {
+        min-width: 115px;
+    }
+}
+
+.report-settings-cumulative-flow--dashboard {
+    .field-container--inline .field-container__label {
+        min-width: 80px;
+    }
+
+    .report-settings__item {
+        white-space: nowrap;
+    }
+
+    .report-settings__item:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.report-settings-cumulative-flow {
+
+    .ui-dateeditor input {
+        width: 90px;
+    }
+}

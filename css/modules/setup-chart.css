@@ -1,0 +1,102 @@
+.setup-chart {
+    min-width: 410px;
+    width: 100%;
+
+    &__body,
+    &__value,
+    &__filter {
+        box-sizing: border-box;
+    }
+
+    &__title {
+        float: left;
+        width: 45px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        vertical-align: middle;
+        padding-top: 15px;
+
+        &__icon {
+            float: right;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+    }
+
+    &__body {
+        display: flex;
+        margin-left: 50px;
+        width: calc(100% - 50px);
+        position: relative;
+        padding-top: 10px;
+
+        & + &:before {
+            display: block;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10px;
+            height: 11px;
+            width: 11px;
+            border-left: 1px solid $gHighlightBlockBorderColor;
+        }
+    }
+
+    &__value {
+        padding-right: 5px;
+        position: relative;
+        flex: 1 2;
+
+        &:first-child:before {
+            display: none;
+        }
+    }
+
+    &__filter {
+        max-width: 70%;
+
+        .boardsettings-filter {
+            vertical-align: middle;
+        }
+    }
+
+    &__text {
+        white-space: nowrap;
+    }
+
+    &__letter-text {
+
+        &__item:nth-child(1) {
+            font-size: 10px;
+        }
+        &__item:nth-child(2) {
+            font-size: 12px;
+        }
+        &__item:nth-child(3) {
+            font-size: 14px;
+        }
+        &__item:nth-child(4) {
+            font-size: 16px;
+        }
+    }
+
+    &__letter {
+        font-size: 12px;
+    }
+
+    &__button {
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 10px 0 0 60px;
+    }
+
+    &__control {
+        &:not(:last-child) {
+            margin-right: 4px;
+        }
+    }
+}

@@ -1,0 +1,448 @@
+.tau-list__table .tau-tooltip-title {
+    font-size: 11px !important;
+    color: $gFontColorDefault;
+    white-space: nowrap;
+    text-align: left;
+    width: auto;
+}
+
+.tau-list__table .tau-list__table__row.deleting {
+    background-color: $gActionBackgroundDelete !important;
+}
+
+.tau-list__table .tau-list__table__row.updating {
+    background-color: $gActionBackgroundSystem !important;
+}
+
+.tau-list__empty-message {
+    color: $gFontColorLightGray;
+    display: block;
+    font-size: 11px;
+    padding: 10px;
+}
+
+.tau-list__group__header {
+    padding: 7px 15px;
+    border: 1px solid $gHighlightBlockBorderColor;
+    border-radius: $gBorderRadiusDefault $gBorderRadiusDefault 0 0;
+    background-color: $gHighlightBlockBackground;
+    margin-top: 15px;
+    font-size: 14px;
+    color: $gFontColorDefault;
+}
+
+.tau-list__group__id {
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+
+}
+
+.tau-list__group__title {
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.tau-list__group__collapse {
+    background-image: url("../css.ui/images/collapse-buttons-sprite.png");
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    cursor: pointer;
+}
+
+.tau-list__group__collapse:hover {
+    background-position: 100% -30px;
+    background-color: $gHighlightBlockBackground;
+}
+
+.tau-list__group__subtitle {
+    display: inline-block;
+    vertical-align: middle;
+
+}
+
+.tau-list__group__counter {
+    background: $gBackgroundDefault;
+    border-radius: 15px 15px 15px 15px;
+    border: 1px solid $gHighlightBlockBorderColor;
+    color: $gFontColorGray;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    height: 18px;
+    line-height: 18px;
+    margin-left: 5px;
+    padding: 0 8px;
+    text-align: center;
+    width: auto;
+    vertical-align: baseline;
+}
+
+.tau-list__group_collapsed_true .tau-list__group__header {
+    background-color: $gHighlightBlockBackground;
+    border-radius: $gBorderRadiusDefault;
+}
+
+.tau-list__group_collapsed_true .tau-list__group__collapse {
+    background-position: 100% -90px;
+}
+
+.tau-list__group_collapsed_true .tau-list__group__collapse:hover {
+    background-position: 100% -60px;
+    background-color: $gHighlightBlockBackground;
+}
+
+.tau-list__group_collapsed_true .tau-list__list {
+    display: none !important;
+}
+
+.tau-list__group_flat_true {
+    padding-top: 5px;
+}
+
+.tau-list__list {
+    margin: 0;
+    padding: 5px 0 5px 0;
+    list-style: none;
+    border-color: $gHighlightBlockBorderColor;
+    border-radius: 0 0 $gBorderRadiusDefault $gBorderRadiusDefault;
+    border-style: solid;
+    border-width: 0 1px 1px;
+}
+
+.tau-list__list__item {
+    border-bottom: 1px solid $gHighlightBlockBorderColor;
+
+    &:last-child {
+        border-bottom: 0;
+    }
+}
+
+.tau-list__group_flat_true .tau-list__list {
+    border-width: 0;
+}
+
+.tau-list__table {
+    background-color: white;
+    table-layout: fixed;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border-spacing: 0;
+    height: 38px;
+}
+
+.tau-list__table .tau-tags {
+    line-height: normal;
+}
+
+.tau-list__table__row_isfinalstate_true .tau-list__table__cell-name,
+.tau-list__table__row_isfinalstate_true .tau-list__table__cell-id {
+    color: $gFontColorGray;
+    opacity: 0.6;
+}
+
+.tau-list__table__cell {
+    overflow: hidden;
+    margin: 0;
+    padding: 5px 1px;
+    vertical-align: middle;
+    line-height: 15px;
+
+    &__wrap {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+.tau-entitylink {
+    display: inline-block;
+}
+
+.tau-list__table__cell-dragdrop {
+    width: 15px;
+}
+
+.tau-list__table__cell-project {
+    width: 50px;
+}
+
+.tau-list__table__cell-id {
+    width: 50px; /* assumption for 6 digits */
+}
+
+.tau-list__table__cell-iteration{
+    width: 50px;
+}
+
+.tau-list__table__cell-name {
+    text-overflow: ellipsis;
+    overflow: visible; /* override for [.tau-list__table__cell] */
+
+    .tau-tags-container {
+        @mixin ellipsis;
+    }
+
+    .tau-tags {
+        font-size: 11px;
+        color: $gFontColorGray;
+        padding-left: 3px;
+    }
+
+    .tau-title-container {
+        display: inline-block;
+    }
+
+    .tau-title {
+        width: 300px;
+        display: block;
+        @mixin ellipsis;
+    }
+}
+
+.tau-list__table__cell-effort {
+    color: $gFontColorDefault;
+    font-size: 12px;
+    width: 80px;
+    overflow: visible;
+    white-space: nowrap;
+
+    .entity-effort-total.editableText {
+        margin-left: -4px;
+    }
+}
+
+.tau-list__table__cell-assignedEffort {
+    color: $gFontColorDefault;
+    font-size: 14px;
+    width: 50px;
+    overflow: visible;
+}
+
+.tau-list__table__cell.tau-list__table__cell-actions {
+    width: 32px;
+    text-align: left;
+}
+
+.tau-list__table__cell.tau-list__table__cell-quickadd {
+    width: 30px;
+}
+
+.tau-list__table__cell .entity-tabs__quick-add {
+    height: 28px;
+    cursor: pointer;
+    display: flex;
+    width: 28px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ------------- editable cosmetic makeup ------------------------- */
+.tau-list-editable .tau-list__table__cell-effort .tau-list-field-slot,
+.tau-list-editable .tau-list__table__cell-name .tau-list-field-slot {
+    outline: 0 none;
+    padding: 5px 22px 5px 5px;
+}
+
+/* need to align effort padding in various modes before new lists */
+.tau-list-editable .tau-list__table__cell-effort .tau-list-field-slot {
+    padding-left: 0;
+}
+
+.tau-list-editable .tau-list__table__cell-effort .entity-effort {
+    padding-left: 4px;
+}
+
+.tau-list-editable .tau-list__table__cell-assignments .tau-list-field-slot .ui-assignment__group__unassigned {
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+}
+
+.tau-list__table__cell .tau-property .editableText {
+    min-height: 0;
+    padding-top: 6px;
+}
+
+/* ------------- editable cosmetic makeup ------------------------- */
+.tau-list-editable .tau-list__table__cell.tau-list__table__cell-actions .tau-list-field-slot,
+.tau-list__table__cell .tau-entity-actions .tau-entity-actions-target {
+    display: block;
+    width: 28px;
+    height: 18px;
+    background-image: url("images/icons/action-list-icon.png");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    text-decoration: none;
+    border-bottom: none;
+}
+
+.tau-list__table__cell .tau-entity-actions .tau-entity-actions-target:hover {
+    background-position: 0 -17px;
+}
+
+.tau-list__table__cell-remove {
+    width: 70px;
+}
+
+.tau-list__table__cell-padding {
+    padding-right: 10px;
+}
+
+.tau-list__table__cell-priority,
+.tau-list__table__cell-severity,
+.tau-list__table__cell-state {
+    width: 80px;
+    font-size: 11px;
+    color: $gFontColorGray;
+}
+
+.tau-list__table__cell-priority,
+.tau-list__table__cell-severity {
+    font-size: 11px;
+    color: $gFontColorGray;
+}
+
+.tau-list__table__cell-progress {
+    font-size: 10px;
+    color: $gFontColorGray;
+    width: 100px;
+    overflow: visible;
+}
+
+.tau-list__table__cell-progress.tau-list__table__cell-progress-text-mode {
+    font-size: 11px;
+    width: 28px;
+}
+
+.tau-list__table__cell-progress .ui-progress-bar-progress {
+    height: 12px;
+    line-height: 0;
+}
+
+.tau-list__table__cell-progress .ui-progress-bar-progress .ui-progressbar__progress__indicator {
+    height: 10px;
+}
+
+.tau-list__table__cell-responsible {
+    vertical-align: middle;
+    width: 155px;
+    text-overflow: clip;
+}
+
+.tau-list__table__cell-responsible .owner-avatar {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    border: 0;
+}
+
+.tau-list__table__cell-responsible .tau-responsible {
+    display: inline-block;
+    padding-left: 4px;
+    width: auto;
+}
+
+.tau-list__table__cell-responsible .tau-responsible .tau-responsible-component {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.tau-list__table__cell-assignments {
+    vertical-align: middle;
+    width: 155px;
+    text-overflow: clip;
+}
+
+.tau-list__table__cell-assignments .ui-assignment__group {
+    display: inline-block;
+    padding-left: 4px;
+    width: auto;
+}
+
+.tau-list__table__cell-assignments .ui-assignment__group > table.user {
+    display: none;
+}
+
+.tau-list__table__cell-responsible .tau-responsible .tau-label,
+.tau-list__table__cell-assignments .ui-assignment__group__title,
+.tau-list__table__cell-assignments .ui-assignment__group__unassigned {
+    font-size: 11px;
+    color: $gFontColorGray;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ui-assignment__group__title {
+    min-width: 25px;
+}
+
+.tau-list__table__cell-assignments .ui-assignment__group__users {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.tau-list__table__cell-assignments .ui-assignment__group__users .ui-assignment__user img {
+    border: none;
+    border-radius: 2px;
+}
+
+.tau-list__table__cell-assignments .ui-assignment__group__users .ui-assignment__user_count {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -6px;
+    color: $gFontColorGray;
+}
+
+.tau-list__table__cell-relationtype {
+    width: 120px;
+}
+
+/* Add assignments visibility */
+.tau-list__table__row {
+
+    .assignments-add-btn__control {
+        visibility: hidden;
+    }
+
+    &:hover .assignments-add-btn__control {
+        visibility: visible;
+    }
+}
+
+.tau-list-priority,
+.tau-list-priority-medium,
+.tau-list-severity-medium {
+    color: $gFontColorDefault;
+}
+
+.tau-list-priority-low,
+.tau-list-severity-low {
+    color: $gFontColorGray;
+}
+
+.tau-list-priority-high {
+    color: $gFontColorAttention;
+}
+
+.tau-list__table__row.ui-sortable-helper .tau-list__table__cell {
+    border-top: 1px solid $gHighlightBlockBorderColor;
+}
+
+.tau-list__table__cell.tau-list__list__item img.user-name {
+    border-radius: 2px;
+}
+
+.tau-entity-title {
+    position: relative;
+    font-weight: normal;
+    top: auto;
+    padding: 5px 22px 5px 5px;
+
+    &.editableText.active {
+        word-break: break-all;
+        word-wrap: break-word;
+    }
+}

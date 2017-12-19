@@ -1,0 +1,112 @@
+/* region mixins */
+@import url('../css/mixins/ellipsis.css');
+@import url('../css/mixins/custom-scroll.css');
+@import url('../css/mixins/word-wrap.css');
+/* endregion mixins */
+
+@import url("../css/animation.css");
+@import url("../css/account-settings.css");
+@import url("../css/typography.css");
+@import url("../css/ui.menu.css");
+@import url("../css/workflow.css");
+@import url("../css/process-grid.css");
+@import url('../css.board/tau-section-cards.css');
+@import url("../css/tau.table.forms.css");
+@import url("../css/style.css");
+@import url("../css/Main.css");
+@import url("../css/fonts.css");
+@import url("../css/components/links.css");
+@import url("../css/ckeditor_charcount.css");
+@import url("../css/Plugins.css");
+@import url("../css/pm.css");
+@import url("../css/print.css");
+@import url("../css/tau.assignments.css");
+@import url("../css/tau.effort.css");
+@import url("../css/tau.autocomplete.css");
+@import url("../css/tau.avatar.editor.css");
+@import url("../css/tau.board.context-filter.css");
+@import url("../css/tau.board.state.settings.css");
+@import url("../css/tau.clientinput.css");
+@import url("../css/tau.leadcycletime.css");
+@import url("../css/tau.linkentity.css");
+@import url("../css/tau.list.css");
+@import url("../css/tau.list.media-screen.css");
+@import url("../css/tau.list.print.css");
+@import url("../css/tau.list.prioritize.css");
+@import url("../css/tau.list.project.teams.css");
+@import url("../css/tau.list.project.teams2.css");
+@import url("../css/tau.list.request.css");
+@import url("../css/tau.list.revision.css");
+@import url("../css/tau.list.team.members.css");
+@import url("../css/tau.list.testcase.css");
+@import url("../css/tau.list.testcaserun.css");
+@import url("../css/tau.list.testplanrun.css");
+@import url("../css/tau.list.user.css");
+@import url("../css/lookup-section.css");
+@import url("../css/tau.releaseNotes.css");
+@import url("../css/tau.reports.css");
+@import url("../css/tau.settings.css");
+@import url("../css/tau.sparkline.css");
+@import url("../css/tau.attach-requester.css");
+@import url("../css/tau.user.settings.css");
+@import url("../css/tau.user.view.css");
+@import url("../css/tau.userautocomplete.css");
+
+@import url("~targetprocess-ui-components/dist/styles.css");
+@import url("../css/components/team-icons.css");
+@import url("../css/components/project-icons.css");
+@import url("../css/components/selection-group.css");
+@import url('../scripts/tau/components/filter.builder/css/filter.builder.css');
+@import url('../scripts/tau/components/react/css/daterange-picker.css');
+
+@import url("../css/tau.widgets.css");
+
+@import url("../css/tau.entity.icon.css");
+@import url("../css/boardsettings.filter.css");
+@import url("../css/markdown.editor.css");
+@import url("../css/Menu.css");
+@import url("../css/drag-and-drop.css");
+@import url("../scripts/tau/components/metrics.setup/css/metrics.setup.css");
+
+@import url("../css/components/followlink.css");
+@import url("../css/components/sharelink.css");
+@import url('../css/components/tau-paging.css');
+@import url('../css/components/buttons/buttons.css');
+@import url('../css/components/buttons/btn-add-assignment.css');
+@import url('../css/components/collapser-buttons.css');
+@import url("../css/components/tau-dropdown.css");
+@import url('../css/components/controls-group.css');
+@import url('../css/components/controls-inline-group.css');
+
+@import url('../css/components/forms/inputs.css');
+@import url('../css/components/forms/selects.css');
+@import url("../css/components/forms/checkboxes.css");
+@import url("../css/components/forms/field-container.css");
+@import url("../css/components/forms/form-label.css");
+
+@import url('../css/components/ui-slider.css');
+@import url("../css/components/messages.css");
+@import url('../css/components/search.css');
+@import url("../css/components/progress-bar.css");
+@import url("../css/components/progress-pie.css");
+@import url("../css/components/help-label.css");
+
+@import url("../css/modules/tags/tags-cloud.css");
+@import url("../css/modules/quick-add.css");
+@import url("../css/modules/finder-requesters-filter.css");
+@import url("../css/modules/finish-iteration.css");
+@import url("../css/modules/nav-tabs.css");
+@import url('../css/modules/board-owner.css');
+@import url("../css/modules/cover-panel.css");
+
+@import url('../css/modules/workflow/workflow-settings.css');
+
+@import url('../css.board/tau.board.search.css');
+
+
+@import url('../css/modules/reports/charts-legends.css');
+@import url('../css/modules/reports/report-settings.css');
+@import url("../css/components/emoji-icons.css");
+@import url("../css/modules/emoji-icons/emoji-picker.css");
+
+@import url("../css/helpers/helper.css");

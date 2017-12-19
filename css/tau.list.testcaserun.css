@@ -1,0 +1,47 @@
+.tau-list__list__item-testcaserun .tau-title {
+    display: inline;
+    width: auto;
+}
+
+.tau-list__list__item-testcaserun .tau-list__table__cell-name .tau-title {
+    white-space: normal;
+}
+
+.tau-list__list__item-testcaserun .tau-list__table__cell-name .tau-title-container {
+    display: inline;
+}
+
+.tau-list__list__item-testcaserun-testcase .ui-status_type_failed.tau-extension-tooltip {
+    background: url('images/balloon.png') transparent no-repeat;
+    padding-left: 16px;
+}
+
+.tau-list__list__item-testcaserun-testcase .tau-list__table__cell-date {
+    width: 120px;
+    overflow: visible;
+}
+
+.tau-list__list__item-testcaserun-testcase .tau-list__table__cell-release,
+.tau-list__list__item-testcaserun-testcase .tau-list__table__cell-iteration,
+.tau-list__list__item-testcaserun-testcase .tau-list__table__cell-build {
+    width: 80px;
+    overflow: visible;
+}
+
+.tau-list__list__item-testcaserun-testcase .tau-list__table__cell-laststatus {
+    text-align: right;
+    overflow: visible;
+}
+
+.tau-list__list__item-testcaserun-testcase .tau-extension-tooltip {
+    cursor: pointer;
+}
+
+.tau-list__list__item-testcaserun-testcase .tau-list__table__cell-laststatus .tau-tooltip-title {
+    white-space: pre-line;
+    width: 200px;
+}
+
+.tau-details-view-opened .tau-list-testcaserun .tau-elems-table .tau-name {
+    padding-right: 40px; /* to compensate the visible "open details view" button */
+}

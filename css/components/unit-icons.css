@@ -1,0 +1,14 @@
+/*Test plan run units*/
+
+.tau-icon-floating-status {
+    top: 50%;
+    margin-top: calc(- $gIconsSizeDefault / 2 );
+    position: absolute;
+    right: 5px;
+    display: none;
+
+    .tau-details-view-opened .tau-list-testcaserun & {
+        display: block;
+        animation: animate-show-of-icon-floating-status 1s;
+    }
+}

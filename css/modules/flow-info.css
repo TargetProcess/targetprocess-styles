@@ -1,0 +1,120 @@
+$flowInfoPanelWidth: 245px;
+
+/* region menu section for flow-info*/
+.flow-info-visible {
+    cursor: pointer;
+
+    .flow-info-panel {
+        display: block;
+    }
+
+    > :not(.flow-info-panel) {
+        display: none;
+    }
+}
+
+.flow-info-panel {
+    align-self: center;
+    height: 30px;
+    width: $flowInfoPanelWidth;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: $gBorderRadiusDefault;
+    background-color: #318ce6;
+    box-shadow: 0 1px 1px #0054a7, inset 0 1px #99ccff;
+    background-image: linear-gradient(to top, #2e8ae5, #80bfff);
+    padding: 0 3px 0 7px;
+    display: none;
+
+    &.tau-active {
+        background-color: #499cee;
+        box-shadow: 0 1px 1px #0054a7, inset 0 1px 1px #1262b3;
+        background-image: linear-gradient(to bottom, #2e8ae5, #80bfff);
+    }
+
+    &__steps {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        justify-content: space-between;
+    }
+
+    &__step {
+        flex: 0 0 auto;
+        font-size: 11px;
+        color: #2e6399;
+        text-shadow: 0 1px #66b3ff;
+        margin-right: 8px;
+    }
+
+    &__step-name {
+        flex: 1 1 auto;
+        font-size: 13px;
+        color: $gFontColorWhite;
+        text-shadow: 0 -1px #2e8ae5;
+        max-width: 125px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__button {
+        flex: 0 0 auto;
+        margin: 0 0 0 8px;
+    }
+}
+
+/* endregion */
+
+/* region Getting started help bubble */
+
+.flow-info-bubble .tau-bubble__inner {
+    min-width: $flowInfoPanelWidth;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-top: 7px;
+}
+
+.flow-info-steps {
+    padding: 10px;
+    font-size: 13px;
+
+    &__item {
+        padding: 6px 10px 6px 30px;
+        position: relative;
+
+        &.tau-active {
+            font-weight: 600;
+
+            &:before {
+                content: '';
+                width: 9px;
+                height: 9px;
+                display: block;
+                border-radius: 50%;
+                background-color: rgb(0, 174, 240);
+                position: absolute;
+                top: 11px;
+                left: 9px;
+            }
+        }
+
+        &.tau-done {
+            color: $gFontColorLightGray;
+            text-decoration: line-through;
+
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 7px;
+                left: 6px;
+                width: 16px;
+                height: 16px;
+                background: svg("action-completed", "[fill]: $gFontColorLightGray");
+            }
+        }
+    }
+}
+
+/* endregion */

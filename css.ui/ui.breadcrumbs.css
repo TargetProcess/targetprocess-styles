@@ -1,0 +1,32 @@
+.ui-breadcrumbs {
+    padding: 15px 0;
+    list-style: none;
+    margin: 0;
+
+    &__item {
+        display: inline-flex;
+
+        a {
+            font-size: 11px;
+            text-decoration: underline;
+            padding: 0 10px 0 0;
+            display: flex;
+
+            & > span {
+                display: flex;
+                align-items: center;
+                line-height: 12px;
+            }
+        }
+
+        &__icon {
+            margin-right: 5px;
+        }
+    }
+}
+
+.tau-info-popup .ui-breadcrumbs,
+.tau-page-entity > .ui-breadcrumbs{
+    padding-bottom: 0;
+    padding-left: 20px;
+}

@@ -1,0 +1,303 @@
+/*****************************************************************************************************
+
+    Styles for reusable UI-components
+    that has not been moved to separate stylesheet.
+
+*****************************************************************************************************/
+
+/*region Tags*/
+
+.tau-tags {
+    display: inline-block;
+    line-height: 0;
+}
+
+/*endregion*/
+
+/*region Effort*/
+
+.tau-board-grid-view .tau-effort {
+    font-size: 11px;
+
+    display: inline-block;
+    vertical-align: text-bottom;
+    overflow: hidden;
+
+    border-radius: $gBorderRadiusDefault;
+
+    padding: 0.3em;
+
+    line-height: 100%;
+
+    color: $gFontColorGray;
+    background: $gBackgroundDefault;
+}
+
+.tau-board-grid-view .tau-header-userstory.tau-rows-header .tau-collapsed .tau-axiscell__item .tau-effort,
+.tau-board-grid-view .tau-header-feature.tau-rows-header .tau-collapsed .tau-axiscell__item .tau-effort {
+    display: none;
+}
+
+/*endregion*/
+
+
+/*region Test Case Run*/
+
+.tau-testcaserun-results {
+    border-top: 1px solid $gHighlightBlockBorderColor;
+    padding: 25px 35px;
+    margin: 25px 0;
+}
+
+.tau-testcaserun-results__row {
+    margin: 20px 0 0 0;
+}
+
+.tau-testcaserun-results__row:first-child {
+    margin-top: 0;
+}
+
+.tau-testcaserun-results__title {
+    float: left;
+    width: 105px;
+    line-height: 28px;
+    font-size: 14px;
+    color: $gFontColorDefault;
+    font-weight: 600;
+}
+
+.tau-testcaserun-results__right {
+    float: right;
+    width: 100px;
+    padding: 4px 0 0 0;
+}
+
+.tau-testcaserun-results .tau-note-property {
+    margin: 6px 130px 20px 0;
+    color: $gFontColorDefault;
+}
+
+.tau-testcaserun-results__middle {
+    margin: 0 0 0 110px;
+}
+
+.tau-testcaserun-results .tau-cke-chrome,
+.tau-testcaserun-results .tau-cke-chrome:focus {
+    border-radius: 2px;
+    position: relative;
+    border: 1px solid $gControlBorderColorDefault;
+    padding: 5px 30px 5px 10px;
+    outline: none;
+    font-size: 13px;
+    min-height: 40px;
+}
+
+.tau-testcaserun-results .tau-note-property img {
+    max-width: 250px;
+    max-height: 250px;
+}
+
+.tau-testcaserun-results .tau-note-property:not(.cke_focus) a {
+    cursor: pointer !important;
+}
+
+.tau-testcaserun-results .tau-note-property-empty::before {
+    content: attr(data-label);
+    color: $gFontColorLightGray;
+}
+
+.tau-testcaserun-results .tau-note-property-details::before {
+    content: attr(data-label);
+    color: #b6555d;
+}
+
+.tau-testcaserun-results .tau-note-property-details {
+    border: 1px solid rgba(158, 3, 1, 0.50);
+    border-top-color: rgba(142, 3, 1, 0.50);
+}
+
+.tau-testcaserun-results .tau-create-bug__control {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.tau-testcaserun-results .tau-create-bug:after {
+    content: attr(data-label);
+    display: inline-block;
+    color: $gActionColorAdd;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/*endregion*/
+
+/*region New entity info*/
+
+.tau-new-entity-info {
+    position: relative;
+    border: 1px solid $gControlBorderColorDefault;
+    padding: 0 24px 0 40px;
+
+    &--full {
+        padding: 0;
+    }
+
+    .tau-new-entity-name {
+        margin: 2px 3px;
+        height: 20px;
+        display: inline-block;
+        border: none;
+        box-shadow: none;
+        vertical-align: top;
+        width: 100%;
+
+        &:focus {
+            box-shadow: none;
+        }
+
+        .tau-programs & {
+            width: 260px;
+        }
+    }
+}
+
+.tau-new-entity-info .tau-new-entity-icon {
+    z-index: 30;
+}
+
+
+.icon-selector {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 39px;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    box-sizing: border-box;
+
+    &:after {
+        content: "";
+        display: block;
+        background: svg("b-caret");
+        position: absolute;
+        top: 50%;
+        right: 2px;
+        height: 12px;
+        width: 12px;
+        margin-top: -6px;
+    }
+
+    &.tau-active {
+        background-color: $gActionBackgroundActive;
+
+        &:after {
+            background: svg("t-caret");
+        }
+    }
+
+    &__icon {
+        display: flex;
+        align-items: center;
+    }
+}
+/*endregion*/
+
+/*region Teams icons list*/
+
+.tau-teams-icon-list {
+    margin: 6px 0 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    line-height: 0;
+
+    .tau-teams-projects-manager-wrapper .tau-managed-category & {
+        width: 20em;
+    }
+
+    li {
+        margin: 0 0 4px 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding: 3px;
+        border-radius: $gBorderRadiusDefault;
+
+        &:hover {
+            background-color: $gActionBackgroundHover;
+        }
+
+        &:first-child {
+            padding: 0;
+            margin-right: 3px;
+            border-radius: 0;
+        }
+    }
+}
+
+
+/*endregion*/
+
+.quick-add-container .tau-bubble__arrow[data-orientation=top]:after {
+    background-color: $gBackgroundDefault;
+}
+
+/*region give-feedback*/
+
+.give-feedback {
+    margin: 15px;
+}
+
+.give-feedback__header {
+    font-size: 13px;
+}
+
+.give-feedback__title {
+    font-weight: 600;
+}
+
+.give-feedback__textarea {
+    font-size: 13px;
+    margin: 15px 0;
+    padding: 2px 2px 2px 5px;
+    height: 300px;
+    width: 500px;
+    display: block;
+}
+
+/*endregion*/
+
+/*region iframe for workflow in TP3 */
+
+.workflow-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.workflow-iframe__wrap {
+    height: 100%;
+}
+
+/*endregion*/
+
+.tau-testcaserun-results__list {
+    display: inline-flex;
+    align-items: center;
+
+    &__control {
+        flex-shrink: 0;
+
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+    }
+}

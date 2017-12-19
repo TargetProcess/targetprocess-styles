@@ -1,0 +1,20 @@
+.general-settings {
+
+    &__group {
+        padding-bottom: 30px;
+
+        &__header {
+            margin: 0 0 10px 0;
+        }
+
+        &__controls-container {
+            display: flex;
+            align-items: center;
+            padding-bottom: 10px;
+        }
+
+        &__description {
+            max-width: 400px;
+        }
+    }
+}

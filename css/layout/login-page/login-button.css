@@ -1,0 +1,65 @@
+$loginButtonHeight: 42px;
+$loginButtonBackground: #4f9f4f;
+$loginButtonHoverBackground: #58aa58;
+$loginButtonActiveBorderColor: #3a883a;
+
+.login-button {
+    display: inline-block;
+    position: relative;
+    overflow: visible;
+    cursor: pointer;
+    padding: 11px 25px 12px 25px;
+    margin: 0;
+    min-width: 120px;
+    text-align: center;
+
+    height: $loginButtonHeight;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 19px;
+    font-weight: 600;
+    color: $gFontColorWhite;
+    white-space: nowrap;
+
+    outline: none;
+    border: solid 1px $loginButtonBackground;
+    border-radius: 22px;
+    background: $loginButtonBackground;
+    -webkit-appearance: none;
+    transition: box-shadow 2s ease;
+
+    &:hover {
+        text-decoration: none;
+        background: $loginButtonHoverBackground;
+    }
+
+    &:focus {
+        outline: 0;
+        box-shadow: 0 0 0 1px rgba(255,255,255,.3),0 0 7px 0 $gFocusBoxShadowColor;
+    }
+
+    &::-moz-focus-inner {
+        border: 0;
+    }
+
+    &:active {
+        background: $loginButtonHoverBackground;
+        border-color: $loginButtonActiveBorderColor;
+        padding-top: 10px;
+    }
+
+    .login-button-wrap--error & {
+        box-shadow: 5px 0 50px 5px #ffc4c4;
+    }
+
+    &--complementary {
+        color: $gFontColorDefault;
+        background-color: #fff;
+
+        &:hover,
+        &:active {
+            background-color: #fff;
+        }
+    }
+}

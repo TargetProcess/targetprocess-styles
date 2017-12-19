@@ -1,0 +1,8 @@
+.main-container-print .tau-list__table__cell-actions,
+.main-container-print .tau-list__table__cell-quickadd {
+    display: none;
+}
+
+.main-container-print .tau-teamsProjects-tab .tau-new-btn {
+    display: none;
+}

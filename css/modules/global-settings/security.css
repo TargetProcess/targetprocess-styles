@@ -1,0 +1,6 @@
+.security-settings {
+    .security__field {
+        display: flex;
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,1139 @@
+$listViewBorderColor: color($gBoardBorderColor a(50%));
+$listCellBorderColor: color($gBoardBorderColor a(20%));
+
+/*****************************************************************************************************
+
+    Styles for list view cards.
+
+    Contents:
+
+        = Sorting
+        = Board List View
+            - caption
+            - list entity (normal, hover, open, selected, closed sub-entities)
+            - elements-table context
+        = Elements
+            - draggable handler
+            - collapser
+            - checkbox
+            - name
+            - customizer
+        = Level viewer
+        = List Paging
+        = Levels exceptions
+
+
+*****************************************************************************************************/
+
+/*endregion*/
+
+/*region Board List View*/
+.tau-board-list-view {
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    min-height: 50px;
+}
+
+.tau-page-entity .tau-board-body,
+.tau-page-entity .tau-board-list-view {
+    position: static;
+    width: auto;
+    height: auto;
+}
+
+.tau-page-entity .tau-board-list-view {
+    margin-top: 9px;
+}
+
+.tau-board-list-view__inner {
+    overflow: auto;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 0;
+    bottom: 57px;
+    @mixin custom-scroll;
+}
+
+.tau-page-entity .tau-board-list-view .tau-board-list-view__inner {
+    position: static;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 0;
+}
+
+.tau-page-entity .tau-board-list-view .tau-no-data-in-slice {
+    display: none;
+}
+
+.tau-page-entity .tau-list-level-0 {
+    margin-bottom: 12px;
+}
+
+/* region Entity New List Details*/
+
+.tau-list-entity-details {
+    left: 305px;
+    z-index: 24;
+    overflow: auto;
+    padding: 15px 10px;
+    box-shadow: -1px 0 4px 0 rgba(0, 0, 0, 0.20);
+    border-radius: 6px;
+    font-size: 12px;
+
+    &.tau-cover-view--animated {
+        overflow: visible;
+        width: auto;
+        padding: 0;
+        box-shadow: none;
+        border-radius: 0;
+
+        &:before {
+            left: -10px;
+            width: 10px;
+            box-shadow: -2px 0 3px 0 rgba(0, 0, 0, 0.1);
+            border-radius: 6px 0 0 6px;
+        }
+
+        &.tau-cover-view-hide {
+            &:before {
+                left: 0;
+            }
+        }
+
+        .tau-page-entity {
+            overflow: auto;
+            box-sizing: border-box;
+            padding: 10px 10px 15px 0;
+        }
+    }
+}
+
+.tau-list-entity-details .tau-page-entity {
+    width: 100%;
+    height: 100%;
+}
+
+/* endregion Entity New List Details*/
+
+.tau-board-list-view .tau-list-level-0 {
+    display: table;
+    position: relative;
+    width: 100%;
+}
+
+/*endregion*/
+
+/*region List caption*/
+.tau-board-list-view .tau-list-caption {
+    background-color: $gBoardSettingsBackground;
+    position: relative;
+    color: $gFontColorGray;
+    font-size: 11px;
+}
+
+.tau-board-list-view .tau-list-caption-disabled {
+    visibility: hidden;
+    position: absolute;
+}
+
+/*endregion*/
+
+/*region List Entity*/
+.tau-list-entity {
+    background-color: $gBackgroundDefault;
+}
+
+.tau-list-entity .tau-list-line {
+    border-top: solid 1px $listViewBorderColor;
+    font-size: 11px;
+    position: relative;
+}
+
+.tau-list-entity-open > .tau-list-line {
+    box-shadow: 0 3px 3px rgba(0, 0, 0, .1);
+    z-index: 1;
+}
+
+.tau-list-level-0:last-child > .tau-list-level-cardsholder > .tau-list-entity:last-child > .tau-list-line {
+    border-bottom: solid 1px $listViewBorderColor;
+}
+
+.tau-list-entity-open + .tau-list-entity > .tau-list-line {
+    box-shadow: 0 -2px 3px rgba(0, 0, 0, .1);
+    z-index: 1;
+}
+
+.tau-list-entity-open + .tau-list-entity.tau-list-entity-open > .tau-list-line {
+    box-shadow: 0 3px 3px rgba(0, 0, 0, .1), 0 -2px 3px rgba(0, 0, 0, .1);
+}
+
+.tau-board-list-view .tau-list-entity.tau-list-entity_final-state,
+.tau-board-list-view .tau-list-entity.tau-list-entity_isInPast {
+    background-color: $gCardDoneStateBackground;
+}
+
+.tau-board-list-view .tau-list-entity.tau-list-entity_final-state.tau-card_focusedit_true,
+.tau-board-list-view .tau-list-entity.tau-list-entity_final-state:hover,
+.tau-board-list-view .tau-list-entity.tau-list-entity_isInPast:hover {
+    /*background-color: color($gActionBackgroundSystem shade(3%));*/
+}
+
+/*endregion*/
+
+/*region Closed sub entities*/
+.tau-list-sub-entity-closed > div > .tau-list-caption {
+    border-bottom: solid 1px $listViewBorderColor;
+}
+
+.tau-list-sub-entity-closed > div > .tau-list-caption:last-child {
+    border-bottom: none;
+}
+
+.tau-list-sub-entity-closed > div > .tau-list-entity {
+    display: none;
+}
+
+/*endregion*/
+
+/*region Elements-table*/
+
+.tau-list-caption {
+
+    > .tau-elems-table {
+        height: 27px;
+        line-height: 27px;
+
+        > .tau-elems-cell {
+            padding: 0 5px;
+            min-height: 27px;
+            height: 27px;
+            line-height: 27px;
+
+            .tau-elems-cell__header{
+                height: 100%;
+                display: flex;
+                align-items: center;
+            }
+
+            &.tau-name-cell {
+                position: relative;
+                padding-right: 5px;
+
+                /* Quick add and search button inside name cell */
+                .tau-list-controls-holder {
+                    position: absolute;
+                    right: 7px;
+                    top: 4px;
+                }
+            }
+        }
+    }
+
+    &__warning {
+        display: inline-block;
+        vertical-align: top;
+        top: 6px;
+        left: 2px;
+        position: relative;
+    }
+
+
+     /* Fix BUG#155502 (wrong ellipsis for entity name field with sorting) */
+     .tau-cell__entity-name {
+        flex: 1 1 auto;
+
+        .tau-sorting__title {
+            max-width: calc(100% - 63px);
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .tau-list-milestone_name-unit .tau-sorting__title {
+        max-width: 100%;
+    }
+}
+
+.tau-list-level-empty .tau-list-caption .tau-elems-cell:not(.tau-name-cell) {
+    display: none;
+}
+
+.tau-list-line {
+    > .tau-elems-table,
+    > .tau-elems-table > .tau-elems-cells {
+        height: 32px;
+        line-height: 32px;
+    }
+
+    > .tau-elems-table {
+        > .tau-elems-cell.ui-resizable {
+            border-right: 1px solid $listViewBorderColor;
+            margin-right: $gListResizableCellMargin;
+        }
+
+        > .tau-elems-cell.ui-resizable > .tau-board-unit {
+            margin-left: -1px;
+        }
+    }
+}
+
+.tau-elems-table {
+    white-space: nowrap;
+    overflow: hidden;
+
+    > .tau-elems-cell {
+        display: inline-block;
+        vertical-align: top;
+        box-sizing: border-box;
+        position: relative;
+
+        /* Three classes give more specificity to override styles from board_units.css */
+        > .tau-board-unit {
+            border: 0;
+            color: $gFontColorDefault;
+
+            padding: 0 5px;
+            margin: 0;
+            height: 32px;
+
+            max-width: 100%;
+        }
+    }
+}
+
+.tau-board-list-view--grid .tau-elems-cell {
+    border-right: 1px solid $listCellBorderColor;
+}
+
+.tau-elems-cell_unit-not-applicable {
+}
+
+.tau-elems-cell_unit-user-editable {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.tau-elems-cell--details-trigger {
+    cursor: pointer;
+}
+
+.tau-list-line .tau-elems-cell-no-value {
+    position: relative;
+}
+
+.tau-elems-cell_unit-empty-text {
+    color: $gFontColorGray;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 5px;
+    z-index: 2;
+}
+
+.tau-elems-cell_unit-empty-text + .tau-board-unit {
+    height: 32px;
+    opacity: 0;
+    /* visibility: hidden; prevents from event handling */
+}
+
+.tau-elems-cell_unit-user-editable:hover .tau-elems-cell_unit-empty-text {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tau-unit-state-busy {
+
+    &.tau-elems-cell_unit-user-editable:hover .tau-elems-cell_unit-empty-text {
+        opacity: 0.3;
+    }
+
+    .tau-board-list-view & {
+        background-image: url(../../css.ui/images/preloader_view.gif);
+        background-repeat: no-repeat;
+        background-position: center;
+
+        .tau-board-unit {
+            opacity: 0.3;
+        }
+    }
+}
+
+/* loader >> */
+
+.tau-cellholder .tau-loader {
+    background: url(../../css.ui/images/preloader_view.gif);
+    width: 32px;
+    height: 10px;
+    margin: -5px 0 0 -16px;
+    animation: none;
+}
+
+.mod-hidpr .tau-cellholder .tau-loader {
+    background: url(../../css.ui/images/preloader_view_retina.gif);
+    background-size: 100% auto;
+}
+
+/* << loader */
+
+.tau-board-list-view .tau-elems-cell .tau-loader {
+    z-index: auto;
+}
+
+.tau-details-view-opened .tau-elems-table .tau-name {
+    padding-right: 24px; /* to compensate the visible "open details view" button */
+}
+
+/*endregion*/
+
+/*region Draggable handler*/
+.tau-drag-handler-cell {
+    display: inline-block;
+    width: 10px;
+}
+
+.tau-drag-handler {
+    position: relative;
+    width: 5px;
+    height: 32px;
+}
+
+.tau-board-list-view .tau-sortable > .tau-list-entity .tau-drag-handler-enabled {
+    background-image: svg("draganddrop", "[fill]: #fff");
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    cursor: move;
+}
+
+.tau-drag-handler.tau-drag-handler-disabled {
+    background-image: none;
+    cursor: default;
+}
+
+.tau-board-list-view .tau-list-entity.ui-sortable-helper,
+.tau-board-list-view .tau-list-entity.ui-sortable-helper:hover {
+    background-color: $gActionBackgroundSelected;
+}
+
+.tau-board-list-view .tau-sortable__placeholder-inner {
+    background-color: $gBoardBackground !important;
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.20), 0 -1px 0 0 rgba(0, 0, 0, 0.20), inset 0 0 3px 0 rgba(0, 0, 0, 0.15);
+    color: $gFontColorGray;
+    display: block;
+}
+
+.tau-list-prioritization-shiftDown .tau-sortable__placeholder-inner .shiftButton {
+    background: svg("shift-pressed", ".shift-bg[fill]: #fff;");
+}
+
+.tau-list-sortable-connected {
+    opacity: 0.25;
+}
+
+.tau-list-prioritization-enabled .tau-list-sortable-connected,
+.tau-list-prioritization-shiftDown .tau-list-sortable-connected {
+    opacity: 1;
+}
+
+.tau-list-sortable-active {
+    min-height: 33px;
+}
+
+.tau-list-entity.ui-sortable-helper {
+    /* US#96788 Pass through mouse{enter,leave} events to underlying cards while dragging */
+    pointer-events: none;
+}
+
+/*endregion*/
+
+/*region collapser*/
+.tau-board-list-view .tau-list-collapser-cell {
+    display: inline-block;
+    width: $gListCollapserWidth;
+    vertical-align: top;
+}
+
+.tau-board-list-view .tau-list-collapser-cell.disabled {
+    visibility: hidden;
+}
+
+.tau-board-list-view .tau-list-collapser-cell .tau-v-collapser {
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.tau-board-list-view .tau-v-collapser {
+    background: svg("r-direction"); /* collapsed */
+
+    &:active {
+        left: 1px;
+    }
+}
+
+.tau-board-list-view .tau-v-collapser.tau-v-collapser-expanded,
+.tau-list-entity-open > .tau-list-line > .tau-elems-table > .tau-list-collapser-cell .tau-v-collapser {
+    background: svg("b-direction"); /* expanded */
+
+    &:active {
+        left: 0;
+        top: 1px;
+    }
+}
+
+.tau-board-list-view .tau-v-collapser.tau-v-header-collapser:not(.tau-v-collapser-expanded),
+.tau-board-list-view .tau-v-collapser.tau-v-header-collapser:not(.tau-v-collapser-expanded):active {
+    bottom: 0;
+}
+
+.tau-board-list-view .tau-v-collapser.tau-v-header-collapser.disabled,
+.tau-board-list-view .tau-v-collapser.tau-v-header-collapser.disabled:active {
+    opacity: 0.2;
+    cursor: default;
+}
+
+.tau-bubble-collapserHint.tau-bubble-tooltipArticle .tau-bubble-board__inner {
+    margin-left: 0;
+}
+/*endregion*/
+
+/*region name (counter, quick-add, captions, resizable)*/
+.tau-board-unit_name-controls {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    display: block;
+
+    /* sum of height and vertical padding should be equal to 32px */
+    height: 32px;
+    padding-top: 0;
+
+    line-height: 0;
+}
+
+.tau-list-view-widget-adapter .tau-elems-table > .tau-elems-cell > .tau-board-unit--has-counter,
+.tau-elems-table > .tau-elems-cell > .tau-board-unit--has-counter {
+    padding-right: 30px;
+}
+
+.tau-board-unit--has-counter .tau-board-list-view__counter {
+    margin-top: 8px;
+    display: inline-block;
+    visibility: visible;
+    cursor: default;
+}
+
+.tau-board-list-view__counter {
+    display: none;
+}
+
+.tau-elems-table {
+    .tau-name {
+        padding-right: 0;
+        display: block;
+    }
+}
+
+.tau-board-list-cell-resizer,
+.tau-board-list-cell-resizer--inner {
+    bottom: 0;
+    position: absolute;
+    top: 0;
+}
+
+.tau-board-list-cell-resizer {
+    background-color: transparent;
+    cursor: ew-resize;
+    right: -3px;
+    width: $gListCellResizerWidth;
+    z-index: 1;
+}
+
+.tau-board-list-cell-resizer--inner {
+    background-color: $listCellBorderColor;
+    left: 2px;
+    width: 1px;
+}
+
+.tau-board-list-cell-resizer:hover .tau-board-list-cell-resizer--inner,
+.tau-board-list-cell-resizer.ui-draggable-dragging .tau-board-list-cell-resizer--inner {
+    background-color: #a8a8a8;
+}
+
+.tau-list-caption .ui-resizable {
+    border-right: 1px solid $listViewBorderColor;
+    margin-right: 5px;
+}
+
+.tau-list-caption .tau-cap {
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding-left: 2px;
+    text-transform: uppercase;
+    vertical-align: top;
+}
+
+/*endregion*/
+
+.tau-list-entity .tau-btn_hidden {
+    visibility: hidden;
+}
+
+.tau-list-entity:hover .tau-btn_hidden {
+    visibility: visible;
+}
+
+/*region List Paging*/
+.tau-board-list-view .tau-list-pagingholder {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.tau-page-entity .tau-board-list-view .tau-list-pagingholder {
+    position: static;
+}
+
+.tau-list-more {
+
+    &__inner {
+        background: url(../images/list-more-bg-c.png) 0 0 repeat-x;
+        margin: -1px 6px 0 6px;
+        position: relative;
+        font-size: 11px;
+        line-height: 1.8;
+        padding: 7px 8px 3px 8px;
+        z-index: 20;
+        color: $gFontColorGray;
+
+        &:before,
+        &:after {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 6px;
+            position: absolute;
+            left: -6px;
+            top: 0;
+            background: url(../images/list-more-bg.png) 0 -6px;
+        }
+
+        &:after {
+            background-position: 0 0;
+            left: auto;
+            right: -6px;
+        }
+    }
+    &__loader {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 5px;
+    }
+
+    a {
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+}
+
+.tau-list-paging {
+    padding: 18px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+
+    .tau-page-entity & {
+        padding-top: 8px;
+    }
+
+    .tau-pages-navigator {
+        padding-right: 20px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+
+        & > span {
+            margin-right: 12px;
+        }
+
+        .tau-prev,
+        .tau-next,
+        .tau-first,
+        .tau-last {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            cursor: pointer;
+
+            .tau-pages-navigator__text {
+                color: $gFontColorGray;
+            }
+
+            .tau-pages-navigator__icon {
+                opacity: 0.7;
+                display: flex;
+                align-items: center;
+            }
+
+            &:hover {
+                .tau-pages-navigator__text {
+                    color: $gFontColorDefault;
+                }
+
+                .tau-pages-navigator__icon {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .tau-next {
+            .tau-pages-navigator__icon {
+                padding-left: 7px;
+            }
+        }
+
+        .tau-prev {
+            .tau-pages-navigator__icon {
+                padding-right: 5px;
+            }
+        }
+    }
+
+    .tau-page-items {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+
+        .tau-txt {
+            margin-right: 12px;
+        }
+
+        .tau-count {
+            margin-left: 2px;
+            padding: 0 5px;
+            line-height: 21px;
+            color: $gFontColorLightGray;
+            cursor: pointer;
+
+            &:hover {
+                color: $gFontColorDefault;
+            }
+
+            &.tau-active {
+                background-color: $gBackgroundDefault;
+                box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+                color: $gFontColorDefault;
+            }
+        }
+    }
+}
+
+/*endregion*/
+
+/*region Nested levels*/
+.tau-list-level {
+    margin-left: 25px;
+}
+
+.tau-list-level.tau-list-level-0 {
+    margin-left: 0;
+}
+
+/*endregion*/
+
+/*region style for specific units*/
+.tau-board-list-view {
+    .tau-board-unit_type_entity-name,
+    .tau-board-unit_type_user-name {
+        padding-right: 10px;
+    }
+
+    .tau-board-unit.tau-board-unit_type_project_abbr {
+        box-shadow: none;
+        overflow: visible;
+    }
+
+    .tau-board-unit.tau-board-unit_type_avatar {
+        overflow: visible;
+    }
+
+    .tau-board-unit_type_list__others-counter {
+        max-width: none;
+    }
+
+    .tau-avatar.tau-owner-avatar .tau-avatar__icon {
+        display: none;
+    }
+}
+
+.tau-board-list-view .tau-board-unit_type_testruns-counter-open-total .tau-board-unit__value-open,
+.tau-board-list-view .tau-board-unit_type_features-counter-open-total .tau-board-unit__value-open,
+.tau-board-list-view .tau-board-unit_type_bugs-counter-open-total .tau-board-unit__value-open,
+.tau-board-list-view .tau-board-unit_type_bugs-counter-open-total-e .tau-board-unit__value-open,
+.tau-board-list-view .tau-board-unit_type_tasks-counter-open-total .tau-board-unit__value-open,
+.tau-board-list-view .tau-board-unit_type_userstories-counter-open-total .tau-board-unit__value-open,
+.tau-board-list-view .tau-board-unit_type_effort-todo-total .tau-board-unit__value-open,
+.tau-board-list-view .tau-board-unit_type_effort-todo-total-e .tau-board-unit__value-open,
+.tau-board-list-view .tau-board-unit_type_testruns-counter-open-total .tau-board-unit__value-total,
+.tau-board-list-view .tau-board-unit_type_features-counter-open-total .tau-board-unit__value-total,
+.tau-board-list-view .tau-board-unit_type_bugs-counter-open-total .tau-board-unit__value-total,
+.tau-board-list-view .tau-board-unit_type_bugs-counter-open-total-e .tau-board-unit__value-total,
+.tau-board-list-view .tau-board-unit_type_tasks-counter-open-total .tau-board-unit__value-total,
+.tau-board-list-view .tau-board-unit_type_userstories-counter-open-total .tau-board-unit__value-total,
+.tau-board-list-view .tau-board-unit_type_effort-todo-total .tau-board-unit__value-total,
+.tau-board-list-view .tau-board-unit_type_effort-todo-total-e .tau-board-unit__value-total,
+.tau-board-list-view .tau-board-unit_type_requests-counter-open-total .tau-board-unit__value-open,
+.tau-board-list-view .tau-board-unit_type_requests-counter-open-total .tau-board-unit__value-total,
+.tau-board-list-view .tau-board-unit__value_type_day {
+    max-width: none;
+}
+
+/*endregion*/
+
+/*region Empty list*/
+.tau-board-list-view__message {
+    display: none;
+    padding: .5625em 1em;
+    font-size: 1em;
+    text-align: center;
+}
+
+.tau-board-list-view_state_empty .tau-list-paging {
+    display: none;
+}
+
+.tau-board-list-view_state_empty .tau-board-list-view__message {
+    display: block;
+}
+
+.tau-board-list-view_state_empty .tau-board-list-view__message:before {
+    display: block;
+    content: attr(data-empty);
+}
+
+/*endregion*/
+
+/*region Inline editor*/
+.tau-board-list-view .tau-list-entity:hover,
+.tau-board-list-view .tau-card_focusedit_true {
+    background-image: linear-gradient(color($gActionBackgroundSelected a(30%)), color($gActionBackgroundSelected a(30%)));
+}
+
+.tau-board-list-view .tau-board-unit_updating .tau-board-unit__value,
+.tau-board-list-view .tau-board-unit_insave_true .tau-board-unit__value {
+    visibility: hidden;
+}
+
+.tau-bubble-newlist-editor {
+    > .tau-bubble__inner {
+        margin: 0;
+        font-size: 13px;
+        line-height: 15px;
+        min-width: 50px;
+        border-radius: 0;
+    }
+
+    &--tags-inline .tau-bubble__inner {
+        background-color: $gActionBackgroundSystem;
+        padding: 3px;
+    }
+
+    &__float-number-input {
+        max-width: 62px;
+        height: 32px;
+        line-height: 32px;
+        padding: 0 5px;
+        margin: 0;
+        box-sizing: border-box;
+        border: 1px solid $gControlBorderColorDefault;
+
+        &:focus {
+            border-color: $gControlBorderColorFocusDefault;
+            box-shadow: $gControlBoxShadowFocusDefault;
+        }
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.tau-bubble-newlist-editor .tau-entity-title {
+    word-wrap: break-word;
+    border: solid 3px $gActionBackgroundSystem;
+}
+
+.ui-date__editable {
+    position: relative;
+    font-weight: normal;
+    top: auto;
+}
+
+.tau-bubble-newlist-editor .editableText {
+    word-break: break-all;
+    overflow-wrap: break-word;
+    min-height: 15px;
+    padding: 9px 5px 8px 5px;
+
+    &.active {
+        border-radius: 0;
+        background-color: $gFontColorWhite;
+    }
+}
+
+.tau-bubble-newlist-editor .ui-drop-down .drop-down-list {
+    padding: 0;
+}
+
+.tau-bubble-newlist-editor .ui-drop-down .drop-down-list .drop-down-group {
+    padding: 0;
+}
+
+.tau-bubble-newlist-editor .ui-drop-down .drop-down-list .drop-down-group span {
+    display: inline-block;
+    padding: 5px 10px;
+    color: $gFontColorGray;
+}
+
+.tau-bubble-newlist-editor .ui-drop-down .drop-down-list .drop-down-option {
+    font-size: 13px;
+    line-height: 20px;
+    padding: 6px 12px;
+}
+
+.tau-bubble-newlist-editor .ui-drop-down .drop-down-actions {
+    border-bottom: 0;
+    padding: 8px 12px;
+}
+
+.tau-bubble-newlist-editor .ui-drop-down .drop-down-footer {
+    border-top: 0;
+    padding: 8px 12px;
+}
+
+.tau-bubble-newlist-editor .ui-drop-down .filter-field-wrapper {
+    border-bottom: 0;
+    background-color: $gHighlightBlockBackground;
+    border-bottom: solid 1px $gHighlightBlockBorderColor;
+}
+
+.tau-bubble-newlist-editor .ui-drop-down .action-link {
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.tau-bubble-newlist-editor .ui-drop-down .drop-down-list .drop-down-option:hover,
+.tau-bubble-newlist-editor .ui-drop-down .drop-down-list .drop-down-option_hover,
+.tau-bubble-newlist-editor .drop-down-footer:hover,
+.tau-bubble-newlist-editor .drop-down-actions:hover {
+    background-color: $gActionBackgroundHover;
+}
+
+.tau-bubble-newlist-editor .ui-drop-down .drop-down-list .drop-down-group .drop-down-option {
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.tau-bubble-newlist-editor .tau-invite-widget .tau-user__name {
+    font-size: 13px;
+}
+
+.tau-bubble-newlist-editor .ui-drop-down .drop-down-list .empty-message {
+    padding: 8px 12px;
+    display: block;
+}
+
+.tau-bubble-newlist-editor .tau-assignments form,
+.tau-bubble-newlist-editor .tau-assignments__users {
+    padding: 6px 5px 6px 0;
+}
+
+.tau-bubble-newlist-editor .tau-assignments__grouptitle {
+    padding: 8px 12px;
+}
+
+.tau-bubble-newlist-editor .tau-assignments__group {
+    cursor: pointer;
+}
+
+.tau-bubble-newlist-editor .tau-assignments__users :last-child {
+    padding-right: 12px;
+}
+
+.tau-bubble-newlist-editor-date .ui-dateeditor,
+.tau-bubble-newlist-editor-build-date .ui-dateeditor {
+    padding: 6px 12px;
+    border: solid 3px $gActionBackgroundSystem;
+}
+
+.tau-bubble-newlist-editor-date .ui-dateeditor input,
+.tau-bubble-newlist-editor-build-date .ui-dateeditor input {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+    padding: 0;
+
+    &.error {
+        color: $gMessageColorError;
+    }
+}
+
+.tau-bubble-newlist-editor-date .ui-dateeditor input {
+    width: 78px;
+    vertical-align: top;
+
+    + .ui-datepicker-trigger {
+        top: 4px;
+    }
+}
+
+.tau-bubble-newlist-editor-build-date .ui-dateeditor input {
+    width: 112px;
+}
+
+.tau-bubble-newlist-editor-date .ui-dateeditor-source.ui-validationerror {
+    padding: 10px 12px;
+    border: 3px solid $gActionBackgroundSystem !important;
+    border-radius: 0;
+    line-height: 16px;
+    color: $gMessageColorError;
+}
+
+.tau-bubble-newlist-editor-text-cf .editableText {
+    border-radius: 0;
+    background: $gBackgroundDefault;
+    padding: 9px 5px 8px 5px;
+    border: solid 3px $gActionBackgroundSystem;
+}
+
+.tau-bubble-newlist-editor-text-cf .editableText.error {
+    color: $gMessageColorError;
+}
+
+/*endregion*/
+
+/*region Context menu*/
+
+.context-menu-list.context-menu-root.tau-newlist-context-menu {
+    padding: 0;
+    border-radius: 0;
+}
+
+.tau-newlist-context-menu .context-menu-item:not(.context-menu-separator),
+.tau-newlist-context-menu .custom-context-menu-item {
+    font-size: 13px;
+    line-height: 20px;
+    padding: 6px 12px;
+}
+
+.tau-newlist-context-menu .context-menu-item.context-menu-separator {
+    margin: 3px 6px;
+}
+
+/*endregion*/
+
+/*region Test plans, Test cases entity tab */
+
+.tau-board-test-plan .tau-board-list-view .tau-board-list-view__inner {
+    overflow: hidden;
+}
+
+.tau-board-test-plan .tau-board-list-view .tau-list-level-0 {
+    display: block;
+}
+
+.tau-board-test-plan .tau-list-level-cardsholder > .tau-list__group {
+    margin-top: 20px;
+}
+
+.tau-list-header {
+    margin-top: 9px;
+    padding: 49px 74px 48px;
+    background: $gHighlightBlockBackground;
+
+}
+
+.tau-list-header__h1 {
+    margin-bottom: 13px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.tau-list-header__text {
+    margin-bottom: 21px;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.tau-list-header__more {
+    font-size: 14px;
+    line-height: 19px;
+    color: $gLinkColor;
+}
+
+.tau-list-header__more:hover {
+    color: $gLinkColorHover;
+}
+
+.tau-list-header__test-plans-list {
+    display: table;
+    padding: 0;
+    margin: 0 0 21px 0;
+    list-style: none;
+}
+
+.tau-list-header__test-plans-list__item {
+    display: table-row;
+}
+
+.tau-list-header__test-plans-list__item:not(:last-child) > .tau-list-header__test-plans-list__checkbox {
+    padding-bottom: 11px;
+}
+
+.tau-list-header__test-plans-list__checkbox {
+    display: table-cell;
+    min-width: 264px;
+    font-size: 14px;
+    line-height: 19px;
+    cursor: pointer;
+}
+
+.tau-list-header__test-plans-list__checkbox > input[ type = "radio" ] {
+    position: relative;
+    bottom: 2px;
+    display: inline-block;
+    margin: 0 3px 0 0;
+    padding: 0;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.tau-list-header__test-plans-list__counter {
+    padding-left: 30px;
+}
+
+.tau-list-header__test-plans-list__item > .tau-board-unit {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.tau-list-header__test-plans-list__item.disabled {
+    color: $gFontColorGray;
+}
+
+/*endregion*/
+

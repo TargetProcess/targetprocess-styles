@@ -1,0 +1,99 @@
+.board-actions {
+    padding: $gDropdownPadding;
+    min-width: 275px;
+    box-sizing: border-box;
+
+    &__group {
+        &:not(:last-child),
+        &--visual-encoding {
+            border-bottom: solid 1px $gHighlightBlockBorderColor;
+            padding-bottom: $gDropdownGroupPadding;
+            margin-bottom: $gDropdownGroupPadding;
+        }
+
+        &:empty {
+            display: none;
+        }
+    }
+
+    &__item {
+        min-height: 34px;
+        padding: 0 $gDropdownItemPaddingHorizontal;
+
+        .board-actions__group--controls & {
+            display: flex;
+            align-items: center;
+        }
+
+        &:hover {
+            cursor: pointer;
+            background-color: $gActionBackgroundHover;
+
+            .board-actions__group--controls & {
+                cursor: default;
+                background-color: transparent;
+            }
+        }
+
+        &__text {
+            padding-right: 10px;
+            flex: 0 0 auto;
+
+        }
+
+        &__color-rules {
+            padding: 5px 0;
+            display: flex;
+            flex-direction: column;
+
+            &__line {
+                width: 164px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            &__line:not(:last-child) {
+                padding-bottom: 4px;
+            }
+        }
+
+        &__icon {
+            margin-right: 5px;
+            display: flex;
+            align-items: center;
+            flex: 0 0 auto;
+        }
+
+        .tau-board-view-switch,
+        &__control {
+            flex: 0 0 auto;
+        }
+
+        &--two-column {
+            display: flex;
+            align-items: center;
+
+            .board-actions__item__text {
+                min-width: 95px;
+            }
+
+        }
+
+        &--delete {
+            color: $gActionColorDelete;
+
+            &:hover {
+                cursor: pointer;
+                background-color: $gActionBackgroundDelete;
+            }
+        }
+    }
+
+    &__action {
+        display: flex;
+        align-items: center;
+        padding: $gDropdownItemPaddingVertical 0;
+    }
+
+}

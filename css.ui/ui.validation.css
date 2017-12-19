@@ -1,0 +1,9 @@
+.ui-validationerror {
+    border:  1px solid $gMessageColorError !important;
+    border-radius: $gBorderRadiusDefault;
+}
+
+
+input.ui-validationerror {
+    margin:  1px;
+}

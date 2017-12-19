@@ -1,0 +1,69 @@
+$messageErrorTextColor: $gMessageColorError;
+$messageWarningTextColor: $gMessageColorWarning;
+$messageSuccessTextColor: $gMessageColorSuccess;
+$messageErrorBackground: color($gMessageColorError tint(90%));
+$messageWarningBackground: color($gMessageColorWarning tint(90%));
+$messageSuccessBackground: color($gMessageColorSuccess tint(90%));
+
+/* region  message */
+
+.tau-message{
+    font-size: 12px;
+
+    &--text-ellipsis {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 100%;
+        display: block;
+    }
+}
+
+/* endregion */
+/* region  message-color */
+.tau-message-error {
+    color: $messageErrorTextColor;
+}
+
+.tau-message-warning {
+    color: $messageWarningTextColor;
+
+    sup {
+        vertical-align: top;
+        font-size: inherit;
+        position: relative;
+        top: -2px;
+    }
+}
+
+.tau-message-success {
+    color: $messageSuccessTextColor;
+}
+
+/* endregion */
+
+/* region  alert-box */
+
+.alert-box {
+    border-radius: $gBorderRadiusDefault;
+    padding: 6px 10px;
+    font-size: 12px;
+    line-height: 1.4;
+
+    &--error {
+        background: $messageErrorBackground;
+        color: $messageErrorTextColor;
+    }
+
+    &--warning {
+        background: $messageWarningBackground;
+        color: $messageWarningTextColor;
+    }
+
+    &--success {
+        background: $messageSuccessBackground;
+        color: $messageSuccessTextColor;
+    }
+}
+
+/* endregion */

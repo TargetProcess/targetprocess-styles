@@ -1,0 +1,67 @@
+.tau-property {
+    display: inline-flex;
+    align-items: center;
+}
+
+.property-text {
+    display: inline-flex;
+    align-items: center;
+}
+
+.dateeditor-property-wrap {
+    min-height: $gControlHeightDefault;
+    display: flex;
+    align-items: center;
+    margin-left: -4px; /* to avoid moving date field after focusing*/
+
+    .property {
+        padding-left: 4px;
+    }
+}
+
+.tau-property.updating {
+    background-color: $gActionBackgroundSystem;
+}
+
+.tau-property .editableText {
+    min-height: 18px;
+}
+
+.tau-property__multiple-value {
+    font-style: italic;
+    color: $gFontColorGray;
+}
+
+.tau-property__text-result {
+    display: inline-block;
+    outline: 0;
+    padding: 4px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+}
+
+.ui-status_type_passed {
+    color: $gFontColorSuccess;
+}
+
+.ui-status_type_failed {
+    color: $gFontColorFailed;
+}
+
+.ui-status_type_blocked {
+    color: $gFontColorAttention;
+}
+
+.ui-status_type_onhold {
+    color: $gFontColorSelected;
+}
+
+.ui-status_type_na,
+.ui-status_type_notrun,
+.ui-status_type_skipped {
+    color: $gFontColorGray;
+}
+
+.tau-property-lastFailureComment {
+    white-space: pre-line;
+}

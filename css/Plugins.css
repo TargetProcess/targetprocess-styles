@@ -1,0 +1,1643 @@
+﻿.normal {
+    font-weight: normal !important;
+}
+
+.bold {
+    font-weight: bold !important;
+}
+
+.box {
+    box-sizing: border-box;
+}
+
+.preloader {
+    background-image: url("images/plugins/preloader.gif");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 10px;
+    margin: 0 5px;
+    width: 30px;
+}
+
+.collapse {
+    border-collapse: collapse;
+}
+
+.plugins .error-message {
+    border-radius: $gBorderRadiusDefault;
+    color: $gMessageColorError;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}
+
+.plugins {
+    padding: 0 0 10px;
+}
+
+.plugins {
+    .h2,
+    .h3,
+    .note,
+    .label,
+    .help-mapping-block td.title {
+        color: $gFontColorDefault;
+    }
+
+    .note .small,
+    .label .small {
+        color: $gFontColorGray;
+    }
+
+}
+
+.plugins .h2 {
+    font-size: 18px;
+    font-weight: normal !important;
+    margin: 0;
+    padding: 0;
+}
+
+.plugins .h3 {
+    font-size: 14px;
+    font-weight: bold !important;
+    margin: 0 0 5px;
+}
+
+.plugins .note {
+    font-size: 12px;
+    font-weight: normal !important;
+    padding: 0 0 3px;
+}
+
+.plugins .note .small {
+    font-size: 11px;
+    font-weight: normal !important;
+}
+
+.plugins .label {
+    font-size: 13px;
+    font-weight: bold !important;
+    padding: 0 0 3px;
+}
+
+.plugins .label .small {
+    font-size: 12px;
+    font-weight: normal !important;
+}
+
+.plugins .label .error {
+    color: $gMessageColorError;
+    font-size: 11px;
+    font-weight: normal !important;
+}
+
+.plugins .rules-conditions {
+    color: $gMessageColorSuccess;
+}
+
+.plugins .rules-actions {
+    color: $gFontColorSelected;
+}
+
+.plugins .rules-block {
+    background: $gHighlightBlockBackground !important;
+    border: 1px solid $gHighlightBlockBorderColor;
+    border-radius: $gBorderRadiusDefault;
+    padding: 10px;
+}
+
+.plugins .rules-block td {
+    vertical-align: top;
+}
+
+.plugins .two-block {
+    margin: 0;
+    padding: 0;
+}
+
+.plugins .two-block li {
+    display: inline-block;
+    list-style: none;
+    padding: 5px 5px 0 0;
+    width: 275px;
+    zoom: 1;
+}
+
+.plugins .two-block li input {
+    width: 275px;
+}
+
+.plugins .two-block li.chain {
+    background: url("images/plugins/chain-small.png") 0 0 no-repeat;
+    width: 10px;
+}
+
+.plugins .two-block li.chain-no {
+    width: 10px;
+}
+
+.plugins .warning-message {
+    background: url('images/icons/icon-yellow-notifier.png') 6px 6px no-repeat color($gMessageColorWarning tint(90%));
+    color: $gMessageColorWarning;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 16px;
+    margin: 5px 0 10px 0;
+    padding: 6px 10px 6px 25px;
+}
+
+.plugins .info-message {
+    background: url('images/icons/icon-yellow-notifier.png') 6px 6px no-repeat $gBackgroundDefault;
+    border: 1px solid $gHighlightBlockBorderColor;
+    border-radius: $gBorderRadiusDefault;
+    color: $gMessageColorWarning;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 16px;
+    margin: 5px 0 10px 0;
+    padding: 6px 10px 10px 25px;
+}
+
+.plugins .info-message .close {
+    background-image: url('images/icons/small-close.png');
+    float: right;
+    height: 15px;
+    position: relative;
+    right: -5px;
+    top: 0;
+    width: 15px;
+}
+
+.plugins .help-mapping-block {
+    background: none repeat scroll 0 0 $gBackgroundDefault !important;
+    border: 1px solid $gHighlightBlockBorderColor;
+    border-radius: $gBorderRadiusDefault;
+    padding: 5px 10px;
+    width: auto;
+}
+
+.plugins .help-mapping-block td.title {
+    font-weight: bold;
+    padding: 5px 35px 5px 0;
+    vertical-align: top;
+}
+
+.plugins .help-mapping-block td {
+    padding: 3px 35px 3px 0;
+    vertical-align: top;
+}
+
+.plugins .help-mapping-block .rules-conditions {
+    color: $gMessageColorSuccess;
+}
+
+.plugins .help-mapping-block .rules-actions {
+    color: $gFontColorSelected;
+}
+
+.plugins .input,
+.plugins .select,
+.plugins .textarea {
+    border: 1px solid $gControlBorderColorDefault;
+    border-radius: $gControlBorderRadiusDefault;
+    box-sizing: border-box;
+    padding: 5px 6px;
+}
+
+.plugins .input:focus,
+.plugins .select:focus,
+.plugins .textarea:focus {
+    box-shadow: $gControlBoxShadowFocusDefault;
+}
+
+.plugins .input.error,
+.plugins .select.error,
+.plugins .textarea.error {
+    border: 1px solid $gMessageColorError;
+    color: $gMessageColorError;
+}
+
+.plugins .input.error:focus,
+.plugins .select.error:focus,
+.plugins .textarea.error:focus {
+    box-shadow: $gControlBoxShadowFocusError;
+}
+
+.plugins .task-creator-settings, .plugins .plugin-box {
+    background-color: $gHighlightBlockBackground;
+    border-radius: 6px;
+    box-sizing: border-box;
+    display: table;
+    height: auto;
+    margin: 20px 0;
+    width: 680px;
+}
+
+.plugins .task-creator-settings .pad-box, .plugins .plugin-box .pad-box {
+    display: block;
+    padding: 15px;
+}
+
+.plugins .workitems-settings, .plugins .svn-settings, .plugins .bugzilla-settings, .plugins .webhook-settings {
+    background-color: $gHighlightBlockBackground;
+    border-radius: 6px;
+    box-sizing: border-box;
+    display: table;
+    height: auto;
+    margin: 20px 0 10px;
+    width: 680px;
+}
+
+.plugins .workitems-settings .pad-box, .plugins .svn-settings .pad-box, .plugins .bugzilla-settings .pad-box, .plugins .bugzilla-map-roles .pad-box {
+    padding: 15px;
+}
+
+.plugins .bugzilla-map-users, .plugins .bugzilla-maps {
+    background-color: $gHighlightBlockBackground;
+    border-radius: 6px;
+    box-sizing: border-box;
+    display: table;
+    height: auto;
+    margin: 10px 0 10px;
+    width: 680px;
+}
+
+.plugins .bugzilla-maps .h3.collapsable.accordeon {
+    font-size: 14px;
+}
+
+.plugins .projects-mapping, .plugins .tfs-map-entities, .plugins .svn-map-users, .plugins .bugzilla-settings, .plugins .bugzilla-map-roles {
+    background-color: $gHighlightBlockBackground;
+    border-radius: 6px;
+    box-sizing: border-box;
+    display: table;
+    height: auto;
+    margin: 10px 0 10px;
+    width: 680px;
+}
+
+.plugins .projects-mapping .pad-box, .plugins .tfs-map-entities .pad-box, .plugins .svn-map-users .pad-box, .plugins .bugzilla-settings .pad-box, .plugins .bugzilla-map-roles .pad-box, .plugins .webhook-settings .pad-box {
+    padding: 5px 15px 15px;
+}
+
+.plugins .bugzilla-map-users .pad-box, .plugins .bugzilla-maps .pad-box, .plugins .bugzilla-map-roles .pad-box {
+    padding: 15px;
+}
+
+.plugins .tfs-map-entities .entities-block, .plugins .svn-map-users .users-block, .plugins .bugzilla-map-users .users-block, .plugins .bugzilla-map .users-block, .plugins .svn-map-users .mapping-block, .plugins .bugzilla-map-users .mapping-block, .plugins .bugzilla-map .mapping-block {
+    margin: 0;
+    padding: 0;
+}
+
+.plugins .projects-mapping li, .plugins .tfs-map-entities .entities-block li, .plugins .svn-map-users .users-block li, .plugins .bugzilla-map-users .users-block li, .plugins .bugzilla-map .users-block li, .plugins .svn-map-users .mapping-block li, .plugins .bugzilla-map-users .mapping-block li, .plugins .bugzilla-map .mapping-block li {
+    display: inline-block;
+    list-style: none outside none;
+    padding: 5px 5px 0 0;
+    width: 275px;
+}
+
+.plugins .bugzilla-map .mapping-block li.map-key {
+    display: inline-block;
+    list-style: none outside none;
+    padding: 5px 5px 0 0;
+    width: 150px;
+}
+
+.plugins .tfs-map-entities .entities-block li.remove-mapping, .plugins .svn-map-users .users-block li.remove-mapping, .plugins .bugzilla-map-users .users-block li.remove-mapping, .plugins .bugzilla-map .users-block li.remove-mapping, .plugins .svn-map-users .mapping-block li.remove-mapping, .plugins .bugzilla-map-users .mapping-block li.remove-mapping, .plugins .bugzilla-map .mapping-block li.remove-mapping {
+    padding: 5px 0 0;
+    width: 20px;
+}
+
+.plugins .tfs-map-entities .entities-block li.remove-mapping a.remove, .plugins .svn-map-users .users-block li.remove-mapping a.remove, .plugins .bugzilla-map-users .users-block li.remove-mapping a.remove, .plugins .bugzilla-map .users-block li.remove-mapping a.remove, .plugins .svn-map-users .mapping-block li.remove-mapping a.remove, .plugins .bugzilla-map-users .mapping-block li.remove-mapping a.remove, .plugins .bugzilla-map .mapping-block li.remove-mapping a.remove {
+    background: url("images/plugins/remove-icon.png") no-repeat scroll left top transparent;
+    display: block;
+    height: 18px;
+    position: relative;
+    top: 3px;
+    width: 18px;
+}
+
+.plugins .projects-mapping li select, .plugins .entities-block li select, .plugins .tfs-map-entities .entities-block li input, .plugins .svn-map-users .users-block li input, .plugins .bugzilla-map-users .users-block li input, .plugins .bugzilla-map .users-block li input, .plugins .svn-map-users .mapping-block li input, .plugins .bugzilla-map-users .mapping-block li input, .plugins .bugzilla-map .mapping-block li input {
+    width: 275px;
+}
+
+.plugins .projects-mapping .chain, .plugins .tfs-map-entities .entities-block .chain, .plugins .svn-map-users .users-block .chain, .plugins .bugzilla-map-users .users-block .chain, .plugins .bugzilla-map .users-block .chain, .plugins .svn-map-users .mapping-block .chain, .plugins .bugzilla-map-users .mapping-block .chain, .plugins .bugzilla-map .mapping-block .chain {
+    background: url("images/plugins/chain-small.png") no-repeat scroll left top transparent;
+    width: 10px;
+}
+
+.plugins .mapping-notes-chain {
+    background: url("images/plugins/chain-small.png") no-repeat scroll left top transparent;
+    display: inline-block;
+    line-height: 6px;
+    width: 10px;
+}
+
+.plugins .projects-mapping .chain-no, .plugins .tfs-map-entities .entities-block .chain-no, .plugins .svn-map-users .users-block .chain-no, .plugins .bugzilla-map-users .users-block .chain-no, .plugins .bugzilla-map .users-block .chain-no, .plugins .svn-map-users .mapping-block .chain-no, .plugins .bugzilla-map-users .mapping-block .chain-no, .plugins .bugzilla-map .mapping-block .chain-no {
+    width: 10px;
+}
+
+.plugins .tfs-map-entities .search-entities-popover, .plugins .svn-map-users .search-users-popover, .plugins .bugzilla-map-users .search-users-popover, .plugins .bugzilla-map .search-users-popover {
+    background: none repeat scroll 0 0 $gBackgroundDefault;
+    border-radius: 5px;
+    box-shadow: 0 1px 10px #999999;
+    color: $gFontColorDefault;
+    height: auto;
+    left: 610px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: auto;
+    z-index: 10000000;
+}
+
+.plugins .n-unit-settings {
+    background-color: $gHighlightBlockBackground;
+    border-radius: 6px;
+    box-sizing: border-box;
+    display: table;
+    height: auto;
+    margin: 20px 0 10px;
+    width: 680px;
+}
+
+.plugins .n-unit-settings .pad-box {
+    padding: 15px;
+}
+
+.plugins .n-unit-mapping {
+    background-color: $gHighlightBlockBackground;
+    border-radius: 6px;
+    box-sizing: border-box;
+    display: table;
+    height: auto;
+    margin: 20px 0 10px;
+    width: 680px;
+}
+
+.plugins .n-unit-mapping .pad-box {
+    padding: 15px;
+}
+
+.plugins .n-unit-mapping .check-mapping-block {
+    height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.plugins .n-unit-mapping .check-mapping-table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    text-align: left;
+    width: 650px;
+}
+
+.plugins .n-unit-mapping .check-mapping-table th {
+    background: $gHighlightBlockBackground;
+    border: 1px solid $gHighlightBlockBorderColor;
+    box-shadow: 1px 1px 1px #FFFFFF inset;
+    padding: 4px 8px;
+    text-align: left;
+}
+
+.plugins .n-unit-mapping .check-mapping-table td {
+    background: $gBackgroundDefault;
+    border: 1px solid $gHighlightBlockBorderColor;
+    box-shadow: 1px 1px 1px #F5F6F7 inset;
+    padding: 4px 8px;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+.plugins .n-unit-mapping .mapped {
+    background: color($gMessageColorSuccess tint(90%));
+    color: $gMessageColorSuccess;
+    font-weight: bold;
+    padding: 2px 5px;
+}
+
+.plugins .n-unit-mapping .not-mapped {
+    background: color($gMessageColorError tint(90%));
+    color: $gMessageColorError;
+    font-weight: bold;
+    padding: 2px 5px;
+}
+
+.plugins .add-more {
+    background: url("images/plugins/add-more-icon-blue.png") no-repeat scroll left top transparent;
+    padding: 2px 0 4px 22px;
+}
+
+.plugins .check-connection-link {
+    background: url("images/plugins/check-connection-icon-blue.png") top left no-repeat;
+    padding: 2px 0 4px 22px;
+    text-decoration: underline;
+}
+
+.plugins .check-connection-link:hover {
+    text-decoration: none;
+}
+
+.plugins .rescan-link {
+    margin-left: 10px;
+    text-decoration: underline;
+}
+
+.plugins .rescan-link:hover {
+    text-decoration: none;
+}
+
+.plugins .separator {
+    border-bottom: 1px solid $gHighlightBlockBorderColor;
+    border-top: 1px solid #fff;
+}
+
+.plugins .check-block {
+    padding: 15px;
+}
+
+.plugins .mapping-block {
+    padding: 0 15px 15px;
+}
+
+.plugins .message-error {
+    color: $gMessageColorError;
+    font-size: 12px;
+    font-weight: bold !important;
+}
+
+.plugins .message-ok {
+    background: url("images/plugins/message-ok-icon.png") no-repeat scroll left top transparent;
+    color: $gMessageColorSuccess;
+    font-size: 12px;
+    font-weight: bold !important;
+    padding: 0 0 10px 23px;
+    vertical-align: middle;
+}
+
+.plugins .message-ok span {
+    display: block;
+    padding: 2px 0 0;
+}
+
+.plugins .controls-block {
+    background-color: $gHighlightBlockBackground;
+    border-image: initial;
+    border-radius: $gBorderRadiusDefault;
+    margin: 5px 0;
+    min-height: 20px;
+    padding: 20px 0;
+    width: 680px;
+}
+
+.plugins .controls-block .controls {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.plugins .base-block {
+    background-color: $gHighlightBlockBackground;
+    border-radius: $gBorderRadiusDefault;
+    box-sizing: border-box;
+    display: table;
+    height: auto;
+    margin: 20px 0 10px;
+    width: 680px;
+}
+
+.plugins .base-block .pad-box {
+    padding: 15px;
+}
+
+.plugins .tasksSamplePopup {
+    background: $gBackgroundDefault;
+    border-radius: 5px;
+    box-shadow: 0 1px 10px #999999;
+    color: $gFontColorDefault;
+    height: auto;
+    left: 300px;
+    margin: 0;
+    padding: 5px 0 0;
+    position: absolute;
+    width: auto;
+    z-index: 10000000;
+}
+
+.plugins .tasksSamplePopup .context-popup-uxo-t {
+    background: url("images/context-popup-uxo-t.png") no-repeat scroll left top transparent;
+    height: 25px;
+    left: 0;
+    position: absolute;
+    top: -19px;
+    width: 46px;
+}
+
+/* Plugins Log */
+
+.plugins .log {
+    background: $gBackgroundDefault;
+    border: 1px solid $gHighlightBlockBorderColor;
+    border-radius: $gBorderRadiusDefault;
+    clear: both;
+    height: 500px;
+    line-height: 18px;
+    margin-left: 20px;
+    margin-right: 20px;
+    overflow: auto;
+    width: 638px;
+}
+
+.plugins .log .info,
+.plugins .log .warn,
+.plugins .log .error {
+    display: table;
+    font-size: 11px;
+    margin: 4px 4px 5px;
+    overflow: hidden;
+    padding: 3px 4px;
+    word-wrap: break-word;
+
+}
+
+.plugins .log .info {
+    background: $gHighlightBlockBackground;
+    color: $gFontColorGray;
+    padding-left: 8px;
+}
+
+.plugins .log .warn {
+    background: color($gMessageColorWarning tint(90%));
+    color: $gMessageColorWarning;
+}
+
+.plugins .log .error {
+    background: color($gMessageColorError tint(90%));
+    color: $gMessageColorError;
+}
+
+.plugins .log .fatal {
+    background: $gMessageColorError;
+    color: $gFontColorWhite;
+}
+
+.plugins .log .info .date,
+.plugins .log .warn .date,
+.plugins .log .error .date,
+.plugins .log .fatal .date {
+    font-size: 10px;
+    font-weight: normal;
+    margin-right: 3px;
+    padding: 3px 5px;
+    white-space: nowrap;
+}
+
+.plugins .log .log-details {
+    font-weight: normal;
+    padding: 0 5px;
+}
+
+.plugins .activityLog {
+    padding-top: 15px;
+}
+
+.plugins .activityLog .pad-box {
+    padding-top: 10px;
+}
+
+.plugins .activityLog .pad-box .error {
+    background: color($gMessageColorError tint(90%));
+    color: $gMessageColorError;
+    font-weight: bold;
+    padding: 2px 5px;
+}
+
+.plugins .left {
+    float: left;
+}
+
+.plugins .right {
+    float: right;
+}
+
+.plugins .log p, .plugins .log div {
+    width: 625px;
+}
+
+.plugins .base-block h3 {
+    margin: 0;
+}
+
+.plugins .showLog, .plugins .hideLog {
+    background: url("images/plugins/log-icon-blue.png") no-repeat scroll left top transparent;
+    padding: 2px 0 4px 22px;
+}
+
+.plugins .log .collapsable-activity {
+    background: url("images/collapse-buttons-hor-sprite.png") no-repeat scroll 600px -7px transparent;
+    cursor: pointer;
+}
+
+.plugins .log .collapsable-activity.expanded {
+    background-position: 538px -67px;
+    border-radius: $gBorderRadiusDefault $gBorderRadiusDefault 0 0;
+}
+
+.plugins .log .collapsable-activity.expanded:hover {
+    background-position: 507px -97px;
+}
+
+.plugins .log .collapsable-activity.collapsed {
+    background-position: 600px -7px;
+    border-radius: $gBorderRadiusDefault;
+}
+
+.plugins .log .collapsable-activity.collapsed:hover {
+    background-position: 569px -37px;
+}
+
+/* Collapsed Blocks and Accordeon */
+
+.plugins .collapsable {
+    background-image: url("../css.ui/images/collapse-buttons-sprite.png");
+    background-position: -8px -3px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin: 10px !important;
+    padding: 5px 5px 5px 20px;
+}
+
+.plugins .collapsable.expanded {
+    background-position: -8px -3px;
+    border-radius: $gBorderRadiusDefault $gBorderRadiusDefault 0 0;
+}
+
+.plugins .collapsable.expanded:hover {
+    background-position: -8px -33px;
+}
+
+.plugins .collapsable.collapsed {
+    background-position: -8px -93px;
+    border-radius: $gBorderRadiusDefault;
+}
+
+.plugins .collapsable.collapsed:hover {
+    background-position: -8px -63px;
+}
+
+.plugins .collapsable:hover {
+    background-position: -8px -33px;
+}
+
+.plugins .collapsable.accordeon {
+    background-color: $gBackgroundDefault;
+    background-position: -4px -4px;
+    border: 1px solid $gHighlightBlockBorderColor;
+    border-radius: $gBorderRadiusDefault;
+    box-shadow: inset 0 1px 0 #fff;
+    font-size: 12px;
+    margin: 5px 0 0 !important;
+    padding: 5px 5px 5px 20px;
+}
+
+.plugins .collapsable.accordeon:hover {
+    background-position: -4px -34px;
+}
+
+.plugins .collapsable.collapsed.accordeon:hover {
+    background-position: -4px -94px;
+}
+
+.plugins .collapsable.collapsed.accordeon:hover {
+    background-position: -4px -64px;
+}
+
+.plugins .collapsable.expanded.accordeon {
+    background-position: -4px -94px;
+}
+
+.plugins .inner-content {
+    background: $gBoardBackground;
+    border: 1px solid $gHighlightBlockBorderColor;
+    border-top: 0;
+    margin: 0 0 10px 0;
+    padding: 8px;
+}
+
+/* Bugzilla List Icon */
+
+.bugzillaBugIcon {
+    background: url("images/plugins/bugzilla-icon.png") no-repeat scroll left top transparent;
+    display: inline-block;
+    height: 18px;
+    line-height: 18px;
+    position: relative;
+    top: 3px;
+    width: 15px;
+}
+
+.bugzillaBubble {
+    background: $gBackgroundDefault;
+    border-radius: 5px;
+    box-shadow: 0 1px 10px #999999;
+    color: $gFontColorDefault;
+    height: auto;
+    margin: 0;
+    padding: 5px 10px 10px;
+    position: absolute;
+    width: auto;
+    z-index: 10000000;
+}
+
+.bugzillaBubble .context-popup-uxo-t {
+    background: url("images/context-popup-uxo-t.png") no-repeat scroll left top transparent;
+    height: 25px;
+    left: 0;
+    position: absolute;
+    top: -19px;
+    width: 46px;
+}
+
+.bugzillaBubble table tr td {
+    color: $gFontColorDefault;
+    font-family: Verdana;
+    font-size: 11px;
+    padding: 2px 3px;
+}
+
+.bugzillaBubble table tr td.title {
+    color: $gFontColorLightGray;
+}
+
+.bugzillaBubble table tr td.custom-fields {
+    color: $gFontColorLightGray;
+    padding-top: 10px;
+}
+
+a.bugzilla-external-link {
+    text-decoration: none;
+}
+
+a.bugzilla-external-link span.id {
+    color: $gFontColorSelected;
+    text-decoration: underline;
+}
+
+a.bugzilla-external-link:hover span.id {
+    text-decoration: none;
+}
+
+a.bugzilla-external-link span.link {
+    background: url("../css.ui/images/external_blue.png") no-repeat scroll 5px 5px transparent;
+    border-bottom: 1px solid #fff;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+    vertical-align: bottom;
+    width: 16px;
+}
+
+a.bugzilla-external-link:hover span.link {
+    background-image: url("../css.ui/images/external_red.png");
+}
+
+/* Bugzilla view mashup */
+
+.bugInfo {
+    margin: 15px 0 10px 0;
+}
+
+.bugInfo table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.bugInfo table TR {
+    background: url('images/bg_dashed.gif') repeat-x 0 0;
+}
+
+.bugInfo table tr td {
+    padding: 4px;
+    width: 50%;
+}
+
+.bugInfo .bugInfoContent {
+    margin-top: 10px;
+}
+
+/*Plugins list*/
+
+.plugins .list h2.icon {
+    background: url("images/plugins/plugins-icon.png") no-repeat scroll left top transparent;
+    padding: 15px 15px 15px 60px;
+}
+
+.plugins .list .plugins-category {
+    background: $gHighlightBlockBackground;
+    border-radius: 6px;
+    margin: 10px 0;
+    padding: 15px 5px 15px 15px;
+}
+
+.plugins .list .plugins-category .expanded {
+    background-image: url("../css.ui/images/collapse-buttons-sprite.png");
+    background-position: -8px -3px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin: 0;
+    padding: 5px 5px 5px 0;
+}
+
+.plugins .list .plugins-category .expanded:hover {
+    background-position: -8px -33px;
+}
+
+.plugins .list .plugins-category .collapsed {
+    background-image: url("../css.ui/images/collapse-buttons-sprite.png");
+    background-position: -8px -93px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin: 0;
+    padding: 5px 5px 5px 0;
+}
+
+.plugins .list .plugins-category .collapsed:hover {
+    background-position: -8px -63px;
+}
+
+.plugins .list .plugins-category .expanded .label, .plugins .list .plugins-category .collapsed .label {
+    color: $gFontColorDefault;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    padding-left: 20px;
+}
+
+.plugins .list .plugins-category .plugin-block {
+    background: $gBackgroundDefault;
+    border: 1px solid $gHighlightBlockBorderColor;
+    border-radius: $gBorderRadiusDefault;
+    display: inline-block;
+    height: auto;
+    margin: 10px 10px 10px 0;
+    min-height: 142px;
+    padding: 10px;
+    vertical-align: top;
+    width: 240px;
+}
+
+.plugins .list .plugins-category .plugin-block img {
+    display: inline-block;
+    padding-right: 8px;
+}
+
+.plugins .list .plugins-category .plugin-block h4 {
+    color: $gFontColorDefault;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+    padding: 8px 0;
+    vertical-align: top;
+}
+
+.plugins .list .plugins-category .plugin-block .note-p {
+    color: $gFontColorGray;
+    font-size: 11px;
+    min-height: 45px;
+    padding: 8px 0;
+}
+
+.plugins .list .plugins-category .plugin-block .profiles-list {
+    padding: 8px 0;
+}
+
+.plugins .list .plugins-category .plugin-block .profiles-list ul {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 3px 0;
+    width: 100%;
+}
+
+.plugins .list .plugins-category .plugin-block .profiles-list ul li.name {
+    display: inline-block;
+    margin-right: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 200px;
+}
+
+.plugins .list .plugins-category .plugin-block .profiles-list ul li.delete {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    max-height: 20px;
+}
+
+.plugins .list .plugins-category .plugin-block .profiles-list ul li.delete button {
+    visibility: hidden;
+}
+
+.plugins .list .plugins-category .plugin-block .profiles-list ul:hover li.delete button {
+    visibility: visible;
+}
+
+.plugins .more-link {
+    border-bottom: 1px dotted $gFontColorGray;
+    color: $gFontColorGray;
+    cursor: pointer;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+.plugins .more-link:hover {
+    border-bottom: 1px dotted #fff;
+    text-decoration: none;
+}
+
+.plugins .list .error-indicator {
+    background: url("images/plugins/profile-error-indicator.png") no-repeat scroll 0 0 transparent;
+    color: $gMessageColorError;
+    display: inline-block;
+    height: 16px;
+    margin-right: 5px;
+    padding-left: 20px;
+    width: 16px;
+}
+
+.plugins .list .confirmationHost .confirmation {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: $gBorderRadiusDefault;
+    color: $gMessageColorError;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+}
+
+.plugins .list .confirmationHost .confirmation .inner p {
+    color: $gFontColorAttention;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 0 0 0.5em;
+}
+
+.plugins .list .create-me {
+    background: $gBoardBackground;
+    border: 2px dashed $gFontColorWarning;
+    border-radius: 6px 5px;
+    display: inline-block;
+    height: auto;
+    margin: 10px 10px 10px 0;
+    min-height: 140px;
+    padding: 10px;
+    vertical-align: top;
+    width: 240px;
+}
+
+.plugins .list .create-me img {
+    display: inline-block;
+    padding-right: 8px;
+}
+
+.plugins .list .create-me h4 {
+    color: $gFontColorWarning;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+    padding: 8px 0;
+    vertical-align: top;
+}
+
+.plugins .list .create-me .note-p {
+    color: $gFontColorDefault;
+    font-family: Verdana;
+    font-size: 11px;
+    min-height: 45px;
+    padding: 8px 0;
+}
+
+.plugins .list .create-me .profiles-list {
+    padding: 8px 0;
+}
+
+.plugins .list .create-me .profiles-list ul {
+    margin: 0;
+    padding: 3px 0;
+    width: 100%;
+}
+
+.plugins .list .create-me .profiles-list ul li.name {
+    display: inline-block;
+    margin-right: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 200px;
+}
+
+/* Mashups Manager */
+
+#profileeditormashupmanager {
+    padding-bottom: 0;
+}
+
+.mashups-manager {
+    display: table;
+    height: auto;
+    width: 100%;
+}
+
+.mashups-manager .mashups-block {
+    background-color: $gHighlightBlockBackground;
+    border-radius: $gBorderRadiusDefault;
+    display: table;
+    float: left;
+    min-height: 96px;
+    height: auto;
+    margin: 20px 0 0 0;
+    width: 100%;
+}
+
+.mashups-manager .mashups-block .list {
+    vertical-align: top;
+    width: 230px;
+}
+
+.mashups-manager .mashups-block .list .tau-container {
+    width: 230px;
+}
+
+.mashups-manager .mashups-block .editor {
+    border-left: 2px solid #fff;
+    min-height: 600px;
+    vertical-align: top;
+}
+
+.mashups-manager .mashups-list-item {
+    box-sizing: border-box;
+    height: 100%;
+    margin: 0;
+    max-height: 600px;
+    overflow: auto;
+    overflow-x: hidden;
+    padding: 0;
+    width: 230px;
+}
+
+.mashups-manager .mashups-list-item a {
+    background: $gBackgroundDefault;
+    border-top: 1px solid $gHighlightBlockBackground;
+    display: block;
+    font-size: 12px;
+    height: 18px;
+    list-style-type: none;
+    overflow: hidden;
+    padding: 10px 8px 8px 8px;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mashups-manager .mashups-list-item a:hover {
+    background: color($gBackgroundDefault a(50%));
+}
+
+.mashups-manager .mashups-list-item a.selected {
+    background: #deefff;
+    background: linear-gradient(to bottom, #deefff 0%, #98bede 100%);
+    border-bottom: 1px solid #89A8C6;
+    border-top: 1px solid #98bede;
+    color: $gFontColorDefault;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: -1px;
+    text-decoration: none;
+}
+
+.mashups-manager .mashups-list-item a .delete-mashup {
+    display: none;
+}
+
+.mashups-manager .mashups-list-item a:hover .delete-mashup,
+.mashups-manager .mashups-list-item a._delete-mashup-hovered .delete-mashup {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 7px;
+}
+
+.mashups-manager .mashup-details {
+    min-width: 520px;
+}
+
+.mashups-manager .mashup-code-editor {
+    height: auto;
+    min-height: 340px;
+    min-width: 500px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+}
+
+.mashups-manager .mashup-code-gutter {
+    min-height: 340px;
+}
+
+.mashups-manager .mashup-code-editor > div {
+    height: auto !important;
+}
+
+.mashups-manager .mashup-code-block {
+    background-color: $gBackgroundDefault;
+    border: 1px solid $gHighlightBlockBorderColor;
+    min-width: 500px;
+}
+
+.mashups-manager .mashups-list-item .confirmationHost .confirmation {
+    background: color($gBackgroundDefault a(50%));
+    border-radius: $gBorderRadiusDefault;
+    color: $gFontColorAttention;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+}
+
+.mashups-manager .mashups-list-item .confirmationHost .confirmation .inner {
+    position: absolute;
+    top: 50%;
+    left: auto;
+    right: 0;
+    margin-top: -12px;
+    width: auto;
+}
+
+.mashups-manager .mashups-list-item .confirmationHost .confirmation .inner p {
+    display: none;
+}
+
+.mashups-manager .mashups-block .mashup-library-link {
+    padding-left: 32px;
+    position: relative;
+}
+
+.mashups-manager .mashup-library-link:before {
+    background: url("images/icons/mashup-library.png") 0 0 no-repeat;
+    content: '';
+    display: block;
+    height: 11px;
+    left: 11px;
+    position: absolute;
+    top: 13px;
+    width: 11px;
+}
+
+/* Mashup Library
+----------------------------------------------------------------------------------------------------*/
+
+.mashups-list-item.library-item {
+    display: none;
+}
+
+.mashup-details .library {
+    list-style: none;
+    margin: 0 -10px;
+    padding: 0;
+}
+
+.mashup-details .library:after {
+    clear: both;
+    content: '';
+    display: block;
+}
+
+.mashup-details .library-header:after {
+    clear: both;
+    content: '';
+    display: block;
+}
+
+.mashup-details .library-header-caption {
+    float: left;
+}
+
+.mashup-details .library-refresh-container {
+    float: right;
+}
+
+.mashup-details .library-refresh {
+    border-bottom: 1px dotted $gFontColorGray;
+    color: $gFontColorGray;
+    text-decoration: none;
+}
+
+.mashup-details .library-refresh:hover {
+    border: none;
+}
+
+.mashup-details .library-refresh-disabled {
+    border: none;
+    cursor: default;
+}
+
+.mashup-details .library > li {
+    float: left;
+    min-width: 300px;
+    width: 50%;
+}
+
+@media screen and (min-width: 1440px) {
+    .mashup-details .library > li {
+        width: 33%;
+    }
+}
+
+@media screen and (min-width: 1740px) {
+    .mashup-details .library > li {
+        width: 25%;
+    }
+}
+
+/* Mashup Info
+----------------------------------------------------------------------------------------------------*/
+
+.mashup-details .library-link {
+    display: none;
+}
+
+.mashup-details .mashup-info {
+    background: $gBoardBackground;
+    border: 1px solid $gHighlightBlockBorderColor;
+    border-radius: $gBorderRadiusDefault;
+    cursor: default;
+    display: block;
+    margin: 10px;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.mashup-details .mashup-info__picture {
+    border-bottom: 1px solid $gHighlightBlockBorderColor;
+    height: 100px;
+    margin: -10px;
+}
+
+.mashup-details .mashup-info__picture img {
+    display: block;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.mashup-details .mashup-info__name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mashup-details .mashup-info__description-area {
+    border-bottom: 10px solid transparent;
+    box-shadow: 0 1px 0 $gHighlightBlockBorderColor;
+    margin-bottom: 6px;
+    margin-top: 12px;
+    height: 75px;
+}
+
+.mashup-details .mashup-info__description {
+    color: $gFontColorGray;
+    font-size: 12px;
+    line-height: 15px;
+    height: 65px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mashup-details .mashup-info__extra-description {
+    border-bottom: 1px dotted $gFontColorLightGray;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.mashup-details .mashup-info__compatible-tp-version {
+    color: $gFontColorGray;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+
+.mashup-details .mashup-info-full .mashup-info__compatible-tp-version {
+    float: left;
+}
+
+/* Mashup Info Full
+----------------------------------------------------------------------------------------------------*/
+
+.mashup-details .mashup-info-full__install-trigger {
+    float: right;
+}
+
+.mashup-details .mashup-info-full__name {
+    margin-top: 20px;
+}
+
+.mashup-info-full__last-modification {
+    color: $gFontColorGray;
+}
+
+.mashup-details .mashup-info-full__description {
+
+    border-top: 1px solid $gHighlightBlockBorderColor;
+
+    line-height: 2;
+
+    padding-top: 10px;
+}
+
+.mashup-details .mashup-info-full__picture {
+    margin: 10px 0;
+}
+
+.mashup-details .mashup-info-full__picture img {
+    display: block;
+    max-width: 100%;
+}
+
+.mashup-details .mashup-info-full-header {
+    margin: 0 5px;
+    padding-bottom: 10px;
+}
+
+.mashup-details .mashup-info-full-header:after {
+    clear: both;
+    content: '';
+    display: block;
+}
+
+.mashup-details .mashup-info-full-files-link {
+    margin-left: 5px;
+}
+
+/* Mashup Editor
+----------------------------------------------------------------------------------------------------*/
+
+.mashup-details__code-wrapper {
+    min-height: 70px;
+}
+
+.plugins .mashup-details__code-wrapper__pre,
+.mashup-details__code-wrapper__pre {
+    max-width: 100%;
+    min-height: 70px;
+    padding: 0 0 3px 0;
+    box-sizing: content-box;
+    margin: 0;
+}
+
+.mashup-details__input {
+    width: 380px;
+}
+
+.mashup-details .rules-conditions {
+    font-size: 14px;
+}
+
+/* Mashup Manager End */
+
+.plugins.info-block {
+    font-size: 14px;
+    font-weight: 600;
+
+    height: 30px;
+    left: 48%;
+
+    opacity: 0.90;
+    position: fixed;
+    top: -6px;
+    z-index: 9999;
+}
+
+.plugins.info-block div {
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 8px 8px 4px 8px;
+}
+
+.plugins.info-block .success {
+    background-color: color($gMessageColorSuccess tint(90%));
+    border: 1px solid color($gMessageColorSuccess a(30%));
+    color: $gMessageColorSuccess !important;
+}
+
+.plugins.info-block .error {
+    background-color: color($gMessageColorError tint(90%));
+    border: 1px solid color($gMessageColorError a(30%));
+    color: $gMessageColorError !important;
+}
+
+.plugins.info-block .saving {
+    background-color: color($gMessageColorWarning tint(90%));
+    border: 1px solid color($gMessageColorWarning a(30%));
+    color: $gMessageColorWarning;
+    height: 30px;
+    padding-left: 2px;
+}
+
+.plugins.info-block .saving img {
+    position: relative;
+    top: -2px;
+}
+
+.plugins.info-block .saving span {
+    display: inline-block;
+    left: 4px;
+    position: relative;
+    top: -6px;
+}
+
+/* view/diff */
+
+.vcsView {
+    color: $gFontColorSelected;
+    cursor: pointer;
+}
+
+.vcsDiff, .vcsSource {
+    z-index: 20000;
+}
+
+.vcsSource.tau-dialog-container .ui-dialog-titlebar, .vcsDiff.tau-dialog-container .ui-dialog-titlebar {
+    cursor: default;
+}
+
+.vcsSource.tau-dialog-container .ui-dialog-titlebar .ui-dialog-titlebar-close {
+    top: 10px;
+}
+
+.vcsSource.tau-dialog-container .ui-dialog-titlebar .ui-dialog-title {
+    line-height: 1.3;
+}
+
+a.vcsViewDisabled:hover {
+    color: $gFontColorDefault;
+    text-decoration: none;
+}
+
+.viewDiffPopup {
+    overflow: auto;
+    position: relative;
+}
+
+.viewDiffPopup .left {
+    float: left;
+}
+
+.viewDiffPopup .right {
+    float: right;
+}
+
+.viewDiffPopup .diffHeader {
+    height: 70px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.viewDiffPopup .diffHeader .legend {
+    margin: 5px;
+    padding: 5px;
+    width: 400px;
+}
+
+.viewDiffPopup .diffHeader .legend span {
+    font-size: 11px;
+    padding: 2px 8px;
+}
+
+.viewDiffPopup .diffHeader .revisionsContainer {
+    background: $gHighlightBlockBackground;
+    overflow: hidden;
+    width: 100%;
+}
+
+.viewDiffPopup .diffHeader .revisionsContainer .revisionContainer {
+    box-sizing: border-box;
+    white-space: nowrap;
+    width: 50%;
+}
+
+.viewDiffPopup .diffHeader .revision {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+}
+
+.viewDiffPopup .diffContainer {
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    position: absolute;
+    right: 0;
+    top: 60px;
+}
+
+.viewDiffPopup .diffContainer .sourceContainer {
+    box-sizing: border-box;
+    overflow: auto;
+    white-space: nowrap;
+    width: 50%;
+}
+
+.viewDiffPopup .diffContainer .sourceContainer.right {
+    border-left: 1px solid $gHighlightBlockBorderColor;
+}
+
+.viewDiffPopup .rightScroller {
+    bottom: 0;
+    height: 20px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    position: absolute;
+    right: 17px;
+}
+
+.viewDiffPopup .leftScroller {
+    bottom: 0;
+    height: 20px;
+    left: 0;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    position: absolute;
+}
+
+.viewDiffPopup .scrollerInternals {
+    height: 20px;
+}
+
+.viewDiffPopup pre {
+    display: inline-block;
+}
+
+.viewDiffPopup pre, .viewSourcePopup pre {
+    line-height: 1.5;
+}
+
+/* Subversion Diff styles */
+
+.lineAdded {
+    background: $gActionBackgroundSuccess;
+}
+
+.lineDeleted {
+    background: $gActionBackgroundDelete;
+}
+
+.lineUpdated {
+    background: $gActionBackgroundSystem;
+}
+
+.plugin_row:after{
+    display: block;
+    content: "";
+    clear: both;
+}
+/* region webhook-settings */
+
+.webhook-settings .input {
+    width: 280px;
+}
+
+.webhook-settings textarea.input {
+    width: 50%;
+    float: left;
+}
+.webhook-settings textarea.input + .note {
+    width: 45%;
+    box-sizing: border-box;
+    padding-left: 20px;
+    float: left;
+}
+
+.webhook-settings .checkbox-container {
+    margin-right: 15px;
+    margin-bottom: 6px;
+    display: inline-block;
+}
+.webhook-settings .controls-block{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* endregion */

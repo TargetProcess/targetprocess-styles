@@ -1,0 +1,208 @@
+$processNameBackground: color($gBoardPanelBackgroundLighter shade(16%));
+$processNameBackgroundHover: $gBoardPanelBackgroundDarker;
+
+/* region Process item closed */
+.t3-process {
+    font-size: $gFontSize;
+    color: $gFontColorWhite;
+    border-radius: $gBorderRadiusDefault;
+    background-color: $processNameBackground;
+    margin: 0 8px 6px 8px;
+
+    &:hover {
+        background-color: $processNameBackgroundHover;
+    }
+
+    &__title {
+        position: relative;
+        cursor: pointer;
+    }
+
+    &__name {
+        padding: 8px 35px 8px 15px;
+        line-height: 15px;
+        box-sizing: border-box;
+    }
+
+    .t3-process__text {
+        display: none;
+        margin-left: 15px;
+        color: $gFontColorGray;
+        font-size: 11px;
+
+        &.t3-process__link {
+            max-width: 95%;
+            @mixin ellipsis;
+            color: $gLinkColor;
+            cursor: pointer;
+
+            &:hover {
+                color: $gLinkColorHover;
+            }
+        }
+    }
+
+    &__default-note {
+        margin: -5px 15px 8px 15px;
+        line-height: 14px;
+        font-size: 12px;
+        color: $gFontColorLightGray;
+    }
+
+    &__actions-trigger {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        right: 0;
+        top: 6px;
+        width: 32px;
+        height: 20px;
+        cursor: pointer;
+        opacity: 0.7;
+        background: svg("show-more") center center no-repeat;
+    }
+
+    &__body {
+        font-size: 12px;
+        overflow: hidden;
+        max-height: 0;
+        border-radius: $gBorderRadiusDefault;
+
+        &--active {
+            max-height: 472px;
+            transition: max-height 0.4s, background-color 0.4s;
+        }
+    }
+
+    &__settings {
+
+        &__item {
+            &__link {
+                @mixin ellipsis;
+                color: $gFontColorDefault;
+                display: block;
+                padding: 6px 8px 7px 15px;
+
+                .t3-process__settings__item:hover & {
+                    background-color: $gActionBackgroundHover;
+                    color: $gFontColorDefault;
+                    cursor: pointer;
+                }
+
+                .t3-process__settings__item.t3-active & {
+                    background-color: $gActionBackgroundActive;
+                }
+            }
+
+            &__title {
+                @mixin ellipsis;
+                font-size: 11px;
+                line-height: 15px;
+                letter-spacing: 1px;
+                color: $gFontColorGray;
+                text-transform: uppercase;
+                padding: 10px 8px 5px 15px;
+            }
+        }
+    }
+
+    .t3-process-entities {
+
+        &__item {
+            padding: 6px 8px 7px 15px;
+            line-height: 15px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+
+            &:hover {
+                cursor: pointer;
+                background-color: $gActionBackgroundHover;
+            }
+
+            &.t3-active {
+                background-color: $gActionBackgroundActive;
+            }
+
+            &__icon {
+                min-width: 24px;
+                margin: 0 7px 0 0;
+                flex: 0 0 auto;
+            }
+
+            &__name {
+                @mixin ellipsis;
+            }
+        }
+    }
+
+    &__counter {
+        z-index: 1;
+        position: absolute;
+        top: 6px;
+        right: 5px;
+    }
+}
+
+/* endregion */
+
+
+/* region Process item open*/
+
+.t3-process.t3-active {
+    color: $gFontColorDefault;
+    background-color: $gBackgroundDefault;
+
+    .t3-process__title {
+        cursor: default;
+        padding-top: 4px;
+    }
+
+    .t3-process__default-note {
+        margin: 0 15px;
+    }
+
+    .t3-process__counter {
+        display: none;
+    }
+
+    .t3-process__name {
+        font-weight: 600;
+        cursor: default;
+        border: solid 1px transparent;
+        padding: 3px 5px;
+        margin: 0 35px 4px 10px;
+
+        &.t3-edit {
+            background: $gBackgroundDefault;
+            position: relative;
+            z-index: 2;
+            border-color: $gControlBorderColorFocusDefault;
+            margin-right: 10px;
+            text-overflow: clip;
+            cursor: text;
+            user-select: text;
+        }
+    }
+
+    .t3-process__actions-trigger {
+        display: block;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .t3-process__text {
+        display: inline-block;
+    }
+
+    .t3-process__body {
+        box-sizing: border-box;
+        margin-top: 4px;
+        padding: 6px 0;
+        border-top: solid 1px $gHighlightBlockBorderColor;
+    }
+}
+
+/* endregion */

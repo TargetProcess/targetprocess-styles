@@ -1,0 +1,222 @@
+$toggleSwitchWidth: 40px;
+$toggleSwitchHeight: 22px;
+$toggleSwitchWidthNarrow: 18px;
+$toggleSwitchHeightNarrow: 18px;
+$toggleSwitchKnobWidth: $toggleSwitchWidthNarrow;
+$toggleSwitchKnobHeight: $toggleSwitchHeightNarrow;
+
+$toggleSwitchOffIconColor: $gBackgroundDefault;
+$toggleSwitchOffIconColorChecked: $toggleSwitchOffIconColor;
+$toggleSwitchOffIconColorDisabled: color($gFontColorDefault a(40%));
+
+$toggleSwitchOnIconColor: $gBackgroundDefault;
+$toggleSwitchOnIconColorChecked: $toggleSwitchOnIconColor;
+$toggleSwitchOnIconColorDisabled: transparent;
+
+$toggleSwitchOffKnobBackgroundColorDisabled: transparent;
+$toggleSwitchOffKnobBorderColorDisabled: color($gFontColorDefault a(40%));
+$toggleSwitchOnKnobBackgroundColorDisabled: color($gFontColorDefault a(40%));
+
+$toggleSwitchBackgroundColor: transparent;
+$toggleSwitchBackgroundColorHover: color($gActionColorAdd a(8%));
+$toggleSwitchCheckedBackgroundColorHover: color($gFontColorAttention a(8%));
+$toggleSwitchSliderBackgroundColorHover: $gBackgroundDefault;
+
+$toggleSwitchOnIconColorUnchecked: $gActionColorAdd;
+$toggleSwitchOnKnobBackgroundColorUnchecked: transparent;
+$toggleSwitchOffKnobBackgroundColorUnchecked: $gFontColorAttention;
+$toggleSwitchOffKnobBorderColorUnchecked: $gFontColorAttention;
+$toggleSwitchOffIconColorUnchecked: $gBackgroundDefault;
+
+$toggleSwitchOffIconColorChecked: $gFontColorAttention;
+$toggleSwitchOffKnobBackgroundColorChecked: transparent;
+$toggleSwitchOffKnobBorderColorChecked: transparent;
+$toggleSwitchOnKnobBackgroundColorChecked: $gActionColorAdd;
+$toggleSwitchOnIconColorChecked: $toggleSwitchOnIconColor;
+
+
+.toggle-switch {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $toggleSwitchHeight;
+    width: $toggleSwitchWidth;
+
+    &--narrow {
+        width: $toggleSwitchWidthNarrow;
+        height: $toggleSwitchHeightNarrow;
+    }
+
+    &__input {
+        position: absolute;
+        opacity: 0;
+        cursor: inherit;
+
+        + .toggle-switch__slider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            position: relative;
+            cursor: pointer;
+            outline: none;
+            user-select: none;
+
+            height: $toggleSwitchHeight;
+            width: $toggleSwitchWidth;
+            border-radius: 30px;
+
+            transition: background-color 0.15s;
+
+            .toggle-switch--narrow & {
+                width: $toggleSwitchWidthNarrow;
+                height: $toggleSwitchHeightNarrow;
+            }
+
+            &:before,
+            &:after {
+                display: block;
+                position: absolute;
+                content: '';
+
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+
+            &:before {
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+
+                opacity: 0;
+                visibility: hidden;
+                border-radius: 30px;
+
+                background-size: 16px 16px;
+                background-position: calc(100% - 3px) 50%;
+                background-image: svg("toggle-switch-on", "#knob[fill]: $toggleSwitchOnKnobBackgroundColorUnchecked; #check[fill]: $toggleSwitchOnIconColorUnchecked;");
+
+                transition: background-color 0.15s, opacity 0.15s, visibility 0.15s;
+            }
+
+            &:after {
+                position: relative;
+                width: $toggleSwitchKnobWidth;
+                height: $toggleSwitchKnobHeight;
+
+                background-image: svg("toggle-switch-off", "#knob[stroke]: $toggleSwitchOffKnobBorderColorUnchecked; #knob[fill]: $toggleSwitchOffKnobBackgroundColorUnchecked; #cross[fill]: $toggleSwitchOffIconColorUnchecked;");
+
+                transition: transform 0.25s, margin 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+                /* only Chrome can animate background-image(background)
+                   but scale is not working in Safari when background-image(background) property is animated
+                   have to remove background-image(background) from animation */
+
+                transform: scale(0.78);
+            }
+        }
+
+        &:checked + .toggle-switch__slider {
+            &:before {
+                background-image: svg("toggle-switch-off", "#knob[stroke]: $toggleSwitchOffKnobBorderColorChecked; #knob[fill]: $toggleSwitchOffKnobBackgroundColorChecked; #cross[fill]: $toggleSwitchOffIconColorChecked;");
+                background-position: 3px 50%;
+            }
+
+            &:after {
+                margin-left: 0;
+                background-image: svg("toggle-switch-on", "#knob[fill]: $toggleSwitchOnKnobBackgroundColorChecked; #check[fill]: $toggleSwitchOnIconColorChecked;");
+            }
+        }
+
+        &:disabled {
+
+            .toggle-switch:not(.toggle-switch--colored) > & {
+                + .toggle-switch__slider {
+                    width: $toggleSwitchWidthNarrow;
+                    height: $toggleSwitchHeightNarrow;
+                    cursor: inherit;
+                }
+
+                &:checked + .toggle-switch__slider {
+                    &:after {
+                        background-image: svg("toggle-switch-on", "#knob[fill]: $toggleSwitchOnKnobBackgroundColorDisabled; #check[fill]: $toggleSwitchOnIconColorDisabled;");
+                    }
+                }
+
+                &:not(:checked) + .toggle-switch__slider {
+                    &:after {
+                        background-image: svg("toggle-switch-off", "#knob[stroke]: $toggleSwitchOffKnobBorderColorDisabled; #knob[fill]: $toggleSwitchOffKnobBackgroundColorDisabled; #cross[fill]: $toggleSwitchOffIconColorDisabled;");
+                    }
+                }
+            }
+        }
+    }
+
+    &:hover,
+    &--hover,
+    .ui-additionalinfo_editable_true:hover &,
+    .checkbox-hover-trigger:hover & {
+
+        .toggle-switch__input {
+
+            + .toggle-switch__slider {
+                background-color: $toggleSwitchSliderBackgroundColorHover;
+
+                &:before {
+                    opacity: 1;
+                    visibility: visible;
+
+                    background-color: $toggleSwitchBackgroundColorHover;
+                }
+            }
+        }
+
+        .toggle-switch__input:disabled {
+            + .toggle-switch__slider {
+                background-color: transparent;
+
+                &:before {
+                    display: none;
+                }
+            }
+        }
+
+        .toggle-switch__input:not(:disabled) {
+
+            + .toggle-switch__slider {
+                width: $toggleSwitchWidth;
+                height: $toggleSwitchHeight;
+                box-shadow: 0 0 0 2px #fff;
+
+                &:after {
+                    transform: scale(1);
+                }
+            }
+
+            &:checked + .toggle-switch__slider {
+                &:before {
+                    background-color: $toggleSwitchCheckedBackgroundColorHover;
+                    background-image: svg("toggle-switch-off", "#knob[stroke]: $toggleSwitchOffKnobBorderColorChecked; #knob[fill]: $toggleSwitchOffKnobBackgroundColorChecked; #cross[fill]: $toggleSwitchOffIconColorChecked;");
+                    background-position: 3px 50%;
+                }
+
+                &:after {
+                    margin-left: 18px;
+                }
+            }
+
+            &:not(:checked) + .toggle-switch__slider {
+                &:before {
+                    background-image: svg("toggle-switch-on", "#knob[fill]: $toggleSwitchOnKnobBackgroundColorUnchecked; #check[fill]: $toggleSwitchOnIconColorUnchecked;");
+                    background-position: calc(100% - 3px) 50%;
+                }
+
+                &:after {
+                    margin-left: -18px;
+                    background-image: svg("toggle-switch-off", "#knob[stroke]: $toggleSwitchOffKnobBorderColorUnchecked; #knob[fill]: $toggleSwitchOffKnobBackgroundColorUnchecked; #cross[fill]: $toggleSwitchOffIconColorUnchecked;");
+                }
+            }
+        }
+    }
+}

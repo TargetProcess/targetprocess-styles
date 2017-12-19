@@ -1,0 +1,212 @@
+$boardSettingsBackground: #f8f8f8;
+
+.board-settings {
+    background-color: $gBoardSettingsBackground;
+
+    /* region settings header */
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        box-sizing: border-box;
+        background-color: $gBoardBackground;
+        padding: 0 12px 0 0;
+        min-height: 36px;
+        height: 36px;
+
+        .board-settings-tabs {
+            flex: 1 1 auto;
+            flex-wrap: wrap;
+            margin-left: -1px;
+            margin-top: -1px;
+            height: calc(100% + 1px);
+        }
+
+        .board-owner,
+        &__control {
+            display: flex;
+            align-items: center;
+            flex: 0 0 auto;
+            margin: 0 0 0 10px;
+        }
+
+        &__control {
+            order: 2;
+        }
+    }
+    /* endregion */
+
+    /* region settings body */
+    &__body {
+        position: relative;
+        box-sizing: border-box;
+        border-top: 1px solid $gBoardBorderColor;
+        box-shadow: inset 1px 0 0 1px $gBackgroundDefault;
+        background-color: $gBoardSettingsBackground;
+        padding: 1px 20px 25px 30px;
+        overflow: auto;
+        flex: 0 0 auto;
+
+        &:not(.tau-active) {
+            display: none;
+        }
+
+        &__message{
+            margin: 25px 0 0 0;
+            font-size: $gFontSize;
+        }
+
+        &--customize {
+            padding: 0;
+        }
+
+        .templates-container,
+        .tau-access-settings {
+            margin-top: 20px;
+        }
+
+        .boardsettings-filter {
+            max-width: 600px;
+        }
+    }
+    /* endregion */
+    &__component-wrap {
+        margin-top: 20px;
+    }
+
+    /* region "columns" settings group */
+
+    &__columns {
+        display: table;
+        width: 100%;
+        margin: 0 0 10px 0;
+        table-layout: fixed;
+
+        &__two-items {
+            width: 50%;
+            box-sizing: border-box;
+            display: table-cell;
+            vertical-align: top;
+
+            &:not(:first-child) {
+                padding-left: 15px;
+            }
+        }
+
+        &--settings-tab &__two-items:first-child {
+            padding-bottom: 20px;
+        }
+
+        &--settings-tab + .board-settings__actions {
+            display: flex;
+            align-items: center;
+            margin-top: -10px;
+
+            .board-settings__control {
+                flex-shrink: 0;
+
+                &:not(:last-child) {
+                    margin-right: 4px;
+                }
+            }
+        }
+
+        &--dsl-tab {
+
+            .board-settings-component__textarea {
+                height: 230px;
+                margin-top: 5px;
+            }
+
+            + .board-settings__control {
+                margin: 0 2px;
+            }
+        }
+    }
+
+    /* endregion */
+
+    .tau-help-label {
+        position: absolute;
+        right: 5px;
+        top: 10px;
+        z-index: 2;
+    }
+
+    &--overlay {
+        background-color: color($gBoardBackground a(50%));
+        position: absolute;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__loader {
+        display: none;
+    }
+
+    &.loading {
+        min-height: 0;
+
+        .board-settings__loader {
+            display: block;
+        }
+    }
+
+    &.tau-disabled {
+        cursor: not-allowed;
+
+        &:after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '';
+            opacity: 0.6;
+            width: 100%;
+            height: 100%;
+            background-color: $gBackgroundDefault;
+        }
+    }
+}
+
+.tau-board > .board-settings {
+    position: relative;
+    display: none;
+    margin: 0;
+    top: 0;
+    border-top: 1px solid $gBoardBorderColor;
+    min-height: 0;
+    align-items: stretch;
+    flex-direction: column;
+    max-height: 100%;
+}
+
+.tau-board.tau-settings-active > .board-settings {
+    flex: 0 0 auto;
+    display: flex;
+    z-index: 2;
+}
+
+/* region .tau-board--board-settings-full-cell class for templates tab */
+
+.tau-board--board-settings-full-cell {
+
+    &.tau-settings-active > .board-settings {
+        min-height: 60px;
+        flex: 0 1 auto;
+    }
+
+    .board-settings__body {
+        flex-shrink: 1;
+    }
+
+    .tau-settings-active:not(&) .board-settings__body[role=templates] {
+        max-height: 400px;
+    }
+}
+
+/* endregion */

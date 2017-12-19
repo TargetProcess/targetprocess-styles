@@ -1,0 +1,211 @@
+.tau-warning-bubble .tau-field {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.tau-warning-bubble .tau-help-continue {
+    text-align: left;
+    padding-top: 2px;
+    margin-bottom: 0;
+}
+
+.tau-warning-bubble p:not(.tau-help-continue):last-child {
+    margin-bottom: 0;
+}
+
+.tau-help-card-dnd-horizontal {
+    background: url(images/animated-help-drag-horizontal.gif);
+    width: 154px;
+    height: 68px;
+    border: none;
+    border-radius:  0;
+}
+
+.tau-help-card-dnd-vertical {
+    background: url(images/animated-help-drag-vertical.gif);
+    width: 86px;
+    height: 100px;
+    border: none;
+    border-radius:  0;
+}
+
+.tau-help-card-dblclick {
+    background: url(images/animated-help-double-click.gif);
+    width: 100px;
+    height: 73px;
+    border: none;
+    border-radius:  0;
+}
+
+.tau-help-clipboard-card-select {
+    background: url(images/animated-help-clipboard-select.gif);
+    width: 90px;
+    height: 70px;
+    border: none;
+    border-radius:  0;
+}
+
+.tau-help-card-group-select {
+    background: url(images/animated-help-card-group-select.gif);
+    width: 101px;
+    height: 75px;
+    border: none;
+    border-radius:  0;
+}
+
+.tau-help-apply-project {
+    background: url(images/animated-help-apply-project.gif);
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius:  0;
+}
+
+.tau-help-attention {
+    animation: animated-help-target 1s linear infinite;
+    background: none repeat scroll 0 0 rgba(10, 160, 215, 0.3);
+}
+
+@keyframes animated-help-target {
+    0%   { background-color: rgba(10, 160, 215, 0.3); }
+    50%  { background-color: rgba(10, 160, 215, 0.7); }
+    100% { background-color: rgba(10, 160, 215, 0.3); }
+}
+
+/*animation for bubble's target*/
+
+.tau-help-attention-attractor {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    z-index:100001;
+    opacity:0;
+}
+
+.tau-animated-attractor {
+    animation:          animated-attractor 1s linear infinite;
+
+    border-radius: 10px;
+    background-color: rgb(0, 174, 240);
+    opacity:1;
+
+    box-shadow          : 0 0 10px 10px rgba(0, 174, 240, 0.7);
+}
+
+@keyframes animated-attractor {
+    0%   { box-shadow: 0 0 10px 5px rgba(0, 174, 240, 0.7); }
+    50%  { box-shadow: 0 0 10px 20px rgba(0, 174, 240, 0.7); }
+    100% { box-shadow: 0 0 10px 5px rgba(0, 174, 240, 0.7); }
+}
+
+.ui-popup.tau-help-video-intro {
+    bottom: auto;
+    height: 580px;
+    left: 50%;
+    margin-left: -435px;
+    margin-top: -290px;
+    right: auto;
+    top: 50%;
+    width: 870px;
+    text-align: center;
+
+    .tau-help-continue {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+.tau-help-video-header {
+    font-size: 20px;
+    line-height: 27px;
+}
+
+/* <<< Getting started help bubble*/
+
+/* >>> Help popup with iframe*/
+.tau-help-popup {
+    width: 1040px;
+    right: auto;
+    left: 50%;
+    margin-left: -520px;
+    padding: 0;
+}
+
+.tau-help-popup .ui-popup-content {
+    overflow: hidden;
+}
+
+.tau-help-popup .tau-container {
+    height: 100%;
+    padding: 70px 0 25px 0;
+    box-sizing: border-box;
+}
+
+.tau-help-popup .tau-help-header {
+    height: 50px;
+    padding: 20px 30px 0 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    border-radius: $gBorderRadiusDefault $gBorderRadiusDefault 0 0;
+    border-bottom: solid 1px $gHighlightBlockBorderColor;
+    background-color: $gHighlightBlockBackground;
+}
+
+.tau-help-popup .tau-help-frame {
+    height: 100%;
+}
+
+.tau-help-popup .tau-help-frame iframe{
+    border: none;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.tau-help-popup .tau-help-select {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.tau-select--flow-help {
+    border-color: #80bfff;
+}
+
+.tau-help-header .tau-help-txt {
+    font-size: 20px;
+    font-weight: 600;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 15px;
+}
+
+.tau-help-header .tau-help-follow {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+    font-size: 13px;
+    position: relative;
+}
+
+.tau-help-header .tau-help-follow .tau-help-attention-attractor{
+    display: block;
+    top: 10px;
+    right: 8px;
+    border-radius: 10px;
+    background-color: rgb(0, 174, 240);
+    opacity: 1;
+    box-shadow: 0 0 10px 7px rgba(0, 174, 240, 0.7);
+
+}
+.tau-help-header .tau-help-site-link {
+    float: right;
+    color: $gFontColorDefault;
+    font-size: 13px;
+    line-height: 30px;
+    position: relative;
+}
+/* <<< Help popup with iframe*/

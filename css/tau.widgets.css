@@ -1,0 +1,55 @@
+/* region Editable --------------------------------------------------*/
+
+.tau-editable[contenteditable]:focus {
+
+    box-shadow: $gControlBoxShadowFocusDefault;
+    border-color: $gControlBorderColorFocusDefault;
+    outline: none;
+}
+
+/* endregion */
+
+.ui-datepicker {
+    display: none;
+}
+
+/* region preloader --------------------------------------------------*/
+
+/* endregion */
+
+/* region  link-add  --------------------------------------------------*/
+
+.add-link {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: $gActionColorAdd;
+    font-size: 13px;
+    outline: 0;
+
+    &:hover {
+        color: $gActionColorAdd;
+    }
+
+    &__icon {
+        margin-right: 3px;
+        flex-shrink: 0;
+    }
+}
+
+/* endregion */
+
+/* region  "beta"  --------------------------------------------------*/
+.tau-beta-version:after {
+    color: inherit;
+    content: '\03B2';
+    font-size: $gFontSize;
+    padding-left: 5px;
+    font-weight: normal;
+    text-shadow: none;
+    opacity: 0.7;
+}
+
+/* endregion */
+

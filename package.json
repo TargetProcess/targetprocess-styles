@@ -1,0 +1,31 @@
+{
+  "name": "targetprocess-styles",
+  "version": "1.0.0",
+  "scripts": {
+    "devServer": "webpack-dev-server",
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "@targetprocess/general-icon": "0.0.18",
+    "autoprefixer": "^7.2.3",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
+    "highlight.js": "^9.4.0",
+    "postcss": "^6.0.14",
+    "postcss-calc": "^6.0.1",
+    "postcss-color-function": "^4.0.1",
+    "postcss-each": "^0.10.0",
+    "postcss-import": "^11.0.0",
+    "postcss-loader": "^2.0.9",
+    "postcss-mixins": "^6.2.0",
+    "postcss-nested": "^3.0.0",
+    "postcss-simple-vars": "^4.1.0",
+    "postcss-svg": "^2.4.0",
+    "targetprocess-ui-components": "0.0.11",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
+  },
+  "dependencies": {}
+}

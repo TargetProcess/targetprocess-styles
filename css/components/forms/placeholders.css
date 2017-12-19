@@ -1,0 +1,23 @@
+:-moz-placeholder {
+    color: $gPlaceholderColorDefault;
+}
+
+::-webkit-input-placeholder {
+    color: $gPlaceholderColorDefault;
+}
+
+:-ms-input-placeholder {
+    color: $gPlaceholderColorDefault;
+}
+
+.tau-error:-moz-placeholder {
+    color: $gFontColorAttention;
+}
+
+.tau-error::-webkit-input-placeholder {
+    color: $gFontColorAttention;
+}
+
+.tau-error:-ms-input-placeholder {
+    color: $gFontColorAttention;
+}

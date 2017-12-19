@@ -1,0 +1,244 @@
+$contextBackgroundActive: linear-gradient(to bottom, #d6d6d6, #fff); /*revert $gButtonBackgroundHover*/
+$contextFilteredBackground: linear-gradient(to bottom, color($gActionBackgroundSystem tint(50%)), color($gActionBackgroundSystem shade(2%) saturation(+10%)));
+$contextFilteredBackgroundHover: linear-gradient(to bottom, color($gActionBackgroundSystem tint(50%)), color($gActionBackgroundSystem shade(8%) saturation(+15%)));
+$contextFilteredBackgroundActive: linear-gradient(to top, color($gActionBackgroundSystem tint(50%)), color($gActionBackgroundSystem shade(8%) saturation(+15%)));
+$contextFilteredBackgroundBorder: color($gActionBackgroundSystem shade(15%));
+
+.context-filter-container {
+    display: flex;
+    align-items: center;
+}
+
+.context-filter-message {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+
+    &__icon {
+        display: flex;
+        flex-shrink: 0;
+    }
+
+    &__text {
+        font-size: 11px;
+        padding-left: 1px;
+    }
+}
+
+.context-filter {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+
+    white-space: nowrap;
+    padding: 0;
+    margin: 0;
+
+    &__body,
+    &__revert-control {
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        height: $gControlHeightDefault;
+
+        font-family: $gFontFamily;
+        font-size: 11px;
+        line-height: 14px;
+        white-space: nowrap;
+        cursor: pointer;
+        padding: 0;
+
+        color: $gButtonColorDefault;
+        border: solid 1px $gButtonBorderColorDefault;
+        background: $gButtonBackgroundDefault;
+
+        margin: 0 -1px 0 0;
+
+        &:first-child {
+            border-top-left-radius: $gBorderRadiusDefault;
+            border-bottom-left-radius: $gBorderRadiusDefault;
+        }
+
+        &:last-child {
+            margin-right: 0;
+            border-top-right-radius: $gBorderRadiusDefault;
+            border-bottom-right-radius: $gBorderRadiusDefault;
+        }
+
+        &::-moz-focus-inner {
+            border: none;
+            padding: 0;
+        }
+
+        &:hover:not(:disabled) {
+            background: $gButtonBackgroundHover;
+        }
+
+        &:active:not(:disabled) {
+            background: $contextBackgroundActive;
+        }
+
+        &:disabled {
+            cursor: default;
+            opacity: $gControlDisabledOpacity;
+
+            .tau-board-header__context-placeholder & {
+                cursor: not-allowed;
+            }
+        }
+
+        &:focus {
+            box-shadow: $gControlBoxShadowFocusDefault;
+            border-color: $gControlBorderColorFocusDefault;
+            outline: none;
+            position: relative;
+        }
+
+        .context-filter--opened &,
+        .context-filter--opened &:hover {
+            box-shadow: none;
+            background: $contextBackgroundActive;
+            border-color: $gButtonBorderColorDefault;
+        }
+
+        .context-filter--filtered & {
+            background: $contextFilteredBackground;
+            border-color: $contextFilteredBackgroundBorder;
+
+            &:focus {
+                border-color: $gControlBorderColorFocusDefault;
+            }
+        }
+
+        .context-filter--filtered &:hover:not(:disabled) {
+            background: $contextFilteredBackgroundHover;
+        }
+
+        .context-filter--filtered &:active:not(:disabled) {
+            background: $contextFilteredBackgroundActive;
+        }
+
+        .context-filter--filtered.context-filter--opened &,
+        .context-filter--filtered.context-filter--opened &:hover {
+            background: $contextFilteredBackgroundActive;
+            border-color: $contextFilteredBackgroundBorder;
+        }
+
+    }
+
+    &__revert-control {
+        padding: 0 4px;
+        min-width: 24px;
+
+        .tau-icon-revert {
+            background: svg("revert", "[fill]: #000");
+        }
+    }
+
+    &__context { /*this wrap is needed because of flex bug in FF*/
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    &__projects,
+    &__teams {
+        min-width: 100px;
+        padding: 0 4px;
+        box-sizing: border-box;
+        justify-content: center;
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        &:first-child {
+            padding-right: 6px;
+
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                width: 1px;
+                background: $gButtonBorderColorDefault;
+
+                .context-filter--filtered & {
+                    background: $contextFilteredBackgroundBorder;
+
+                    &:hover {
+                        background: $contextFilteredBackgroundHover;
+                    }
+                }
+
+                .context-filter__body:disabled & {
+                    background: $gButtonBorderColorDisabled;
+                }
+            }
+        }
+
+        &:last-child {
+            padding-left: 6px;
+        }
+    }
+
+
+    &__item {
+        display: flex;
+        align-items: center;
+        min-width: 40px;
+        height: calc($gControlHeightDefault - 2px);
+
+        &:not(:last-child){
+            margin-right: 4px;
+        }
+    }
+
+    &__icon {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 16px;
+        overflow: hidden;
+        margin-right: 1px;
+    }
+
+    &__more {
+        color: $gFontColorLightGray;
+    }
+
+    &__empty {
+        padding: 0 9px;
+    }
+
+    /*View mode of context-filter */
+    .context-selector--view & {
+        pointer-events: none;
+
+        .context-filter__body {
+            border: 0 none;
+            background: none;
+        }
+
+        .context-filter__projects:after {
+            display: none;
+        }
+
+        .board-settings-component__title__text:after {
+            content: '';
+        }
+
+        .context-filter__projects,
+        .context-filter__teams {
+            min-width: auto;
+            padding: 0;
+        }
+
+        .context-filter__projects {
+            padding-right: 10px;
+        }
+    }
+}

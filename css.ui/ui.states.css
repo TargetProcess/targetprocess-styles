@@ -1,0 +1,281 @@
+.state-selector {
+    font-size: 13px;
+
+    .ui-collapsible-header {
+
+        .ui-children-container {
+            float: none;
+            padding-right: 20px;
+            display: flex;
+            align-items: center;
+
+            &__help {
+                flex-shrink: 0;
+            }
+        }
+
+        .ui-label {
+            flex-grow: 1;
+        }
+
+        &.collapsed {
+            .ui-label {
+                flex-grow: 0;
+                flex-shrink: 0;
+                font-weight: normal;
+            }
+        }
+
+        &.tau-multiple {
+            .ui-label {
+                flex-grow: 0;
+                min-height: 18px;
+                line-height: 17px;
+            }
+        }
+    }
+
+    &__current-state {
+        padding-left: 5px;
+        font-weight: 600;
+        flex: 1 1 auto;
+        line-height: 18px;
+        @mixin ellipsis;
+
+        &.ui-collapsible-header__multiple-value {
+            font-weight: 400;
+        }
+
+        .ui-label + & {
+            padding-left: 10px;
+        }
+    }
+
+    &__item {
+        padding: 4px 0;
+        @mixin ellipsis;
+        cursor: pointer;
+
+        &.tau-comment--open {
+            cursor: default;
+        }
+
+        &:hover {
+            background-color: $gActionBackgroundHover;
+        }
+
+        &.tau-active {
+            cursor: default;
+
+            .state-selector__value {
+                font-weight: 600;
+            }
+        }
+
+        &--has-children {
+            cursor: default;
+
+            &:hover {
+                background-color: transparent;
+            }
+
+            .sub-level li:not(.tau-active):not(.tau-comment--open){
+                cursor: pointer;
+            }
+
+        }
+
+        &__header {
+            display: flex;
+            justify-content: space-between;
+
+            .state-selector__value {
+                display: inline-block;
+                margin-right: 10px;
+                min-width: 30%;
+                line-height: 0;
+
+                &__text {
+                    display: inline-block;
+                    max-width: calc(100% - 20px);
+                    @mixin ellipsis;
+                    line-height: normal;
+                }
+            }
+
+            .state-selector__responsible-team {
+                display: flex;
+                align-items: baseline;
+                justify-content: flex-end;
+                min-width: 30%;
+                margin-right: 15px;
+                font-size: 12px;
+                opacity: 0.8;
+            }
+        }
+
+        .state-selector__loader {
+            margin-left: 7px;
+            visibility: hidden;
+            display: inline-flex;
+            align-items: center;
+
+            &.tau-active {visibility: visible;}
+        }
+
+        &.tau-disabled {
+            background-color: transparent;
+            cursor: not-allowed;
+
+            .state-selector__value {
+                color: $gFontColorLightGray;
+            }
+
+            .sub-level {
+                li:hover {
+                    background-color: transparent;
+                }
+
+                .state-selector__value {
+                    color: $gFontColorLightGray;
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+
+    &__value {
+        display: flex;
+        padding-left: 15px;
+    }
+
+    .project-level {
+        padding: 4px 0;
+
+        > .state-selector__item.tau-active,
+        .team-level > .state-selector__item:not(.state-selector__item--has-children).tau-active {
+
+            background-color: $gActionBackgroundActive;
+        }
+    }
+
+    .team-level {
+        border-bottom: 1px solid $gHighlightBlockBorderColor;
+        margin-bottom: 4px;
+        padding-bottom: 4px;
+
+        &:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    .sub-level {
+        margin: 0 0 -2px 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            padding: 0 0 0 40px;
+            position: relative;
+            box-sizing: border-box;
+
+
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 12px;
+                left: 26px;
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background-color: $gFontColorLightGray;
+                opacity: 0.4;
+            }
+
+            &:hover {
+                background-color: $gActionBackgroundHover;
+
+                &.tau-comment--open {
+                        background-color: $gActionBackgroundActive;
+                }
+            }
+
+            .state-selector__value {
+                color: $gFontColorDefault;
+                font-weight: normal;
+            }
+
+
+            &.tau-active {
+                background-color: $gActionBackgroundActive;
+            }
+        }
+
+        .state-selector__value {
+            padding: 5px 0;
+            color: $gFontColorDefault;
+            font-size: 12px;
+            @mixin ellipsis;
+        }
+    }
+
+    .tau-comment {
+        &--open,
+        &--open:hover {
+            background-color: $gActionBackgroundSystem;
+        }
+    }
+
+
+    &__comment-container {
+        opacity: 0;
+        visibility: hidden;
+        height: 0;
+        transition: height 0.8s ease, opacity 0.8s ease;
+
+        .tau-comment--open > & {
+            opacity: 1;
+            visibility: visible;
+            height: auto;
+            padding: 6px 15px 0 15px;
+            transition: height 0.8s ease, opacity 0.8s ease;
+        }
+
+        .sub-level .tau-comment--open > & {
+            padding-bottom: 6px;
+            margin-top: -6px;
+            padding-left: 0;
+        }
+    }
+
+    &__textarea {
+        width: 100%;
+        margin-bottom: 6px;
+    }
+
+    &__comment-controls {
+        display: flex;
+        align-items: center;
+        padding-bottom: 5px;
+
+        &__item {
+            margin-right: 5px;
+        }
+
+        &__warning {
+            white-space: normal;
+            font-size: 11px;
+            display: flex;
+            line-height: 13px;
+            align-items: center;
+
+            &__icon {
+                margin: 0 5px;
+            }
+        }
+
+    }
+}

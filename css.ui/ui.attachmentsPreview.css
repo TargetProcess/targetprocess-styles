@@ -1,0 +1,172 @@
+.ui-attachments-preview-control {
+    background: rgba(0, 0, 0, 0.85);
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000002;
+
+
+    &__message {
+        text-align: center;
+    }
+}
+
+.ui-attachments-preview-control .toolbar button {
+    overflow: hidden;
+    text-indent: -999em;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    opacity: 0.5;
+    outline: none;
+}
+
+.ui-attachments-preview-control .toolbar button:hover {
+    opacity: 1.0;
+}
+
+.ui-attachments-preview-control .toolbar .close,
+.ui-attachments-preview-control .toolbar .close:hover{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    margin: 20px 20px 20px 60px;
+    background: url(images/close-mono.png) no-repeat 0 0;
+}
+
+.ui-attachments-preview-control .toolbar .prev,
+.ui-attachments-preview-control .toolbar .next {
+    position: absolute;
+    top: 50%;
+    margin-top: -22px;
+    width: 27px;
+    height: 44px;
+    opacity: 0.5;
+}
+
+.ui-attachments-preview-control .toolbar .prev:active {
+    margin-left: -2px;
+}
+
+.ui-attachments-preview-control .toolbar .next:active {
+    margin-right: -2px;
+}
+
+.ui-attachments-preview-control .toolbar .prev {
+    left: 20px;
+    background: url(images/zoom-view-arrow-left.png) no-repeat 0 0;
+}
+
+.ui-attachments-preview-control .toolbar .next {
+    right: 20px;
+    background: url(images/zoom-view-arrow-right.png) no-repeat 0 0;
+}
+
+.ui-attachments-preview-control .toolbar .close:hover {
+    outline: none;
+    background-position: 50% 100%;
+}
+
+.ui-attachments-preview-control .swap-view{
+    position: absolute;
+    left: 0;
+    top: 100px;
+    right: 0;
+    bottom: 150px;
+}
+
+.ui-attachments-preview-control_mode_full  .swap-view {
+    top: 50px;
+    bottom: 75px;
+}
+
+
+.ui-attachments-preview-control .image-view {
+    margin: 0 100px;
+    height: 100%;
+    text-align: center;
+
+}
+
+.ui-attachments-preview-control_mode_full .image-view {
+    overflow: hidden;
+}
+
+
+.ui-attachments-preview-control .ui-attachment-wait {
+    display: none;
+    background: url("images/loadinfo.net.gif") no-repeat 50% 50%;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+
+.ui-attachments-preview-control_mode_short .ui-attachment-view-image {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.ui-attachments-preview-control_mode_short .ui-attachment-view-image_resize_true {
+    cursor: -ms-zoom-in;
+    cursor: zoom-in;
+}
+
+
+.ui-attachments-preview-control_mode_full .ui-attachment-view-image {
+    cursor: move;
+}
+
+
+.ui-attachments-preview-control .ui-attachments-preview-navigation {
+    display: none;
+}
+
+.ui-attachments-preview-control .thumbnail-nav {
+    bottom: 0;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 1001;
+    overflow: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.ui-attachments-preview-control .thumbnail-nav li {
+    display: inline-block;
+    margin: 10px 10px 10px 0;
+}
+
+.ui-attachments-preview-control .thumbnail-nav li:first-child {
+    margin-left: 10px;
+}
+
+.ui-attachments-preview-control .thumbnail-nav a:after {
+    display: none;
+}
+
+.ui-attachments-preview-control .thumbnail-nav .ui-attach-thumbnail {
+    cursor: pointer;
+    width: 90px;
+    height: 90px;
+    border: 3px solid #383838;
+    opacity: 0.3;
+
+}
+
+.ui-attachments-preview-control .thumbnail-nav .ui-attach-thumbnail:hover,
+.ui-attachments-preview-control .thumbnail-nav .ui-attach-thumbnail.selected {
+    opacity: 1.0;
+    border-color: #7DB9E6;
+}

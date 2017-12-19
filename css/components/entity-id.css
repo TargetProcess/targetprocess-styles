@@ -1,0 +1,13 @@
+.tau-entity-id {
+    font-size: 11px;
+    color: $gFontColorGray;
+
+    a& {
+        cursor: pointer;
+
+        &:hover {
+            color: $gFontColorGray;
+            text-decoration: underline;
+        }
+    }
+}

@@ -1,0 +1,25 @@
+.tau-project-abbreviation {
+    display: block;
+    box-sizing: border-box;
+    min-width: 30px;
+    height: 18px;
+    line-height: 16px;
+    padding: 0 3px;
+    font-size: 11px;
+    font-weight: 600;
+    text-shadow: none;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: $gFontColorDefault;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: $gControlBorderRadiusDefault;
+    background: transparent;
+
+    /* region should be deleted */
+    .tau-board-unit & {
+        margin-top: 1px;
+        margin-bottom: 1px;
+    }
+    /* endregion should be deleted */
+}

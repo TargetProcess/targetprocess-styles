@@ -1,0 +1,48 @@
+.tau-progress-pie {
+    width: 16px;
+    height: 16px;
+
+    &.tau-v-0 {
+        background: svg("allocation-0");
+    }
+
+    &.tau-v-10 {
+        background: svg("allocation-10");
+    }
+
+    &.tau-v-20 {
+        background: svg("allocation-20");
+    }
+
+    &.tau-v-30 {
+        background: svg("allocation-30");
+    }
+
+    &.tau-v-40 {
+        background: svg("allocation-40");
+    }
+
+    &.tau-v-50 {
+        background: svg("allocation-50");
+    }
+
+    &.tau-v-60 {
+        background: svg("allocation-60");
+    }
+
+    &.tau-v-70 {
+        background: svg("allocation-70");
+    }
+
+    &.tau-v-80 {
+        background: svg("allocation-80");
+    }
+
+    &.tau-v-90 {
+        background: svg("allocation-90");
+    }
+
+    &.tau-v-100 {
+        background: svg("allocation-100");
+    }
+}

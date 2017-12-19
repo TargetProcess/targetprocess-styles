@@ -1,0 +1,11 @@
+.new-feature-label{
+
+    &:after {
+        font-size: 9px;
+        color: #e89e36;
+        content: 'NEW';
+        position: relative;
+        top: -7px;
+        left: 4px;
+    }
+}

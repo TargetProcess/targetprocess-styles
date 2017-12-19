@@ -1,0 +1,43 @@
+.ui-quick-add {
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+.ui-quick-add-actions {
+    padding: 5px;
+}
+
+.ui-quick-add-line {
+    display: block;
+}
+
+.ui-quick-add-stats {
+    min-height: 14px;
+    color: $gFontColorSuccess;
+    padding: 5px 10px 1px 10px;
+}
+
+.ui-quick-add-lines {
+    min-width: 400px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow: auto;
+    max-height: 300px;
+}
+
+.ui-quick-add-new-item {
+    background-image: none;
+    background-color: $gActionBackgroundSystem;
+    border: 1px solid $gControlBorderColorDefault;
+    border-radius: $gControlBorderRadiusDefault;
+    box-shadow: none;
+    font-weight: inherit;
+}
+
+.ui-quick-add-input {
+    width: auto;
+    outline: 0 none;
+    padding: 5px 22px 5px 5px;
+    min-height: 18px;
+}

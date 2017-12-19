@@ -1,0 +1,116 @@
+.tau-board-composite-view {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+}
+
+.tau-board-composite-view > .tau-entity-menu {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 100%;
+
+    > .tau-entity-list {
+        flex: 1 1 auto;
+        overflow-y: auto;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
+.tau-ui-size-min.tau-board-composite-view > .tau-entity-menu {
+
+    width: 100px;
+
+}
+
+.tau-ui-size-xs.tau-board-composite-view > .tau-entity-menu {
+
+    width: 220px;
+
+}
+
+.tau-ui-size-s.tau-board-composite-view > .tau-entity-menu {
+
+    width: 220px;
+
+}
+
+.tau-ui-size-m.tau-board-composite-view > .tau-entity-menu {
+
+    width: 310px;
+
+}
+
+.tau-ui-size-l.tau-board-composite-view > .tau-entity-menu {
+
+    width: 310px;
+
+}
+
+.tau-ui-size-xl.tau-board-composite-view > .tau-entity-menu {
+
+    width: 390px;
+
+}
+
+.tau-board-composite-view > .tau-entity-data {
+
+    margin-left: 300px;
+
+    height: 100%;
+
+}
+
+.tau-ui-size-min.tau-board-composite-view > .tau-entity-data {
+
+    margin-left: 100px;
+
+}
+
+.tau-ui-size-xs.tau-board-composite-view > .tau-entity-data {
+
+    margin-left: 220px;
+
+}
+
+.tau-ui-size-s.tau-board-composite-view > .tau-entity-data {
+
+    margin-left: 220px;
+
+}
+
+.tau-ui-size-m.tau-board-composite-view > .tau-entity-data {
+
+    margin-left: 310px;
+
+}
+
+.tau-ui-size-l.tau-board-composite-view > .tau-entity-data {
+
+    margin-left: 310px;
+
+}
+
+.tau-ui-size-xl.tau-board-composite-view > .tau-entity-data {
+
+    margin-left: 390px;
+
+}
+
+.tau-board-composite-view > .tau-entity-menu > .tau-entity-list .i-role-cellholder {
+    /* to prevent scroll on non-full list. Should be fixed by removing margin between cards, but now it is design */
+    min-height: 99%;
+    flex: 1 1 100%;
+}

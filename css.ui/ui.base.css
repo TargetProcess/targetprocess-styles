@@ -1,0 +1,655 @@
+﻿/* ui core */
+.ui-state-disabled {
+    cursor: default !important;
+}
+
+.ui-icon {
+    display: block;
+    text-indent: -99999px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+}
+
+.ui-widget-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.tau-target-link {
+    cursor: pointer;
+}
+
+.ui-label.ui-ctrl-title {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.control .control-title {
+    font-size: 13px;
+    font-weight: bold;
+    width: 100%;
+    height: 15px;
+    cursor: pointer;
+}
+
+.ui-custom-control-content {
+    padding: 5px 2px;
+}
+
+.ui-drop-down {
+    &__controls {
+        margin: 5px 8px 10px 8px;
+        padding: 2px;
+    }
+}
+
+.ui-drop-down .drop-down-actions {
+    margin: 0;
+    border-bottom: 1px solid $gHighlightBlockBorderColor;
+    padding: 5px;
+
+    &__button {
+        display: inline-block;
+    }
+}
+
+.ui-drop-down .drop-down-footer {
+    margin: 0;
+    border-top: 1px solid $gHighlightBlockBorderColor;
+    padding: 5px;
+}
+
+.ui-drop-down .action-link {
+    color: $gFontColorGray;
+    font-size: 11px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.ui-drop-down .not-found,
+.ui-drop-down__message {
+    color: $gFontColorGray;
+    font-size: 11px;
+    padding: 5px;
+}
+
+.ui-drop-down .drop-down-actions .action-link {
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.ui-drop-down .filter-field-wrapper {
+    padding: 5px;
+    margin: 0;
+    background-color: $gHighlightBlockBackground;
+    border-bottom: 1px solid $gHighlightBlockBorderColor;
+}
+
+.tau-lookup-styled-drop-down .ui-drop-down .filter-field-wrapper {
+    background-color: $gHighlightBlockBackground;
+    border-bottom: solid 1px $gHighlightBlockBorderColor;
+    padding: 14px 10px;
+}
+
+.tau-lookup-styled-drop-down .drop-down-list {
+    padding: 5px;
+}
+
+.drop-down-list {
+    padding: 5px;
+    margin: 0;
+    font-size: $gFontSize;
+
+    .tau-bubble--cf-checkbox-multiple & {
+        max-width: 250px;
+        padding: 5px 0;
+    }
+}
+
+.drop-down-list > .drop-down-group {
+    padding-top: 3px;
+    font-weight: 600;
+}
+
+.drop-down-list .drop-down-option {
+    cursor: pointer;
+    text-decoration: none;
+    color: $gFontColorDefault;
+    font-weight: normal;
+    line-height: inherit;
+    font-size: 13px;
+    padding: 3px 5px;
+    border: none;
+
+    display: flex;
+    align-items: center;
+}
+
+/* Fix bug with width of container with scroll and overflow:auto property. Width of container is calculated incorrect because of scrollbar width */
+.drop-down-list.drop-down-list--entity-type .drop-down-option {
+    padding: 3px 20px 3px 5px;
+    width: calc(100% + 20px);
+    box-sizing: border-box;
+}
+
+.drop-down-list--more-tab {
+    overflow: hidden;
+
+    .drop-down-option.selected {
+        display: none;
+    }
+
+    .ui-label-container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+    .ui-label {
+        flex: 1 1 auto;
+        line-height: 18px;
+    }
+
+    .ui-quantity {
+        flex-shrink: 0;
+        max-width: 200px;
+        margin-left: 15px;
+        @mixin ellipsis;
+    }
+}
+
+.drop-down-list .drop-down-option.drop-down-option-project {
+
+    .drop-down-option__prefix {
+        line-height: 0;
+    }
+}
+
+.drop-down-list .drop-down-option .drop-down-option__current {
+    color: $gFontColorGray;
+    margin-left: 5px;
+}
+
+.drop-down-option .drop-down-option__prefix,
+.drop-down-option .drop-down-option__icon {
+    display: flex;
+    align-items: center;
+    margin-right: 6px;
+    flex-shrink: 0;
+}
+
+.drop-down-option .drop-down-option__text {
+    overflow: hidden;
+    min-width: 40px;
+    max-width: 250px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.drop-down-list .drop-down-option:hover,
+.drop-down-list .drop-down-option_hover {
+    cursor: pointer;
+    text-decoration: none;
+    background-color: $gActionBackgroundHover;
+}
+
+/* region set project/team icon list*/
+
+.tau-bubble--set-icon {
+
+    .tau-bubble__inner {
+        max-width: 230px;
+    }
+
+    .drop-down-list__inner {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .drop-down-option {
+        flex: 0 0 auto;
+        margin: 1px;
+        padding: 2px;
+        border-radius: $gBorderRadiusDefault;
+
+        &:hover {
+            background-color: $gActionBackgroundHover;
+        }
+    }
+
+    .drop-down-option:first-child {
+        padding: 0;
+    }
+}
+
+/* endregion */
+
+.drop-down-list > .drop-down-group > .drop-down-option {
+    margin-left: 5px;
+}
+
+.drop-down-list > .drop-down-group > .drop-down-group > .drop-down-option {
+    margin-left: 20px;
+}
+
+.ui-entity-state-comment {
+    margin: 10px;
+    width: 250px;
+}
+
+.ui-state-comment-field-container {
+    margin: 5px 0 5px 0;
+    border: 0 solid $gControlBorderColorDefault;
+    clear: both;
+    width: 248px;
+}
+
+.ui-entity-state-comment.updating {
+    opacity: 0.5;
+}
+
+.ui-state-comment-field {
+    box-sizing: border-box;
+    border: 1px solid $gControlBorderColorDefault;
+    border-radius: $gControlBorderRadiusDefault;
+    padding: 4px;
+    width: 244px;
+    resize: none;
+    font-size: $gFontSize;
+    color: $gFontColorDefault;
+
+}
+
+.ui-state-comment-field:focus {
+    outline: none;
+    box-shadow: $gControlBoxShadowFocusDefault;
+    border-color: $gControlBorderColorFocusDefault;
+}
+
+.ui-state-comment-header {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.drop-down-list > div.option {
+    padding: 5px;
+}
+
+.ui-pointer {
+    cursor: pointer;
+}
+
+.ui-empty-data-msg {
+    color: $gFontColorLightGray;
+    font-size: 11px;
+    padding: 10px;
+    display: block;
+}
+
+.control .control-title h4 {
+    color: $gFontColorDefault;
+    float: left;
+    font-weight: bold;
+    line-height: 18px;
+    margin-bottom: 0;
+    vertical-align: baseline;
+}
+
+.control .control-title h4 .quantity {
+    border-radius: 10px;
+    background: none repeat scroll 0 0 $gIconsGeneralColor;
+    color: $gFontColorWhite;
+    display: inline-block;
+    font-size: 9px;
+    padding: 0 7px;
+    margin-left: 5px;
+    text-align: center;
+    width: auto;
+}
+
+.control .control-title .control-navigation {
+    float: right;
+    font-size: 90%;
+    list-style: none outside none;
+    margin: 0;
+    padding: 5px 0 0;
+}
+
+.control .control-title a {
+    background-image: url("images/relocate-icons.png");
+    display: block;
+    height: 11px;
+    width: 11px;
+}
+
+.control .control-title.expanded a {
+    background-position: 0 0;
+}
+
+.control .control-title.expanded a:hover {
+    background-position: 0 9px;
+}
+
+.control .control-title.collapsed a {
+    background-position: -11px 0;
+}
+
+.control .control-title.collapsed a:hover {
+    background-position: -11px 9px;
+}
+
+.control .empty-box {
+    padding: 8px;
+}
+
+.box {
+    box-sizing: border-box;
+}
+
+.external-view {
+    background: url("images/external_blue.png") no-repeat scroll 50% 50% transparent;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    vertical-align: bottom;
+}
+
+.external-view:hover {
+    background-image: url("images/external_red.png");
+}
+
+.main-container {
+    width: 100%;
+    table-layout: fixed;
+    display: table;
+}
+
+.general-info {
+    width: 70%;
+    display: table-cell;
+    vertical-align: top;
+    padding: 0 20px 10px 0;
+    box-sizing: border-box;
+}
+
+.additional-info {
+    width: 30%;
+    box-sizing: border-box;
+    padding-bottom: 10px;
+    display: table-cell;
+    vertical-align: top;
+
+    > .tau-container {
+        transform: translateY(-8px);
+    }
+}
+
+.additional-info b,
+.additional-info strong {
+    font-weight: 600;
+}
+
+.ui-action-save div {
+    background: url("images/attachment-action-save.png") no-repeat scroll 0 0 $gBackgroundDefault;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+/* table >> */
+table.ui-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.ui-table th {
+    background: $gHighlightBlockBackground;
+    color: $gFontColorGray;
+    font-weight: normal;
+    text-align: left;
+    padding: 2px 0;
+}
+
+table.ui-table td {
+    padding: 10px 10px 0 0;
+}
+
+/* << table */
+
+/* text editor >> */
+.editableText {
+    outline: none;
+    padding: 4px 22px 4px 4px;
+    border: 1px solid transparent;
+    border-radius: $gControlBorderRadiusDefault;
+}
+
+.editableText:hover {
+    background-image: svg("pencil", "[fill]: $gFontColorDefault");
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    background-size: 16px 16px;
+    background-color: $gActionBackgroundSystem;
+}
+
+.editableText.active {
+    background: none $gBackgroundDefault;
+    border-color: $gControlBorderColorDefault;
+    cursor: text;
+}
+
+.tau-editable-text:hover {
+    cursor: default;
+    padding-right: 24px;
+
+    background-image: svg("pencil", "[fill]: $gFontColorDefault");
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    background-size: 16px 16px;
+    background-color: $gActionBackgroundSystem;
+}
+
+/* << text editor */
+
+.ui-editableText-validationerror {
+    border: 1px solid $gMessageColorError !important;
+    border-radius: $gBorderRadiusDefault;
+}
+
+.cke_maximized {
+    z-index: 10000 !important;
+}
+
+.tau-shortcut {
+    display: inline-block;
+    vertical-align: text-top;
+
+    &--state-loading {
+        color: $gFontColorLightGray;
+        text-decoration: none;
+    }
+
+    &--state-failure {
+        color: $gFontColorLightGray;
+        text-decoration: line-through;
+    }
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+#main {
+    min-height: 700px;
+}
+
+.demo-container {
+    font-size: 13px;
+    font-family: $gFontFamily;
+    background-color: $gBackgroundDefault;
+    padding: 0 5px 5px 5px;
+}
+
+.demo-container textarea,
+.demo-container input,
+.demo-container button,
+.demo-container select {
+    font-family: $gFontFamily;
+}
+
+#main > .demo-container {
+    min-height: 680px;
+}
+
+#main > .demo-container > .tau-app.tau-page-entity {
+    min-height: 680px;
+}
+
+.watermark {
+    color: $gFontColorLightGray;
+}
+
+.entity-view a {
+    outline: none;
+    font-size: 12px;
+}
+
+.entity-view tr {
+    vertical-align: top;
+}
+
+.entity-view {
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    font-size: 12px;
+}
+
+.entity-content-cell {
+    width: 70%;
+}
+
+.entity-info-cell {
+    width: 30%;
+}
+
+.entity-light-box {
+    border: 1px solid $gHighlightBlockBorderColor;
+    margin-top: 5px;
+    margin-left: 0;
+    padding: 10px;
+    border-radius: $gBorderRadiusDefault;
+    box-sizing: border-box;
+}
+
+.tau-global-listener, .tau-store-listener {
+    margin-right: 15px;
+}
+
+.tau-diagnostics-box {
+    line-height: 18px;
+}
+
+.tau-diagnostics-row td {
+    border-top: 1px dotted $gHighlightBlockBorderColor;
+}
+
+.tau-diagnostics-box .ui-diag-label {
+    margin-bottom: 0;
+    text-decoration: none;
+    vertical-align: baseline;
+}
+
+.tau-diagnostics-box .ui-diag-quantity {
+    background-color: $gHighlightBlockBackground;
+    border-radius: 15px;
+    box-shadow: 0 1px 1px 0 $gHighlightBlockBorderColor inset;
+    color: #af1414;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 10px;
+    padding: 0 8px;
+}
+
+.entity-progress-box {
+    background-color: $gHighlightBlockBackground;
+    border: 1px solid $gHighlightBlockBorderColor;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+h4 {
+    font-size: 12px;
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+.extra-info {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.extra-info div {
+    width: 13px;
+    height: 13px;
+    background: url("images/extra-info-sprite.gif") no-repeat;
+    overflow: hidden;
+    text-indent: -999px;
+}
+
+.extra-info.expand div {
+    background-position: 0 -1px;
+}
+
+.extra-info.collapse div {
+    background-position: -75px -1px;
+}
+
+/* TODO: BUG48506. Moved from ui.customField.css to ui.base to fix visual issue */
+.drop-down-list_type_multiselect .drop-down-option.tau-option_selected_true,
+.drop-down-list .drop-down-option.selected {
+    font-weight: 600;
+    color: $gFontColorSelected;
+}
+
+.ui-quantity {
+    height: 16px;
+    line-height: 16px;
+    color: $gFontColorWhite;
+    font-weight: 600;
+    display: inline-block;
+    font-size: 11px;
+    margin-left: 5px;
+    padding: 0 8px 0 8px;
+    text-align: center;
+    width: auto;
+    position: relative;
+    top: 1px;
+    background-color: $gIconsGeneralColor;
+    border-radius: 15px;
+}
+
+.ui-red-quantity {
+    height: 16px;
+    line-height: 16px;
+    color: $gFontColorWhite;
+    font-weight: 600;
+    display: inline-block;
+    font-size: 11px;
+    margin-left: 5px;
+    padding: 0 8px 0 8px;
+    text-align: center;
+    width: auto;
+    position: relative;
+    background-color: #a10000;
+    border-radius: 15px;
+}

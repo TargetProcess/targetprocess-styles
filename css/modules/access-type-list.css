@@ -1,0 +1,81 @@
+$boardSettingsActionBackgroundHover: $gBoardBackground;
+
+.access-type-list {
+    margin: 0 15px 0 0;
+
+    &__item {
+        line-height: 0;
+        display: flex;
+        align-content: flex-start;
+        padding: 4px 5px 7px 5px;
+
+        &:hover:not(.tau-disabled),
+        &.tau-active:not(.tau-disabled) {
+            cursor: pointer;
+            background-color: $boardSettingsActionBackgroundHover;
+        }
+    }
+
+    &__radio-button {
+        flex: 0 0 auto;
+        vertical-align: top;
+        display: block;
+        margin: 3px 5px;
+        max-height: 20px; /* fix for IE */
+
+    }
+
+    &__text {
+        display: block;
+        flex: 1 1 auto;
+
+        h3 {
+            font-size: 13px;
+            line-height: normal;
+            font-weight: 600;
+            margin: 0;
+            display: block;
+        }
+
+        p {
+            font-size: 12px;
+            line-height: 15px;
+            color: $gFontColorGray;
+            margin: 0;
+            display: block;
+        }
+    }
+
+    &__img {
+        display: block;
+        flex: 0 0 auto;
+        margin: 10px 0 0 20px;
+        background: svg("prioritize-with-shift",".shift-bg[fill]: #fff; #shift-dot[fill]: $gFontColorSelected;");
+        width: 120px;
+        height: 54px;
+    }
+
+    &__disabled-message {
+        max-width: 400px;
+
+        p {
+            line-height: normal;
+            font-size: 12px;
+            margin: 5px 10px 10px;
+            padding: 0;
+
+            &:first-child {
+                font-weight: 600;
+
+            }
+        }
+    }
+
+    &--access {
+        width: 200px;
+    }
+
+    &--prioritization {
+        width: 440px;
+    }
+}

@@ -1,0 +1,23 @@
+.time-list {
+    margin-top: 10px;
+}
+
+.time-list .description {
+    width: 30%;
+}
+
+.ui-timeList-content {
+    padding: 5px;
+}
+
+.ui-timeList-content .time-list .description {
+    font-size: 12px;
+}
+
+.time-list .edit-time,
+.time-list .delete-time {
+    width: 60px;
+    padding-right: 0;
+    padding-left: 0;
+    text-align: right;
+}

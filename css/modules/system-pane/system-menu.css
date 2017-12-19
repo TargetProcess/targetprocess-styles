@@ -1,0 +1,150 @@
+.system-menu {
+    background-color: $gBoardPanelBackgroundLighter;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 220px;
+    color: $gFontColorWhite;
+    font-size: $gFontSize;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__inner {
+        max-height: 100%;
+    }
+
+    &__header {
+        padding: 17px 10px 14px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex: 0 0 auto;
+
+        &__name {
+            display: flex;
+            align-items: center;
+        }
+
+        &__text {
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        &__icon {
+            flex-shrink: 0;
+            margin-right: 4px;
+            display: flex;
+            align-items: center;
+
+            > span {
+                cursor: default;
+            }
+        }
+    }
+
+    &__body {
+        flex: 1 1 auto;
+        overflow: auto;
+    }
+
+    &__body-content {
+        background-color: $gBackgroundDefault;
+        margin: 0 8px 11px 8px;
+        border-radius: $gBorderRadiusDefault;
+    }
+
+    &__group:not(:last-child) {
+        margin-bottom: 15px;
+    }
+
+    &__group:not(:first-child) {
+        margin-top: 15px;
+    }
+
+    &--no-groups .system-menu__group {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    &__items-list {
+        color: $gFontColorDefault;
+        padding: 10px 0;
+    }
+
+    &__item {
+        &__link {
+            cursor: pointer;
+            padding: 6px 15px;
+            line-height: 18px;
+            min-height: 30px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            &, &:hover {
+                color: $gFontColorDefault;
+            }
+        }
+
+        &:hover {
+            background-color: $gActionBackgroundHover;
+        }
+
+        &.tau-active {
+            background-color: $gActionBackgroundActive;
+        }
+
+        &--beta,
+        &--deprecated {
+            .system-menu__item__link {
+                padding-right: 22px;
+            }
+
+            .system-menu__text {
+                position: relative;
+
+                &:after {
+                    content: 'beta';
+                    font-size: 11px;
+                    color: $gMessageColorWarning;
+                    position: absolute;
+                    margin-top: -5px;
+                    margin-left: 3px;
+                }
+            }
+        }
+
+        &--deprecated {
+            .system-menu__text {
+                &:after {
+                    content: 'old';
+                    color: $gFontColorAttention;
+                }
+            }
+        }
+
+        .system-menu__icon {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__information {
+        flex-shrink: 0;
+        font-size: 11px;
+        padding: 15px 23px 20px 23px;
+        line-height: 1.5;
+
+        a {
+            color: $gFontColorWhite;
+            border-bottom: dotted 1px $gFontColorWhite;
+
+        }
+    }
+
+}

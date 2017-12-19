@@ -1,0 +1,80 @@
+/* reports tab styles */
+.reports {
+    color: $gFontColorDefault;
+}
+
+.reports .box {
+    box-sizing: border-box;
+}
+
+.reports .input,
+.reports .select,
+.reports .textarea {
+    border: 1px solid $gControlBorderColorDefault;
+    border-radius: $gControlBorderRadiusDefault;
+    padding: 5px 6px;
+    box-sizing: border-box;
+}
+
+.reports .input:focus,
+.reports .select:focus,
+.reports .textarea:focus {
+    box-shadow: $gControlBoxShadowFocusDefault;
+}
+
+.reports .input.error,
+.reports .select.error,
+.reports .textarea.error {
+    color: $gMessageColorError;
+}
+
+.reports .input.error:focus,
+.reports .select.error:focus,
+.reports .textarea.error:focus {
+    box-shadow: $gControlBoxShadowFocusError;
+}
+
+.reports .base-block {
+    box-sizing: border-box;
+    border-radius: $gBorderRadiusDefault;
+    display: table;
+    height: auto;
+    margin: 20px 0 10px;
+    width: 780px;
+}
+
+.reports .pad-box {
+    padding: 15px;
+}
+
+.reports .note {
+    font-size: 12px;
+    font-weight: normal !important;
+    padding: 0 0 3px;
+}
+
+.reports .note .small {
+    font-size: 11px;
+    font-weight: normal !important;
+}
+
+.reports .label {
+    font-size: 13px;
+    font-weight: bold !important;
+    padding: 0 0 3px;
+}
+
+.reports .label .small {
+    font-size: 12px;
+    font-weight: normal !important;
+}
+
+.reports .label .error {
+    color: $gMessageColorError;
+    font-size: 11px;
+    font-weight: normal !important;
+}
+
+.reports .separator {
+    border-bottom: 1px solid $gHighlightBlockBorderColor;
+}

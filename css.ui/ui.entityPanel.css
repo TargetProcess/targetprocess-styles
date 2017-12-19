@@ -1,0 +1,227 @@
+/* region Entity panel ----------------------------------------------------------*/
+
+$editableTextPositionX: calc(100% - 29px);
+
+/* region Teams panel ----------------------------------------------------------*/
+
+.tau-panel-teams {
+
+    &__container {
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+        top: -3px;
+        flex: 1 1 auto;
+    }
+
+    &__btn-add__control {
+        flex-shrink: 0;
+        margin-left: -4px;
+    }
+
+    &__label {
+        flex-shrink: 0;
+        padding-right: 7px;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 18px;
+    }
+
+    .ui-children-container__note {
+        flex-shrink: 0;
+        padding: 0 5px 0 0;
+        color: $gFontColorGray;
+        font-size: 12px;
+        font-weight: normal;
+
+        &:hover {
+            color: $gFontColorDefault;
+        }
+    }
+
+    .ui-label {
+        display: flex;
+        flex: 1 1 auto;
+        overflow: hidden;
+        padding-right: 10px;
+    }
+
+    .team-label {
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        opacity: 0.7;
+
+        &:not(:first-child) {
+            margin-left: 7px;
+        }
+
+        &__icon {
+            display: flex;
+            align-items: center;
+            margin-right: 6px;
+            flex-shrink: 0;
+        }
+
+        &__text {
+            text-overflow: ellipsis;
+            max-width: 100%;
+            overflow: hidden;
+            min-width: 20px;
+        }
+
+        &.active {
+            opacity: 1;
+        }
+    }
+}
+
+.tau-panel-teams-list {
+    padding: 7px 0;
+    margin: 0;
+    list-style: none;
+
+    &__item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        padding: 4px 10px;
+
+        &__icon {
+            display: flex;
+            align-items: center;
+            margin-right: 6px;
+            flex-shrink: 0;
+        }
+    }
+
+    &__team {
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        line-height: 20px;
+        text-decoration: none;
+        flex: 0 1 auto;
+        font-size: 13px;
+        overflow: hidden;
+        max-width: none;
+
+        &__link {
+            display: flex;
+            flex: 0 1 auto;
+            align-items: center;
+            overflow: hidden;
+
+            &,
+            &:visited {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            &:hover {
+                color: color($gFontColorDefault a(90%));
+            }
+        }
+
+        &__name {
+            flex: 0 1 auto;
+            padding-right: 7px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        &__responsible-text {
+            margin: 0 3px;
+            font-size: 12px;
+            color: $gFontColorLightGray;
+            flex-shrink: 0;
+            cursor: default;
+            line-height: 19px;
+        }
+    }
+
+    &__unassign {
+        padding: 2px 8px;
+        margin-right: -8px;
+        cursor: pointer;
+        color: $gFontColorGray;
+        background-color: $gBackgroundDefault;
+        opacity: 0.3;
+        flex-shrink: 0;
+        margin-left: 3px;
+
+        &:hover {
+            color: $gFontColorAttention;
+            opacity: 1;
+        }
+    }
+
+    &__icon {
+        flex: 0 0 auto;
+        display: flex;
+    }
+}
+
+/* endregion */
+
+/* region Tags editor, State selector, Assignments, Info block, Relationas and Custom Fields for batch panel  --------------------------------------------------*/
+
+.tau-panel-tags-editor--batch,
+.state-selector--batch,
+.tau-panel-assignments--batch,
+.tau-panel-info-block--batch,
+.tau-panel-relations--batch,
+.tau-panel-custom-fields--batch,
+.tau-panel-comment--batch {
+    .ui-collapsible-header {
+        font-weight: 400;
+    }
+}
+
+/* endregion */
+
+/* region Assignments for batch panel  --------------------------------------------------*/
+
+.assignments-user__tr--editable:hover {
+    cursor: pointer;
+
+    .user-avatar-container,
+    .user-info,
+    .unassign-category {
+        background-color: $gActionBackgroundSystem;
+    }
+}
+
+/* endregion */
+
+/* region Comments for batch panel  --------------------------------------------------*/
+
+.tau-panel-comment--batch {
+    .ui-comment-editor-placeholder > .nav-tabs__body {
+        border: none;
+        padding: 15px;
+
+        .markdown-editor + .controls-group {
+            display: none;
+        }
+    }
+
+    .ui-comment__message {
+        padding: 11px 11px 2px 11px;
+    }
+
+    .markdown-editor {
+        margin-bottom: 0;
+        min-height: 114px;
+    }
+
+    .controls-group {
+        margin-top: 15px;
+    }
+}
+
+/* endregion */

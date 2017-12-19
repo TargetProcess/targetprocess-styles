@@ -1,0 +1,13 @@
+.tau-html_action_print {
+    overflow: auto !important;
+    height: auto !important;
+    overflow-x: hidden !important;
+}
+
+.tau-html_action_print .demo-container{
+    overflow-x: hidden !important;
+}
+
+.tau-html_integration_main.tau-html_action_view {
+    overflow-y: scroll;
+}

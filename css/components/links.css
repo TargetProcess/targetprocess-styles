@@ -1,0 +1,45 @@
+.tau-external-link {
+    color: $gLinkColor;
+    cursor: pointer;
+    text-decoration: underline;
+    display: inline-block;
+
+    &:after {
+        content: '';
+        display: inline-block;
+        background: svg("external-link");
+        width: 12px;
+        height: 12px;
+        margin: 0 2px;
+        position: relative;
+        top: 2px;
+        vertical-align: baseline;
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &:visited {
+        color: color($gLinkColor shade(20%));
+    }
+}
+
+.tau-action-link {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    color: $gFontColorDefault;
+    border-bottom: 1px dotted $gFontColorLightGray;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        color: $gFontColorDefault;
+        border-bottom-color: transparent;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}

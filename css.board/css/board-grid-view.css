@@ -1,0 +1,140 @@
+/*****************************************************************************************************
+
+    Board's Grid View
+
+    Contents:
+
+        - General
+        - Paging
+        - Grid
+        - Other
+
+*****************************************************************************************************/
+
+/* General
+----------------------------------------------------------------------------------------------------*/
+
+.tau-board-grid-view {
+    overflow: hidden;
+    background: transparent;
+}
+
+.tau-board-grid-view > div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Paging
+----------------------------------------------------------------------------------------------------*/
+
+.tau-board-grid-view > .tau-page-navigation-button {
+    z-index: 100;
+    position: absolute;
+    width: 48px;
+    height: 48px;
+
+    &--up {
+        left: 50%;
+        top: 0;
+        margin: 1em 0 0 -1.5em;
+    }
+
+    &--down {
+        bottom: 0;
+        left: 50%;
+        margin: 0 0 2em -1.5em;
+    }
+
+    &--left {
+        left: 0;
+        top: 50%;
+        margin: -1.5em 0 0 1em;
+    }
+
+    &--right {
+        right: 0;
+        top: 50%;
+        margin: -1.5em 2em 0 0;
+    }
+}
+
+/* Grid
+----------------------------------------------------------------------------------------------------*/
+
+.tau-board-grid-view .tau-grid {
+    position: absolute;
+    top: 32px;
+    right: 0;
+    bottom: 0;
+    left: 15em; /* 240/16 */
+    overflow-x: auto;
+    overflow-y: scroll;
+}
+
+.additional-info_x .tau-board-grid-view .tau-grid {
+    top: 70px;
+}
+
+.tau-board-grid-view.tau-no-rows .tau-grid {
+    left: -1px;
+}
+
+.tau-board-grid-view.tau-no-cols .tau-grid {
+    top: 0;
+}
+
+.tau-board-grid-view.rows-h-collapsed .tau-grid {
+    left: 104px;
+}
+
+.tau-board-grid-view .tau-grid > .tau-grid-table {
+    font-size: 1em;
+    border-right: 1px solid $gBoardBorderColor;
+    border-collapse: collapse;
+}
+
+.i-browser_engine_webkit .tau-board-grid-view .tau-grid > .tau-grid-table {
+    border-collapse: separate;
+}
+
+.tau-board-grid-view .tau-grid > table > colgroup col.tau-hidden,
+.tau-board-grid-view .tau-grid > table > tbody > tr.tau-hidden,
+.tau-board-grid-view .tau-grid > table > tbody > tr > td.tau-hidden {
+    display: none;
+}
+
+/* Other
+----------------------------------------------------------------------------------------------------*/
+
+.tau-board-grid-view .tau-grid .tau-cell-paging-more {
+    box-sizing: border-box;
+
+    padding-left: 0.5em;
+    padding-top: 0;
+    padding-right: 0.5em;
+}
+
+.tau-cellaxis__viewtrigger {
+    position: absolute !important;
+    display: block;
+    right: 0;
+    top: 5px;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.tau-cell:hover .tau-cellaxis__viewtrigger {
+    opacity: 1;
+}
+
+/* Trash
+----------------------------------------------------------------------------------------------------*/
+
+.tau-board-timeline-view .tau-collapsed .tau-cell {
+    min-height: 32px;
+}
+
+.tau-board-timeline-view.tau-no-rows .tau-backlog {
+    left: 0;
+}

@@ -1,0 +1,72 @@
+$globalSearchWidth: 336px;
+$globalSearchInputTransition: min-width .3s ease;
+$globalSearchInputMinWidth: 34px;
+$globalSearchInputExpandedWidth: 270px;
+
+.app-header {
+    min-width: 770px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .tau-container {
+        order: 2;
+    }
+
+    .context-filter {
+        order: 0;
+        flex: 0 0 auto;
+    }
+
+    .tau-main-menu {
+        order: 3;
+        flex: 1 1 auto;
+        justify-content: flex-end;
+    }
+}
+
+/* region for old search placeholder for onsites */
+.tau-search-placeholder {
+    width: $globalSearchWidth;
+    display: flex;
+    flex: 0 2 auto;
+    order: 1;
+    min-width: $globalSearchInputMinWidth;
+    transition: $globalSearchInputTransition;
+
+    &.active {
+        min-width: $globalSearchInputExpandedWidth;
+    }
+
+    &:empty {
+        display: none;
+    }
+
+    .tau-main-search__form {
+        width: 100%;
+    }
+
+    .tau-main-search__wrap {
+        flex-basis: 100%;
+
+        .in-progress {
+            .tau-search__icon {
+                display: none;
+            }
+
+            .tau-search__wrap:after {
+                background: url(../../css/images/plugins/preloader_search.gif) no-repeat;
+                background-size: 20px 20px;
+                width: 20px;
+                height: 20px;
+                margin-top: -10px;
+                right: 7px;
+                top: 50%;
+                left: auto;
+                content: '';
+                position: absolute;
+            }
+        }
+    }
+}
+/* endregion */

@@ -1,0 +1,51 @@
+
+/* TODO fix in main */
+.tau-html_integration_main.tau-html_action_view {
+    overflow-y: auto !important;
+    }
+
+
+.tau-board-composite-view > .tau-entity-data {
+    background-color: $gBackgroundDefault;
+    border-left: 1px solid $gBoardBorderColor;
+
+}
+
+/* for popups */
+.tau-board-composite-view > .tau-entity-data > .tau-app.tau-page-entity {
+    padding: 5px 10px 30px 10px;
+    box-sizing: border-box;
+
+
+    height: 100%;
+    overflow: auto;
+}
+
+.tau-board-composite-view .tau-cell-paging-more-link,
+.tau-board-grid-view .tau-cell-paging-more-link {
+    font-size: 0.688em /* 11/16 */;
+    line-height: 10px;
+    color: $gFontColorGray;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+.tau-board-grid-view .tau-cell-paging-more-link {
+    padding: 0 0 0.5em 0.2em;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.tau-board-grid-view .tau-collapsed .tau-cell-paging-more-link {
+    display: none;
+}
+
+.tau-board-composite-view .tau-cell-paging-more-link {
+    margin: 0.5em 0 0.5em 0.5em;
+    white-space: nowrap;
+}
+
+.tau-cell-paging-more-link:hover {
+    text-decoration: underline;
+    color: $gFontColorGray;
+}

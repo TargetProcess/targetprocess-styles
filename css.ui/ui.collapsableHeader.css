@@ -1,0 +1,59 @@
+.ui-collapsible-header {
+    font-size: 14px;
+    font-weight: 600;
+    height: 15px;
+    cursor: pointer;
+
+    .ui-children-container {
+        align-items: center;
+        display: flex;
+        padding-right: 20px;
+    }
+
+    .ui-label-container {
+        display: flex;
+        align-items: center;
+        max-width: 100%;
+        line-height: 18px;
+
+        &__help {
+            margin-left: 4px;
+        }
+    }
+
+    .ui-label {
+        display: inline-block;
+        vertical-align: baseline;
+        line-height: 18px;
+        text-decoration: none;
+        color: color($gFontColorDefault a(90%));
+        @mixin ellipsis;
+    }
+
+    &__icon {
+        display: flex;
+        align-items: center;
+        height: 18px;
+        padding-left: 10px;
+        line-height: 18px;
+        flex-shrink: 0;
+    }
+
+    &__multiple-value {
+        flex: 1 1 auto;
+        line-height: 18px;
+        padding-left: 5px;
+        padding-right: 2px;
+        @mixin ellipsis;
+
+        color: $gFontColorGray;
+        font-size: 13px;
+        font-style: italic;
+        font-weight: 400;
+
+        .ui-label + &,
+        .tau-panel-teams__label + & {
+            padding-left: 10px;
+        }
+    }
+}

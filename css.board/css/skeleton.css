@@ -1,0 +1,164 @@
+body {
+    background-color: $gBackgroundDefault;
+}
+
+.tau-app {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.tau-app-body {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    transition: top 0.3s ease;
+}
+
+@media (max-width: 990px) {
+    .tau-app-body {
+        overflow-x: auto;
+    }
+}
+
+.app-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: $gLeftMenuExpandedWith;
+    height: $gTopMenuHeight;
+    padding: 0 7px;
+    box-sizing: border-box;
+    color: $gFontColorWhite;
+    background-color: $gBoardPanelBackgroundDarker;
+    user-select: none;
+
+    .tau-sp-collapsed & {
+        padding-left: 28px;
+        left: $gLeftMenuCollapsedWidth;
+    }
+}
+
+.tau-app-main-pane {
+    position: absolute;
+    top: $gTopMenuHeight;
+    right: 0;
+    bottom: 0;
+    left: $gLeftMenuExpandedWith;
+    min-width: 770px;
+
+    .tau-sp-collapsed & {
+        left: $gLeftMenuCollapsedWidth;
+    }
+}
+
+.tau-app-secondary-pane {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $gLeftMenuExpandedWith;
+    height: 100%;
+    user-select: none;
+
+    .tau-sp-collapsed & {
+        width: $gLeftMenuCollapsedWidth;
+    }
+}
+
+.tau-pane-collapser {
+    position: absolute;
+    top: 13px;
+    right: 0;
+    z-index: 30;
+    width: 16px;
+    height: 20px;
+    border-radius: $gBorderRadiusDefault 0 0 $gBorderRadiusDefault;
+    background-color: color($gBoardPanelBackgroundDarker shade(40%));
+
+    .tau-v-collapser {
+        margin: 2px 0;
+        background: svg("l-direction", "[fill]: #fff");
+        opacity: 0.6;
+        vertical-align: top;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    .tau-sp-collapsed & {
+        right: -15px;
+        border-radius: 0 2px 2px 0;
+
+        .tau-v-collapser {
+            background: svg("r-direction", "[fill]: #fff");
+        }
+    }
+}
+
+.tau-pane-resizer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: calc($gLeftMenuCollapsedWidth - $gLeftMenuResizerWidth);
+    z-index: 103;
+    pointer-events: none;
+
+    &__limiter {
+        width: 450px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &__sensitive {
+        height: 100%;
+        width: $gLeftMenuResizerWidth;
+        pointer-events: auto;
+        cursor: ew-resize;
+        position: absolute;
+        top: $gTopMenuHeight;
+        left: 0;
+
+        &--dragging {
+
+            &:before {
+                content: '';
+                display: block;
+                height: 100%;
+                width: 2px;
+                left: 0;
+                margin-left: 2px;
+                background-color: $gDnDPlaceholderBackground;
+            }
+        }
+    }
+}
+
+.tau-container__title {
+    padding: 0 15px 0 20px;
+    margin: 20px 0;
+}
+
+.tau-container__body {
+    padding: 0 15px;
+}
+
+
+
+/* region of Settings pane */
+.system-pane {
+    background-color: $gBackgroundDefault;
+    position: absolute;
+    top: 46px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 102;
+}
+/* endregion */
+
+

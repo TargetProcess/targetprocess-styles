@@ -1,0 +1,409 @@
+/* region  tau-clientinput -------------------------------*/
+
+/* region   common font params for comment block, .cke_editor_richeditor, .markdown-editor  */
+
+.tau-clientinput,
+.ui-comment .cke_contents,
+.ui-comment-new .cke_contents,
+.ui-description .cke_contents,
+.markdown-editor > textarea.markdown-editor__textarea {
+    font-size: 14px;
+    line-height: 1.46;
+}
+
+/* region team/user mentions in comments*/
+.tau-clientinput {
+
+    &__mention {
+        display: flex;
+        align-items: center;
+
+        &.tau-deleted {
+            .tau-clientinput__mention__text {
+                text-decoration: line-through;
+
+                .tau-shortcut--state-loading & {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        &.tau-not-active {
+            .tau-shortcut--state-success & {
+                opacity: 0.5;
+                &:hover {
+                    opacity: 1;
+                    .tau-avatar-not-active img {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        &.tau-deleted {
+            .tau-clientinput__mention__text {
+                color: $gFontColorLightGray;
+            }
+        }
+
+        .tau-avatar {
+            width: $gIconsSizeDefault;
+            height: $gIconsSizeDefault;
+            margin-right: 6px;
+            flex-shrink: 0;
+        }
+
+        &__icon {
+            margin-right: 6px;
+            flex-shrink: 0;
+        }
+    }
+}
+
+/* endregion */
+
+.tau-clientinput p,
+.tau-clientinput blockquote,
+.tau-clientinput ul,
+.tau-clientinput ol,
+.tau-clientinput dl,
+.tau-clientinput table,
+.tau-clientinput pre {
+    margin: 15px 0;
+}
+
+.tau-clientinput p:first-child,
+.tau-clientinput blockquote:first-child,
+.tau-clientinput ul:first-child,
+.tau-clientinput ol:first-child,
+.tau-clientinput dl:first-child,
+.tau-clientinput table:first-child,
+.tau-clientinput pre:first-child,
+.tau-clientinput h1:first-child,
+.tau-clientinput h2:first-child,
+.tau-clientinput h3:first-child,
+.tau-clientinput h4:first-child,
+.tau-clientinput h5:first-child,
+.tau-clientinput h6:first-child {
+    margin-top: 0;
+}
+
+.tau-clientinput p:last-child,
+.tau-clientinput blockquote:last-child,
+.tau-clientinput ul:last-child,
+.tau-clientinput ol:last-child,
+.tau-clientinput dl:last-child,
+.tau-clientinput table:last-child,
+.tau-clientinput pre:last-child,
+.tau-clientinput h1:last-child,
+.tau-clientinput h2:last-child,
+.tau-clientinput h3:last-child,
+.tau-clientinput h4:last-child,
+.tau-clientinput h5:last-child,
+.tau-clientinput h6:last-child {
+    margin-bottom: 0;
+}
+
+.tau-clientinput a:link,
+.tau-clientinput a:hover {
+    color: $gLinkColor;
+}
+
+.tau-clientinput b,
+.tau-clientinput strong {
+    font-weight: 600;
+}
+
+.tau-clientinput img {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.tau-clientinput hr {
+    border: none;
+    border-bottom: 1px solid $gHighlightBlockBorderColor;
+    padding: 0;
+    height: 0;
+    margin: 15px 0;
+}
+
+/* region header-h1 - h6 */
+
+.tau-clientinput h1,
+.tau-clientinput h2,
+.tau-clientinput h3,
+.tau-clientinput h4,
+.tau-clientinput h5,
+.tau-clientinput h6 {
+    color: $gFontColorDefault;
+    font-weight: 600;
+    padding: 0;
+}
+
+.tau-clientinput h1,
+.tau-clientinput h2,
+.tau-clientinput h3 {
+    margin: 30px 0 15px 0;
+}
+
+.tau-clientinput h4,
+.tau-clientinput h5,
+.tau-clientinput h6 {
+    margin: 15px 0 10px 0;
+}
+
+.tau-clientinput h1 {
+    font-size: 24px;
+}
+
+.tau-clientinput h2 {
+    font-size: 20px;
+}
+
+.tau-clientinput h3 {
+    font-size: 18px;
+}
+
+.tau-clientinput h4 {
+    font-size: 16px;
+}
+
+.tau-clientinput h5 {
+    font-size: 14px;
+}
+
+.tau-clientinput h6 {
+    font-size: 12px;
+}
+
+/* endregion */
+
+/* region Lists */
+.tau-clientinput ul,
+.tau-clientinput ol {
+    padding-left: 30px;
+}
+
+.tau-clientinput li {
+    margin: 0 0 5px 0;
+}
+
+.tau-clientinput ol {
+    list-style-type: decimal;
+}
+
+.tau-clientinput ul {
+    list-style-type: disc;
+}
+
+.tau-clientinput ul ul,
+.tau-clientinput ul ol,
+.tau-clientinput ol ol,
+.tau-clientinput ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.tau-clientinput li > ul,
+.tau-clientinput li > ol,
+.tau-clientinput li > ul:first-child,
+.tau-clientinput li > ol:first-child {
+    margin-top: 5px;
+}
+
+.tau-clientinput ul ul,
+.tau-clientinput ol ul {
+    list-style-type: circle;
+}
+
+.tau-clientinput ul.no-list, .tau-clientinput ol.no-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* endregion */
+
+/* region  DL*/
+.tau-clientinput dl {
+    padding: 0;
+}
+
+.tau-clientinput dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.tau-clientinput dl dd {
+    margin-bottom: 15px;
+    padding: 0 15px;
+}
+
+/* endregion */
+
+/* region  blockquote*/
+
+.tau-clientinput blockquote {
+    border-left: 4px solid $gHighlightBlockBorderColor;
+    padding: 0 15px;
+    color: $gFontColorGray;
+}
+
+/* endregion */
+
+/* region  Table*/
+
+.tau-clientinput table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.tau-clientinput table th {
+    font-weight: bold;
+}
+
+.tau-clientinput table th, .tau-clientinput table td {
+    border: 1px solid #ddd;
+    padding: 6px 13px;
+}
+
+.tau-clientinput table tr {
+    border-top: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.tau-clientinput table tr:nth-child(2n) {
+    background-color: #f8f8f8;
+}
+
+/* endregion */
+
+/* region text-align */
+
+.tau-clientinput span.align-center {
+    display: block;
+    overflow: hidden;
+    clear: both;
+}
+
+.tau-clientinput span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center;
+}
+
+.tau-clientinput span.align-center span img {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tau-clientinput span.align-right {
+    display: block;
+    overflow: hidden;
+    clear: both;
+}
+
+.tau-clientinput span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right;
+}
+
+.tau-clientinput span.align-right span img {
+    margin: 0;
+    text-align: right;
+}
+
+/* endregion */
+
+/* region  float */
+
+.tau-clientinput span.float-left {
+    display: block;
+    margin-right: 13px;
+    overflow: hidden;
+    float: left;
+}
+
+.tau-clientinput span.float-left span {
+    margin: 13px 0 0;
+}
+
+.tau-clientinput span.float-right {
+    display: block;
+    margin-left: 13px;
+    overflow: hidden;
+    float: right;
+}
+
+.tau-clientinput span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right;
+}
+
+/* endregion */
+
+/* region  CODE */
+
+.tau-clientinput code, .tau-clientinput tt {
+    margin: 0 2px;
+    padding: 0 5px;
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+    border-radius: $gBorderRadiusDefault;
+}
+
+.tau-clientinput code {
+    white-space: nowrap;
+}
+
+.tau-clientinput pre > code {
+    margin: 0;
+    padding: 0;
+    white-space: pre;
+    border: none;
+    background: transparent;
+}
+
+.tau-clientinput .highlight pre, .tau-clientinput pre {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    font-size: 13px;
+    line-height: 19px;
+    overflow: auto;
+    padding: 6px 10px;
+    border-radius: $gBorderRadiusDefault;
+}
+
+.tau-clientinput pre code, .tau-clientinput pre tt {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+}
+
+ pre {
+    overflow-x: visible;
+}
+
+.tau-clientinput img.emoji {
+    height: 1.4em;
+    width: 1.4em;
+    margin: 0 0.01em 0 .1em;
+    vertical-align: -0.25em;
+}
+
+.tau-clientinput__icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* endregion */
+
+/* endregion */

@@ -1,0 +1,26 @@
+.axis-setting {
+    position: relative;
+
+    &__switch-lanes {
+        position: relative;
+        margin: -4px 0 -14px 0;
+        display: block;
+        outline: none;
+        overflow: hidden;
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+        padding: 0;
+        width: $gIconsSizeDefault;
+        height: $gIconsSizeDefault;
+
+        &:active {
+            top: 1px;
+            left: 1px;
+        }
+    }
+
+    &__help {
+        margin-left: 2px;
+    }
+}

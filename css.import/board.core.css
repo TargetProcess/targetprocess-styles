@@ -1,0 +1,183 @@
+/* region mixins */
+@import url('../css/mixins/ellipsis.css');
+@import url('../css/mixins/custom-scroll.css');
+@import url('../css/mixins/word-wrap.css');
+/* endregion mixins */
+
+@import url('../css.board/css/general.css');
+@import url('../css.board/css/skeleton.css');
+@import url('../css/typography.css');
+@import url('../css.board/css/components.css');
+@import url('../css.board/css/load-progress.css');
+@import url('../css.board/css/board.css');
+@import url('../css.board/css/rselect.css');
+
+
+@import url('../css.board/css/entity-colors.css');
+
+@import url('../css/modules/views-menu/t3-views-navigator.css');
+@import url('../css/modules/views-menu/t3-header.css');
+@import url('../css/modules/views-menu/t3-name.css');
+@import url('../css/modules/views-menu/t3-icon-container.css');
+@import url('../css/modules/views-menu/t3-access-icon.css');
+@import url('../css/modules/views-menu/t3-group.css');
+@import url('../css/modules/views-menu/t3-views-controls.css');
+@import url('../css/modules/views-menu/t3-context-menu.css');
+@import url('../css/modules/views-menu/t3-tooltip.css');
+@import url('../css/modules/views-menu/t3-dnd.css');
+@import url('../css/modules/views-menu/t3-user-profile.css');
+
+@import url('../css/modules/process-navigator/process-navigator.css');
+@import url('../css/modules/process-navigator/t3-processes-controls.css');
+@import url('../css/modules/process-navigator/t3-process.css');
+@import url('../css/modules/process-navigator/affected-projects.css');
+
+
+@import url('../css.board/css/board-view.css');
+@import url('../css.board/css/dashboard-view.css');
+@import url('../css.board/css/board-grid-view.css');
+@import url('../css/modules/board/board-axis-header-elem.css');
+@import url('../css.board/css/board-grid-headers.css');
+@import url('../css.board/css/predefined-charts.css');
+@import url('../css.board/css/cards-show-more-trigger.css');
+
+
+@import url('../css.board/css/board-timeline-view.css');
+
+@import url('../css.board/css/board-composite-view.css');
+
+@import url('../css.board/css/board-newlist-view.css');
+
+@import url('../css.board/tau.checkbox.css');
+@import url('../css.board/tau.board.css');
+
+@import url('../css.board/tau.board.clipboard.css');
+@import url('../css/process-grid.css');
+@import url('../css.board/tau-section-cards.css');
+
+@import url('../css.board/tau.board.layout-board.css');
+
+@import url('../css.board/tau.board.card.css');
+@import url('../css.board/tau.board.dragndrop.css');
+@import url('../css.board/tau.board.quick.add.css');
+@import url('../css.board/tau.board.resizer.css');
+
+
+@import url('../css.board/tau.board.fixes.css');
+
+@import url('../scripts/tau/components/board.main.menu/css/board.main.menu.css');
+
+@import url('../css.board/tau.board.cardtooltip.css');
+
+@import url('../css.board/tau.getting.started.css');
+@import url('../css.board/tau.changelog.css');
+
+@import url('../css/tau.table.forms.css');
+@import url('../css.board/tau.board.search.css');
+
+@import url('../css.board/tau.board.startScreen.css');
+
+@import url('../css.board/css/board-layout-customizer.css');
+@import url('../css.board/css/board-layout-elements-list.css');
+@import url('../css.board/css/board-layout-compositor.css');
+@import url('../css.board/css/customizer-library.css');
+@import url('../css.board/css/cards-v2.css');
+@import url('../css.board/tau.contextMenu.css');
+@import url("../css.board/tau.board.filterHelp.css");
+
+@import url('../css.board/css/highlights.css');
+@import url('../css.board/tau.board.print.css');
+@import url('../css.board/css/notification.css');
+
+
+@import url('../scripts/tau/components/board.menu.item.access/css/menu.item.access.css');
+@import url('../scripts/tau/components/board.access.change.confirm/css/board.access.change.confirm.css');
+@import url('../scripts/tau/components/filter.builder/css/filter.builder.css');
+@import url('../scripts/tau/components/tp-settings/css/item.contact-us.css');
+@import url('../scripts/tau/components/react/css/daterange-picker.css');
+@import url("../css/components/help-label.css");
+@import url("../css/components/sorter.css");
+@import url('../css/components/controls-group.css');
+@import url('../css/components/controls-inline-group.css');
+@import url('../css/components/loader.css');
+@import url('../css/components/loader-ui-spinner.css');
+@import url('../css/components/loader-table.css');
+@import url('../css/components/avatar.css');
+@import url('../css/modules/team-members.css');
+@import url('../css/components/entity-id.css');
+@import url('../css/components/entity-full-name.css');
+@import url('../css/components/entity-iteration.css');
+@import url('../css/components/project-full-name.css');
+@import url('../css/components/user-label.css');
+@import url('../css/components/user-status.css');
+@import url('../css/components/test-result-unit.css');
+@import url('../css/components/new-feature-label.css');
+@import url('../css/components/sorting.css');
+@import url('../css/components/capacity-label.css');
+@import url('../css/modules/capacity-bubble.css');
+
+@import url('../css/modules/system-pane/system-menu.css');
+@import url('../css/modules/system-pane/system-view.css');
+@import url('../css/modules/system-pane/system-tabs.css');
+
+@import url("../css/modules/global-settings/general-settings.css");
+@import url("../css/modules/global-settings/single-signon.css");
+@import url("../css/modules/global-settings/system-user.css");
+@import url("../css/modules/global-settings/security.css");
+@import url("../css/modules/global-settings/help-desk-settings.css");
+@import url('../css/modules/global-settings/diagnostic-report.css');
+@import url('../css/modules/global-settings/business-values.css');
+
+@import url('../css/modules/board-settings/board-settings.css');
+@import url('../css/modules/board-settings/board-settings-component.css');
+@import url('../css/modules/board-settings/board-settings-tabs.css');
+@import url('../css/modules/board-settings/board-settings-limits.css');
+
+@import url('../css/modules/board-actions.css');
+@import url('../css/modules/view-description.css');
+
+@import url('../css/modules/batch-actions/batch-actions-panel.css');
+
+@import url('../css/modules/color-encoding/color-encoding-list.css');
+@import url('../css/modules/color-encoding/color-picker.css');
+
+@import url('../css/modules/board-owner.css');
+@import url('../css/modules/access-type-list.css');
+@import url('../css/modules/axis-setting.css');
+@import url('../css/modules/timelines-setting.css');
+@import url('../css/modules/setup-chart.css');
+@import url('../css/modules/tag-filter.css');
+@import url('../css/modules/templates-container.css');
+@import url('../css/modules/template-list.css');
+@import url('../css/modules/dashboard-settings-layout.css');
+@import url('../css/modules/context-filter.css');
+@import url('../css/modules/comet-status.css');
+@import url('../css/modules/flow-info.css');
+@import url('../css/modules/system-info.css');
+@import url('../css/modules/main-submenu.css');
+@import url('../css/modules/setting-submenu.css');
+@import url('../css/modules/save-template-form.css');
+@import url('../css/modules/allocation-editor.css');
+@import url('../css/modules/split-layout.css');
+@import url('../css/modules/shortcuts-help.css');
+@import url('../css/modules/layered-popup.css');
+@import url('../css/modules/board-units/board-unit-icons.css');
+@import url('../css/modules/board-units/board-units.css');
+@import url('../css/modules/recent-items/recent-items.css');
+@import url('../css/modules/recent-items/recent-items-list.css');
+@import url('../css/modules/recent-items/recent-item-time.css');
+@import url('../css/modules/recent-items/recent-item-mark-read.css');
+
+@import url('../css/panel-testplan.css');
+
+@import url('../css/external-modules/graphical-report.css');
+@import url('../css/external-modules/vizydrop/source-configurator.css');
+@import url('../css/external-modules/vizydrop/custom-external-report.css');
+
+@import url("../css/layout/allow-tp3-panel.css");
+@import url("../css/layout/app-header.css");
+
+@import url("../css/external-components/ckeditor.css");
+
+@import url("~targetprocess-ui-components/dist/styles.css");
+@import url("~@targetprocess/general-icon/dist/general-icon.css");

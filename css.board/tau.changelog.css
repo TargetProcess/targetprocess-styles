@@ -1,0 +1,91 @@
+/* Changelog Popup*/
+
+.ui-popup.tau-changelog-popup,
+.tau-changelog-popup {
+    width: 750px;
+    right: auto;
+    left: 50%;
+    margin-left: -390px;
+    padding: 0;
+}
+
+.tau-changelog {
+    height: 100%;
+}
+
+.tau-changelog-iframe-holder {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 45px;
+    position: absolute;
+}
+
+.tau-changelog-iframe {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.tau-changelog-popup .popup-header {
+    background: $gBackgroundDefault;
+    height: 49px;
+    padding: 0;
+    text-align: left;
+    border-bottom: 1px solid $gHighlightBlockBorderColor;
+    border-top-left-radius: $gBorderRadiusDefault;
+    border-top-right-radius: $gBorderRadiusDefault;
+    display: none;
+}
+
+.tau-changelog-popup .popup-header .popup-title {
+    font-size: 18px;
+    font-weight: normal;
+    color: $gFontColorDefault;
+    text-align: left;
+    padding: 12px;
+    float: left;
+}
+
+.tau-changelog-popup .paging {
+    padding: 10px 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__actions {
+        display: flex;
+        align-items: center;
+
+        &__control {
+            flex-shrink: 0;
+
+            &:not(:last-child) {
+                margin-right: 10px;
+            }
+        }
+    }
+
+    &__links {
+        margin-left: 10px;
+
+        .blog-link {
+            margin-left: 10px;
+        }
+    }
+}
+
+.tau-changelog-popup .paging button{
+    min-width: 80px;
+}
+
+.tau-changelog-popup .blog-link {
+    float: right;
+}

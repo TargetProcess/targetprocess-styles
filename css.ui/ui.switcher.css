@@ -1,0 +1,23 @@
+.ui-switcher {
+    background-image: url("images/relocate-icons.png");
+    background-position: 10px 10px;
+    height: 11px;
+    width: 11px;
+    float:right;
+}
+
+.ui-switcher.on {
+    background-position: 0 0;
+}
+
+.ui-switcher.on:hover {
+    background-position: 0 9px;
+}
+
+.ui-switcher.off {
+    background-position: -11px 0;
+}
+
+.ui-switcher.off:hover {
+    background-position: -11px 9px;
+}

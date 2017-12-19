@@ -1,0 +1,86 @@
+/* region Slider */
+
+.ui-slider {
+
+    /* region common variables for slider */
+
+    $sliderHeight: 8px; /*clicable height*/
+    $sliderBg: $gBoardBorderColor;
+
+    $sliderHandleHeight: 16px;
+    $sliderHandleWidth: 16px;
+
+    $sliderHandleActiveColor: $gFocusBoxShadowColor;
+    $sliderHandleBgGradient: $gButtonBackgroundDefault;
+    $sliderHandleBgGradientRevert: $gButtonBackgroundHover;
+
+    /* endregion */
+
+    & {
+        position: relative;
+        height: $sliderHeight;
+        vertical-align: middle;
+    }
+
+    &:before {
+        content: '';
+        position: relative;
+        top: 3px;
+        display: block;
+        height: 2px; /*visual height*/
+        background: $sliderBg;
+    }
+
+    .ui-slider-handle {
+        cursor: pointer;
+        box-sizing: border-box;
+        position: absolute;
+        z-index: 2;
+        top: calc(-($sliderHandleHeight - $sliderHeight) / 2 );
+        margin-left: calc(-($sliderHandleWidth / 2));
+
+        width: $sliderHandleWidth;
+        height: $sliderHandleHeight;
+
+        border: 1px solid $gControlBorderColorDefault;
+        border-radius: calc($sliderHandleHeight / 2);
+        background: $sliderHandleBgGradient;
+
+        &:focus {
+            box-shadow: $gControlBoxShadowFocusDefault;
+            border-color: $gControlBorderColorFocusDefault;
+            outline: none;
+        }
+
+        &:hover,
+        &.ui-state-active {
+            background: $sliderHandleBgGradientRevert;
+        }
+        &.ui-state-active {
+            box-shadow: none;
+            border-color: $sliderHandleActiveColor;
+        }
+    }
+
+    &.ui-slider-disabled {
+        opacity: 0.3;
+
+        .ui-slider-handle {
+            cursor: none;
+        }
+    }
+
+    &--zoomer {
+
+        /* region variables for .ui-slider--zoomer */
+        $slider-width: 140px;
+        /* endregion */
+
+        & {
+            display: inline-block;
+            width: $slider-width;
+        }
+    }
+}
+
+/* endregion */

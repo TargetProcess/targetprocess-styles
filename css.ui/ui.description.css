@@ -1,0 +1,124 @@
+.ui-description {
+    overflow: auto;
+    padding: 0;
+    position: relative;
+}
+
+.ui-description__container .ui-label {
+    margin: 15px 0 5px 0;
+    display: block;
+}
+
+.ui-description__inner {
+    overflow-x: auto;
+    min-height: 20px;
+    padding: 24px 10px 10px 8px;
+
+    &:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+
+.ui-field_empty_true .ui-description__inner.editable {
+    border: 1px dashed $gHighlightBlockBorderColor;
+    border-radius: $gBorderRadiusDefault;
+    cursor: pointer;
+}
+
+.ui-description__inner.editable {
+    margin: 0;
+    padding-right: 20px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+}
+
+.ui-description__inner.editing {
+    display: none;
+}
+
+.ui-description .markdown-editor {
+    min-height: 475px;
+}
+
+.ui-description .markdown-editor > textarea.markdown-editor__textarea {
+    min-height: 450px;
+}
+
+.ui-description .cke_wysiwyg_div {
+    min-height: 410px; /* connected with min-height .markdown-editor (min-height=min-height.markdown-editor-40px)  */
+}
+
+/* IE 8 */
+
+.ui-field_empty_true .ui-description__inner {
+    line-height: 18px;
+    font-size: 14px;
+    color: $gFontColorGray;
+    padding: 10px !important;
+}
+
+.ui-field_empty_true .ui-description__inner:before {
+    content: attr(data-placeholder);
+    display: block;
+    text-align: center;
+}
+
+.ui-hide-empty-description .ui-field_empty_true {
+    display: none;
+}
+
+.tau-lightbox-container {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.tau-lightbox-container > .tau-lightbox-full-size {
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 4px 6px;
+    font-size: 11px;
+    border-radius: $gBorderRadiusDefault;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: $gFontColorWhite !important;
+}
+
+.tau-lightbox-container:hover > .tau-lightbox-full-size {
+    display: block;
+}
+
+.cke_contents {
+    min-height: 8em;
+    max-height: 8000px;
+}
+
+.cke_wysiwyg_div {
+    min-height: 8em;
+}
+
+.main-container-print .ui-description__edit-button,
+.ui-field_empty_true .ui-description__edit-button {
+    display: none;
+}
+
+.ui-description__edit-button {
+    position: absolute;
+    right: 5px;
+    top: 0;
+}
+
+.ui-description__edit-button_highlighted {
+    animation-name: shortShake;
+    animation-fill-mode: both;
+    animation-duration: 0.3s;
+}
+
+.ui-description__edit-button_fixed {
+    position: fixed;
+    z-index: 101;
+}

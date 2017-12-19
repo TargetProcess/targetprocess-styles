@@ -1,0 +1,30 @@
+.finder-requesters-filter {
+    padding: 8px 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &__item {
+        flex: 0 0 auto;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        margin-right: 10px;
+
+        .tau-in-label {
+            margin: 0 5px 0 0;
+            color: $gFontColorGray;
+        }
+    }
+
+    &__input,
+    &__select {
+        width: 100px;
+    }
+
+    &__controls {
+        flex-wrap: nowrap;
+    }
+}

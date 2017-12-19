@@ -1,0 +1,36 @@
+.t3-access-icon {
+    position: absolute;
+    z-index: 22;
+    bottom: -1px;
+    right: -2px;
+    display: flex;
+    width: 7px;
+    height: 8px;
+
+    &:before {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 8px;
+        position: absolute;
+        bottom: -1px;
+        right: 0;
+        background-color: $gBoardPanelBackgroundLighter;
+        border-radius: 50%;
+        box-shadow: 0 0 2px 2px $gBoardPanelBackgroundLighter;
+
+        .t3-active & {
+            background-color: $gBoardPanelBackgroundDarker;
+            box-shadow: 0 0 2px 2px $gBoardPanelBackgroundDarker;
+        }
+    }
+
+    .t3-group.t3-expanded > .t3-header & {
+        height: 6px;
+        bottom: 0;
+
+        &:before {
+            bottom: -5px;
+        }
+    }
+}

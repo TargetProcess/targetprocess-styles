@@ -1,0 +1,34 @@
+$loaderTPSize: 34px;
+
+.tau-loader-logo {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: $gOverlayZIndex;
+    background-color: rgba(255, 255, 255, 0.8);
+
+    &:after{
+        content: '';
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin: calc(-($loaderTPSize / 2)) 0 0 calc(-($loaderTPSize / 2));
+        width: $loaderTPSize;
+        height: $loaderTPSize;
+        background-image: svg("loader-tp", "[fill]: #C6CCD1");
+        background-size: contain;
+        animation: spin 2s infinite linear;
+    }
+
+    &--white {
+        background-color: transparent;
+
+        &:after {
+            background-image: svg("loader-tp", "[fill]: rgba(255,255,255,0.6)");
+        }
+    }
+}

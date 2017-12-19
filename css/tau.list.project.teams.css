@@ -1,0 +1,82 @@
+.actions-group {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0 3px;
+
+    &__icon {
+        margin: 5px 3px;
+        flex-shrink: 0;
+        opacity: 0.8;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.tau-fraction {
+    font-size: 11px;
+    line-height: 17px;
+    text-align: center;
+    padding: 0.95em 0;
+    width: 3em;
+    position: relative;
+    top: -3px;
+
+    span {
+        padding: 0 1px 1px 1px;
+        display: inline-block;
+    }
+
+    b {
+        font-weight: normal;
+    }
+
+    &.tau-userstory {
+        color: #6498d8;
+
+        span {
+            border-bottom: solid 1px #c1d5eb;
+        }
+    }
+
+    &.tau-bug {
+        color: #d86464;
+
+        span {
+            border-bottom: solid 1px #e6bec1;
+        }
+    }
+}
+
+.assigned-entity-name {
+    font-size: 13px;
+    margin: 0;
+    padding: 6px 20px 6px 0;
+    font-weight: 600;
+
+    a {
+        color: $gFontColorDefault;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        margin-right: 6px;
+    }
+
+    &__text {
+        max-width: calc(100% - 22px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+/* endregion */

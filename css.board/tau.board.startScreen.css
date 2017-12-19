@@ -1,0 +1,408 @@
+/* region Start Screen --------------------------------------------------*/
+
+.tau-start-screen {
+    display: flex;
+    min-width: 960px;
+    min-height: 100vh;
+    color: $gFontColorDefault;
+    background-color: $gBackgroundDefault;
+
+    &:after {
+        display: block;
+        content: '';
+        height: 100vh;
+        visibility: hidden;
+    }
+
+    &__invitation {
+        flex: 1 1 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 20px 0;
+        background-color: $gBackgroundDefault;
+    }
+
+    &__panel {
+        flex: 1 1 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: $gHighlightBlockBackground;
+    }
+
+    &__cite {
+        overflow: hidden;
+        width: 62.74%;
+        max-height: 600px;
+        padding-top: 73px;
+        margin: 0 auto;
+        background: url(../css.board/images/start-screen/cite.png) no-repeat 50% 0;
+
+        &__text {
+            margin: 0 0 20px 0;
+            font-size: 14px;
+            line-height: 29px;
+            color: $gFontColorDefault;
+        }
+    }
+
+    &__author {
+        text-align: center;
+        font-size: 12px;
+        line-height: 18px;
+
+        &:not(:only-child) {
+            margin-top: 55px;
+        }
+
+        &__name {
+            font-weight: 600;
+        }
+
+        &__position {
+            font-weight: 200;
+        }
+    }
+
+    &__logo {
+        overflow: hidden;
+        width: 158px;
+        height: 29px;
+        margin-bottom: 80px;
+        text-align: left;
+        text-indent: -9999px;
+
+        background: url(../css.board/images/start-screen/tp-logo.png) no-repeat 0 0;
+    }
+
+    &__title {
+        text-align: center;
+
+        > span {
+            display: block;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 200;
+
+            &:first-child {
+                margin-bottom: 16px;
+                font-size: 40px;
+                line-height: 32px;
+            }
+        }
+
+        > strong {
+            display: block;
+            margin-bottom: 21px;
+            font-size: 40px;
+            font-weight: 600;
+            line-height: 32px;
+        }
+    }
+
+    &__menu {
+        padding: 0;
+        margin: 64px auto 0;
+        list-style: none;
+        width: 990px;
+        display: flex;
+
+        &__item {
+            position: relative;
+            flex: 1 1 auto;
+            max-width: 33.33%;
+            padding-bottom: 120px;
+            border: 2px solid $gBackgroundDefault;
+            border-radius: 6px;
+            text-align: center;
+            cursor: pointer;
+
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 41px;
+                left: 50%;
+                transform: translateX(-50%);
+
+                display: block;
+                width: 44px;
+                height: 44px;
+                background: url(../css.board/images/start-screen/arrow-spr.png) no-repeat 0 0;
+            }
+
+            &:hover {
+                border-color: $gHighlightBlockBorderColor;
+
+                &:after {
+                    background-position: 0 -44px;
+                }
+            }
+
+        }
+
+        &__cards {
+            position: relative;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            height: 255px;
+        }
+
+        &__card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            overflow: hidden;
+            width: 126px;
+            height: 93px;
+            border: 2px solid #c5ced1;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.04);
+            margin: -46px 0 0 -63px;
+
+            text-align: left;
+            text-indent: -999px;
+            background: url(../css.board/images/start-screen/cards-spr.png) no-repeat 0 0;
+
+            transition: all 0.6s ease 0s;
+
+
+            &--loop {
+                transform: translate3d(65px, 38px, 0) rotate(9deg);
+                background-position: 0 -372px;
+            }
+
+            &--graph {
+                transform: translate3d(-50px, 34px, 0) rotate(-14deg);
+                background-position: 0 -279px;
+
+                .tau-start-screen__menu__item:hover & {
+                    transform: translate3d(-60px, 34px, 0) rotate(-14deg);
+                }
+            }
+
+            &--diagonal-bottom {
+                background-position: 0 -651px;
+                transform: translate3d(43px, -10px, 0) rotate(7deg);
+
+                .tau-start-screen__menu__item:hover & {
+                    transform: translate3d(53px, -10px, 0) rotate(7deg);
+                }
+            }
+
+            .tau-start-screen__menu__item--kanban &--diagonal-bottom {
+                transform: translate3d(20px, -17px, 0) rotate(0deg);
+            }
+
+            .tau-start-screen__menu__item--kanban:hover &--diagonal-bottom {
+                transform: translate3d(30px, -17px, 0) rotate(0deg);
+            }
+
+            &--diagonal-top {
+                background-position: 0 -558px;
+                transform: translate3d(22px, 36px, 0) rotate(-8deg);
+
+                .tau-start-screen__menu__item:hover & {
+                    transform: translate3d(12px, 36px, 0) rotate(-8deg);
+                }
+            }
+
+            .tau-start-screen__menu__item--kanban &--diagonal-top {
+                transform: translate3d(30px, 32px, 0) rotate(4deg);
+            }
+
+            .tau-start-screen__menu__item--kanban:hover &--diagonal-top {
+                transform: translate3d(40px, 32px, 0) rotate(4deg);
+            }
+
+            &--dots {
+                background-position: 0 -744px;
+                transform: translate3d(-21px, -27px, 0) rotate(-4deg);
+
+                .tau-start-screen__menu__item:hover & {
+                    transform: translate3d(-31px, -27px, 0) rotate(-4deg);
+                }
+            }
+
+            .tau-start-screen__menu__item--kanban &__dots {
+                transform: translate3d(-12px, 20px, 0) rotate(-6deg);
+            }
+
+            .tau-start-screen__menu__item--kanban:hover &__dots {
+                transform: translate3d(-22px, 20px, 0) rotate(-6deg);
+            }
+
+            &--kanban-board {
+                background-position: 0 -465px;
+            }
+
+            &--teams-board {
+                background-position: 0 -186px;
+                transform: translate3d(66px, 6px, 0) rotate(16deg);
+
+                .tau-start-screen__menu__item:hover & {
+                    transform: translate3d(72px, 6px, 0) rotate(16deg);
+                }
+            }
+
+            &--timeline {
+                background-position: 0 -93px;
+                transform: translate3d(-48px, -20px, 0) rotate(-14deg);
+
+                .tau-start-screen__menu__item:hover & {
+                    transform: translate3d(-58px, -20px, 0) rotate(-14deg);
+                }
+            }
+
+            .tau-start-screen__menu__item--custom & {
+                width: 35px;
+                height: 36px;
+                margin-left: -17px;
+                border-radius: 0;
+
+                &--doc {
+                    width: 93px;
+                    height: 126px;
+                    margin-left: -46px;
+                    border-radius: 4px;
+                    background-position: 0 -909px;
+                }
+            }
+
+            &--sticker-first {
+                background-position: 0 -837px;
+                transform: translate3d(-48px, -15px, 0) rotate(10deg);
+
+                .tau-start-screen__menu__item:hover & {
+                    transform: translate3d(-58px, -15px, 0) rotate(10deg);
+                }
+            }
+
+            &--sticker-second {
+                background-position: 0 -837px;
+                transform: translate3d(-48px, 84px, 0) rotate(-10deg);
+
+                .tau-start-screen__menu__item:hover & {
+                    transform: translate3d(-58px, 84px, 0) rotate(-10deg);
+                }
+            }
+
+            &--sticker-third {
+                background-position: -35px -837px;
+                transform: translate3d(77px, 38px, 0) rotate(12deg);
+
+                .tau-start-screen__menu__item:hover & {
+                    transform: translate3d(87px, 38px, 0) rotate(12deg);
+                }
+            }
+
+            &--sticker-fourth {
+                background-position: -35px -873px;
+                transform: translate3d(-33px, 106px, 0) rotate(12deg);
+
+                .tau-start-screen__menu__item:hover & {
+                    transform: translate3d(-43px, 106px, 0) rotate(12deg);
+                }
+            }
+
+            &--sticker-fifth {
+                background-position: 0 -873px;
+                transform: translate3d(54px, 69px, 0) rotate(-10deg);
+
+                .tau-start-screen__menu__item:hover & {
+                    transform: translate3d(64px, 69px, 0) rotate(-10deg);
+                }
+            }
+
+        }
+
+        &__title {
+            position: relative;
+            padding: 18px 18px 0 18px;
+
+            & > span {
+                display: block;
+                margin-top: 14px;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 20px;
+                color: $gFontColorLightGray;
+            }
+
+            & > strong {
+                display: block;
+                font-size: 20px;
+                font-weight: 600;
+                line-height: 26px;
+            }
+
+            &__label {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+
+                font-size: 10px;
+                font-weight: 600;
+                line-height: 12px;
+                text-transform: uppercase;
+                color: $gFontColorSuccess;
+            }
+        }
+    }
+}
+
+@media all and ( max-width: 1500px ) {
+
+    .tau-start-screen {
+        &__panel {
+            display: none;
+        }
+
+        &__invitation {
+            flex: 1 1 100%;
+        }
+
+        &__logo {
+            margin-bottom: 54px;
+        }
+
+        &__title {
+            > span:first-child {
+                display: inline-block;
+            }
+
+            > strong {
+                display: inline-block;
+                padding-left: 6px;
+                font-weight: 200;
+            }
+        }
+
+        &__menu {
+            margin-top: 24px;
+        }
+    }
+}
+
+/* For vh units calculation bug with scrollbar */
+@media all and ( max-width: 960px ) {
+
+    .tau-start-screen {
+        min-height: 100%;
+
+        &:after {
+            display: none;
+        }
+
+        &__menu {
+            width: 100%;
+        }
+    }
+}
+
+/* endregion */

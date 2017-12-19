@@ -1,0 +1,99 @@
+.t3-processes-navigator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 102; /* To make the context menu render on top of board view. Also the context menu should be above clipboard. */
+
+    transform: translateZ(0);
+    /* Move the processes navigator to the separate composition layer in Chrome
+    to avoid re-rendering of its neighbouring board/report/etc. view when user manipulates the processes menu.
+    http://aerotwist.com/blog/on-translate3d-and-layer-creation-hacks/  */
+
+    background-color: $gBoardPanelBackgroundLighter;
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        padding: 17px 10px 14px 15px;
+        position: relative;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        overflow: hidden;
+
+        &__text {
+            color: $gFontColorWhite;
+            font-size: 11px;
+            line-height: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            max-width: 100%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        &__control {
+            margin-right: 6px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+    }
+
+    .t3-processes-catalog {
+        overflow-x: hidden;
+        overflow-y: auto;
+        flex: 1 1 auto;
+        position: relative;
+        padding-top: 3px;
+    }
+
+    &__loader {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease 0s, visibility 0.3s ease 0s;
+
+        background: color($gBoardPanelBackgroundLighter a(50%));
+    }
+
+    &--updating {
+
+        &:after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 55px; /* t3-processes-navigator__title height */
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background: color($gBoardPanelBackgroundLighter a(100%));
+        }
+    }
+}

@@ -1,0 +1,26 @@
+.tau-list__list__item_requester .tau-list__table__cell-avatar {
+    width: 32px;
+}
+
+.tau-list__list__item_requester .tau-list__table__cell-login,
+.tau-list__list__item_requester .tau-list__table__cell-email {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tau-list-requesters .tau-list__group_flat_true {
+    padding-top: 5px;
+}
+
+.tau-list__list__item_requester .tau-list__table__cell-requesteractions {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 3px;
+    text-align: right;
+}
+
+.i-print .tau-list__table__cell-entityactions,
+.i-print .tau-list__table__cell-requesteractions,
+.i-print .tau-list-requesters .tau-list__table-header {
+    display: none;
+}

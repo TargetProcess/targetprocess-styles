@@ -1,0 +1,382 @@
+$uiCustomfieldValueMinHeight: 18px;
+
+/* padding should be the same as of .ui-additionalinfo__value in ui.additionalInfo.css */
+.ui_custom_field_value_container {
+    position: relative;
+    padding: 6px 20px 6px 10px;
+}
+
+.ui-customfield_editable_true:hover {
+    background: $gActionBackgroundSystem;
+}
+
+.ui-customfield__wrap {
+    display: flex;
+    align-items: center;
+
+    &__icon {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        margin-left: 3px;
+    }
+}
+
+.ui-customfield_editable_true .ui_custom_field_value_container:hover {
+    background-image: svg("pencil", "[fill]: $gFontColorDefault");
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    background-size: 16px 16px;
+}
+
+.ui-customfield_editable_true:hover .editableText.active {
+    background: $gBackgroundDefault;
+}
+
+.ui-customfield table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.ui-customfield__value,
+.ui-customfield__measure-unit,
+.ui-customfield__currency-sign {
+    min-height: $uiCustomfieldValueMinHeight;
+}
+
+.ui-customfield__currency-sign {
+    border: solid 1px transparent;
+}
+
+.ui-customfield__value + .ui-customfield__measure-unit,
+.ui-customfield__measure-unit + .ui-customfield__value {
+    padding-left: 4px;
+}
+
+.ui-customfield__value.editableText + .ui-customfield__measure-unit {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.ui-customfield__currency-sign {
+    padding: 4px 0;
+}
+
+.ui-customfield_editable_true.ui-customfield_empty_true {
+
+    &:hover {
+
+        .ui-customfield__value {
+
+            &:after {
+                display: block;
+            }
+
+            &.active {
+
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .ui-customfield__value {
+        text-decoration: none;
+        flex-grow: 1;
+
+        &:after {
+            content: attr(data-placeholder);
+            font-weight: normal;
+            cursor: pointer;
+            color: $gFontColorGray;
+            line-height: $uiCustomfieldValueMinHeight;
+            display: none;
+        }
+    }
+}
+
+.ui-customfield_empty_true.tau-bubble-target.ui-customfield_editable_true:hover .entity-custom-field-link:after {
+    border: none;
+    color: $gFontColorGray;
+    content: attr(data-placeholder);
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.ui-customfield__value:hover {
+    background-image: none;
+    background-color: transparent;
+}
+
+.ui-customfield__label {
+    width: 100px;
+    color: $gFontColorGray;
+    vertical-align: middle;
+    padding: 6px 10px;
+    text-decoration: none;
+}
+
+.ui-customfield_editable_true .ui-customfield__label {
+    cursor: pointer;
+}
+
+.ui-customfield .editableText {
+    font-weight: normal;
+}
+
+.ui-customfield .editableText:hover {
+    background: none;
+}
+
+.ui-customfield-url .ui-customfield__value {
+    margin-left: 5px;
+}
+
+.ui-customfield-url .ui-customfield__value.ui-validationerror,
+.ui-customfield-multiselect .ui-customfield__value.ui-validationerror,
+.ui-customfield-dropdown .ui-customfield__value.ui-validationerror {
+    margin-left: 0;
+}
+
+.ui-customfield-multiselect .ui-customfield__value,
+.ui-customfield-dropdown .ui-customfield__value {
+    display: inline;
+}
+
+.entity-custom-field-link.ui-validationerror,
+.ui-customfield-url .ui-customfield__value.ui-validationerror,
+.ui-customfield-multiselect .ui-customfield__value.ui-validationerror,
+.ui-customfield-dropdown .ui-customfield__value.ui-validationerror {
+    display: block;
+    padding: 4px 22px 4px 4px;
+    line-height: 0;
+}
+
+.ui-customfield-checkbox {
+    &:hover {
+        background-image: none;
+    }
+
+    .ui-customfield-checkbox.ui-customfield_editable_true {
+        cursor: pointer;
+    }
+
+    &.ui-customfield_editable_true .ui-customfield__value {
+        cursor: pointer;
+    }
+
+    .ui-customfield__value {
+        width: 13px;
+        height: 13px;
+        margin-left: 5px;
+        background: url("images/customField-checkbox-checked.gif") no-repeat scroll center;
+    }
+
+    .ui-customfield__value.ui-validationerror {
+        padding: 4px 5px;
+        margin-left: 0;
+        background-image: none;
+    }
+
+    .ui-customfield__value_checked {
+        background-image: url("images/customField-checkbox-checked.gif");
+    }
+
+    .ui-customfield__value_unchecked {
+        background-image: url("images/customField-checkbox-unchecked.gif");
+    }
+
+    &--multiple {
+        display: flex;
+        align-items: center;
+
+        .ui-customfield-checkbox__icon {
+            flex-shrink: 0;
+            padding-right: 10px;
+        }
+    }
+}
+
+.ui-customfield-richtext {
+    &:hover {
+        background: none;
+    }
+
+    .ui-customfield__value.editable:hover {
+        background-image: svg("pencil", "[fill]: $gFontColorDefault");
+        background-repeat: no-repeat;
+        background-position: right 50%;
+        background-size: 16px 16px;
+        background-color: $gActionBackgroundSystem;
+    }
+
+    .ui-customfield__value {
+        word-wrap: break-word;
+    }
+
+    .ui-customfield__value.editable {
+        padding: 8px 10px 8px 0;
+        min-height: 10px;
+        display: block;
+    }
+
+    .ui-customfield__value.editing {
+        display: none;
+    }
+}
+
+.ui-customfield-isSystem-row {
+    .tau-icon-general {
+        display: inline-block;
+        margin: 0 0 -2px 3px;
+    }
+}
+
+.customfield-checkbox {
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        background-image: svg("pencil", "[fill]: $gFontColorDefault");
+        background-repeat: no-repeat;
+        background-position: right 50%;
+        background-size: 16px;
+        background-color: $gActionBackgroundSystem;
+    }
+
+    &--disabled:hover {
+        background: none;
+
+        &:not(.customfield-checkbox--unit) {
+            &,
+            .customfield-checkbox__label {
+                cursor: default;
+            }
+        }
+
+    }
+
+    &__label {
+        flex: 0 0 100px;
+        display: flex;
+        align-items: center;
+        padding: 6px 7px 6px 10px;
+        color: #666;
+
+        &:hover {
+            cursor: pointer;
+        }
+        .ui-additionalinfo__value & {
+            display: none;
+        }
+    }
+
+    &__value {
+        flex: 1 1 auto;
+        display: flex;
+        align-items: center;
+        padding: 6px 20px 6px 0;
+    }
+
+    &--unit {
+
+        &:hover {
+            background: none;
+        }
+
+        .customfield-checkbox__label {
+            order: 2;
+
+            display: flex;
+            flex: 1 1 auto;
+            @mixin ellipsis;
+            line-height: 20px;
+            padding: 0 0 0 4px;
+            cursor: inherit;
+        }
+
+        .customfield-checkbox__value {
+            flex: 0 0 auto;
+            padding: 0;
+            order: 1;
+
+            &:hover {
+                background: none;
+            }
+        }
+
+        &.customfield-checkbox--short {
+
+            .customfield-checkbox__label {
+                display: none;
+            }
+        }
+    }
+
+    &--batch {
+        width: 100%;
+
+        &:hover {
+            background: none;
+        }
+
+        .customfield-checkbox__label {
+            order: 2;
+
+            display: flex;
+            flex: 1 1 auto;
+            @mixin ellipsis;
+            line-height: 20px;
+            padding: 0 6px 0 0;
+
+            &:hover {
+                cursor: inherit;
+            }
+        }
+
+        .customfield-checkbox__value {
+            flex: 0 0 auto;
+            padding: 0 8px 0 6px;
+            order: 1;
+
+            &:hover {
+                background: none;
+            }
+        }
+    }
+
+    &--quick-add {
+        max-width: 100%;
+
+        &:hover {
+            background-image: none;
+        }
+
+        .customfield-checkbox__label {
+            order: 2;
+            flex: 1;
+        }
+
+        .customfield-checkbox__value {
+            order: 1;
+            flex: 0;
+            padding: 3px 6px 3px 3px;
+        }
+
+        .tau-field + .customfield-checkbox-container--quick-add & {
+            margin-top: -11px;
+        }
+
+        .toggle-switch__input:checked + .toggle-switch__slider:after {
+            margin-left: -18px;
+        }
+        .toggle-switch__input:not(:checked) + .toggle-switch__slider:after {
+            margin-left: -18px;
+        }
+    }
+
+    .ui-additionalinfo__value & {
+        margin-right: -20px;
+    }
+}

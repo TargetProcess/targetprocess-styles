@@ -1,0 +1,102 @@
+.tau-sparkline {
+    shape-rendering: crispEdges;
+    background: transparent;
+    font-size: 9px;
+    width: 100px;
+    line-height: normal;
+    height: 50px;
+}
+
+.tau-sparkline-loading {
+    box-shadow: 1px 1px 2px #000;
+    opacity: 0.15;
+}
+
+.tau-sparkline__openmark,
+.tau-sparkline__closedmark,
+.tau-sparkline text {
+    fill: rgb(97,151,218);
+}
+
+.tau-sparkline__openbar {
+    fill: rgb(224,235,248);
+}
+
+.tau-sparkline__closedbar {
+    fill: transparent;
+}
+
+.tau-sparkline__axis {
+    fill: rgb(203,221,242);
+}
+
+.tau-sparkline__diffmark-closed {
+   fill: rgb(227,237,248);
+}
+
+.tau-sparkline__diffmark-open {
+   fill: rgb(196,215,240);
+}
+
+.tau-sparkline text {
+    font-size: 1em;
+}
+
+
+.tau-sparkline-bugs .tau-sparkline__openmark,
+.tau-sparkline-bugs .tau-sparkline__closedmark,
+.tau-sparkline-bugs text {
+    fill: rgb(218,99,97);
+}
+
+.tau-sparkline-bugs .tau-sparkline__openbar {
+    fill: rgb(248,224,224);
+}
+
+.tau-sparkline-bugs .tau-sparkline__axis {
+    fill: rgb(243,200,199);
+}
+
+
+.tau-sparkline-bugs .tau-sparkline__diffmark-closed {
+    fill: rgb(242,201,200);
+}
+
+.tau-sparkline-bugs .tau-sparkline__diffmark-open {
+    fill: rgb(249,227,227);
+}
+
+
+.tau-sparkline text.tau-sparkline__emptylegend {
+    font-size: 10px;
+    font-family: $gFontFamily;
+}
+
+
+.tau-sparkline-user .tau-sparkline__openmark,
+.tau-sparkline-user .tau-sparkline__closedmark,
+.tau-sparkline-user text {
+    fill: rgb(51,51,51);
+}
+
+.tau-sparkline-user .tau-sparkline__openbar {
+    fill: rgb(216,216,216);
+}
+
+.tau-sparkline-user .tau-sparkline__closedbar {
+    fill: rgb(51,51,51);
+}
+
+
+.tau-sparkline-user .tau-sparkline__axis {
+    fill: rgb(216,216,216);
+}
+
+
+.tau-sparkline-user .tau-sparkline__diffmark-closed {
+    fill: none;
+}
+
+.tau-sparkline-user .tau-sparkline__diffmark-open {
+    fill: none;
+}

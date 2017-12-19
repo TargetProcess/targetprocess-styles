@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <g fill="none" fill-rule="evenodd">
+    <path id="stop-bg" fill="#000000" d="M8,14 C11.3137085,14 14,11.3137085 14,8 C14,4.6862915 11.3137085,2 8,2 C4.6862915,2 2,4.6862915 2,8 C2,11.3137085 4.6862915,14 8,14 Z M4,7 L4,9 L12,9 L12,7 L4,7 Z"/>
+    <rect id="stop-icon" width="8" height="2" x="4" y="7" fill="#FFFFFF"/>
+  </g>
+</svg>
